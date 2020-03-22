@@ -242,7 +242,6 @@ case $menu in
 		bash /sdcard/Download/ext/temp/menu
 		;;
 	x)
-	x)
 		echo "Chạy profile kernel: battery"
 		sh /sdcard/Download/ext/temp/battery
 		find /sdcard/Download/ext/temp -type f -not -name 'log' -print0 | xargs -0 rm
