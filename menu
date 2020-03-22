@@ -12,7 +12,7 @@ echo "3. Hệ thống"
 echo "4. Thông tin Kernel"
 echo "5. Game"
 echo "6. Work"
-echo "Nhập số từ 1-5 (nhấn x để thoát):"
+echo "Nhập số từ 1-6 (nhấn x để thoát):"
 read menu
 
 case $menu in
