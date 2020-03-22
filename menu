@@ -11,6 +11,7 @@ echo "2. Dọn dẹp rom"
 echo "3. Hệ thống"
 echo "4. Thông tin Kernel"
 echo "5. Game"
+echo "6. Work"
 echo "Nhập số từ 1-5 (nhấn x để thoát):"
 read menu
 
@@ -235,6 +236,12 @@ case $menu in
 		bash /sdcard/Download/ext/temp/game
 		bash /sdcard/Download/ext/temp/menu
 		;;
+        6)
+		clear
+		bash /sdcard/Download/ext/temp/calculator
+		bash /sdcard/Download/ext/temp/menu
+		;;
+	x)
 	x)
 		echo "Chạy profile kernel: battery"
 		sh /sdcard/Download/ext/temp/battery
