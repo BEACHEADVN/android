@@ -1,0 +1,27 @@
+#!/bin/bash
+
+clear
+
+echo "Số kg vải:"
+read v
+echo "Dung tỷ:"
+read d
+echo "NaOH định mức(g/l):"
+read n
+echo "Na2SO4 định mức(g/l):"
+read s
+echo "BMF-L định mức(%):"
+read b
+NaOH=`echo "scale=2; $v*$d*$n/1000" | bc`
+Na2SO4=`echo "scale=2; $v*$d*$s/1000" | bc`
+BMF=`echo "scale=2; $v*$b/100" | bc`
+
+clear
+echo "Số kg vải: $v (kg)"
+echo "Dung tỷ: $d"
+echo "NaOH định mức: $n (g/l)"
+echo "Na2SO4 định mức: $s (g/l)"
+echo "BMF-L định mức: $b (%)"
+echo "NaOH: $NaOH (kg)"
+echo "BMF-L: $BMF (l)"
+echo "Na2SO4: $Na2SO4 (kg)"
