@@ -48,7 +48,7 @@ do
 	rm -rf /sdcard/Download/ext/temp/zip$c
 	rm -rf /sdcard/Download/ext/temp/system$c
 	rm -rf /sdcard/Download/ext/temp/vendor$c
-	p=`echo "$c*100/$x" | bc`
+	p=`echo "$c*100/$x" | toybox bc`
 	echo "$p %"
 done
 rm -rf /sdcard/Download/ext/temp/zip
