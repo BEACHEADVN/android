@@ -25,3 +25,5 @@ echo "BMF-L định mức: $b (%)"
 echo "NaOH: $NaOH (kg)"
 echo "BMF-L: $BMF (l)"
 echo "Na2SO4: $Na2SO4 (kg)"
+
+read -r -s -p $'Nhấn Enter để tiếp tục...\n'
