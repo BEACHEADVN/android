@@ -1,0 +1,159 @@
+#!/bin/bash
+clear
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                   UNPACK ROM ANDROID                       +"
+echo "+                        BEACHEAD                            +"
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo ""
+echo "MENU "
+echo "1. Trích xuất rom"
+echo "2. Dọn dẹp rom"
+echo "3. Hệ thống"
+echo "4. Thông tin Kernel"
+echo "5. Game"
+echo "6. Work"
+echo "Nhập số từ 1-6 (nhấn x để thoát):"
+read menu
+
+case $menu in
+	1)
+		echo "Chạy profile kernel: performance"
+		sh /sdcard/Download/ext/temp/performance
+		bash /sdcard/Download/ext/temp/unpack
+		;;
+	2)
+		echo "Chạy profile kernel: performance"
+		sh /sdcard/Download/ext/temp/performance
+		bash /sdcard/Download/ext/temp/cleanrom
+		;;
+	3)
+		clear
+		sh /sdcard/Download/ext/temp/performance
+		echo "HỆ THỐNG"
+		echo "1. Tùy biến"
+		echo "2. Kiểm tra cập nhật ứng dụng"
+		echo "Nhập số từ 1-2 (nhấn x để thoát):"
+		read system
+		
+		case $system in
+			1)
+				pm disable com.android.documentsui
+				pm disable com.android.certinstaller
+				pm disable com.android.proxyhandler
+				pm disable com.android.mms.service
+				;;
+			2)
+				clear
+				echo "KIỂM TRA CẬP NHẬT ỨNG DỤNG"
+				echo "1. AdGuard Premium"
+				echo "2. Greenify Donate"
+				echo "3. Titan Backup Pro"
+				echo "4. Smartpack-Kernel Manager"
+				echo "5. Youtube Vanced + MicroG"
+				echo "6. Magisk + Module"
+				echo "7. Open Gapps"
+				echo "8. Google Clock"
+				echo "9. Lawnchair"
+				echo "10. X-plore Donate"
+				echo "11. Webview Google"
+				echo "12. Tất cả"
+				echo "Nhập số từ 1-12 (nhấn x để thoát):"
+				read app
+				
+				case $app in
+					1)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/adguard
+						;;
+					2)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/greenify
+						;;
+					3)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/titan
+						;;
+					4)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/skm
+						;;
+					5)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/youtube
+						;;
+					6)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/magisk
+						;;
+					7)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/opengapp
+						;;
+					8)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/clock
+						;;
+					9)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/lawnchair
+						;;
+					10)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/xplore
+						;;
+					11)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/webview
+						;;
+					12)
+						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/adguard
+						bash /sdcard/Download/ext/temp/greenify
+						bash /sdcard/Download/ext/temp/titan
+						bash /sdcard/Download/ext/temp/youtube
+						bash /sdcard/Download/ext/temp/skm
+						bash /sdcard/Download/ext/temp/magisk
+						bash /sdcard/Download/ext/temp/opengapp
+						bash /sdcard/Download/ext/temp/clock
+						bash /sdcard/Download/ext/temp/lawnchair
+						bash /sdcard/Download/ext/temp/xplore
+						bash /sdcard/Download/ext/temp/webview
+						;;
+					x)
+						echo "Thoát!"
+						;;
+				esac
+				;;
+			x)
+				echo "Thoát"
+				;;
+		esac
+		bash /sdcard/Download/ext/temp/menu
+		;;
+	3)
+		echo "Chạy profile kernel: battery"
+		sh /sdcard/Download/ext/temp/battery
+		bash /sdcard/Download/ext/temp/menu
+		;;
+	4)
+		clear
+		bash /sdcard/Download/ext/temp/kernel
+		bash /sdcard/Download/ext/temp/menu
+		;;
+	5)
+		clear
+		bash /sdcard/Download/ext/temp/game
+		bash /sdcard/Download/ext/temp/menu
+		;;
+        6)
+		clear
+		bash /sdcard/Download/ext/temp/calculator
+		bash /sdcard/Download/ext/temp/menu
+		;;
+	x)
+		echo "Chạy profile kernel: battery"
+		sh /sdcard/Download/ext/temp/battery
+		find /sdcard/Download/ext/temp -type f -not -name 'log' -print0 | xargs -0 rm
+		killall -9 com.termux
+		;;
+esac
