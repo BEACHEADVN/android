@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf /sdcard/Download/ext/temp/zip
+rm /sdcard/Download/ext/temp/zip
 cd /sdcard
 find . -name "*.zip" >> /sdcard/Download/ext/temp/zip
 awk -i inplace '{print substr($0,3)}' /sdcard/Download/ext/temp/zip
@@ -44,14 +44,14 @@ do
 			sed -n 1p /sdcard/Download/ext/temp/vendor$c >> /sdcard/Download/ext/temp/rom
 		fi
 	fi
-	rm -rf /sdcard/Download/ext/temp/$c
-	rm -rf /sdcard/Download/ext/temp/zip$c
-	rm -rf /sdcard/Download/ext/temp/system$c
-	rm -rf /sdcard/Download/ext/temp/vendor$c
+	rm /sdcard/Download/ext/temp/$c
+	rm /sdcard/Download/ext/temp/zip$c
+	rm /sdcard/Download/ext/temp/system$c
+	rm /sdcard/Download/ext/temp/vendor$c
 	p=`echo "$c*100/$x" | bc`
 	echo "$p %"
 done
-rm -rf /sdcard/Download/ext/temp/zip
+rm /sdcard/Download/ext/temp/zip
 cat /sdcard/Download/ext/temp/rom |sort|uniq -d >> /sdcard/Download/ext/temp/romlist
 awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/romlist >> /sdcard/Download/ext/temp/romlist1
 l=`wc -l < /sdcard/Download/ext/temp/romlist1`
@@ -71,29 +71,29 @@ else
 	name=`cat /sdcard/Download/ext/temp/rompath$m`
 	echo "Bạn đã chọn rom `basename $name`"
 	unzip -qq -o `cat /sdcard/Download/ext/temp/rompath$m` -d /sdcard/Download/ext/temp
-	rm -rf /sdcard/Download/ext/temp/install
-	rm -rf /sdcard/Download/ext/temp/META-INF
-	rm -rf /sdcard/Download/ext/temp/system
-	rm -rf /sdcard/Download/ext/temp/system.patch.dat
-	rm -rf /sdcard/Download/ext/temp/vendor.patch.dat
-	rm -rf /sdcard/Download/ext/temp/boot.img
+	rmdir /sdcard/Download/ext/temp/install
+	rmdir /sdcard/Download/ext/temp/META-INF
+	rmdir /sdcard/Download/ext/temp/system
+	rm /sdcard/Download/ext/temp/system.patch.dat
+	rm /sdcard/Download/ext/temp/vendor.patch.dat
+	rm /sdcard/Download/ext/temp/boot.img
 	echo "Giải nén `basename $name` hoàn tất"
 	echo "Trích xuất system"
-	rm -rf /sdcard/Download/ext/temp/system.new.dat
+	rm /sdcard/Download/ext/temp/system.new.dat
 	echo "Chuyển đổi system.new.dat.br-->system.new.dat"
 	brotli -d /sdcard/Download/ext/temp/system.new.dat.br -o /sdcard/Download/ext/temp/system.new.dat
 	echo "Chuyển đổi system.new.dat-->system.img"
 	python /sdcard/Download/ext/temp/sdat2img /sdcard/Download/ext/temp/system.transfer.list /sdcard/Download/ext/temp/system.new.dat /sdcard/Download/ext/temp/system.img
 	rom=`basename $name`
 	romfolder=${rom%.*}
-	rm -rf /sdcard/Download/ext/$romfolder
+	rm /sdcard/Download/ext/$romfolder
 	mkdir -p /sdcard/Download/ext/$romfolder
 	mkdir -p /sdcard/Download/ext/$romfolder/system
 	mv -f /sdcard/Download/ext/temp/system.img /sdcard/Download/ext/$romfolder/system
 	echo "Chuyển đổi system.img-->thư mục system"
 	python /sdcard/Download/ext/temp/imgextractor /sdcard/Download/ext/$romfolder/system/system.img /sdcard/Download/ext/$romfolder/system
 	echo "Trích xuất vendor"
-	rm -rf /sdcard/Download/ext/temp/vendor.new.dat
+	rm /sdcard/Download/ext/temp/vendor.new.dat
 	echo "Chuyển đổi vendor.new.dat.br-->vendor.new.dat"
 	brotli -d /sdcard/Download/ext/temp/vendor.new.dat.br -o /sdcard/Download/ext/temp/vendor.new.dat
 	echo "Chuyển đổi vendor.new.dat-->vendor.img"
@@ -107,20 +107,21 @@ else
 	python /sdcard/Download/ext/temp/imgextractor /sdcard/Download/ext/$romfolder/vendor/vendor.img /sdcard/Download/ext/$romfolder/vendor/
 	rm /sdcard/Download/ext/$romfolder/vendor/vendor.img && rm /sdcard/Download/ext/$romfolder/system/system.img
 	rm /sdcard/Download/ext/$romfolder/system_size.txt
-	rm -rf /sdcard/Download/ext/temp/system.new.dat.br
-	rm -rf /sdcard/Download/ext/temp/system.transfer.list
-	rm -rf /sdcard/Download/ext/temp/system.new.dat
-	rm -rf /sdcard/Download/ext/temp/vendor.new.dat.br
-	rm -rf /sdcard/Download/ext/temp/vendor.transfer.list
-	rm -rf /sdcard/Download/ext/temp/vendor.new.dat
+	rm /sdcard/Download/ext/temp/system.new.dat.br
+	rm /sdcard/Download/ext/temp/system.transfer.list
+	rm /sdcard/Download/ext/temp/system.new.dat
+	rm /sdcard/Download/ext/temp/vendor.new.dat.br
+	rm /sdcard/Download/ext/temp/vendor.transfer.list
+	rm /sdcard/Download/ext/temp/vendor.new.dat
 fi
 for (( v=1; v<=$l; v++ ))
 do
-	rm -rf /sdcard/Download/ext/temp/rompath$v
+	rm /sdcard/Download/ext/temp/rompath$v
 done
-rm -rf /sdcard/Download/ext/temp/rom
-rm -rf /sdcard/Download/ext/temp/romlist
-rm -rf /sdcard/Download/ext/temp/romlist1
+rm /sdcard/Download/ext/temp/rom
+rm /sdcard/Download/ext/temp/romlist
+rm /sdcard/Download/ext/temp/romlist1
+rm /sdcard/Download/ext/temp/__pycache__
 
 echo "Debloat ?"
 echo "1. Có"
@@ -129,16 +130,16 @@ read debloat
 
 case $debloat in
 	1)
-		rm -rf /sdcard/Download/ext/temp/META-INF
-		rm -rf /sdcard/Download/ext/temp/system
-		rm -rf /sdcard/Download/ext/temp/remove1
-		rm -rf /sdcard/Download/ext/temp/remove2
-		rm -rf /sdcard/Download/ext/temp/remove3
-		rm -rf /sdcard/Download/ext/temp/remove4
-		rm -rf /sdcard/Download/ext/temp/remove5
-		rm -rf /sdcard/Download/ext/temp/remove6
-		rm -rf /sdcard/Download/ext/temp/zip1
-		rm -rf /sdcard/Download/ext/temp/zip2
+		rmdir /sdcard/Download/ext/temp/META-INF
+		rmdir /sdcard/Download/ext/temp/system
+		rm /sdcard/Download/ext/temp/remove1
+		rm /sdcard/Download/ext/temp/remove2
+		rm /sdcard/Download/ext/temp/remove3
+		rm /sdcard/Download/ext/temp/remove4
+		rm /sdcard/Download/ext/temp/remove5
+		rm /sdcard/Download/ext/temp/remove6
+		rm /sdcard/Download/ext/temp/zip1
+		rm /sdcard/Download/ext/temp/zip2
 		
 		unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
 		cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove1
