@@ -155,7 +155,7 @@ echo "2. Không"
 			killall -9 com.termux
 		;;
 		*)
-		echo""
+		        clear
 			;;
 		esac
 		;;
