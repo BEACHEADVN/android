@@ -1,15 +1,15 @@
 #!/bin/bash
 
-rm -rf /sdcard/Download/ext/temp/c 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c4 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c6 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c7 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
+rm /sdcard/Download/ext/temp/c 2>/dev/null
+rm /sdcard/Download/ext/temp/c1 2>/dev/null
+rm /sdcard/Download/ext/temp/c2 2>/dev/null
+rm /sdcard/Download/ext/temp/c3 2>/dev/null
+rm /sdcard/Download/ext/temp/c4 2>/dev/null
+rm /sdcard/Download/ext/temp/c5 2>/dev/null
+rm /sdcard/Download/ext/temp/c6 2>/dev/null
+rm /sdcard/Download/ext/temp/c7 2>/dev/null
+rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rmdir /sdcard/Download/ext/temp/system 2>/dev/null
 
 wget --no-check-certificate -O - https://m.apkpure.com/vn/clock/com.google.android.deskclock > /sdcard/Download/ext/temp/c
 grep "meta name=" /sdcard/Download/ext/temp/c > /sdcard/Download/ext/temp/c1
@@ -36,27 +36,27 @@ then
 	wget  --no-check-certificate -P /sdcard/Download "$d"
 	sed -i 's+https://download.apkpure.com/b/apk/++g' /sdcard/Download/ext/temp/c7
 	awk -i inplace '{print substr($0,0,236)}' /sdcard/Download/ext/temp/c7
-	rm /sdcard/Download/Deskclock.apk
+	rm /sdcard/Download/Deskclock.apk 2>/dev/null
 	name=`cat /sdcard/Download/ext/temp/c7`
 	mv /sdcard/Download/$name /sdcard/Download/Deskclock.apk
-	rm /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk
+	rm /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk 2>/dev/null
 	mv -f /sdcard/Download/Deskclock.apk /sdcard/Download/ext/temp/system/product/app/DeskClock
 	cd /sdcard/Download/ext/temp
 	zip -r "tweak-havoc-capricorn-q-part1.zip" META-INF system
-	rm /sdcard/tweak-havoc-capricorn-q-part1.zip
+	rm /sdcard/tweak-havoc-capricorn-q-part1.zip 2>/dev/null
 	mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part1.zip /sdcard
 	echo "•Desk_Clock_$b.apk --> Desk_Clock_$a.apk" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Desk Clock: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/c 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c4 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c6 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/c7 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
+rm /sdcard/Download/ext/temp/c 2>/dev/null
+rm /sdcard/Download/ext/temp/c1 2>/dev/null
+rm /sdcard/Download/ext/temp/c2 2>/dev/null
+rm /sdcard/Download/ext/temp/c3 2>/dev/null
+rm /sdcard/Download/ext/temp/c4 2>/dev/null
+rm /sdcard/Download/ext/temp/c5 2>/dev/null
+rm /sdcard/Download/ext/temp/c6 2>/dev/null
+rm /sdcard/Download/ext/temp/c7 2>/dev/null
+rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rmdir /sdcard/Download/ext/temp/system 2>/dev/null
