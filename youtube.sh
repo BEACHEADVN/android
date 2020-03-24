@@ -1,11 +1,11 @@
 #!/bin/bash
 
-rm -rf /sdcard/Download/ext/temp/y 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y4 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y5 2>/dev/null
+rm /sdcard/Download/ext/temp/y 2>/dev/null
+rm /sdcard/Download/ext/temp/y1 2>/dev/null
+rm /sdcard/Download/ext/temp/y2 2>/dev/null
+rm /sdcard/Download/ext/temp/y3 2>/dev/null
+rm /sdcard/Download/ext/temp/y4 2>/dev/null
+rm /sdcard/Download/ext/temp/y5 2>/dev/null
 
 wget -O - https://vanced.app > /sdcard/Download/ext/temp/y
 grep "YouTube_Vanced-v" /sdcard/Download/ext/temp/y > /sdcard/Download/ext/temp/y1
@@ -30,18 +30,18 @@ else
 	echo "•Youtube Vanced: Không có phiên bản mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/y1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y4 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/y5 2>/dev/null
+rm /sdcard/Download/ext/temp/y1 2>/dev/null
+rm /sdcard/Download/ext/temp/y2 2>/dev/null
+rm /sdcard/Download/ext/temp/y3 2>/dev/null
+rm /sdcard/Download/ext/temp/y4 2>/dev/null
+rm /sdcard/Download/ext/temp/y5 2>/dev/null
 
 
-rm -rf /sdcard/Download/ext/temp/m 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m4 2>/dev/null
+rm /sdcard/Download/ext/temp/m 2>/dev/null
+rm /sdcard/Download/ext/temp/m1 2>/dev/null
+rm /sdcard/Download/ext/temp/m2 2>/dev/null
+rm /sdcard/Download/ext/temp/m3 2>/dev/null
+rm /sdcard/Download/ext/temp/m4 2>/dev/null
 
 grep "microg_YouTube_Vanced" /sdcard/Download/ext/temp/y > /sdcard/Download/ext/temp/m
 perl -pe '($_)=/([0-9]+([.][0-9]+)+)/' /sdcard/Download/ext/temp/m > /sdcard/Download/ext/temp/m1
@@ -64,9 +64,9 @@ else
 	echo "•MicroG: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/y 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/m4 2>/dev/null
+rm /sdcard/Download/ext/temp/y 2>/dev/null
+rm /sdcard/Download/ext/temp/m 2>/dev/null
+rm /sdcard/Download/ext/temp/m1 2>/dev/null
+rm /sdcard/Download/ext/temp/m2 2>/dev/null
+rm /sdcard/Download/ext/temp/m3 2>/dev/null
+rm /sdcard/Download/ext/temp/m4 2>/dev/null
