@@ -12,10 +12,10 @@ else
 	echo "1. Dọn dẹp rom đơn lẻ"
 	echo "2. Dọn dẹp tất cả"
 	echo "Nhập số từ 1-2 (nhấn kí tự x để thoát):"
-	read b
+	read clean
 	
-	if [ $b == 1 ]
-	then
+	case $clean in
+1)
 		clear
 		awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/d1
 		echo "Rom đã giải nén:"
@@ -32,8 +32,8 @@ else
 			rm -rf /sdcard/Download/ext/`cat /sdcard/Download/ext/temp/rom$c`
 			rm -rf /sdcard/Download/ext/temp/rom$c
 		fi
-	elif [ $b == 2 ]
-	then
+;;
+	2)
 		echo "Xóa ROM:"
 		for (( v=1; v<=$x; v++ ))
 		do
@@ -43,9 +43,10 @@ else
 			echo "Hoàn thành !"
 			rm -rf /sdcard/Download/ext/temp/rom$v
 		done
-	elif [ $b == x ]
-	then
+;;
+	x)
 		echo "Bỏ qua!!"
-	fi
+;;
+esac
 fi
 rm /sdcard/Download/ext/temp/d
