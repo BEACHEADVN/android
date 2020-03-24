@@ -1,6 +1,6 @@
 #!/bin/bash
-clear
-rm -rf /sdcard/Download/ext/temp/d
+
+rm /sdcard/Download/ext/temp/d
 ls /sdcard/Download/ext > /sdcard/Download/ext/temp/d
 awk -i inplace '!/temp/' /sdcard/Download/ext/temp/d
 if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/d) ]]
@@ -20,7 +20,7 @@ else
 		awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/d1
 		echo "Rom đã giải nén:"
 		cat /sdcard/Download/ext/temp/d1
-		rm -rf /sdcard/Download/ext/temp/d1
+		rm /sdcard/Download/ext/temp/d1
 		echo "Chọn rom đã giải nén cần xóa:"
 		echo "Nhập số từ 1-$x: (nhấn kí tự x để thoát)"
 		read c
@@ -48,7 +48,7 @@ else
 		echo "Bỏ qua!!"
 	fi
 fi
-rm -rf /sdcard/Download/ext/temp/d
+rm /sdcard/Download/ext/temp/d
 echo "Chạy profile kernel: battery"
-sh /sdcard/Download/ext/temp/battery
-bash /sdcard/Download/ext/temp/menu
+sh /sdcard/Download/ext/temp/battery.sh
+bash /sdcard/Download/ext/temp/menu.sh
