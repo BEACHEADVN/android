@@ -24,6 +24,7 @@ case $menu in
 		sh /sdcard/Download/ext/temp/menu.sh
 		;;
 	2)
+                clear
 		echo "Chạy profile kernel: performance"
 		sh /sdcard/Download/ext/temp/performance.sh
 		bash /sdcard/Download/ext/temp/cleanrom.sh
