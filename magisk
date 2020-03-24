@@ -111,7 +111,7 @@ rm /sdcard/Download/ext/temp/b2 2>/dev/null
 rm /sdcard/Download/ext/temp/b3 2>/dev/null
 rm /sdcard/Download/ext/temp/b4 2>/dev/null
 rm /sdcard/Download/ext/temp/b5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
+rmdir /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
 
 wget --no-check-certificate -O - https://github.com/Magisk-Modules-Repo/busybox-ndk/blob/master/module.prop> /sdcard/Download/ext/temp/b
 grep "blob-code blob-code-inner js-file-line" /sdcard/Download/ext/temp/b | grep "version" > /sdcard/Download/ext/temp/b1
@@ -134,7 +134,7 @@ function download {
 	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 	cat /sdcard/Download/ext/temp/Magisk-master/scripts/module_installer.sh > /sdcard/Download/ext/temp/update-binary
 	rm /sdcard/Download/ext/temp/master.zip
-	rm -rf /sdcard/Download/ext/temp/Magisk-master
+	rmdir /sdcard/Download/ext/temp/Magisk-master
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Magisk-Modules-Repo/busybox-ndk/archive/master.zip
 	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 	rm /sdcard/Download/ext/temp/master.zip
@@ -154,7 +154,7 @@ else
 	if [ $c -gt $d ]
 	then
 		download
-		echo "•Busybox_for_Android_NDK-v$b($d).zip --> v$a($c).zip" >> /sdcard/Download/ext/temp/log
+		echo "•Busybox_for_Android_NDK-v$b($d).zip -->Busybox_for_Android_NDK-v$a($c).zip" >> /sdcard/Download/ext/temp/log
 	else
 		echo "•Busybox for Android NDK: Không có phiên bản mới." >> /sdcard/Download/ext/temp/log
 	fi
@@ -166,16 +166,16 @@ rm /sdcard/Download/ext/temp/b2 2>/dev/null
 rm /sdcard/Download/ext/temp/b3 2>/dev/null
 rm /sdcard/Download/ext/temp/b4 2>/dev/null
 rm /sdcard/Download/ext/temp/b5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
+rmdir /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
 
 
-rm -rf /sdcard/Download/ext/temp/w 2>/dev/null
+rm /sdcard/Download/ext/temp/w 2>/dev/null
 rm /sdcard/Download/ext/temp/w1 2>/dev/null
 rm /sdcard/Download/ext/temp/w2 2>/dev/null
 rm /sdcard/Download/ext/temp/w3 2>/dev/null
 rm /sdcard/Download/ext/temp/w4 2>/dev/null
 rm /sdcard/Download/ext/temp/w5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
+rmdir /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
 
 wget --no-check-certificate -O - https://github.com/Magisk-Modules-Repo/wifi-bonding/blob/master/module.prop > /sdcard/Download/ext/temp/w
 grep "blob-code blob-code-inner js-file-line" /sdcard/Download/ext/temp/w | grep "version" > /sdcard/Download/ext/temp/w1
@@ -199,7 +199,7 @@ function download {
 		unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 		cat /sdcard/Download/ext/temp/Magisk-master/scripts/module_installer.sh > /sdcard/Download/ext/temp/update-binary
 		rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
-		rm -rf /sdcard/Download/ext/temp/Magisk-master
+		rmdir /sdcard/Download/ext/temp/Magisk-master
 		wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Magisk-Modules-Repo/wifi-bonding/archive/master.zip
 		unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 		rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
@@ -225,13 +225,13 @@ else
 	fi
 fi
 
-rm -rf /sdcard/Download/ext/temp/w 2>/dev/null
+rm /sdcard/Download/ext/temp/w 2>/dev/null
 rm /sdcard/Download/ext/temp/w1 2>/dev/null
 rm /sdcard/Download/ext/temp/w2 2>/dev/null
 rm /sdcard/Download/ext/temp/w3 2>/dev/null
 rm /sdcard/Download/ext/temp/w4 2>/dev/null
 rm /sdcard/Download/ext/temp/w5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
+rmdir /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
 
 
 rm /sdcard/Download/ext/temp/i 2>/dev/null
@@ -240,7 +240,7 @@ rm /sdcard/Download/ext/temp/i2 2>/dev/null
 rm /sdcard/Download/ext/temp/i3 2>/dev/null
 rm /sdcard/Download/ext/temp/i4 2>/dev/null
 rm /sdcard/Download/ext/temp/i5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/Init.d-Injector-master 2>/dev/null
+rmdir /sdcard/Download/ext/temp/Init.d-Injector-master 2>/dev/null
 rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
 
 wget --no-check-certificate -O - https://github.com/Zackptg5/Init.d-Injector/blob/master/module.prop > /sdcard/Download/ext/temp/i
@@ -288,7 +288,7 @@ rm /sdcard/Download/ext/temp/i2 2>/dev/null
 rm /sdcard/Download/ext/temp/i3 2>/dev/null
 rm /sdcard/Download/ext/temp/i4 2>/dev/null
 rm /sdcard/Download/ext/temp/i5 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/Init.d-Injector-master 2>/dev/null
+rmdir /sdcard/Download/ext/temp/Init.d-Injector-master 2>/dev/null
 rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
 
 
@@ -332,7 +332,7 @@ else
 	then
 		rm /sdcard/*Dolby*.zip 2>/dev/null
 		download
-		echo "•Dolby Digital Plus-$b --> Dolby Digital Plus-$a." >> /sdcard/Download/ext/temp/log
+		echo "•Dolby Digital Plus-$b --> Dolby Digital Plus-$a" >> /sdcard/Download/ext/temp/log
 	else
 		echo "•Dolby Digital Plus: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 	fi
