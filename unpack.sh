@@ -83,7 +83,7 @@ else
 	echo "Chuyển đổi system.new.dat.br-->system.new.dat"
 	brotli -d /sdcard/Download/ext/temp/system.new.dat.br -o /sdcard/Download/ext/temp/system.new.dat
 	echo "Chuyển đổi system.new.dat-->system.img"
-	python /sdcard/Download/ext/temp/sdat2img /sdcard/Download/ext/temp/system.transfer.list /sdcard/Download/ext/temp/system.new.dat /sdcard/Download/ext/temp/system.img
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/system.transfer.list /sdcard/Download/ext/temp/system.new.dat /sdcard/Download/ext/temp/system.img
 	rom=`basename $name`
 	romfolder=${rom%.*}
 	rm /sdcard/Download/ext/$romfolder 2>/dev/null
@@ -91,20 +91,20 @@ else
 	mkdir -p /sdcard/Download/ext/$romfolder/system
 	mv -f /sdcard/Download/ext/temp/system.img /sdcard/Download/ext/$romfolder/system
 	echo "Chuyển đổi system.img-->thư mục system"
-	python /sdcard/Download/ext/temp/imgextractor /sdcard/Download/ext/$romfolder/system/system.img /sdcard/Download/ext/$romfolder/system
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/system/system.img /sdcard/Download/ext/$romfolder/system
 	echo "Trích xuất vendor"
 	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
 	echo "Chuyển đổi vendor.new.dat.br-->vendor.new.dat"
 	brotli -d /sdcard/Download/ext/temp/vendor.new.dat.br -o /sdcard/Download/ext/temp/vendor.new.dat
 	echo "Chuyển đổi vendor.new.dat-->vendor.img"
-	python /sdcard/Download/ext/temp/sdat2img /sdcard/Download/ext/temp/vendor.transfer.list /sdcard/Download/ext/temp/vendor.new.dat /sdcard/Download/ext/temp/vendor.img
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/vendor.transfer.list /sdcard/Download/ext/temp/vendor.new.dat /sdcard/Download/ext/temp/vendor.img
 	rom=`basename $name`
 	romfolder=${rom%.*}
 	mkdir -p /sdcard/Download/ext/$romfolder
 	mkdir -p /sdcard/Download/ext/$romfolder/vendor
 	mv -f /sdcard/Download/ext/temp/vendor.img /sdcard/Download/ext/$romfolder/vendor
 	echo "Chuyển đổi vendor.img-->thư mục vendor"
-	python /sdcard/Download/ext/temp/imgextractor /sdcard/Download/ext/$romfolder/vendor/vendor.img /sdcard/Download/ext/$romfolder/vendor/
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/vendor/vendor.img /sdcard/Download/ext/$romfolder/vendor/
 	rm /sdcard/Download/ext/$romfolder/vendor/vendor.img 2>/dev/null
 	rm /sdcard/Download/ext/$romfolder/system/system.img 2>/dev/null
 	rm /sdcard/Download/ext/$romfolder/system_size.txt 2>/dev/null
