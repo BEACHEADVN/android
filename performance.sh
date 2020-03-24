@@ -14,6 +14,5 @@ echo '0:1056000 1:1056000 2:1056000 3:1056000' > /sys/module/cpu_boost/parameter
 echo msm-adreno-tz > /sys/class/kgsl/kgsl-3d0/devfreq/governor
 echo deadline > /sys/block/sda/queue/scheduler
 echo 2048 > /sys/block/sda/queue/read_ahead_kb
-echo 3 > /proc/sys/vm/drop_caches
 echo 35 > /proc/sys/vm/swappiness
 echo 1 > /sys/kernel/dyn_fsync/Dyn_fsync_active
