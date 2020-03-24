@@ -147,6 +147,8 @@ case $menu in
 		sh /sdcard/Download/ext/temp/battery.sh
 		find /sdcard/Download/ext/temp -type f -not -name 'log' -print0 | xargs -0 rm
 		echo "Đóng Termux?"
+echo "1. Có"
+echo "2. Không"
 		read termux
 		case $termux in
 		1)
