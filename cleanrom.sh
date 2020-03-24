@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm /sdcard/Download/ext/temp/d 2>dev/null
+rm /sdcard/Download/ext/temp/d 2>/dev/null
 ls /sdcard/Download/ext > /sdcard/Download/ext/temp/d
 awk -i inplace '!/temp/' /sdcard/Download/ext/temp/d
 if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/d) ]]
@@ -20,7 +20,7 @@ else
 		awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/d1
 		echo "Rom đã giải nén:"
 		cat /sdcard/Download/ext/temp/d1
-		rm /sdcard/Download/ext/temp/d1
+		rm /sdcard/Download/ext/temp/d1 2>/dev/null
 		echo "Chọn rom đã giải nén cần xóa:"
 		echo "Nhập số từ 1-$x: (nhấn kí tự x để thoát)"
 		read c
@@ -49,4 +49,4 @@ else
 ;;
 esac
 fi
-rm /sdcard/Download/ext/temp/d
+rm /sdcard/Download/ext/temp/d 2>/dev/null
