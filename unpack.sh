@@ -122,8 +122,8 @@ else
 	
 	case $debloat in
 		1)
-			rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-			rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+			rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+			rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 			rm /sdcard/Download/ext/temp/remove1 2>/dev/null
 			rm /sdcard/Download/ext/temp/remove2 2>/dev/null
 			rm /sdcard/Download/ext/temp/remove3 2>/dev/null
@@ -156,8 +156,8 @@ else
 			bash /sdcard/Download/ext/temp/remove3 2>/dev/null
 			
 			
-			rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-			rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+			rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+			rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 			
 			unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 		cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove4
@@ -180,8 +180,8 @@ else
 			awk -v remove="$remove" '{print remove $0}' /sdcard/Download/ext/temp/remove5 > /sdcard/Download/ext/temp/remove6
 			bash /sdcard/Download/ext/temp/remove6 2>/dev/null
 			
-			rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-			rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+			rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+			rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 			rm /sdcard/Download/ext/temp/remove1 2>/dev/null
 			rm /sdcard/Download/ext/temp/remove2 2>/dev/null
 			rm /sdcard/Download/ext/temp/remove3 2>/dev/null
