@@ -1,11 +1,11 @@
 #!/bin/sh
 
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l3 2>/dev/null
+rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm /sdcard/Download/ext/temp/l 2>/dev/null
+rm /sdcard/Download/ext/temp/l1 2>/dev/null
+rm /sdcard/Download/ext/temp/l2 2>/dev/null
+rm /sdcard/Download/ext/temp/l3 2>/dev/null
 
 wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ > /sdcard/Download/ext/temp/l
 grep "arm64-v8a" /sdcard/Download/ext/temp/l > /sdcard/Download/ext/temp/l1
@@ -39,9 +39,9 @@ else
 	echo "•Lawnchair: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/l3 2>/dev/null
+rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm /sdcard/Download/ext/temp/l 2>/dev/null
+rm /sdcard/Download/ext/temp/l1 2>/dev/null
+rm /sdcard/Download/ext/temp/l2 2>/dev/null
+rm /sdcard/Download/ext/temp/l3 2>/dev/null
