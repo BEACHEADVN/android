@@ -9,7 +9,7 @@ read game
 
 case $game in
 	1)
-		sh /sdcard/Download/ext/temp/performance
+		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
 		pm disable com.adguard.android
 		pm disable com.android.chrome
@@ -34,7 +34,7 @@ case $game in
 		pm disable com.termux
 		;;
 	2)
-		sh /sdcard/Download/ext/temp/performance
+		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
 		pm disable com.adguard.android
 		pm disable com.android.chrome
@@ -84,7 +84,7 @@ case $game in
 		sleep 3
 		am start -a android.intent.action.MAIN -n com.keramidas.TitaniumBackup/com.keramidas.TitaniumBackup.MainActivity
 		sleep 2
-		sh /sdcard/Download/ext/temp/battery
+		sh /sdcard/Download/ext/temp/battery.sh
 		killall -9 com.termux
 		;;
 	x)
