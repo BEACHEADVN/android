@@ -49,6 +49,3 @@ else
 	fi
 fi
 rm /sdcard/Download/ext/temp/d
-echo "Chạy profile kernel: battery"
-sh /sdcard/Download/ext/temp/battery.sh
-bash /sdcard/Download/ext/temp/menu.sh
