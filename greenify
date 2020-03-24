@@ -7,8 +7,8 @@ rm /sdcard/Download/ext/temp/g3 2>/dev/null
 rm /sdcard/Download/ext/temp/g4 2>/dev/null
 rm /sdcard/Download/ext/temp/g5 2>/dev/null
 rm /sdcard/Download/ext/temp/g6 2>/dev/null
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 wget -O - https://dl-android.com/p/index.php?id=greenify-apk > /sdcard/Download/ext/temp/g
 grep "Download Free Greenify" /sdcard/Download/ext/temp/g > /sdcard/Download/ext/temp/g1
@@ -34,11 +34,11 @@ then
 	mv -f /sdcard/Download/Greenify*.apk /sdcard/Download/ext/temp/system/priv-app/Greenify
 	cd /sdcard/Download/ext/temp
 	zip -r "tweak-havoc-capricorn-q-part1.zip" META-INF system
-	rmdir /sdcard/Download/ext/temp/META-INF
-	rmdir /sdcard/Download/ext/temp/system
+	rm -rf /sdcard/Download/ext/temp/META-INF
+	rm -rf /sdcard/Download/ext/temp/system
 	rm /sdcard/tweak-havoc-capricorn-q-part1.zip
 	mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part1.zip /sdcard
-	echo "•Greenify-v$b --> Greenify-v$a." >> /sdcard/Download/ext/temp/log
+	echo "•Greenify-v$b --> Greenify-v$a" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Greenify: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
@@ -50,5 +50,5 @@ rm /sdcard/Download/ext/temp/g3 2>/dev/null
 rm /sdcard/Download/ext/temp/g4 2>/dev/null
 rm /sdcard/Download/ext/temp/g5 2>/dev/null
 rm /sdcard/Download/ext/temp/g6 2>/dev/null
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
