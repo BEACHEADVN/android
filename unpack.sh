@@ -204,7 +204,3 @@ rm /sdcard/Download/ext/temp/rom 2>/dev/null
 rm /sdcard/Download/ext/temp/romlist 2>/dev/null
 rm /sdcard/Download/ext/temp/romlist1 2>/dev/null
 rmdir /sdcard/Download/ext/temp/__pycache__ 2>/dev/null
-
-echo "Chạy profile kernel: battery"
-sh /sdcard/Download/ext/temp/battery
-bash /sdcard/Download/ext/temp/menu
