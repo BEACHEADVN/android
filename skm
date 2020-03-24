@@ -1,10 +1,10 @@
 #!/bin/sh
 
-rm -rf /sdcard/Download/ext/temp/s 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s4 2>/dev/null
+rm /sdcard/Download/ext/temp/s 2>/dev/null
+rm /sdcard/Download/ext/temp/s1 2>/dev/null
+rm /sdcard/Download/ext/temp/s2 2>/dev/null
+rm /sdcard/Download/ext/temp/s3 2>/dev/null
+rm /sdcard/Download/ext/temp/s4 2>/dev/null
 
 wget -O - https://github.com/SmartPack/SmartPack-Kernel-Manager/releases > /sdcard/Download/ext/temp/s
 grep "Release tag:" /sdcard/Download/ext/temp/s > /sdcard/Download/ext/temp/s1
@@ -30,13 +30,13 @@ then
 	d=`cat /sdcard/Download/ext/temp/s4`
 	rm /sdcard/Download/com.smartpack.kernelmanager*.apk 2>/dev/null
 	wget  -P /sdcard/Download "$d"
-	echo "•Smart-Park Kernel Manager-v$b --> Smart-Park Kernel Manager-v$a." >> /sdcard/Download/ext/temp/log
+	echo "•Smart-Park Kernel Manager-v$b.apk --> Smart-Park Kernel Manager-v$a.apk" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Smart-Park Kernel Manager: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/s 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/s4 2>/dev/null
+rm /sdcard/Download/ext/temp/s 2>/dev/null
+rm /sdcard/Download/ext/temp/s1 2>/dev/null
+rm /sdcard/Download/ext/temp/s2 2>/dev/null
+rm /sdcard/Download/ext/temp/s3 2>/dev/null
+rm /sdcard/Download/ext/temp/s4 2>/dev/null
