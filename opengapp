@@ -1,9 +1,9 @@
 #!/bin/sh
 
-rm -rf /sdcard/Download/ext/temp/g 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/g1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/g2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/g3 2>/dev/null
+rm /sdcard/Download/ext/temp/g 2>/dev/null
+rm /sdcard/Download/ext/temp/g1 2>/dev/null
+rm /sdcard/Download/ext/temp/g2 2>/dev/null
+rm /sdcard/Download/ext/temp/g3 2>/dev/null
 
 wget --no-check-certificate -O - https://sourceforge.net/projects/opengapps/files/arm64 > /sdcard/Download/ext/temp/g
 grep "Click to enter" /sdcard/Download/ext/temp/g > /sdcard/Download/ext/temp/g1
@@ -43,9 +43,9 @@ else
 	echo "•Opengapps 10.0: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/g 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/g1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/g2 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/g3 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/md5sum1 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip.md5 2>/dev/null
+rm /sdcard/Download/ext/temp/g 2>/dev/null
+rm /sdcard/Download/ext/temp/g1 2>/dev/null
+rm /sdcard/Download/ext/temp/g2 2>/dev/null
+rm /sdcard/Download/ext/temp/g3 2>/dev/null
+rm /sdcard/Download/ext/temp/md5sum1 2>/dev/null
+rm /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip.md5 2>/dev/null
