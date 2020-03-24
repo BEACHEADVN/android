@@ -8,8 +8,8 @@ rm /sdcard/Download/ext/temp/c4 2>/dev/null
 rm /sdcard/Download/ext/temp/c5 2>/dev/null
 rm /sdcard/Download/ext/temp/c6 2>/dev/null
 rm /sdcard/Download/ext/temp/c7 2>/dev/null
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 wget --no-check-certificate -O - https://m.apkpure.com/vn/clock/com.google.android.deskclock > /sdcard/Download/ext/temp/c
 grep "meta name=" /sdcard/Download/ext/temp/c > /sdcard/Download/ext/temp/c1
@@ -58,5 +58,5 @@ rm /sdcard/Download/ext/temp/c4 2>/dev/null
 rm /sdcard/Download/ext/temp/c5 2>/dev/null
 rm /sdcard/Download/ext/temp/c6 2>/dev/null
 rm /sdcard/Download/ext/temp/c7 2>/dev/null
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
