@@ -30,7 +30,7 @@ then
 	wget  -P /sdcard/Download "$d"
 	pm install /sdcard/Download/adguard*.apk 2>/dev/null
 	rm /sdcard/Download/adguard*.apk 2>/dev/null
-	echo "•Adguard v$b --> v$a." >> /sdcard/Download/ext/temp/log
+	echo "•Adguard v$b --> Adguard v$a" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Adguard: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
