@@ -15,38 +15,38 @@ else
 	read clean
 	
 	case $clean in
-1)
-		clear
-		awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/d1
-		echo "Rom đã giải nén:"
-		cat /sdcard/Download/ext/temp/d1
-		rm /sdcard/Download/ext/temp/d1 2>/dev/null
-		echo "Chọn rom đã giải nén cần xóa:"
-		echo "Nhập số từ 1-$x: (nhấn kí tự x để thoát)"
-		read c
-		if [[ $c == x ]]
-		then
-			echo "Thoát!!"
-		else
-			sed -n "$c"p /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/rom$c
-			rm -rf /sdcard/Download/ext/`cat /sdcard/Download/ext/temp/rom$c`
-			rm -rf /sdcard/Download/ext/temp/rom$c
-		fi
-;;
-	2)
-		echo "Xóa ROM:"
-		for (( v=1; v<=$x; v++ ))
-		do
-			sed -n "$v"p /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/rom$v
-			echo "[$v/$x] `cat /sdcard/Download/ext/temp/rom$v`"
-			rm -rf /sdcard/Download/ext/`cat /sdcard/Download/ext/temp/rom$v`
-			echo "Hoàn thành !"
-			rm -rf /sdcard/Download/ext/temp/rom$v
-		done
-;;
-	x)
-		echo "Bỏ qua!!"
-;;
-esac
+		1)
+			clear
+			awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/d1
+			echo "Rom đã giải nén:"
+			cat /sdcard/Download/ext/temp/d1
+			rm /sdcard/Download/ext/temp/d1 2>/dev/null
+			echo "Chọn rom đã giải nén cần xóa:"
+			echo "Nhập số từ 1-$x: (nhấn kí tự x để thoát)"
+			read c
+			if [[ $c == x ]]
+			then
+				echo "Thoát!!"
+			else
+				sed -n "$c"p /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/rom$c
+				rm -rf /sdcard/Download/ext/`cat /sdcard/Download/ext/temp/rom$c`
+				rm -rf /sdcard/Download/ext/temp/rom$c
+			fi
+		;;
+		2)
+			echo "Xóa ROM:"
+			for (( v=1; v<=$x; v++ ))
+			do
+				sed -n "$v"p /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/rom$v
+				echo "[$v/$x] `cat /sdcard/Download/ext/temp/rom$v`"
+				rm -rf /sdcard/Download/ext/`cat /sdcard/Download/ext/temp/rom$v`
+				echo "Hoàn thành !"
+				rm -rf /sdcard/Download/ext/temp/rom$v
+			done
+		;;
+		x)
+			echo "Bỏ qua!!"
+		;;
+	esac
 fi
 rm /sdcard/Download/ext/temp/d 2>/dev/null
