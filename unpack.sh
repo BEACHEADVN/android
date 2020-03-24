@@ -71,9 +71,9 @@ else
 	name=`cat /sdcard/Download/ext/temp/rompath$m`
 	echo "Bạn đã chọn rom `basename $name`"
 	unzip -qq -o `cat /sdcard/Download/ext/temp/rompath$m` -d /sdcard/Download/ext/temp
-	rmdir /sdcard/Download/ext/temp/install 2>/dev/null
-	rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-	rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+	rm -rf /sdcard/Download/ext/temp/install 2>/dev/null
+	rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+	rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 	rm /sdcard/Download/ext/temp/system.patch.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.patch.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/boot.img 2>/dev/null
@@ -203,4 +203,4 @@ done
 rm /sdcard/Download/ext/temp/rom 2>/dev/null
 rm /sdcard/Download/ext/temp/romlist 2>/dev/null
 rm /sdcard/Download/ext/temp/romlist1 2>/dev/null
-rmdir /sdcard/Download/ext/temp/__pycache__ 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/__pycache__ 2>/dev/null
