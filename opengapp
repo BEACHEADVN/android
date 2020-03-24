@@ -38,14 +38,14 @@ then
 			    echo "•open_gapps-arm64-10.0-pico-$b.zip --> open_gapps-arm64-10.0-pico-$a.zip" >> /sdcard/Download/ext/temp/log
 			fi
 		else
-		    echo "•Opengapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
+		    echo "•Open gapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
 		fi
 	else
-		echo "•Opengapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
+		echo "•Open gapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
 	fi
 else
 
-	echo "•Opengapps 10.0: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
+	echo "•Open gapps 10.0: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
 rm /sdcard/Download/ext/temp/g 2>/dev/null
