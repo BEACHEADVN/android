@@ -33,7 +33,7 @@ then
 		then
 			if [ $b == 0 ]
 			then
-				echo "Tải open_gapps-arm64-10.0-pico-$a.zip" >> /sdcard/Download/ext/temp/log
+				echo "•Open gapps: Tải open_gapps-arm64-10.0-pico-$a.zip" >> /sdcard/Download/ext/temp/log
 			else
 			    echo "•open_gapps-arm64-10.0-pico-$b.zip --> open_gapps-arm64-10.0-pico-$a.zip" >> /sdcard/Download/ext/temp/log
 			fi
