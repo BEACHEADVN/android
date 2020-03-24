@@ -8,8 +8,8 @@ rm /sdcard/Download/ext/temp/w4 2>/dev/null
 rm /sdcard/Download/ext/temp/w5 2>/dev/null
 rm /sdcard/Download/ext/temp/w6 2>/dev/null
 rm /sdcard/Download/ext/temp/w7 2>/dev/null
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 wget --no-check-certificate -O - https://m.apkpure.com/vn/android-system-webview/com.google.android.webview > /sdcard/Download/ext/temp/w
 grep "meta name=" /sdcard/Download/ext/temp/w > /sdcard/Download/ext/temp/w1
