@@ -145,6 +145,14 @@ else
 			rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 			mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
 			cd /sdcard/Download/ext/temp
+                        find /sdcard/Download/ext -name "Havoc-OS-v3.*" > /sdcard/Download/ext/temp/checkpath
+			path=`cat /sdcard/Download/ext/temp/checkpath`
+			if [ -d $path/system/system/product/priv-app/SettingsIntelligenceGooglePrebuilt ]
+			then
+				echo ""
+			else
+				rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
+			fi
 			zip -r tweak-havoc-capricorn-q-part1.zip META-INF system
 			rm /sdcard/tweak-havoc-capricorn-q-part1.zip 2>/dev/null
 			mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part1.zip /sdcard
@@ -169,14 +177,6 @@ else
 			tail -n15 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
 			rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 			mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
-			find /sdcard/Download/ext -name "Havoc-OS*" > /sdcard/Download/ext/temp/zip
-			rom=`cat /sdcard/Download/ext/temp/zip`
-			if [ -d $rom/system/system/product/priv-app/SettingsIntelligenceGooglePrebuilt ]
-			then
-				echo ""
-			else
-				rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
-			fi
 			zip -r tweak-havoc-capricorn-q-part2.zip META-INF system
 			rm /sdcard/tweak-havoc-capricorn-q-part2.zip
 			mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part2.zip /sdcard
