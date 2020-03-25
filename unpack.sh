@@ -66,7 +66,7 @@ echo "Chọn rom (nhấn x để quay lại Menu):"
 read m
 if [[ $m == x ]]
 then
-	echo "Thoát!!"
+	echo ""
 else
 	name=`cat /sdcard/Download/ext/temp/rompath$m`
 	echo "Bạn đã chọn rom `basename $name`"
