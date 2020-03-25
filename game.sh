@@ -4,7 +4,7 @@ echo "GAME "
 echo "1. Liên quân Mobile"
 echo "2. PUBG"
 echo "3. Phục hồi"
-echo "Nhập số từ 1-3 (nhấn x để thoát):"
+echo "Nhập số từ 1-3 (nhấn x để quay lại Menu):"
 read game
 
 case $game in
@@ -32,7 +32,7 @@ case $game in
 		pm disable org.telegram.messenger
 		am start -a android.intent.action.MAIN -n com.garena.game.kgvn/com.garena.game.kgtw.BlankActivity
 		pm disable com.termux
-		;;
+	;;
 	2)
 		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
@@ -57,7 +57,7 @@ case $game in
 		pm disable org.telegram.messenger
 		am start -a android.intent.action.MAIN -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity
 		pm disable com.termux
-		;;
+	;;
 	3)
 		pm enable com.adguard.android
 		pm enable com.android.chrome
@@ -86,8 +86,8 @@ case $game in
 		sleep 2
 		sh /sdcard/Download/ext/temp/battery.sh
 		killall -9 com.termux
-		;;
+	;;
 	x)
-		echo "Thoát!"
-		;;
+		bash /sdcard/Download/ext/temp/menu.sh
+	;;
 esac
