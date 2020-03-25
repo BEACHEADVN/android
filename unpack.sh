@@ -151,7 +151,7 @@ else
 			then
 				echo ""
 			else
-				rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
+				rm -rf /sdcard/Download/ext/temp/system/product/priv-app
 			fi
 			zip -r tweak-havoc-capricorn-q-part1.zip META-INF system
 			rm /sdcard/tweak-havoc-capricorn-q-part1.zip 2>/dev/null
