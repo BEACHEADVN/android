@@ -62,7 +62,7 @@ done
 clear
 echo "Các rom trong điện thoại:"
 cat /sdcard/Download/ext/temp/romlist1
-echo "Chọn rom (nhấn x để thoát):"
+echo "Chọn rom (nhấn x để quay lại Menu):"
 read m
 if [[ $m == x ]]
 then
@@ -200,10 +200,10 @@ else
 			rm /sdcard/Download/ext/temp/zip 2>/dev/null
 			rm /sdcard/Download/ext/temp/zip1 2>/dev/null
 			rm /sdcard/Download/ext/temp/zip2 2>/dev/null
-			;;
+		;;
 		2)
 			echo "Bỏ qua Debloat"
-			;;
+		;;
 	esac
 fi
 for (( v=1; v<=$l; v++ ))
