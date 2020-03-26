@@ -343,7 +343,7 @@ function download {
 if [ $a -gt $b ]
 then
 	download
-        if [ $b==0 ]
+        if [ $b == 0 ]
         then
                echo "•Google Dialer Framework: Tải Google_Dialer_Framework-$a($c).zip" >> /sdcard/Download/ext/temp/log
         else
