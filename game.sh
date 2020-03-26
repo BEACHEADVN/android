@@ -31,7 +31,8 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		am start -a android.intent.action.MAIN -n com.garena.game.kgvn/com.garena.game.kgtw.BlankActivity
-		pm disable com.termux
+		pm disable com.topjohnwu.magisk
+                pm disable com.termux
 	;;
 	2)
 		sh /sdcard/Download/ext/temp/performance.sh
@@ -56,9 +57,11 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		am start -a android.intent.action.MAIN -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity
-		pm disable com.termux
+		pm disable com.topjohnwu.magisk
+                pm disable com.termux
 	;;
 	3)
+                pm enable com.topjohnwu.magisk
 		pm enable com.adguard.android
 		pm enable com.android.chrome
 		pm enable com.android.deskclock
