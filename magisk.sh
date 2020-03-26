@@ -308,10 +308,20 @@ c=`cat /sdcard/Download/ext/temp/p2`
 
 find /storage/emulated/0 -name "Google_Dialer_Framework*" > /sdcard/Download/ext/temp/p3
 sed 's+/storage/emulated/0/Google_Dialer_Framework-++g; s+(.*++g' /sdcard/Download/ext/temp/p3 > /sdcard/Download/ext/temp/p4
-b=`cat /sdcard/Download/ext/temp/p4`
+if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/p4) ]]
+then
+	b=0
+else
+	b=`cat /sdcard/Download/ext/temp/p4`
+fi
 
-sed -i 's+).*++g; s+^.*(++g' /sdcard/Download/ext/temp/p4
-d=`cat /sdcard/Download/ext/temp/p4`
+sed -i 's+).*++g; s+^.*(++g' /sdcard/Download/ext/temp/p3
+if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/p3 ]]
+then
+	d=0
+else
+	d=`cat /sdcard/Download/ext/temp/p3`
+fi
 
 function download {
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/topjohnwu/Magisk/archive/master.zip
