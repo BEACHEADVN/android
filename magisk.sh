@@ -234,64 +234,6 @@ rm /sdcard/Download/ext/temp/w5 2>/dev/null
 rmdir /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
 
 
-rm /sdcard/Download/ext/temp/i 2>/dev/null
-rm /sdcard/Download/ext/temp/i1 2>/dev/null
-rm /sdcard/Download/ext/temp/i2 2>/dev/null
-rm /sdcard/Download/ext/temp/i3 2>/dev/null
-rm /sdcard/Download/ext/temp/i4 2>/dev/null
-rm /sdcard/Download/ext/temp/i5 2>/dev/null
-rmdir /sdcard/Download/ext/temp/Init.d-Injector-master 2>/dev/null
-rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
-
-wget --no-check-certificate -O - https://github.com/Zackptg5/Init.d-Injector/blob/master/module.prop > /sdcard/Download/ext/temp/i
-grep "blob-code blob-code-inner js-file-line" /sdcard/Download/ext/temp/i | grep "version" > /sdcard/Download/ext/temp/i1
-perl -pe '($_)=/([0-9]+([.][0-9]+)+)/' /sdcard/Download/ext/temp/i1 > /sdcard/Download/ext/temp/i2
-a=`cat /sdcard/Download/ext/temp/i2`
-
-grep "versionCode" /sdcard/Download/ext/temp/i > /sdcard/Download/ext/temp/i3
-sed -i 's+</td>++g; s+^.*Code=++g' /sdcard/Download/ext/temp/i3
-c=`cat /sdcard/Download/ext/temp/i3`
-
-find /storage/emulated/0 -name "Init.d_Injector*" > /sdcard/Download/ext/temp/i4
-perl -pe '($_)=/([0-9]+([.][0-9]+)+)/' /sdcard/Download/ext/temp/i4 > /sdcard/Download/ext/temp/i5
-b=`cat /sdcard/Download/ext/temp/i5`
-
-sed -i 's+).*++g; s+^.*(++g' /sdcard/Download/ext/temp/i4
-d=`cat /sdcard/Download/ext/temp/i4`
-
-function download {
-	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Zackptg5/Init.d-Injector/archive/master.zip
-	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
-	cd /sdcard/Download/ext/temp/Init.d-Injector-master
-	zip -r "Init.d_Injector-v$a($c).zip" META-INF README.md addon common install.sh module.prop uninstall.sh
-	rm /sdcard/Init.d_Injector-*.zip
-	mv /sdcard/Download/ext/temp/Init.d-Injector-master/"Init.d_Injector-v$a($c).zip" /sdcard
-}
-
-if [ $(version $a) -gt $(version $b) ]
-then
-	download
-	echo "•Init.d_Injector-v$b($d).zip --> Init.d_Injector-v$a($c).zip" >> /sdcard/Download/ext/temp/log
-else
-	if [ $c -gt $d ]
-	then
-		download
-		echo "•Init.d_Injector-v$b($d).zip --> Init.d_Injector-v$a($c).zip" >> /sdcard/Download/ext/temp/log
-	else
-		echo "•Init.d_Injector: Không có phiên bản mới." >> /sdcard/Download/ext/temp/log
-	fi
-fi
-
-rm /sdcard/Download/ext/temp/i 2>/dev/null
-rm /sdcard/Download/ext/temp/i1 2>/dev/null
-rm /sdcard/Download/ext/temp/i2 2>/dev/null
-rm /sdcard/Download/ext/temp/i3 2>/dev/null
-rm /sdcard/Download/ext/temp/i4 2>/dev/null
-rm /sdcard/Download/ext/temp/i5 2>/dev/null
-rmdir /sdcard/Download/ext/temp/Init.d-Injector-master 2>/dev/null
-rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
-
-
 rm /sdcard/Download/ext/temp/d 2>/dev/null
 rm /sdcard/Download/ext/temp/d1 2>/dev/null
 rm /sdcard/Download/ext/temp/d2 2>/dev/null
@@ -344,3 +286,68 @@ rm /sdcard/Download/ext/temp/d2 2>/dev/null
 rm /sdcard/Download/ext/temp/d3 2>/dev/null
 rm /sdcard/Download/ext/temp/d4 2>/dev/null
 rm /sdcard/Download/ext/temp/d5 2>/dev/null
+
+
+rm /sdcard/Download/ext/temp/p 2>/dev/null
+rm /sdcard/Download/ext/temp/p1 2>/dev/null
+rm /sdcard/Download/ext/temp/p2 2>/dev/null
+rm /sdcard/Download/ext/temp/p3 2>/dev/null
+rm /sdcard/Download/ext/temp/p4 2>/dev/null
+rm /sdcard/Download/ext/temp/p5 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/GoogleDialerFramework-master 2>/dev/null
+
+wget --no-check-certificate -O - https://github.com/Magisk-Modules-Repo/GoogleDialerFramework/blob/master/module.prop > /sdcard/Download/ext/temp/p
+grep "blob-code blob-code-inner js-file-line" /sdcard/Download/ext/temp/p | grep "version" > /sdcard/Download/ext/temp/p1
+sed -i '1!d; s+</td>++g; s+^.*version=v++g' /sdcard/Download/ext/temp/p1
+a=`cat /sdcard/Download/ext/temp/p1`
+
+grep "versionCode" /sdcard/Download/ext/temp/p > /sdcard/Download/ext/temp/p2
+sed -i 's+</td>++g; s+^.*Code=++g' /sdcard/Download/ext/temp/p2
+c=`cat /sdcard/Download/ext/temp/p2`
+
+
+find /storage/emulated/0 -name "Google_Dialer_Framework*" > /sdcard/Download/ext/temp/p3
+sed 's+/storage/emulated/0/Google_Dialer_Framework-++g; s+(.*++g' /sdcard/Download/ext/temp/p3 > /sdcard/Download/ext/temp/p4
+b=`cat /sdcard/Download/ext/temp/p4`
+
+sed -i 's+).*++g; s+^.*(++g' /sdcard/Download/ext/temp/p4
+d=`cat /sdcard/Download/ext/temp/p4`
+
+function download {
+	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/topjohnwu/Magisk/archive/master.zip
+	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
+	cat /sdcard/Download/ext/temp/Magisk-master/scripts/module_installer.sh > /sdcard/Download/ext/temp/update-binary
+	rm /sdcard/Download/ext/temp/master.zip
+	rm -rf /sdcard/Download/ext/temp/Magisk-master
+	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Magisk-Modules-Repo/GoogleDialerFramework/archive/master.zip
+	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
+	rm /sdcard/Download/ext/temp/master.zip
+	rm /sdcard/Download/ext/temp/GoogleDialerFramework-master/META-INF/com/google/android/update-binary
+	mv /sdcard/Download/ext/temp/update-binary /sdcard/Download/ext/temp/GoogleDialerFramework-master/META-INF/com/google/android
+	cd /sdcard/Download/ext/temp/GoogleDialerFramework-master
+	zip -r "Google_Dialer_Framework-$a($c).zip" META-INF common system install.sh module.prop README.md
+	rm /sdcard/Google_Dialer_Framework*.zip
+	mv /sdcard/Download/ext/temp/GoogleDialerFramework-master/"Google_Dialer_Framework-$a($c).zip" /sdcard
+}
+
+if [ $a -gt $b ]
+then
+	download
+	echo "•Google_Dialer_Framework-$b($d).zip --> Google_Dialer_Framework-$a($c).zip" >> /sdcard/Download/ext/temp/log
+else
+	if [ $c -gt $d ]
+	then
+		download
+		echo "•Google_Dialer_Framework-$b($d).zip --> Google_Dialer_Framework-$a($c).zip" >> /sdcard/Download/ext/temp/log
+	else
+		echo "•Google Dialer Framework: Không có phiên bản mới." >> /sdcard/Download/ext/temp/log
+	fi
+fi
+
+rm /sdcard/Download/ext/temp/p 2>/dev/null
+rm /sdcard/Download/ext/temp/p1 2>/dev/null
+rm /sdcard/Download/ext/temp/p2 2>/dev/null
+rm /sdcard/Download/ext/temp/p3 2>/dev/null
+rm /sdcard/Download/ext/temp/p4 2>/dev/null
+rm /sdcard/Download/ext/temp/p5 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/GoogleDialerFramework-master 2>/dev/null
