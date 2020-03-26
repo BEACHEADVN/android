@@ -343,7 +343,12 @@ function download {
 if [ $a -gt $b ]
 then
 	download
-	echo "•Google_Dialer_Framework-$b($d).zip --> Google_Dialer_Framework-$a($c).zip" >> /sdcard/Download/ext/temp/log
+        if [ $b==0 ]
+        then
+               echo "•Google Dialer Framework: Tải Google_Dialer_Framework-$a($c).zip" >> /sdcard/Download/ext/temp/log
+        else
+	       echo "•Google_Dialer_Framework-$b($d).zip --> Google_Dialer_Framework-$a($c).zip" >> /sdcard/Download/ext/temp/log
+        fi
 else
 	if [ $c -gt $d ]
 	then
