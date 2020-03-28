@@ -1,7 +1,7 @@
 #!/bin/sh
 
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 rm /sdcard/Download/ext/temp/l 2>/dev/null
 rm /sdcard/Download/ext/temp/l1 2>/dev/null
 rm /sdcard/Download/ext/temp/l2 2>/dev/null
@@ -23,24 +23,26 @@ if [ $a -gt $b ]
 then
 	clear
 	echo "Lawnchair có bản cập nhật mới."
-	echo "••Lawnchair: Có bản cập nhật mới." >> /sdcard/Download/ext/temp/log
+	echo "•Lawnchair: Có bản cập nhật mới." >> /sdcard/Download/ext/temp/log
 	echo "Bạn muốn tải Lawnchair?"
 	echo "1. Có"
 	echo "2. Không"
-	read a
-	if [ $a == 1 ]
-	then
-		am start -n com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity -d "https://www.apkmirror.com/apk/deletescape/lawnchair/" --activity-clear-task
-	elif [ $a == 2 ]
-	then
-		echo ""
-	fi
+	read choose
+
+	case $choose in
+	        1)
+	        	am start -n com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity -d "https://www.apkmirror.com/apk/deletescape/lawnchair/" --activity-clear-task
+         	;;
+                2)
+	        	echo ""
+               ;;
+               esac
 else
 	echo "•Lawnchair: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rmdir /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rmdir /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 rm /sdcard/Download/ext/temp/l 2>/dev/null
 rm /sdcard/Download/ext/temp/l1 2>/dev/null
 rm /sdcard/Download/ext/temp/l2 2>/dev/null
