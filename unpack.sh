@@ -164,7 +164,7 @@ else
 			awk -v remove="$remove" '{print remove $0}' /sdcard/Download/ext/temp/remove2 > /sdcard/Download/ext/temp/remove3
 			bash /sdcard/Download/ext/temp/remove3 2>/dev/null
 			
-			
+			echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 			rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 			rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 			
