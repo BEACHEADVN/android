@@ -36,7 +36,7 @@ then
                 2)
 	        	echo ""
                ;;
-               esac
+        esac
 else
 	echo "•Lawnchair: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
