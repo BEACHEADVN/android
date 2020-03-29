@@ -45,7 +45,7 @@ case $menu in
 			1)
 				pm disable com.android.documentsui
 				pm disable com.android.certinstaller
-				;;
+			;;
 			2)
 				clear
 				echo "KIỂM TRA CẬP NHẬT ỨNG DỤNG"
@@ -60,56 +60,61 @@ case $menu in
 				echo "9. Webview Google"
 				echo "10. X-plore Donate"
 				echo "11. Youtube Vanced"
-				echo "12. Tất cả"
-				echo "Nhập số từ 1-12 (nhấn x để thoát):"
+				echo "12. Google Contacts+Dialer+Message"
+                                echo "13.Tất cả"
+				echo "Nhập số từ 1-13 (nhấn x để thoát):"
 				read app
 				
 				case $app in
 					1)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/adguard.sh
-						;;
+					;;
 					2)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/clock.sh
-						;;
+					;;
 					3)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/greenify.sh
-						;;
+					;;
 					4)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/lawnchair.sh
-						;;
+					;;
 					5)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/magisk.sh
-						;;
+					;;
 					6)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/opengapp.sh
-						;;
+					;;
 					7)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/skm.sh
-						;;
+					;;
 					8)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/titan.sh
-						;;
+					;;
 					9)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/webview.sh
-						;;
+					;;
 					10)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/xplore.sh
-						;;
+					;;
 					11)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/youtube.sh
-						;;
-					12)
+					;;
+                                        12)
+                                                echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+                                                bash /sdcard/Download/ext/temp/googleapp.sh
+                                        ;;
+		         		13)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/adguard.sh
 						bash /sdcard/Download/ext/temp/clock.sh
@@ -122,15 +127,15 @@ case $menu in
 						bash /sdcard/Download/ext/temp/webview.sh
 						bash /sdcard/Download/ext/temp/xplore.sh
 						bash /sdcard/Download/ext/temp/youtube.sh
-						;;
+					;;
 					x)
 						echo "Thoát!"
-						;;
+					;;
 				esac
 				;;
 			x)
 				echo "Thoát"
-				;;
+			;;
 		esac
 		bash /sdcard/Download/ext/temp/menu.sh
 		;;
