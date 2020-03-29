@@ -117,6 +117,7 @@ case $menu in
 		         		13)
 						echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/adguard.sh
+                                                bash /sdcard/Download/ext/temp/googleapp.sh
 						bash /sdcard/Download/ext/temp/clock.sh
 						bash /sdcard/Download/ext/temp/greenify.sh
 						bash /sdcard/Download/ext/temp/lawnchair.sh
