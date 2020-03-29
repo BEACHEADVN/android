@@ -153,7 +153,8 @@ case $menu in
 		echo "Chạy profile kernel: battery"
 		sh /sdcard/Download/ext/temp/battery.sh
 		find /sdcard/Download/ext/temp -type f -not -name 'log' -print0 | xargs -0 rm
-		echo "Đóng Termux?"
+		clear
+                echo "Đóng Termux"
                 echo "1. Có"
                 echo "2. Không"
 		read termux
