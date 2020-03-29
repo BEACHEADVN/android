@@ -100,7 +100,7 @@ case $game in
 		pm enable com.adguard.android
 		pm enable com.android.chrome
 		pm enable com.android.deskclock
-		pm enable com.android.documentsui
+		pm disable com.android.documentsui
 		pm enable com.epi
 		pm enable com.facebook.katana
 		pm enable com.facebook.orca
