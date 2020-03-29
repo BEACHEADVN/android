@@ -74,7 +74,7 @@ case $menu in
 				
 				case $app in
 					1)
-						echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						time
 						bash /sdcard/Download/ext/temp/adguard.sh
 					;;
 					2)
