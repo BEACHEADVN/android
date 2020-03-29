@@ -10,6 +10,7 @@ read game
 
 case $game in
 	1)
+                pm disable com.ustwo.monumentvalley2
 		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.google.android.play.games
 		pm disable com.VCB
@@ -33,11 +34,13 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm disable com.topjohnwu.magisk
-		killall -9 com.vng.inputmethod.labankey
+		pm disable com.vng.inputmethod.labankey
+                pm enable com.vng.inputmethod.labankey
 		am start -a android.intent.action.MAIN -n com.garena.game.kgvn/com.garena.game.kgtw.BlankActivity
 		pm disable com.termux
 	;;
 	2)
+                pm disable com.ustwo.monumentvalley2
 		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
 		pm disable com.google.android.play.games
@@ -61,7 +64,8 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm disable com.topjohnwu.magisk
-		killall -9 com.vng.inputmethod.labankey
+		pm disable com.vng.inputmethod.labankey
+                pm enable com.vng.inputmethod.labankey
 		am start -a android.intent.action.MAIN -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity
 		pm disable com.termux
 	;;
@@ -90,7 +94,8 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm disable com.topjohnwu.magisk
-		killall -9 com.vng.inputmethod.labankey
+		pm disable com.vng.inputmethod.labankey
+                pm enable com.vng.inputmethod.labankey
 		am start -a android.intent.action.MAIN -n com.ustwo.monumentvalley2/com.ustwo.androidplugins.MainActivity
 		pm disable com.termux
 	;;
