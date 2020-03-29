@@ -11,7 +11,7 @@ read game
 case $game in
 	1)
 		sh /sdcard/Download/ext/temp/performance.sh
-        pm disable com.google.android.play.games
+                pm disable com.google.android.play.games
 		pm disable com.VCB
 		pm disable com.adguard.android
 		pm disable com.android.chrome
@@ -40,7 +40,7 @@ case $game in
 	2)
 		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
-        pm disable com.google.android.play.games
+                pm disable com.google.android.play.games
 		pm disable com.adguard.android
 		pm disable com.android.chrome
 		pm disable com.android.deskclock
@@ -66,9 +66,9 @@ case $game in
         pm disable com.termux
 	;;
 	3)
-        sh /sdcard/Download/ext/temp/performance.sh
+                sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
-        pm enzable com.google.android.play.games
+                pm enzable com.google.android.play.games
 		pm disable com.adguard.android
 		pm disable com.android.chrome
 		pm disable com.android.deskclock
@@ -95,7 +95,7 @@ case $game in
 	;;
 	4)
 		pm enable com.topjohnwu.magisk
-        pm disable com.google.android.play.games
+                pm disable com.google.android.play.games
 		pm enable com.adguard.android
 		pm enable com.android.chrome
 		pm enable com.android.deskclock
