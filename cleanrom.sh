@@ -11,7 +11,7 @@ else
 	echo "DỌN DẸP"
 	echo "1. Dọn dẹp rom đơn lẻ"
 	echo "2. Dọn dẹp tất cả"
-	echo "Nhập số từ 1-2 (nhấn kí tự x để thoát):"
+	echo "Nhập số từ 1-2 (nhấn kí tự x quay lại Menu):"
 	read clean
 	
 	case $clean in
@@ -22,11 +22,11 @@ else
 			cat /sdcard/Download/ext/temp/d1
 			rm /sdcard/Download/ext/temp/d1 2>/dev/null
 			echo "Chọn rom đã giải nén cần xóa:"
-			echo "Nhập số từ 1-$x: (nhấn kí tự x để thoát)"
+			echo "Nhập số từ 1-$x: (nhấn kí tự x để quay lại Menu)"
 			read c
 			if [[ $c == x ]]
 			then
-				echo "Thoát!!"
+				echo ""
 			else
 				sed -n "$c"p /sdcard/Download/ext/temp/d >> /sdcard/Download/ext/temp/rom$c
 				rm -rf /sdcard/Download/ext/`cat /sdcard/Download/ext/temp/rom$c`
@@ -45,7 +45,7 @@ else
 			done
 		;;
 		x)
-			echo "Bỏ qua!!"
+			echo ""
 		;;
 	esac
 fi
