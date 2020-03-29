@@ -73,7 +73,7 @@ case $game in
 		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.vng.pubgmobile
 		pm disable com.VCB
-		pm enzable com.google.android.play.games
+		pm enable com.google.android.play.games
 		pm disable com.adguard.android
 		pm disable com.android.chrome
 		pm disable com.android.deskclock
