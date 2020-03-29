@@ -8,6 +8,8 @@ rm /sdcard/Download/ext/temp/c4 2>/dev/null
 rm /sdcard/Download/ext/temp/c5 2>/dev/null
 rm /sdcard/Download/ext/temp/c6 2>/dev/null
 rm /sdcard/Download/ext/temp/c7 2>/dev/null
+rm /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm /sdcard/Download/ext/temp/system 2>/dev/null
 
 unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 aapt dump badging /data/app/com.google.android.contacts-*/base.apk > /sdcard/Download/ext/temp/c
@@ -127,6 +129,8 @@ rm /sdcard/Download/ext/temp/m4 2>/dev/null
 rm /sdcard/Download/ext/temp/m5 2>/dev/null
 rm /sdcard/Download/ext/temp/m6 2>/dev/null
 rm /sdcard/Download/ext/temp/m7 2>/dev/null
+rm /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm /sdcard/Download/ext/temp/system 2>/dev/null
 
 cd /sdcard/Download/ext/temp
 zip -r tweak-havoc-capricorn-q-part2.zip META-INF system
