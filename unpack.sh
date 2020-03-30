@@ -164,10 +164,10 @@ else
 			awk -v remove="$remove" '{print remove $0}' /sdcard/Download/ext/temp/remove2 > /sdcard/Download/ext/temp/remove3
 			bash /sdcard/Download/ext/temp/remove3 2>/dev/null
 			
-			echo `date +"%l:%M:%S %p ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 			rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 			rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 			
+
 			unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 			cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove4
 			awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=36 y=15 /sdcard/Download/ext/temp/remove4
