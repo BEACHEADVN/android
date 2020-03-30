@@ -146,4 +146,4 @@ then
 	mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part2.zip /sdcard
 fi
 
-#rm /sdcard/Download/ext/temp/confirm
+rm /sdcard/Download/ext/temp/confirm
