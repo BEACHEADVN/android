@@ -135,8 +135,6 @@ rm /sdcard/Download/ext/temp/m4 2>/dev/null
 rm /sdcard/Download/ext/temp/m5 2>/dev/null
 rm /sdcard/Download/ext/temp/m6 2>/dev/null
 rm /sdcard/Download/ext/temp/m7 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 if grep -Fxq "1" /sdcard/Download/ext/temp/confirm
 then
@@ -147,3 +145,5 @@ then
 fi
 
 rm /sdcard/Download/ext/temp/confirm
+rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
