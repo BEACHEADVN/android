@@ -16,7 +16,7 @@ case $game in
 		pm disable com.VCB
 		pm disable com.adguard.android
 		pm disable com.android.chrome
-		pm disable com.android.deskclock
+		pm disable com.google.android.deskclock
 		pm disable com.android.documentsui
 		pm disable com.epi
 		pm disable com.facebook.katana
@@ -47,7 +47,7 @@ case $game in
 		pm disable com.google.android.play.games
 		pm disable com.adguard.android
 		pm disable com.android.chrome
-		pm disable com.android.deskclock
+		pm disable com.google.android.deskclock
 		pm disable com.android.documentsui
 		pm disable com.epi
 		pm disable com.facebook.katana
@@ -78,7 +78,7 @@ case $game in
 		pm enable com.google.android.play.games
 		pm disable com.adguard.android
 		pm disable com.android.chrome
-		pm disable com.android.deskclock
+		pm disable com.google.android.deskclock
 		pm disable com.android.documentsui
 		pm disable com.epi
 		pm disable com.facebook.katana
@@ -108,7 +108,7 @@ case $game in
 		pm disable com.google.android.play.games
 		pm enable com.adguard.android
 		pm enable com.android.chrome
-		pm enable com.android.deskclock
+		pm enable com.google.android.deskclock
 		pm enable com.epi
 		pm enable com.facebook.katana
 		pm enable com.facebook.orca
