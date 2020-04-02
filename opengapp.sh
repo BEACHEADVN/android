@@ -41,7 +41,6 @@ then
 		echo "•Open gapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
 	fi
 else
-
 	echo "•Open gapps 10.0: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
