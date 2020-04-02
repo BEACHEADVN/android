@@ -16,3 +16,5 @@ echo deadline > /sys/block/sda/queue/scheduler
 echo 2048 > /sys/block/sda/queue/read_ahead_kb
 echo 35 > /proc/sys/vm/swappiness
 echo 1 > /sys/kernel/dyn_fsync/Dyn_fsync_active
+echo 3 > /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost
+echo 3 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
