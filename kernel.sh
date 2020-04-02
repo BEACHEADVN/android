@@ -63,7 +63,7 @@ cat /proc/meminfo > /sdcard/Download/ext/temp/swap
 swap_total=`cat /sdcard/Download/ext/temp/swap | grep "SwapTotal" | sed 's/[^0-9]*//g'`
 zram_total=`awk -v var1=$swap_total -v var2=1024 'BEGIN { print  ( var1 / var2 ) }'`
 
-swap_free=`cat /sdcard/Download/ext/temp/swap | grep "SwapFree" | sed 's/[^0-9]*//g'
+swap_free=`cat /sdcard/Download/ext/temp/swap | grep "SwapFree" | sed 's/[^0-9]*//g'`
 zram_free=`awk -v var1=$swap_free -v var2=1024 'BEGIN { print  ( var1 / var2 ) }'`
 
 zram_used=`awk -v var1=$zram_total -v var2=$zram_free 'BEGIN { print  ( var1 - var2 ) }'`
