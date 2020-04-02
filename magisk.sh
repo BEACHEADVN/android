@@ -69,6 +69,7 @@ else
 	echo "•Magisk Manager: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
+rm /sdcard/Download/ext/temp/mg 2>/dev/null
 rm /sdcard/Download/ext/temp/mg3 2>/dev/null
 
 
