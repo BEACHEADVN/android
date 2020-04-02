@@ -2,6 +2,7 @@
 
 function version {
 	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
+}
 
 rm /sdcard/Download/ext/temp/c 2>/dev/null
 rm /sdcard/Download/ext/temp/c1 2>/dev/null
@@ -14,8 +15,6 @@ a=`cat /sdcard/Download/ext/temp/c | grep "versionName" | sed "s+' platform.*++g
 unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 aapt dump badging /sdcard/Download/ext/temp/system/product/priv-app/Contacts/base.apk > /sdcard/Download/ext/temp/c1
 b=`cat /sdcard/Download/ext/temp/c1 | grep "versionName" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
-
-}
 
 if [ $(version $a) -gt $(version $b) ]
 then
