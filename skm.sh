@@ -7,7 +7,7 @@ wget -O - https://github.com/SmartPack/SmartPack-Kernel-Manager/releases > /sdca
 a=`cat /sdcard/Download/ext/temp/s | grep "Release tag:" | sed '1!d' | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 aapt dump badging /data/app/com.smartpack.kernelmanager*/base.apk > /sdcard/Download/ext/temp/s1 2>/dev/null
-if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/s2) ]]
+if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/s1) ]]
 then
 	aapt dump badging /sdcard/Download/com.smartpack.kernelmanager*.apk > /sdcard/Download/ext/temp/s1 2>/dev/null
 fi
