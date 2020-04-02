@@ -26,7 +26,7 @@ then
 		zip -r "tweak-havoc-capricorn-q-part1.zip" META-INF system
 		rm /sdcard/tweak-havoc-capricorn-q-part1.zip 2>/dev/null
 		mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part1.zip /sdcard
-		echo "•Desk_Clock_$b.apk --> Desk_Clock_$a.apk" >> /sdcard/Download/ext/temp/log
+		echo "•Desk_Clock-$b.apk --> Desk_Clock-$a.apk" >> /sdcard/Download/ext/temp/log
 	else
 		echo "•Desk Clock: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 	fi
