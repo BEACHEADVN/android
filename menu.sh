@@ -61,8 +61,8 @@ case $menu in
 				echo "9. Webview Google"
 				echo "10. X-plore Donate"
 				echo "11. Youtube Vanced"
-				echo "12. Google Contacts+Dialer+Message"
-				echo "13.Tất cả"
+				echo "12. Google Contacts + Dialer + Message"
+				echo "13. Tất cả"
 				echo "Nhập số từ 1-13 (nhấn x để quay lại Menu):"
 				read app
 				
