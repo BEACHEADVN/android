@@ -12,7 +12,7 @@ if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/g1) ]]
 then
 	b=0
 else
-	b=`cat /sdcard/Download/ext/temp/g2`
+	b=`cat /sdcard/Download/ext/temp/g1`
 fi
 
 if [ $a -gt $b ]
