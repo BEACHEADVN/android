@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm /sdcard/Download/ext/temp/d 2>/dev/null
+
 ls /sdcard/Download/ext > /sdcard/Download/ext/temp/d
 awk -i inplace '!/temp/' /sdcard/Download/ext/temp/d
 if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/d) ]]

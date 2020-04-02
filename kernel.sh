@@ -60,14 +60,10 @@ echo "-Read-ahead: `cat /sys/block/sda/queue/read_ahead_kb` kB"
 echo "•Vitural Memory:"
 echo "-Drop caches: `cat /proc/sys/vm/drop_caches`"
 cat /proc/meminfo > /sdcard/Download/ext/temp/swap
-grep "SwapTotal" /sdcard/Download/ext/temp/swap > /sdcard/Download/ext/temp/swap_total
-sed -i 's/[^0-9]*//g' /sdcard/Download/ext/temp/swap_total
-swap_total=`cat /sdcard/Download/ext/temp/swap_total`
+swap_total=`cat /sdcard/Download/ext/temp/swap | grep "SwapTotal" | sed 's/[^0-9]*//g'`
 zram_total=`awk -v var1=$swap_total -v var2=1024 'BEGIN { print  ( var1 / var2 ) }'`
 
-grep "SwapFree" /sdcard/Download/ext/temp/swap > /sdcard/Download/ext/temp/swap_free
-sed -i 's/[^0-9]*//g' /sdcard/Download/ext/temp/swap_free
-swap_free=`cat /sdcard/Download/ext/temp/swap_free`
+swap_free=`cat /sdcard/Download/ext/temp/swap | grep "SwapFree" | sed 's/[^0-9]*//g'
 zram_free=`awk -v var1=$swap_free -v var2=1024 'BEGIN { print  ( var1 / var2 ) }'`
 
 zram_used=`awk -v var1=$zram_total -v var2=$zram_free 'BEGIN { print  ( var1 - var2 ) }'`
