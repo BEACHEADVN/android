@@ -19,7 +19,7 @@ if [ $a -gt $b ]
 then
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://sourceforge.net/projects/opengapps/files/arm64/$a/open_gapps-arm64-10.0-pico-$a.zip
 	rm /sdcard/open_gapps-arm64-10.0-pico*.zip 2>/dev/null
-	mv -f sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip /sdcard
+	mv -f /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip /sdcard
 	if [ -f /sdcard/open_gapps-arm64-10.0-pico-$a.zip ]
 	then
 		md5sum /sdcard/open_gapps-arm64-10.0-pico-$a.zip | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}' > /sdcard/Download/ext/temp/md5sum1
