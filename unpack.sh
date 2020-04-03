@@ -137,10 +137,10 @@ else
 			
 			unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
 			cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove1
-			awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=37 y=19 /sdcard/Download/ext/temp/remove1
+			awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=36 y=19 /sdcard/Download/ext/temp/remove1
 			cat /sdcard/Download/ext/temp/remove1 | sort >> /sdcard/Download/ext/temp/remove2
 			
-			sed -n -e '1,37p' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/updater-script
+			sed -n -e '1,36p' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/updater-script
 			cat /sdcard/Download/ext/temp/remove2 >> /sdcard/Download/ext/temp/updater-script
 			tail -n19 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
 			rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
