@@ -20,6 +20,7 @@ then
 	download_link=`cat /sdcard/Download/ext/temp/g | grep "dl-android.com" | sed '1!d; s+apk.*+apk+g; s+^.*http+http+g'`
 	wget  -P /sdcard/Download/ext/temp "$download_link"
 	unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
+	rm /sdcard/Download/ext/temp/system/priv-app/Greenify/*
 	mv -f /sdcard/Download/ext/temp/Greenify*.apk /sdcard/Download/ext/temp/system/priv-app/Greenify
 	cd /sdcard/Download/ext/temp
 	zip -r "tweak-havoc-capricorn-q-part1.zip" META-INF system

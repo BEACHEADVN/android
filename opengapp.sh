@@ -18,12 +18,9 @@ fi
 if [ $a -gt $b ]
 then
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://sourceforge.net/projects/opengapps/files/arm64/$a/open_gapps-arm64-10.0-pico-$a.zip
-	rm /sdcard/open_gapps-arm64-10.0-pico*.zip 2>/dev/null
-	mv -f /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip /sdcard
-	if [ -f /sdcard/open_gapps-arm64-10.0-pico-$a.zip ]
+	if [ -f /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip ]
 	then
-		md5sum /sdcard/open_gapps-arm64-10.0-pico-$a.zip | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}' > /sdcard/Download/ext/temp/md5sum1
-		md5sum1=`cat /sdcard/Download/ext/temp/md5sum1`
+		md5sum1=`md5sum /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}'`
 		wget --no-check-certificate  -P /sdcard/Download/ext/temp https://sourceforge.net/projects/opengapps/files/arm64/$a/open_gapps-arm64-10.0-pico-$a.zip.md5
 		md5sum2=`cat /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip.md5 | awk '{print substr($0,0,32)}'`
 		if [ "$md5sum1" = "$md5sum2" ]
@@ -34,11 +31,15 @@ then
 			else
 			    echo "•open_gapps-arm64-10.0-pico-$b.zip --> open_gapps-arm64-10.0-pico-$a.zip" >> /sdcard/Download/ext/temp/log
 			fi
+			rm /sdcard/open_gapps-arm64-10.0-pico*.zip 2>/dev/null
+			mv -f /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip /sdcard
 		else
 		    echo "•Open gapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
+			rm /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip
 		fi
 	else
 		echo "•Open gapps 10.0: Lỗi tải xuống." >> /sdcard/Download/ext/temp/log
+		rm /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip
 	fi
 else
 	echo "•Open gapps 10.0: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
@@ -46,5 +47,4 @@ fi
 
 rm /sdcard/Download/ext/temp/g 2>/dev/null
 rm /sdcard/Download/ext/temp/g1 2>/dev/null
-rm /sdcard/Download/ext/temp/md5sum1 2>/dev/null
 rm /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip.md5 2>/dev/null

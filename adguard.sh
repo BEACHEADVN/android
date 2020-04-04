@@ -16,9 +16,9 @@ function version {
 if [ $(version $a) -gt $(version $b) ]
 then
 	download_link=`cat /sdcard/Download/ext/temp/a | grep "dl-android.com" | sed '1!d; s+apk.*+apk+g; s+^.*http+http+g'`
-	wget  -P /sdcard/Download "$download_link"
-	pm install /sdcard/Download/adguard*.apk 2>/dev/null
-	rm /sdcard/Download/adguard*.apk 2>/dev/null
+	wget  -P /sdcard/Download/ext/temp "$download_link"
+	pm install /sdcard/Download/ext/temp/adguard*.apk 2>/dev/null
+	rm /sdcard/Download/ext/temp/adguard*.apk 2>/dev/null
 	echo "•Adguard v$b --> Adguard v$a" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Adguard: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log

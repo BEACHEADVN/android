@@ -16,9 +16,9 @@ function version {
 if [ $(version $a) -gt $(version $b) ]
 then
 	download_link=`cat /sdcard/Download/ext/temp/t | grep "dl-android.com" | sed '1!d; s+apk.*+apk+g; s+^.*http+http+g'`
-	wget  -P /sdcard/Download "$download_link"
-	pm install /sdcard/Download/titanium*.apk 2>/dev/null
-	rm /sdcard/Download/titanium*.apk 2>/dev/null
+	wget  -P /sdcard/Download/ext/temp "$download_link"
+	pm install /sdcard/Download/ext/temp/titanium*.apk 2>/dev/null
+	rm /sdcard/Download/ext/temp/titanium*.apk 2>/dev/null
 	echo "•Titanium Backup Pro v$b -->Titanium Backup Pro v$a" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Titanium Backup Pro: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
