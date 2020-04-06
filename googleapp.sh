@@ -60,8 +60,8 @@ rm /sdcard/Download/ext/temp/m 2>/dev/null
 rm /sdcard/Download/ext/temp/m1 2>/dev/null
 
 aapt dump badging /data/app/com.google.android.apps.messaging-*/base.apk > /sdcard/Download/ext/temp/m
-b=`cat /sdcard/Download/ext/temp/m | grep "versionCode" | sed "s+' versionName.*++g; s+package: name='com.google.android.apps.messaging' versionCode='++g"`
-d=`cat /sdcard/Download/ext/temp/m | grep "versionCode" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
+a=`cat /sdcard/Download/ext/temp/m | grep "versionCode" | sed "s+' versionName.*++g; s+package: name='com.google.android.apps.messaging' versionCode='++g"`
+c=`cat /sdcard/Download/ext/temp/m | grep "versionCode" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
 
 aapt dump badging /sdcard/Download/ext/temp/system/product/app/messaging/base.apk > /sdcard/Download/ext/temp/m1
 b=`cat /sdcard/Download/ext/temp/m1 | grep "versionCode" | sed "s+' versionName.*++g; s+package: name='com.google.android.apps.messaging' versionCode='++g"`
