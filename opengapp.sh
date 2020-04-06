@@ -8,14 +8,13 @@ a=`cat /sdcard/Download/ext/temp/g | grep "Click to enter" | sed '1!d; s+[^0-9]*
 
 find /storage/emulated/0 -name "open_gapps-arm64-10.0-pico-*" > /sdcard/Download/ext/temp/g1
 sed -i 's+/storage/emulated/0/open_gapps-arm64-10.0-pico-++g; s+.zip++g' /sdcard/Download/ext/temp/g1
-if [[ -z $(grep '[^[:space:]]' /sdcard/Download/ext/temp/g1) ]]
-then
-	b=0
-else
-	b=`cat /sdcard/Download/ext/temp/g1`
-fi
+b=`cat /sdcard/Download/ext/temp/g1`
 
-if [ $a -gt $b ]
+function version {
+	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
+}
+
+if [ $(version $a) -gt $(version $b) ]
 then
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://sourceforge.net/projects/opengapps/files/arm64/$a/open_gapps-arm64-10.0-pico-$a.zip
 	if [ -f /sdcard/Download/ext/temp/open_gapps-arm64-10.0-pico-$a.zip ]
