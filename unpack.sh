@@ -115,6 +115,8 @@ else
 	rm /sdcard/Download/ext/temp/vendor.transfer.list 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
 	
+	bash /sdcard/Download/ext/temp/debloat.sh
+	
 	echo "Debloat ?"
 	echo "1. Có"
 	echo "2. Không"
