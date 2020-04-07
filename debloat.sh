@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 rm /sdcard/Download/ext/temp/r 2>/dev/null
