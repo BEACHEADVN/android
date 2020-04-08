@@ -4,7 +4,7 @@ rm /sdcard/Download/ext/temp/g 2>/dev/null
 rm /sdcard/Download/ext/temp/g1 2>/dev/null
 
 wget --no-check-certificate -O - https://sourceforge.net/projects/opengapps/files/arm64 > /sdcard/Download/ext/temp/g
-a=`cat /sdcard/Download/ext/temp/g | grep "Click to enter" | sed 's+[^0-9]*++g' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}'``
+a=`cat /sdcard/Download/ext/temp/g | grep "Click to enter" | sed 's+[^0-9]*++g' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}'`
 
 find /storage/emulated/0 -name "open_gapps-arm64-10.0-pico-*" > /sdcard/Download/ext/temp/g1
 sed -i 's+/storage/emulated/0/open_gapps-arm64-10.0-pico-++g; s+.zip++g' /sdcard/Download/ext/temp/g1
