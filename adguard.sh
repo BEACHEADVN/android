@@ -3,8 +3,8 @@
 rm /sdcard/Download/ext/temp/a 2>/dev/null
 rm /sdcard/Download/ext/temp/a1 2>/dev/null
 
-wget -O - https://dl-android.com/p/index.php?id=adguard-apk > /sdcard/Download/ext/temp/a
-a=`cat /sdcard/Download/ext/temp/a | grep "Download Free Adguard" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+wget -O - https://a2zapk.com/Search/Adguard/user=akJ1bUhJZ3dKcmVIR2FXWmdpTmNJUnB1emxxTzZqLzlxKzdvemZLQnN0UE9SMi84V2c5bkxUdVRZZ1FBcUNEdlZrTEhEU0hnbEp5WGhQeXo4aWZteXc9PQ==/ > /sdcard/Download/ext/temp/a
+a=`cat /sdcard/Download/ext/temp/a | grep "Adguard - Block Ads Without Root" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}'`
 
 aapt dump badging /data/app/com.adguard.android*/*.apk > /sdcard/Download/ext/temp/a1
 b=`cat /sdcard/Download/ext/temp/a1 | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
@@ -15,11 +15,26 @@ function version {
 
 if [ $(version $a) -gt $(version $b) ]
 then
-	download_link=`cat /sdcard/Download/ext/temp/a | grep "dl-android.com" | sed '1!d; s+apk.*+apk+g; s+^.*http+http+g'`
-	wget  -P /sdcard/Download/ext/temp "$download_link"
-	pm install /sdcard/Download/ext/temp/adguard*.apk 2>/dev/null
-	rm /sdcard/Download/ext/temp/adguard*.apk 2>/dev/null
-	echo "•Adguard v$b --> Adguard v$a" >> /sdcard/Download/ext/temp/log
+	clear
+	echo "Adguard Premium có bản cập nhật mới."
+	echo "•Adguard Premium: Có bản cập nhật mới." >> /sdcard/Download/ext/temp/log
+	echo "Bạn muốn tải Adguard Premium?"
+	echo "1. Có"
+	echo "2. Không"
+	read choose
+
+	case $choose in
+		1)
+			a=`echo ${a//./-}`
+			url=`cat /sdcard/Download/ext/temp/a | grep "href" | grep "premium-mod-a2z.html" | sed '/nightly/d' | grep $a | sed 's+" title="Adguard - Block Ads Without Root">++g; s+<a href="+https://a2zapk.com/+g'`
+			am start -n com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity -d $url --activity-clear-task
+		;;
+		2)
+			echo ""
+		;;
+	esac
+else
+	echo "•Adguard Premium: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 else
 	echo "•Adguard: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
