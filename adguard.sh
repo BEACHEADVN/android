@@ -35,8 +35,6 @@ then
 	esac
 else
 	echo "•Adguard Premium: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
-else
-	echo "•Adguard: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
 rm /sdcard/Download/ext/temp/a 2>/dev/null
