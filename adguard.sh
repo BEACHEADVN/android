@@ -26,7 +26,7 @@ then
 	case $choose in
 		1)
 			a=`echo ${a//./-}`
-			url=`cat /sdcard/Download/ext/temp/a | grep "href" | grep "premium-mod-a2z.html" | sed '1!d' | grep $a | sed 's+" title="Adguard - Block Ads Without Root">++g; s+<a href="+https://a2zapk.com/+g'`
+			url=`cat /sdcard/Download/ext/temp/a | grep "href" | grep "premium-mod-a2z.html" | sed '/Lite/d; 1!d' | grep $a | sed 's+" title="Adguard - Block Ads Without Root">++g; s+<a href="+https://a2zapk.com/+g'`
 			am start -n com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity -d $url --activity-clear-task
 		;;
 		2)
