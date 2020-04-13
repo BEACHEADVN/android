@@ -28,10 +28,10 @@ rm /sdcard/Download/ext/temp/y1 2>/dev/null
 rm /sdcard/Download/ext/temp/m 2>/dev/null
 rm /sdcard/Download/ext/temp/m1 2>/dev/null
 
-b=`cat /sdcard/Download/ext/temp/y | grep "microg_YouTube_Vanced" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+a=`cat /sdcard/Download/ext/temp/y | grep "microg_YouTube_Vanced" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 aapt dump badging /data/app/com.mgoogle.android.gms*/*.apk > /sdcard/Download/ext/temp/m
-a=`cat /sdcard/Download/ext/temp/m | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+b=`cat /sdcard/Download/ext/temp/m | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 if [ $(version $a) -gt $(version $b) ]
 then
