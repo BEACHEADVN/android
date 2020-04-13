@@ -9,7 +9,7 @@ wget -O - https://dl-android.com/p/index.php?id=greenify-apk > /sdcard/Download/
 a=`cat /sdcard/Download/ext/temp/g | grep "Download Free Greenify" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 aapt dump badging /system/priv-app/Greenify/*.apk > /sdcard/Download/ext/temp/g1
-b=`cat /sdcard/Download/ext/temp/g1 | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+b=`cat /sdcard/Download/ext/temp/g1 | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 function version {
 	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
