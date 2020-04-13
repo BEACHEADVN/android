@@ -7,7 +7,7 @@ wget -O - https://vanced.app > /sdcard/Download/ext/temp/y
 a=`cat /sdcard/Download/ext/temp/y | grep "YouTube_Vanced-v" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 aapt dump badging /data/app/com.vanced.android.youtube*/base.apk > /sdcard/Download/ext/temp/y1
-b=`cat /sdcard/Download/ext/temp/y1 | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+b=`cat /sdcard/Download/ext/temp/y1 | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 
 function version {
 	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
@@ -31,7 +31,7 @@ rm /sdcard/Download/ext/temp/m1 2>/dev/null
 a=`cat /sdcard/Download/ext/temp/y | grep "microg_YouTube_Vanced" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 aapt dump badging /data/app/com.mgoogle.android.gms*/*.apk > /sdcard/Download/ext/temp/m
-b=`cat /sdcard/Download/ext/temp/m | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+b=`cat /sdcard/Download/ext/temp/m | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 
 if [ $(version $a) -gt $(version $b) ]
 then
