@@ -17,7 +17,7 @@ if [ $(version $a) -gt $(version $b) ]
 then
 	clear
 	echo "Adguard Premium có bản cập nhật mới."
-	echo "•Adguard Premium: Có bản cập nhật mới." >> /sdcard/Download/ext/temp/log
+	echo "•Adguard Premium: Có bản cập nhật mới: $a" >> /sdcard/Download/ext/temp/log
 	echo "Bạn muốn tải Adguard Premium?"
 	echo "1. Có"
 	echo "2. Không"
