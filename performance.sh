@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+echo 0 > /sys/kernel/msm_thermal/enabled
 chmod 777 /sys/devices/system/cpu/cpu0/cpufreq/*
 echo 1996800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo 307200 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
