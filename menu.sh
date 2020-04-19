@@ -61,9 +61,8 @@ case $menu in
 				echo "9. Webview Google"
 				echo "10. X-plore Donate"
 				echo "11. Youtube Vanced"
-				echo "12. Google Contacts + Dialer + Message"
-				echo "13. Tất cả"
-				echo "Nhập số từ 1-13 (nhấn x để quay lại Menu):"
+				echo "12. Tất cả"
+				echo "Nhập số từ 1-12 (nhấn x để quay lại Menu):"
 				read app
 				
 				case $app in
@@ -134,12 +133,6 @@ case $menu in
 						bash /sdcard/Download/ext/temp/youtube.sh
 					;;
 					12)
-						echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-						sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
-						sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
-						bash /sdcard/Download/ext/temp/googleapp.sh
-					;;
-					13)
 						echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
 						sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
