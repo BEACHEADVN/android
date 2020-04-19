@@ -26,3 +26,4 @@ echo 128 > /sys/block/sda/queue/read_ahead_kb
 sync
 echo 3 > /proc/sys/vm/drop_caches
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active
+echo 1 > /sys/kernel/msm_thermal/enabled
