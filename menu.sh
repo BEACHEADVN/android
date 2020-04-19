@@ -137,7 +137,6 @@ case $menu in
 						sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
 						sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/adguard.sh
-						bash /sdcard/Download/ext/temp/googleapp.sh
 						bash /sdcard/Download/ext/temp/clock.sh
 						bash /sdcard/Download/ext/temp/greenify.sh
 						bash /sdcard/Download/ext/temp/lawnchair.sh
