@@ -34,19 +34,12 @@ echo "•GPU:"
 echo "-GPU Governor: `cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`"
 
 echo "•THERMAL:"
-a=`cat /sys/module/msm_thermal/core_control/enabled`
+a=`cat /sys/kernel/msm_thermal/enabled`
 if [ $a  == 1 ]
 then
-	echo "-Core Control: On"
+	echo "-Thermal Control: On"
 else
-	echo "-Core Control: Off"
-fi
-a=`cat /sys/module/msm_thermal/parameters/enabled`
-if [ $a  == Y ]
-then
-	echo "-Temperature Throttle: On"
-else
-	echo "-Temperature Throttle: Off"
+	echo "-Thermal Control: Off"
 fi
 
 echo "•I/O Scheduler:"
