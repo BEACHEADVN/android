@@ -23,7 +23,7 @@ echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu3/cpufreq/scalin
 echo "   Governor: `cat /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor`"
 
 echo "-CPU Boost:"
-echo "   Input Interval: `cat /sys/module/cpu_boost/parameters/input_boost_ms` ms"
+echo "   Input Boost Duration: `cat /sys/module/cpu_input_boost/parameters/input_boost_duration` ms"
 echo "   Input Boost Frequency:"
 echo "      Core 1: `cat /sys/module/cpu_boost/parameters/input_boost_freq | sed 's+ 1:.*++g; s+0:++g'` MHz"
 echo "      Core 2: `cat /sys/module/cpu_boost/parameters/input_boost_freq | sed 's+ 2:.*++g; s+^.*1:++g'` MHz"
