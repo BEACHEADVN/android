@@ -21,9 +21,7 @@ echo 307200 > /sys/module/cpu_input_boost/parameters/input_boost_freq_lp
 echo 307200 > /sys/module/cpu_input_boost/parameters/input_boost_freq_hp
 echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor
 echo noop > /sys/block/sda/queue/scheduler
-echo 10 > /sys/module/cpu_input_boost/parameters/input_boost_duration
+echo 5 > /sys/module/cpu_input_boost/parameters/input_boost_duration
 echo 128 > /sys/block/sda/queue/read_ahead_kb
-sync
-echo 3 > /proc/sys/vm/drop_caches
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active
 echo 1 > /sys/kernel/msm_thermal/enabled
