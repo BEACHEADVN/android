@@ -61,8 +61,10 @@ case $menu in
 				echo "9. Webview Google"
 				echo "10. X-plore Donate"
 				echo "11. Youtube Vanced"
-				echo "12. Tất cả"
-				echo "Nhập số từ 1-12 (nhấn x để quay lại Menu):"
+				echo "12. Google Apps"
+				echo "13. Havoc rom"
+				echo "14. Tất cả"
+				echo "Nhập số từ 1-13 (nhấn x để quay lại Menu):"
 				read app
 				
 				case $app in
@@ -136,8 +138,21 @@ case $menu in
 						echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 						sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
 						sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/googleapps.sh
+					;;
+					13)
+						echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
+						sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
+						bash /sdcard/Download/ext/temp/havoc.sh
+					;;
+					14)
+						echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+						sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
+						sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
 						bash /sdcard/Download/ext/temp/adguard.sh
 						bash /sdcard/Download/ext/temp/clock.sh
+						bash /sdcard/Download/ext/temp/googleapps.sh
 						bash /sdcard/Download/ext/temp/greenify.sh
 						bash /sdcard/Download/ext/temp/lawnchair.sh
 						bash /sdcard/Download/ext/temp/magisk.sh
