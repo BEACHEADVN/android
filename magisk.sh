@@ -75,7 +75,7 @@ rm /sdcard/Download/ext/temp/mg3 2>/dev/null
 
 rm /sdcard/Download/ext/temp/b 2>/dev/null
 rm /sdcard/Download/ext/temp/b1 2>/dev/null
-rmdir /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
 
 wget --no-check-certificate -O - https://github.com/Magisk-Modules-Repo/busybox-ndk/blob/master/module.prop> /sdcard/Download/ext/temp/b
 a=`cat /sdcard/Download/ext/temp/b | grep "blob-code blob-code-inner js-file-line" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
@@ -92,7 +92,7 @@ function download {
 	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 	cat /sdcard/Download/ext/temp/Magisk-master/scripts/module_installer.sh > /sdcard/Download/ext/temp/update-binary
 	rm /sdcard/Download/ext/temp/master.zip
-	rmdir /sdcard/Download/ext/temp/Magisk-master
+	rm -rf /sdcard/Download/ext/temp/Magisk-master
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Magisk-Modules-Repo/busybox-ndk/archive/master.zip
 	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 	rm /sdcard/Download/ext/temp/master.zip
@@ -120,7 +120,7 @@ fi
 
 rm /sdcard/Download/ext/temp/b 2>/dev/null
 rm /sdcard/Download/ext/temp/b1 2>/dev/null
-rmdir /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/busybox-ndk-master 2>/dev/null
 
 
 rm /sdcard/Download/ext/temp/w 2>/dev/null
@@ -142,7 +142,7 @@ function download {
 		unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 		cat /sdcard/Download/ext/temp/Magisk-master/scripts/module_installer.sh > /sdcard/Download/ext/temp/update-binary
 		rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
-		rmdir /sdcard/Download/ext/temp/Magisk-master
+		rm -rf /sdcard/Download/ext/temp/Magisk-master
 		wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Magisk-Modules-Repo/wifi-bonding/archive/master.zip
 		unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
 		rm /sdcard/Download/ext/temp/master.zip 2>/dev/null
