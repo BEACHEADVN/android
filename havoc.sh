@@ -16,7 +16,7 @@ then
 	rom_cloud=`cat /sdcard/Download/ext/temp/r | grep "Havoc-OS" | grep "href" | sed '1!d; /GApps/d; s+<a href="/projects/henma-p/storage/capricorn/++g; s+">++g'`
 	rom_local=`find /storage/emulated/0 -maxdepth 1 -type f -name "Havoc-OS*" | sed 's+/storage/emulated/0/++g'`
 	download_link=`cat /sdcard/Download/ext/temp/r | grep "Havoc-OS" | grep "href" | sed '/GApps/d' | sed 's+^.*href="+https://osdn.net+g; s+">++g'`
-	wget -P /sdcard "$download_link"
+	wget -P /sdcard/Download/ext/temp "$download_link"
 	echo "•$rom_local --> $rom_cloud" >> /sdcard/Download/ext/temp/log
 else
 	echo "•Havoc OS: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
