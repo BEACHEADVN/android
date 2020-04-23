@@ -7,7 +7,11 @@ a=`cat /sdcard/Download/ext/temp/r | grep "Havoc-OS" | grep "href" | sed '/GApps
 
 b=`find /storage/emulated/0 -maxdepth 1 -type f -name "Havoc-OS*" | grep -Eo '[0-9]+' | sort -rn | head -n 1`
 
-if [ $a -gt $b [
+function version {
+	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
+}
+
+if [ $(version $a) -gt $(version $b) ]
 then
 	rom_cloud=`cat /sdcard/Download/ext/temp/r | grep "Havoc-OS" | grep "href" | sed '1!d; /GApps/d; s+<a href="/projects/henma-p/storage/capricorn/++g; s+">++g'`
 	rom_local=`find /storage/emulated/0 -maxdepth 1 -type f -name "Havoc-OS*" | sed 's+/storage/emulated/0/++g'`
