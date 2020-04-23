@@ -38,7 +38,7 @@ case $menu in
 		sh /sdcard/Download/ext/temp/performance.sh
 		echo "HỆ THỐNG"
 		echo "1. Tùy biến"
-		echo "2. Kiểm tra cập nhật ứng dụng"
+		echo "2. Kiểm tra cập nhật"
 		echo "Nhập số từ 1-2 (nhấn x để quay lại Menu):"
 		read system
 		
@@ -49,7 +49,7 @@ case $menu in
 			;;
 			2)
 				clear
-				echo "KIỂM TRA CẬP NHẬT ỨNG DỤNG"
+				echo "KIỂM TRA CẬP NHẬT"
 				echo "1. AdGuard Premium"
 				echo "2. Google Clock"
 				echo "3. Greenify"
