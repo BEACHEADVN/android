@@ -36,6 +36,7 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm enable com.garena.game.kgvn
+		pm disable com.facebook.games
 		pm enable com.vng.inputmethod.labankey
 		am start -a android.intent.action.MAIN -n com.garena.game.kgvn/com.garena.game.kgtw.BlankActivity
 		pm disable com.termux
@@ -68,12 +69,14 @@ case $game in
 		pm disable org.telegram.messenger
 		pm enable com.vng.inputmethod.labankey
 		pm enable com.vng.pubgmobile
+		pm disable com.facebook.games
 		am start -a android.intent.action.MAIN -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity
 		pm disable com.termux
 	;;
 	3)
 		sh /sdcard/Download/ext/temp/performance.sh
 		pm disable com.VCB
+		pm disable com.facebook.games
 		pm disable com.adguard.android
 		pm disable com.android.chrome
 		pm disable com.android.documentsui
@@ -110,6 +113,7 @@ case $game in
 		pm enable com.adguard.android
 		pm enable com.android.chrome
 		pm enable com.epi
+		pm enable com.facebook.games
 		pm enable com.facebook.katana
 		pm enable com.facebook.orca
 		pm enable com.google.android.deskclock
