@@ -14,10 +14,8 @@ then
 	download_link=`cat /sdcard/Download/ext/temp/r | grep "Havoc-OS" | grep "href" | sed '/GApps/d' | sed 's+^.*href="+https://osdn.net+g; s+">++g'`
 	wget -P /sdcard "$download_link"
 	echo "•$rom_cloud --> $rom_local" >> /sdcard/Download/ext/temp/log
-fi
 else
 	echo "•Havoc OS: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
-fi
 fi
 
 rm -rf /sdcard/Download/ext/temp/r 2>/dev/null
