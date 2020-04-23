@@ -63,7 +63,7 @@ case $menu in
 				echo "11. Youtube Vanced"
 				echo "12. Google Apps"
 				echo "13. Havoc rom"
-				echo "14. Tất cả"
+				echo "14. Tất cả (trừ kiểm tra Havoc rom)"
 				echo "Nhập số từ 1-13 (nhấn x để quay lại Menu):"
 				read app
 				
