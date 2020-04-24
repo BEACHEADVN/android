@@ -171,3 +171,30 @@ fi
 rm /sdcard/Download/ext/temp/w 2>/dev/null
 rm /sdcard/Download/ext/temp/w1 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
+
+
+rm -rf /sdcard/Download/ext/temp/Jancox-tool-android-master 2>/dev/null
+
+a=`wget --no-check-certificate -O - https://github.com/Wahyu6070/Jancox-tool-android/blob/master/module.prop | grep "blob-code blob-code-inner js-file-line" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+
+b=`find /storage/emulated/0 -name "Jancox-Tool-Android*.zip" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+
+function version {
+	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
+}
+
+if [ $(version $a) -gt $(version $b) ]
+then
+	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://github.com/Wahyu6070/Jancox-tool-android/archive/master.zip
+	unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
+	rm /sdcard/Download/ext/temp/master.zip
+	cd /sdcard/Download/ext/temp/Jancox-tool-android-master
+	zip -r "Jancox-Tool-Android-v$a.zip" bin META-INF system changelog README.md module.prop customize.sh uninstall.sh
+	rm /sdcard/Jancox-Tool-Android*.zip 2>/dev/null
+	mv /sdcard/Download/ext/temp/Jancox-tool-android-master/"Jancox-Tool-Android-v$a.zip" /sdcard
+	echo "•Jancox-Tool-Android-v$b.zip --> Jancox-Tool-Android-v$a.zip" >> /sdcard/Download/ext/temp/log
+else
+	echo "•Jancox-Tool-Android: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
+fi
+
+rm -rf /sdcard/Download/ext/temp/Jancox-tool-android-master 2>/dev/null
