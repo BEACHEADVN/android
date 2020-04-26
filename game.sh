@@ -3,7 +3,7 @@
 echo "GAME "
 echo "1. Liên quân Mobile"
 echo "2. PUBG Mobile VN"
-echo "3. Monument Vallley 2"
+echo "3. Call of Duty Mobile VN"
 echo "4. Phục hồi"
 echo "Nhập số từ 1-4 (nhấn x để quay lại Menu):"
 read game
@@ -29,7 +29,7 @@ case $game in
 		pm disable com.rhmsoft.edit
 		pm disable com.topjohnwu.magisk
 		pm disable com.topjohnwu.magisk
-		pm disable com.ustwo.monumentvalley2
+		pm disable com.vng.codmvn
 		pm disable com.vanced.android.youtube
 		pm disable com.vng.inputmethod.labankey
 		pm disable com.vng.pubgmobile
@@ -62,7 +62,7 @@ case $game in
 		pm disable com.rhmsoft.edit
 		pm disable com.topjohnwu.magisk
 		pm disable com.topjohnwu.magisk
-		pm disable com.ustwo.monumentvalley2
+		pm disable com.vng.codmvn
 		pm disable com.vanced.android.youtube
 		pm disable com.vng.inputmethod.labankey
 		pm disable g7.lockscreenroot
@@ -108,7 +108,7 @@ case $game in
 	4)
 		pm disable com.garena.game.kgvn
 		pm disable com.google.android.play.games
-		pm disable com.ustwo.monumentvalley2
+		pm disable com.vng.codmvn
 		pm disable com.vng.pubgmobile
 		pm enable com.adguard.android
 		pm enable com.android.chrome
