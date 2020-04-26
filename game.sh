@@ -19,7 +19,6 @@ case $game in
 		pm disable com.facebook.katana
 		pm disable com.facebook.orca
 		pm disable com.google.android.deskclock
-		pm disable com.google.android.play.games
 		pm disable com.google.android.youtube
 		pm disable com.keramidas.TitaniumBackup
 		pm disable com.keramidas.TitaniumBackupAddon
@@ -52,7 +51,6 @@ case $game in
 		pm disable com.facebook.orca
 		pm disable com.garena.game.kgvn
 		pm disable com.google.android.deskclock
-		pm disable com.google.android.play.games
 		pm disable com.google.android.youtube
 		pm disable com.keramidas.TitaniumBackup
 		pm disable com.keramidas.TitaniumBackupAddon
@@ -99,7 +97,6 @@ case $game in
 		pm disable com.vng.pubgmobile
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
-		pm enable com.google.android.play.games
 		pm enable com.ustwo.monumentvalley2
 		pm enable com.vng.inputmethod.labankey
 		am start -a android.intent.action.MAIN -n com.vng.codmvn/com.tencent.tmgp.cod.CODMainActivity
@@ -107,7 +104,6 @@ case $game in
 	;;
 	4)
 		pm disable com.garena.game.kgvn
-		pm disable com.google.android.play.games
 		pm disable com.vng.codmvn
 		pm disable com.vng.pubgmobile
 		pm enable com.adguard.android
