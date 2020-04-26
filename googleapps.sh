@@ -9,7 +9,7 @@ rm /sdcard/Download/ext/temp/c1 2>/dev/null
 rm /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm /sdcard/Download/ext/temp/system 2>/dev/null
 
-unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
+unzip -qq -o /sdcard/tweaktweak-evolutionx-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 
 aapt dump badging /data/app/com.google.android.contacts-*/base.apk > /sdcard/Download/ext/temp/c
 a=`cat /sdcard/Download/ext/temp/c | grep "versionName" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
@@ -85,9 +85,9 @@ rm /sdcard/Download/ext/temp/m1 2>/dev/null
 if grep -Fxq "1" /sdcard/Download/ext/temp/confirm
 then
 	cd /sdcard/Download/ext/temp
-	zip -r tweak-havoc-capricorn-q-part2.zip META-INF system
-	rm /sdcard/tweak-havoc-capricorn-q-part2.zip
-	mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part2.zip /sdcard
+	zip -r tweaktweak-evolutionx-capricorn-q-part2.zip META-INF system
+	rm /sdcard/tweaktweak-evolutionx-capricorn-q-part2.zip
+	mv -f /sdcard/Download/ext/temp/tweaktweak-evolutionx-capricorn-q-part2.zip /sdcard
 fi
 
 rm /sdcard/Download/ext/temp/confirm
