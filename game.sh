@@ -102,7 +102,7 @@ case $game in
 		pm enable com.google.android.play.games
 		pm enable com.ustwo.monumentvalley2
 		pm enable com.vng.inputmethod.labankey
-		am start -a android.intent.action.MAIN -n com.ustwo.monumentvalley2/com.ustwo.androidplugins.MainActivity
+		am start -a android.intent.action.MAIN -n com.vng.codmvn/com.tencent.tmgp.cod.CODMainActivity
 		pm disable com.termux
 	;;
 	4)
