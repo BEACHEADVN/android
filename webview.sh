@@ -7,12 +7,10 @@ rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 if [ -d /data/app/com.google.android.webview-* ]
 then
-	aapt dump badging /data/app/com.google.android.webview-*/base.apk > /sdcard/Download/ext/temp/w
-	a=`cat /sdcard/Download/ext/temp/w | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+	a=`aapt dump badging /data/app/com.google.android.webview-*/base.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 	
 	unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
-	aapt dump badging /sdcard/Download/ext/temp/system/product/app/webview/*.apk > /sdcard/Download/ext/temp/w1
-	b=`cat /sdcard/Download/ext/temp/w1 | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+	b=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/webview/*.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 	
 	function version {
 		echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
