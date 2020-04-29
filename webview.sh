@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm /sdcard/Download/ext/temp/w 2>/dev/null
-rm /sdcard/Download/ext/temp/w1 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
@@ -26,11 +24,9 @@ then
 		mv -f /sdcard/Download/ext/temp/tweak-havoc-capricorn-q-part2.zip /sdcard
 		echo "•Webview-$b.apk --> Webview-$a.apk" >> /sdcard/Download/ext/temp/log
 	else
-		echo "•Web view: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
+		echo "•Webview Google: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 	fi
 fi
 
-rm /sdcard/Download/ext/temp/w 2>/dev/null
-rm /sdcard/Download/ext/temp/w1 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
