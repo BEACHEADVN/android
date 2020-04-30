@@ -1,19 +1,13 @@
 #!/bin/bash
 
-rm /sdcard/Download/ext/temp/c 2>/dev/null
-rm /sdcard/Download/ext/temp/c1 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 if [ -d /data/app/com.google.android.deskclock-* ]
 then
-	aapt dump badging /data/app/com.google.android.deskclock-*/base.apk > /sdcard/Download/ext/temp/c
-	a=`cat /sdcard/Download/ext/temp/c | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
-	
+	a=`aapt dump badging /data/app/com.google.android.deskclock-*/base.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 	unzip -qq -o /sdcard/tweak-havoc-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
-	aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk > /sdcard/Download/ext/temp/c1
-	b=`cat /sdcard/Download/ext/temp/c1 | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
-	
+	b=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 	function version {
 		echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
 	}
@@ -32,7 +26,5 @@ then
 	fi
 fi
 
-rm /sdcard/Download/ext/temp/c 2>/dev/null
-rm /sdcard/Download/ext/temp/c1 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
