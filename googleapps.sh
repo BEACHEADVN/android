@@ -4,7 +4,7 @@ function version {
 	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
 }
 
-rm /sdcard/Download/ext/temp/confirm
+rm /sdcard/Download/ext/temp/confirm 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
