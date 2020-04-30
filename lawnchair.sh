@@ -2,14 +2,10 @@
 
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
-rm /sdcard/Download/ext/temp/l 2>/dev/null
-rm /sdcard/Download/ext/temp/l1 2>/dev/null
 
-wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ > /sdcard/Download/ext/temp/l
-a=`cat /sdcard/Download/ext/temp/l | grep "arm64-v8a" | sed '1!d; s+-arm64.*++g; s+^.*alpha-++g'`
+a=`wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ | grep "arm64-v8a" | sed '1!d; s+-arm64.*++g; s+^.*alpha-++g'`
 
-aapt dump badging /system/priv-app/Lawnchair/*.apk > /sdcard/Download/ext/temp/l1
-b=`cat /sdcard/Download/ext/temp/l1 | grep "versionCode" | sed "s+^.*Code='++g; s+' versionName.*++g"`
+b=`aapt dump badging /system/priv-app/Lawnchair/*.apk | grep "versionCode" | sed "s+^.*Code='++g; s+' versionName.*++g"`
 
 if [ $a -gt $b ]
 then
@@ -35,5 +31,3 @@ fi
 
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
-rm /sdcard/Download/ext/temp/l 2>/dev/null
-rm /sdcard/Download/ext/temp/l1 2>/dev/null
