@@ -49,8 +49,8 @@ case $menu in
 		echo "10. X-plore Donate"
 		echo "11. Youtube Vanced"
 		echo "12. Google Apps"
-		echo "13. EvolutionX rom"
-		echo "14. Tất cả (trừ kiểm tra EvolutionX rom)"
+		echo "13. Havoc rom"
+		echo "14. Tất cả (trừ kiểm tra Havoc rom)"
 		echo "Nhập số từ 1-14 (nhấn x để quay lại Menu):"
 		read app
 		
@@ -131,7 +131,7 @@ case $menu in
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g" /sdcard/Download/ext/temp/log
 				sed -i "s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/evolutionx.sh
+				bash /sdcard/Download/ext/temp/havoc.sh
 			;;
 			14)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
