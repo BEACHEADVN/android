@@ -116,8 +116,6 @@ else
 	rm /sdcard/Download/ext/temp/vendor.transfer.list 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
 	
-	bash /sdcard/Download/ext/temp/debloat.sh
-	
 	echo "Debloat ?"
 	echo "1. Có"
 	echo "2. Không"
@@ -127,12 +125,12 @@ else
 		1)
 			case "$name" in 
 				*Havoc*)
-					bash sig_havoc.sh
-					bash debloat_havoc.sh
+					bash /sdcard/Download/ext/temp/sig_havoc.sh
+					bash /sdcard/Download/ext/temp/debloat_havoc.sh
 				;;
 				*EvolutionX*)
-					bash sig_evolutionx.sh
-					bash debloat_evolutionx.sh
+					bash /sdcard/Download/ext/temp/sig_evolutionx.sh
+					bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
 				;;
 			esac
 		;;
