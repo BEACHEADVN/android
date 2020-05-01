@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 rm /sdcard/Download/ext/temp/remove1 2>/dev/null
@@ -9,7 +11,6 @@ rm /sdcard/Download/ext/temp/remove6 2>/dev/null
 rm /sdcard/Download/ext/temp/zip 2>/dev/null
 rm /sdcard/Download/ext/temp/zip1 2>/dev/null
 rm /sdcard/Download/ext/temp/zip2 2>/dev/null
-rm /sdcard/Download/ext/temp/checkpath 2>/dev/null
 
 unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
 cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove1
@@ -22,13 +23,6 @@ tail -n17 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >
 rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
 cd /sdcard/Download/ext/temp
-path=`find /sdcard/Download/ext -name "EvolutionX_*"`
-if [ -d $path/system/system/product/priv-app/SettingsIntelligenceGooglePrebuilt ]
-then
-echo ""
-else
-rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
-fi
 zip -r tweak-evolutionx-capricorn-q-part1.zip META-INF system
 rm /sdcard/tweak-evolutionx-capricorn-q-part1.zip 2>/dev/null
 mv -f /sdcard/Download/ext/temp/tweak-evolutionx-capricorn-q-part1.zip /sdcard
@@ -46,11 +40,11 @@ rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove4
-awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=37 y=12 /sdcard/Download/ext/temp/remove4
+awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=37 y=15 /sdcard/Download/ext/temp/remove4
 cat /sdcard/Download/ext/temp/remove4 | sort >> /sdcard/Download/ext/temp/remove5
 sed -n -e '1,37p' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/updater-script
 cat /sdcard/Download/ext/temp/remove5 >> /sdcard/Download/ext/temp/updater-script
-tail -n12 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
+tail -n15 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
 rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
 zip -r tweak-evolutionx-capricorn-q-part2.zip META-INF
