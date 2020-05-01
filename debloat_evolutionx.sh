@@ -47,7 +47,7 @@ cat /sdcard/Download/ext/temp/remove5 >> /sdcard/Download/ext/temp/updater-scrip
 tail -n15 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
 rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
-zip -r tweak-evolutionx-capricorn-q-part2.zip META-INF
+zip -r tweak-evolutionx-capricorn-q-part2.zip META-INF system
 rm /sdcard/tweak-evolutionx-capricorn-q-part2.zip
 mv -f /sdcard/Download/ext/temp/tweak-evolutionx-capricorn-q-part2.zip /sdcard
 
