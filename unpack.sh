@@ -124,11 +124,11 @@ else
 	case $debloat in
 		1)
 			case "$name" in 
-				*Havoc*)
+				Havoc*)
 					bash /sdcard/Download/ext/temp/sig_havoc.sh
 					bash /sdcard/Download/ext/temp/debloat_havoc.sh
 				;;
-				*EvolutionX*)
+				EvolutionX_*)
 					bash /sdcard/Download/ext/temp/sig_evolutionx.sh
 					bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
 				;;
