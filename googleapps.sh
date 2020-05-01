@@ -28,7 +28,7 @@ fi
 
 a=`aapt dump badging /data/app/com.google.android.dialer-*/base.apk | grep "versionName" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
 
-b=`aapt dump badging /sdcard/Download/ext/temp/system/product/priv-app/Dialer/base.apk | grep "versionName" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
+b=`aapt dump badging /sdcard/Download/ext/temp/system/product/priv-app/GoogleDialer/base.apk | grep "versionName" | sed "s+' platform.*++g; s+^.*' versionName='++g"`
 
 if [ $(version $a) -gt $(version $b) ]
 then
