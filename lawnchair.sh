@@ -7,7 +7,11 @@ a=`wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ | grep 
 
 b=`aapt dump badging /system/priv-app/Lawnchair/*.apk | grep "versionCode" | sed "s+^.*Code='++g; s+' versionName.*++g"`
 
-if [ $a -gt $b ]
+function version {
+	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
+}
+
+if [ $(version $a) -gt $(version $b) ]
 then
 	clear
 	echo "Lawnchair có bản cập nhật mới."
