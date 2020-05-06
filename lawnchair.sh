@@ -3,7 +3,7 @@
 rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
-a=`wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ | grep "arm64-v8a" | sed '1!d; s+-arm64.*++g; s+^.*alpha-++g'`
+a=`wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ | grep "arm64-v8a" | sed '1!d' | cut -d'-' -f 6`
 
 b=`aapt dump badging /system/priv-app/Lawnchair/*.apk | grep "versionCode" | sed "s+^.*Code='++g; s+' versionName.*++g"`
 
