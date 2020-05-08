@@ -41,7 +41,7 @@ then
 				z=`cat /sdcard/Download/ext/temp/z | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 				if [ $(version $d) -gt $(version $z) ]
 				then
-					rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt/*
+					rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt/SettingsIntelligenceGooglePrebuilt/*
 					cp -r /data/app/com.google.android.settings.intelligence-*/* /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
 					makezip
 				else
@@ -61,7 +61,7 @@ then
 				z=`cat /sdcard/Download/ext/temp/z | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 				if [ $(version $r) -gt $(version $z) ]
 				then
-					rm -rf /sdcard/Download/ext/temp/system/product/priv-app
+					rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
 					sed -i '/SettingsIntelligenceGooglePrebuilt/d' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script
 					makezip
 				else
@@ -78,7 +78,7 @@ then
 			z=`cat /sdcard/Download/ext/temp/z | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 			if [ $(version $r) -gt $(version $z) ]
 			then
-				rm -rf /sdcard/Download/ext/temp/system/product/priv-app
+				rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
 				sed -i '/SettingsIntelligenceGooglePrebuilt/d' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script
 				makezip
 			else
@@ -91,7 +91,7 @@ then
 else
 	if [ -d /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt ]
 	then
-		rm -rf /sdcard/Download/ext/temp/system/product/priv-app
+		rm -rf /sdcard/Download/ext/temp/system/product/priv-app/SettingsIntelligenceGooglePrebuilt
 		sed -i '/SettingsIntelligenceGooglePrebuilt/d' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script
 		makezip
 	else
