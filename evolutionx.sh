@@ -23,9 +23,10 @@ function download {
 	md5sum=`md5sum /sdcard/Download/ext/temp/$name | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}'`
 	if grep -Fxq "$md5sum" /sdcard/Download/ext/temp/ex
 	then
-		echo "dung"
+		rm /sdcard/EvolutionX_*.zip 2> /dev/null
+		mv /sdcard/Download/ext/temp/$name
 	else
-		echo "sai"
+		rm /sdcard/Download/ext/temp/$name
 	fi
 }
 
