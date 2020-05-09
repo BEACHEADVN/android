@@ -21,7 +21,7 @@ function download {
 	name=`cat /sdcard/Download/ext/temp/ex | grep "Click to download" | sed '1!d; s+                           title="Click to download ++g; s+">++g'`
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://sourceforge.net/projects/henma-project/files/Evo-X-ten/$name
 	md5sum=`md5sum /sdcard/Download/ext/temp/$name | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}'`
-	if grep -Fxq "$md5sum" /sdcard/Download/ext/temp/ex
+	if grep "$md5sum" /sdcard/Download/ext/temp/ex
 	then
 		mv /sdcard/Download/ext/temp/$name /sdcard
 	else
