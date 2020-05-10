@@ -123,16 +123,16 @@ else
 	
 	case $debloat in
 		1)
-			case "$name" in 
-				*Havoc*)
-					bash /sdcard/Download/ext/temp/sig_havoc.sh
-					bash /sdcard/Download/ext/temp/debloat_havoc.sh
-				;;
-				*EvolutionX_*)
-					bash /sdcard/Download/ext/temp/sig_evolutionx.sh
-					bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
-				;;
-			esac
+			if [[ $name = *EvolutionX* ]]
+			then
+				bash /sdcard/Download/ext/temp/sig_evolutionx.sh
+				bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
+			fi
+			if [[ $name = *Havoc* ]]
+			then
+				bash /sdcard/Download/ext/temp/sig_havoc.sh
+				bash /sdcard/Download/ext/temp/debloat_havoc.sh
+			fi
 		;;
 		2)
 			echo "Bỏ qua Debloat"
