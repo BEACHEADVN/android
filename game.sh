@@ -3,9 +3,8 @@
 echo "GAME "
 echo "1. Liên quân Mobile"
 echo "2. PUBG Mobile VN"
-echo "3. Call of Duty Mobile VN"
-echo "4. Phục hồi"
-echo "Nhập số từ 1-4 (nhấn x để quay lại Menu):"
+echo "3. Phục hồi"
+echo "Nhập số từ 1-3 (nhấn x để quay lại Menu):"
 read game
 
 case $game in
@@ -72,37 +71,6 @@ case $game in
 		pm disable com.termux
 	;;
 	3)
-		sh /sdcard/Download/ext/temp/performance.sh
-		pm disable com.VCB
-		pm disable com.facebook.games
-		pm disable com.adguard.android
-		pm disable com.android.chrome
-		pm disable com.android.documentsui
-		pm disable com.epi
-		pm disable com.facebook.katana
-		pm disable com.facebook.orca
-		pm disable com.garena.game.kgvn
-		pm disable com.google.android.deskclock
-		pm disable com.google.android.youtube
-		pm disable com.keramidas.TitaniumBackup
-		pm disable com.keramidas.TitaniumBackupAddon
-		pm disable com.lonelycatgames.Xplore
-		pm disable com.mgoogle.android.gms
-		pm disable com.oasisfeng.greenify
-		pm disable com.rhmsoft.edit
-		pm disable com.topjohnwu.magisk
-		pm disable com.topjohnwu.magisk
-		pm disable com.vanced.android.youtube
-		pm disable com.vng.inputmethod.labankey
-		pm disable com.vng.pubgmobile
-		pm disable g7.lockscreenroot
-		pm disable org.telegram.messenger
-		pm enable com.ustwo.monumentvalley2
-		pm enable com.vng.inputmethod.labankey
-		am start -a android.intent.action.MAIN -n com.vng.codmvn/com.tencent.tmgp.cod.CODMainActivity
-		pm disable com.termux
-	;;
-	4)
 		pm disable com.garena.game.kgvn
 		pm disable com.vng.codmvn
 		pm disable com.vng.pubgmobile
