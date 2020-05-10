@@ -12,12 +12,12 @@ function version {
 
 function makezip {
 	cd /sdcard/Download/ext/temp
-	zip -r tweak-evolutionx-capricorn-q.zip META-INF system
-	rm /sdcard/tweak-evolutionx-capricorn-q.zip
-	mv /sdcard/Download/ext/temp/tweak-evolutionx-capricorn-q.zip /sdcard
+	zip -r tweak-evolutionx-capricorn-q-part1.zip META-INF system
+	rm /sdcard/tweak-evolutionx-capricorn-q-part1.zip
+	mv /sdcard/Download/ext/temp/tweak-evolutionx-capricorn-q-part1.zip /sdcard
 }
 
-unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q.zip -d /sdcard/Download/ext/temp
+unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
 
 path=`find /sdcard/Download/ext -name "EvolutionX*"`
 aapt dump badging $path/system/system/product/priv-app/SettingsIntelligenceGooglePrebuilt/*.apk > /sdcard/Download/ext/temp/r
