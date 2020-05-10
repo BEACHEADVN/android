@@ -10,7 +10,7 @@ rm /sdcard/Download/ext/temp/remove5 2>/dev/null
 rm /sdcard/Download/ext/temp/remove6 2>/dev/null
 rm /sdcard/Download/ext/temp/zip 2>/dev/null
 
-unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q.zip -d /sdcard/Download/ext/temp
+unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q-part1.zip -d /sdcard/Download/ext/temp
 cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove1
 awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=37 y=17 /sdcard/Download/ext/temp/remove1
 cat /sdcard/Download/ext/temp/remove1 | sort >> /sdcard/Download/ext/temp/remove2
@@ -21,9 +21,9 @@ tail -n17 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >
 rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
 cd /sdcard/Download/ext/temp
-zip -r tweak-evolutionx-capricorn-q.zip META-INF system
-rm /sdcard/tweak-evolutionx-capricorn-q.zip 2>/dev/null
-mv -f /sdcard/Download/ext/temp/tweak-evolutionx-capricorn-q.zip /sdcard
+zip -r tweak-evolutionx-capricorn-q-part1.zip META-INF system
+rm /sdcard/tweak-evolutionx-capricorn-q-part1.zip 2>/dev/null
+mv -f /sdcard/Download/ext/temp/tweak-evolutionx-capricorn-q-part1.zip /sdcard
 awk -i inplace '{print substr($0,2)}' /sdcard/Download/ext/temp/remove2
 sed -i 's+..$++g' /sdcard/Download/ext/temp/remove2
 find /sdcard/Download/ext -name "EvolutionX_*" > /sdcard/Download/ext/temp/zip
