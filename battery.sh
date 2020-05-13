@@ -25,3 +25,4 @@ echo 5 > /sys/module/cpu_input_boost/parameters/input_boost_duration
 echo 128 > /sys/block/sda/queue/read_ahead_kb
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active
 echo 1 > /sys/kernel/msm_thermal/enabled
+echo 60 > /proc/sys/vm/swappiness
