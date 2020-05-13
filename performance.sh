@@ -25,3 +25,4 @@ echo deadline > /sys/block/sda/queue/scheduler
 echo 30 > /sys/module/cpu_input_boost/parameters/input_boost_duration
 echo 2048 > /sys/block/sda/queue/read_ahead_kb
 echo 1 > /sys/kernel/dyn_fsync/Dyn_fsync_active
+echo 60 > /proc/sys/vm/swappiness
