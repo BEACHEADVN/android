@@ -20,7 +20,7 @@ echo schedutil > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
 chmod 777 /sys/module/cpu_input_boost/parameters/*
 echo 1056000 > /sys/module/cpu_input_boost/parameters/input_boost_freq_lp
 echo 1056000 > /sys/module/cpu_input_boost/parameters/input_boost_freq_hp
-echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor
+echo msm-adreno-tz > /sys/class/kgsl/kgsl-3d0/devfreq/governor
 echo deadline > /sys/block/sda/queue/scheduler
 echo 30 > /sys/module/cpu_input_boost/parameters/input_boost_duration
 echo 2048 > /sys/block/sda/queue/read_ahead_kb
