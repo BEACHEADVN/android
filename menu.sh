@@ -107,13 +107,12 @@ case $menu in
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
 				bash /sdcard/Download/ext/temp/evolutionx.sh
-bash /sdcard/Download/ext/temp/havoc.sh
+				bash /sdcard/Download/ext/temp/havoc.sh
 			;;
 			12)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
 				bash /sdcard/Download/ext/temp/adguard.sh
-				bash /sdcard/Download/ext/temp/clock.sh
 				bash /sdcard/Download/ext/temp/googleapps.sh
 				bash /sdcard/Download/ext/temp/greenify.sh
 				bash /sdcard/Download/ext/temp/lawnchair.sh
@@ -121,7 +120,6 @@ bash /sdcard/Download/ext/temp/havoc.sh
 				bash /sdcard/Download/ext/temp/opengapp.sh
 				bash /sdcard/Download/ext/temp/skm.sh
 				bash /sdcard/Download/ext/temp/titan.sh
-				bash /sdcard/Download/ext/temp/webview.sh
 				bash /sdcard/Download/ext/temp/xplore.sh
 				bash /sdcard/Download/ext/temp/youtube.sh
 			;;
