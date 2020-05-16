@@ -38,20 +38,18 @@ case $menu in
 		sh /sdcard/Download/ext/temp/performance.sh
 		echo "KIỂM TRA, CẬP NHẬT"
 		echo "1. AdGuard Premium"
-		echo "2. Google Clock"
-		echo "3. Greenify"
-		echo "4. Lawnchair"
-		echo "5. Magisk + Module"
-		echo "6. Open Gapps"
-		echo "7. SmartPark-Kernel Manager"
-		echo "8. Titanium Backup Pro"
-		echo "9. Webview Google"
-		echo "10. X-plore Donate"
-		echo "11. Youtube Vanced"
-		echo "12. Google Apps"
-		echo "13. EvolutionX rom"
-		echo "14. Tất cả (trừ kiểm tra Havoc rom)"
-		echo "Nhập số từ 1-14 (nhấn x để quay lại Menu):"
+		echo "2. Greenify"
+		echo "3. Lawnchair"
+		echo "4. Magisk + Module"
+		echo "5. Open Gapps"
+		echo "6. SmartPark-Kernel Manager"
+		echo "7. Titanium Backup Pro"
+		echo "8. X-plore Donate"
+		echo "9. Youtube Vanced"
+		echo "10. Google Apps"
+		echo "11. Rom"
+		echo "12. Tất cả (trừ kiểm tra Rom)"
+		echo "Nhập số từ 1-12 (nhấn x để quay lại Menu):"
 		read app
 		
 		case $app in
@@ -63,64 +61,55 @@ case $menu in
 			2)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/clock.sh
+				bash /sdcard/Download/ext/temp/greenify.sh
 			;;
 			3)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/greenify.sh
+				bash /sdcard/Download/ext/temp/lawnchair.sh
 			;;
 			4)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/lawnchair.sh
+				bash /sdcard/Download/ext/temp/magisk.sh
 			;;
 			5)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/magisk.sh
+				bash /sdcard/Download/ext/temp/opengapp.sh
 			;;
 			6)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/opengapp.sh
+				bash /sdcard/Download/ext/temp/skm.sh
 			;;
 			7)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/skm.sh
+				bash /sdcard/Download/ext/temp/titan.sh
 			;;
 			8)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/titan.sh
+				bash /sdcard/Download/ext/temp/xplore.sh
 			;;
 			9)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/webview.sh
+				bash /sdcard/Download/ext/temp/youtube.sh
 			;;
 			10)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/xplore.sh
+				bash /sdcard/Download/ext/temp/googleapps.sh
 			;;
 			11)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/youtube.sh
+				bash /sdcard/Download/ext/temp/evolutionx.sh
+bash /sdcard/Download/ext/temp/havoc.sh
 			;;
 			12)
-				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/googleapps.sh
-			;;
-			13)
-				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
-				bash /sdcard/Download/ext/temp/evolutionx.sh
-			;;
-			14)
 				echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 				sed -i "s+ AM + SA +g; s+ PM + CH +g" /sdcard/Download/ext/temp/log
 				bash /sdcard/Download/ext/temp/adguard.sh
