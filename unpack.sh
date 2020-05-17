@@ -123,12 +123,12 @@ else
 	
 	case $debloat in
 		1)
-			if [[ $name =~ "EvolutionX" ]]
+			if [[ $rom =~ "EvolutionX" ]]
 			then
 				bash /sdcard/Download/ext/temp/sig_evolutionx.sh
 				bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
 			fi
-			if [[ $name =~ "Havoc" ]]
+			if [[ $rom =~ "Havoc" ]]
 			then
 				bash /sdcard/Download/ext/temp/sig_havoc.sh
 				bash /sdcard/Download/ext/temp/debloat_havoc.sh
