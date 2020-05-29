@@ -65,6 +65,8 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm enable com.vng.inputmethod.labankey
+pm enable catch_.me_.if_.you_.can_
+am start -a android.intent.action.MAIN -n catch_.me_.if_.you_.can_/catch_.me_.if_.you_.can_.MainActivity
 		pm enable com.kleientertainment.doNotStarvePocket
 		pm disable com.facebook.games
 		am start -a android.intent.action.MAIN -n com.kleientertainment.doNotStarvePocket/com.kleientertainment.doNotStarvePocket.DoNotStarveActivity
