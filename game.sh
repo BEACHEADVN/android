@@ -73,7 +73,7 @@ case $game in
 	3)
 		pm disable com.garena.game.kgvn
 		pm disable com.kleientertainment.doNotStarvePocket
-		pm disable com.vng.pubgmobile
+		pm disable catch_.me_.if_.you_.can_
 		pm enable com.adguard.android
 		pm enable com.android.chrome
 		pm enable com.epi
