@@ -2,7 +2,7 @@
 
 echo "GAME "
 echo "1. Liên quân Mobile"
-echo "2. Don't Starve"
+echo "2. Alto"
 echo "3. Phục hồi"
 echo "Nhập số từ 1-3 (nhấn x để quay lại Menu):"
 read game
