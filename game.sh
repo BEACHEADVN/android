@@ -27,7 +27,7 @@ case $game in
 		pm disable com.rhmsoft.edit
 		pm disable com.topjohnwu.magisk
 		pm disable com.topjohnwu.magisk
-		pm disable com.kleientertainment.doNotStarvePocket
+		pm disable 
 		pm disable com.vanced.android.youtube
 		pm disable com.vng.inputmethod.labankey
 		pm disable com.vng.pubgmobile
@@ -67,14 +67,14 @@ case $game in
 		pm enable com.vng.inputmethod.labankey
 pm enable catch_.me_.if_.you_.can_
 am start -a android.intent.action.MAIN -n catch_.me_.if_.you_.can_/catch_.me_.if_.you_.can_.MainActivity
-		pm enable com.kleientertainment.doNotStarvePocket
+		pm enable com.noodlecake.altosodyssey
 		pm disable com.facebook.games
-		am start -a android.intent.action.MAIN -n com.kleientertainment.doNotStarvePocket/com.kleientertainment.doNotStarvePocket.DoNotStarveActivity
+		am start -a android.intent.action.MAIN -n com.noodlecake.altosodyssey/com.unity3d.player.Unity3dPlayerActiviry
 		pm disable com.termux
 	;;
 	3)
 		pm disable com.garena.game.kgvn
-		pm disable com.kleientertainment.doNotStarvePocket
+		pm disable com.noodlecake.altosodyssey
 		pm disable catch_.me_.if_.you_.can_
 		pm enable com.adguard.android
 		pm enable com.android.chrome
