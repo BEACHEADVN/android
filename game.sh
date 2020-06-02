@@ -69,7 +69,7 @@ pm enable catch_.me_.if_.you_.can_
 am start -a android.intent.action.MAIN -n catch_.me_.if_.you_.can_/catch_.me_.if_.you_.can_.MainActivity
 		pm enable com.noodlecake.altosodyssey
 		pm disable com.facebook.games
-		am start -a android.intent.action.MAIN -n com.noodlecake.altosodyssey/com.unity3d.player.Unity3dPlayerActiviry
+		am start -a android.intent.action.MAIN -n com.noodlecake.altosodyssey/com.unity3d.player.UnityPlayerActiviry
 		pm disable com.termux
 	;;
 	3)
