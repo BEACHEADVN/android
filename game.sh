@@ -68,7 +68,6 @@ case $game in
 		pm enable com.edditionstudio.spinsandcoins.dailynews
 		pm disable com.facebook.games
 		am start -a android.intent.action.MAIN -n com.edditionstudio.spinsandcoins.dailynews/com.edditionstudio.spinsandcoins.dailynews.MainActivity
-		sleep 2
 		am start -a android.intent.action.MAIN -n com.moonactive.coinmaster/com.unity3d.player.UnityPlayerActivity
 		pm disable com.termux
 	;;
@@ -94,6 +93,8 @@ case $game in
 		pm enable com.vanced.android.youtube
 		pm enable g7.lockscreenroot
 		pm enable org.telegram.messenger
+		pm disable com.moonactive.coinmaster
+		pm disable com.edditionstudio.spinsandcoins.dailynews
 		am start -a android.intent.action.MAIN -n com.facebook.katana/com.facebook.katana.LoginActivity
 		sleep 2
 		am start -a android.intent.action.MAIN -n com.facebook.orca/com.facebook.messaging.auth.LaunchScreenActivity
