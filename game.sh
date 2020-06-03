@@ -64,10 +64,11 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm enable com.vng.inputmethod.labankey
-pm enable com.moonactive.coinmaster
-pm enable com.edditionstudio.spinsandcoins.dailynews
+		pm enable com.moonactive.coinmaster
+		pm enable com.edditionstudio.spinsandcoins.dailynews
 		pm disable com.facebook.games
 		am start -a android.intent.action.MAIN -n com.edditionstudio.spinsandcoins.dailynews/com.edditionstudio.spinsandcoins.dailynews.MainActivity
+		sleep 2
 		am start -a android.intent.action.MAIN -n com.moonactive.coinmaster/com.unity3d.player.UnityPlayerActivity
 		pm disable com.termux
 	;;
