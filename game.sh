@@ -2,7 +2,7 @@
 
 echo "GAME "
 echo "1. Liên quân Mobile"
-echo "2. Alto"
+echo "2. Coin Master"
 echo "3. Phục hồi"
 echo "Nhập số từ 1-3 (nhấn x để quay lại Menu):"
 read game
@@ -58,18 +58,17 @@ case $game in
 		pm disable com.oasisfeng.greenify
 		pm disable com.rhmsoft.edit
 		pm disable com.topjohnwu.magisk
-		pm disable com.topjohnwu.magisk
 		pm disable com.vng.codmvn
 		pm disable com.vanced.android.youtube
 		pm disable com.vng.inputmethod.labankey
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm enable com.vng.inputmethod.labankey
-pm enable catch_.me_.if_.you_.can_
-am start -a android.intent.action.MAIN -n catch_.me_.if_.you_.can_/catch_.me_.if_.you_.can_.MainActivity
-		pm enable com.noodlecake.altosodyssey
+pm enable com.moonactive.coinmaster
+pm enable com.edditionstudio.spinsandcoins.dailynews
 		pm disable com.facebook.games
-		am start -a android.intent.action.MAIN -n com.noodlecake.altosodyssey/com.unity3d.player.UnityPlayerActivity
+		am start -a android.intent.action.MAIN -n com.edditionstudio.spinsandcoins.dailynews/com.edditionstudio.spinsandcoins.dailynews.MainActivity
+		am start -a android.intent.action.MAIN -n com.moonactive.coinmaster/com.unity3d.player.UnityPlayerActivity
 		pm disable com.termux
 	;;
 	3)
