@@ -59,22 +59,22 @@ else
 	echo "0" >> /sdcard/Download/ext/temp/confirm
 fi
 
-if [ -d /data/app/com.google.android.deskclock-* ]
+
+find /data/app -name "com.google.android.deskclock*" > /sdcard/Download/ext/temp/d
+path="`cat /sdcard/Download/ext/temp/d`/base.apk"
+a=`aapt dump badging $path | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+c=`aapt dump badging $path | grep "versionName" | sed "s+)' platformBuildVersionName.*++g; s+^.* (++g"`
+b=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+d=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk | grep "versionName" | sed "s+)' platformBuildVersionName.*++g; s+^.* (++g"`
+if [ $(version $c) -gt $(version $d) ]
 then
-	find /data/app -name "com.google.android.deskclock*" > /sdcard/Download/ext/temp/d
-	path="`cat /sdcard/Download/ext/temp/d`/base.apk"
-	a=`aapt dump badging $path | grep "versionName" | sed "s+)' platformBuildVersionName.*++g; s+^.* (++g"`
-	b=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk | grep "versionName" | sed "s+)' platformBuildVersionName.*++g; s+^.* (++g"`
-	if [ $(version $a) -gt $(version $b) ]
-	then
-		rm -rf /sdcard/Download/ext/temp/system/product/app/DeskClock/*
-		cp -r /data/app/com.google.android.deskclock-*/* /sdcard/Download/ext/temp/system/product/app/DeskClock
-		echo "•Desk_Clock-$b.apk --> Desk_Clock-$a.apk" >> /sdcard/Download/ext/temp/log
-		echo "1" >> /sdcard/Download/ext/temp/confirm
+	rm -rf /sdcard/Download/ext/temp/system/product/app/DeskClock/*
+	cp -r /data/app/com.google.android.deskclock-*/* /sdcard/Download/ext/temp/system/product/app/DeskClock
+	echo "•Desk_Clock-$b ($d).apk --> Desk_Clock-$a ($d).apk" >> /sdcard/Download/ext/temp/log
+	echo "1" >> /sdcard/Download/ext/temp/confirm
 	else
 		echo "•Desk Clock: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 		echo "0" >> /sdcard/Download/ext/temp/confirm
-	fi
 fi
 
 if grep -Fxq "1" /sdcard/Download/ext/temp/confirm
