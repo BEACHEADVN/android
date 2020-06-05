@@ -61,8 +61,10 @@ fi
 
 if [ -d /data/app/com.google.android.deskclock-* ]
 then
-	a=`aapt dump badging /data/app/com.google.android.deskclock-*/base.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
-	b=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk | grep "versionName" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+	find /data/app -name "com.google.android.deskclock*" > /sdcard/Download/ext/temp/d
+	path="`cat /sdcard/Download/ext/temp/d`/base.apk"
+	a=`aapt dump badging $path | grep "versionName" | sed "s+)' platformBuildVersionName.*++g; s+^.* (++g"`
+	b=`aapt dump badging /sdcard/Download/ext/temp/system/product/app/DeskClock/*.apk | grep "versionName" | sed "s+)' platformBuildVersionName.*++g; s+^.* (++g"`
 	if [ $(version $a) -gt $(version $b) ]
 	then
 		rm -rf /sdcard/Download/ext/temp/system/product/app/DeskClock/*
