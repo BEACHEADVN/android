@@ -2,7 +2,7 @@
 
 echo "GAME "
 echo "1. Liên quân Mobile"
-echo "2. Coin Master"
+echo "2. Don't Starve"
 echo "3. Phục hồi"
 echo "Nhập số từ 1-3 (nhấn x để quay lại Menu):"
 read game
@@ -27,10 +27,11 @@ case $game in
 		pm disable com.rhmsoft.edit
 		pm disable com.topjohnwu.magisk
 		pm disable com.topjohnwu.magisk
-		pm disable 
+		pm disable catch_.me_.if_.you_.can_
 		pm disable com.vanced.android.youtube
 		pm disable com.vng.inputmethod.labankey
 		pm disable com.vng.pubgmobile
+		pm disable com.kleientertainment.doNotStarvePocket
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm enable com.garena.game.kgvn
@@ -64,10 +65,13 @@ case $game in
 		pm disable g7.lockscreenroot
 		pm disable org.telegram.messenger
 		pm enable com.vng.inputmethod.labankey
-		pm enable com.moonactive.coinmaster
-		pm enable com.edditionstudio.spinsandcoins.dailynews
+		pm disable com.moonactive.coinmaster
+		pm disable com.edditionstudio.spinsandcoins.dailynews
 		pm disable com.facebook.games
-		am start -a android.intent.action.MAIN -n com.edditionstudio.spinsandcoins.dailynews/com.edditionstudio.spinsandcoins.dailynews.MainActivity
+		pm enable com.kleientertainment.doNotStarvePocket
+		pm enable catch_.me_.if_.you_.can_
+		am start -a android.intent.action.MAIN -n catch_.me_.if_.you_.can_/catch_.me_.if_.you_.can_.MainActivity
+		am start -a android.intent.action.MAIN -n com.kleientertainment.doNotStarvePocket/com.kleientertainment.doNotStarvePocket.DoNotStarveActivity
 		pm disable com.termux
 	;;
 	3)
@@ -91,6 +95,7 @@ case $game in
 		pm enable com.topjohnwu.magisk
 		pm enable com.vanced.android.youtube
 		pm enable g7.lockscreenroot
+		pm disable com.kleientertainment.doNotStarvePocket
 		pm enable org.telegram.messenger
 		pm disable com.moonactive.coinmaster
 		pm disable com.edditionstudio.spinsandcoins.dailynews
