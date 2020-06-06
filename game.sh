@@ -71,6 +71,7 @@ case $game in
 		pm enable com.kleientertainment.doNotStarvePocket
 		pm enable catch_.me_.if_.you_.can_
 		am start -a android.intent.action.MAIN -n catch_.me_.if_.you_.can_/catch_.me_.if_.you_.can_.MainActivity
+		sleep 2
 		am start -a android.intent.action.MAIN -n com.kleientertainment.doNotStarvePocket/com.kleientertainment.doNotStarvePocket.DoNotStarveActivity
 		pm disable com.termux
 	;;
