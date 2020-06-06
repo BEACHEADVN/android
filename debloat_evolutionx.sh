@@ -37,12 +37,12 @@ rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
 
 unzip -qq -o /sdcard/tweak-evolutionx-capricorn-q-part2.zip -d /sdcard/Download/ext/temp
 cat /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/remove4
-awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=37 y=14 /sdcard/Download/ext/temp/remove4
+awk -i inplace 'NR>y+x{print A[NR%y]} {A[NR%y]=$0}' x=37 y=18 /sdcard/Download/ext/temp/remove4
 cat /sdcard/Download/ext/temp/remove4 | sort >> /sdcard/Download/ext/temp/remove5
 
 sed -n -e '1,37p' /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script > /sdcard/Download/ext/temp/updater-script
 cat /sdcard/Download/ext/temp/remove5 >> /sdcard/Download/ext/temp/updater-script
-tail -n14 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
+tail -n18 /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script >> /sdcard/Download/ext/temp/updater-script
 rm /sdcard/Download/ext/temp/META-INF/com/google/android/updater-script 2>/dev/null
 mv /sdcard/Download/ext/temp/updater-script /sdcard/Download/ext/temp/META-INF/com/google/android
 cd /sdcard/Download/ext/temp
