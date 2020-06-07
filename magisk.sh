@@ -175,7 +175,8 @@ rm -rf /sdcard/Download/ext/temp/wifi-bonding-master 2>/dev/null
 
 rm /sdcard/Download/ext/temp/j 2>/dev/null
 
-a=`wget --no-check-certificate -O - https://sourceforge.net/projects/jancox-tool/files/Android | grep "Jancox-Tool-Android" | sed '1!d' | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+wget --no-check-certificate -O - https://sourceforge.net/projects/jancox-tool/files/Android > /sdcard/Download/ext/temp/j
+a=`cat /sdcard/Download/ext/temp/j | grep "Jancox-Tool-Android" | sed '1!d' | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 b=`find /storage/emulated/0 -name "Jancox-Tool-Android*.zip" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
