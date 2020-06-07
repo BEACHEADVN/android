@@ -188,6 +188,7 @@ then
 		md5sum=`md5sum /sdcard/Download/ext/temp/Jancox-Tool-Android-v$a.zip | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}'`
 		if grep "$md5sum" /sdcard/Download/ext/temp/j
 		then
+			rm /sdcard/Jancox-Tool-Android-V$b.zip
 			mv /sdcard/Download/ext/temp/Jancox-Tool-Android-V$a.zip /sdcard
 			echo "•Jancox-Tool-Android-V$b.zip --> Jancox-Tool-Android-V$a.zip" >> /sdcard/Download/ext/temp/log
 		else
