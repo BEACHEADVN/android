@@ -183,7 +183,7 @@ b=`find /storage/emulated/0 -name "Jancox-Tool-Android*.zip" | perl -pe '($_)=/(
 if [ $(version $a) -gt $(version $b) ]
 then
 	wget --no-check-certificate  -P /sdcard/Download/ext/temp https://sourceforge.net/projects/jancox-tool/files/Android/Jancox-Tool-Android-V$a.zip
-	if [ -f /sdcard/Download/ext/temp/Jancox-Tool-Android-V$a.zip]
+	if [ -f /sdcard/Download/ext/temp/Jancox-Tool-Android-V$a.zip ]
 	then
 		md5sum=`md5sum /sdcard/Download/ext/temp/Jancox-Tool-Android-v$a.zip | sed 's+ /sdcard/+ +g' | awk '{print substr($0,0,32)}'`
 		if grep "$md5sum" /sdcard/Download/ext/temp/j
