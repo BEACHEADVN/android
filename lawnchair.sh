@@ -1,9 +1,9 @@
 #!/bin/sh
 
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/l 2>/dev/null
 
-a=`wget --no-check-certificate -O - https://a2zapk.com/Search/Lawnchair/ | grep "arm64-v8a" | sed '1!d' | cut -d'-' -f 6`
+wget -O -  https://a2zapk.com/Search/Lawnchair/user=akJ1bUhJZ3dKcmVIR2FXWmdpTmNJZklKaHNHKzd3VEZqNWNEK2tyNURJZzhrYkxxODZyODIxTTZzelJXZy9FdGVKNGpBUy93WXRNclc0Z0Q4aDNOU0E9PQ==/  > /sdcard/Download/ext/temp/l
+a=`cat /sdcard/Download/ext/temp/l | grep "arm64-v8a" | sed '1!d' | grep -o -E '[0-9]+'| sed '1d' | sort -nr | head -1`
 
 b=`aapt dump badging /system/priv-app/Lawnchair/*.apk | grep "versionCode" | sed "s+^.*Code='++g; s+' versionName.*++g"`
 
@@ -23,7 +23,8 @@ then
 
 	case $choose in
 		1)
-			am start -n com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity -d "https://www.apkmirror.com/apk/deletescape/lawnchair/" --activity-clear-task
+			url=`cat /sdcard/Download/ext/temp/l | grep $a | sed 's+.html.*+.html+g; s+<a href="+https://a2zapk.com/+g'`
+			am start -n com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity -d $url --activity-clear-task
 		;;
 		2)
 			echo ""
@@ -33,5 +34,4 @@ else
 	echo "•Lawnchair: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/l 2>/dev/null
