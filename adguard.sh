@@ -3,7 +3,7 @@
 rm /sdcard/Download/ext/temp/a 2>/dev/null
 
 wget -O - https://a2zapk.com/Search/Adguard/user=akJ1bUhJZ3dKcmVIR2FXWmdpTmNJUnB1emxxTzZqLzlxKzdvemZLQnN0UE9SMi84V2c5bkxUdVRZZ1FBcUNEdlZrTEhEU0hnbEp5WGhQeXo4aWZteXc9PQ==/ > /sdcard/Download/ext/temp/a
-a=`cat /sdcard/Download/ext/temp/a | grep "Adguard - Block Ads Without Root" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}'`
+a=`cat /sdcard/Download/ext/temp/a | grep "Adguard - Block Ads Without Root" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | sed '1!d'`
 
 b=`aapt dump badging /data/app/com.adguard.android*/*.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 
