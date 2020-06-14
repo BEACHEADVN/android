@@ -141,6 +141,7 @@ case $menu in
 	x)
 		echo "Chạy profile kernel: battery"
 		sh /sdcard/Download/ext/temp/battery.sh
+sleep 3
 		find /sdcard/Download/ext/temp -type f -not -name 'log' -print0 | xargs -0 rm
 		clear
 		echo "Đóng Termux?"
