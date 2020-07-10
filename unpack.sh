@@ -106,6 +106,45 @@ else
 	mv -f /sdcard/Download/ext/temp/vendor.img /sdcard/Download/ext/$romfolder/vendor
 	echo "Chuyển đổi vendor.img-->thư mục vendor"
 	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/vendor/vendor.img /sdcard/Download/ext/$romfolder/vendor/
+	echo "Trích xuất cust"
+	rm /sdcard/Download/ext/temp/cust.new.dat 2>/dev/null
+	echo "Chuyển đổi cust.new.dat.br-->cust.new.dat"
+	brotli -d /sdcard/Download/ext/temp/cust.new.dat.br -o /sdcard/Download/ext/temp/cust.new.dat
+	echo "Chuyển đổi cust.new.dat-->cust.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/cust.transfer.list /sdcard/Download/ext/temp/cust.new.dat /sdcard/Download/ext/temp/cust.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/cust
+	mv -f /sdcard/Download/ext/temp/cust.img /sdcard/Download/ext/$romfolder/cust
+	echo "Chuyển đổi cust.img-->thư mục cust"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/cust/cust.img /sdcard/Download/ext/$romfolder/cust/
+	echo "Trích xuất odm"
+	rm /sdcard/Download/ext/temp/.new.dat 2>/dev/null
+	echo "Chuyển đổi odm.new.dat.br-->odm.new.dat"
+	brotli -d /sdcard/Download/ext/temp/odm.new.dat.br -o /sdcard/Download/ext/temp/odm.new.dat
+	echo "Chuyển đổi odm.new.dat-->odm.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/odm.transfer.list /sdcard/Download/ext/temp/odm.new.dat /sdcard/Download/ext/temp/odm.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/odm
+	mv -f /sdcard/Download/ext/temp/odm.img /sdcard/Download/ext/$romfolder/odm
+	echo "Chuyển đổi odm.img-->thư mục odm"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/odm/odm.img /sdcard/Download/ext/$romfolder/odm/
+	echo "Trích xuất product"
+	rm /sdcard/Download/ext/temp/.new.dat 2>/dev/null
+	echo "Chuyển đổi product.new.dat.br-->product.new.dat"
+	brotli -d /sdcard/Download/ext/temp/product.new.dat.br -o /sdcard/Download/ext/temp/product.new.dat
+	echo "Chuyển đổi product.new.dat-->product.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/product.transfer.list /sdcard/Download/ext/temp/product.new.dat /sdcard/Download/ext/temp/product.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/product
+	mv -f /sdcard/Download/ext/temp/product.img /sdcard/Download/ext/$romfolder/product
+	echo "Chuyển đổi product.img-->thư mục product"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/product/product.img /sdcard/Download/ext/$romfolder/product/
 	rm /sdcard/Download/ext/$romfolder/vendor/vendor.img 2>/dev/null
 	rm /sdcard/Download/ext/$romfolder/system/system.img 2>/dev/null
 	rm /sdcard/Download/ext/$romfolder/system_size.txt 2>/dev/null
