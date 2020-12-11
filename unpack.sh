@@ -1,143 +1,174 @@
-#!/system/bin/sh
-#Jancox-tool Android
-#by wahyu6070
+#!/bin/bash
 
-
-#PATH
-jancox=`dirname "$(readlink -f $0)"`
-#functions
-. $jancox/bin/arm/kopi
-#bin
-bin=$jancox/bin/$ARCH32
-bb=$bin/busybox
-tmp=$jancox/bin/tmp
-pybin=$jancox/bin/python
-editor=$jancox/editor
-log=$jancox/bin/jancox.log
-loglive=$jancox/bin/jancox.live.log
-chmod -R 777 $bin
-[ $(pwd) != $jancox ] && cd $jancox
-del $loglive && touch $loglive
-[ -d $tmp ] && del $tmp
-[ -d $editor ] && del $editor
-cdir $tmp
-cdir $editor
-if [ -f /data/data/com.termux/files/usr/bin/python ]; then
-py=/data/data/com.termux/files/usr/bin/python
-else
-printlog " "
-printlog "- python 3 Not Installed In Termux !"
-printlog " "
-printlog "- apt update"
-printlog "- pkg install python"
-printlog " "
-sleep 1s
-exit
-fi
-#input.zip
-for ajax in $jancox /data/media/0 /data/media/0/Download; do
-     if [ -f $ajax/input.zip ]; then
-        input=$ajax/input.zip
-        break
-     fi;
+rm /sdcard/Download/ext/temp/zip 2>/dev/null
+cd /sdcard
+find . -name "*.zip" >> /sdcard/Download/ext/temp/zip
+awk -i inplace '{print substr($0,3)}' /sdcard/Download/ext/temp/zip
+x=`wc -l < /sdcard/Download/ext/temp/zip`
+for (( c=1; c<=$x; c++ ))
+do
+	sed -n "$c"p /sdcard/Download/ext/temp/zip >> /sdcard/Download/ext/temp/$c
+	zipinfo -1 "`cat /sdcard/Download/ext/temp/$c`" >> /sdcard/Download/ext/temp/zip$c
+	if grep -Fxq "system.new.dat.br" /sdcard/Download/ext/temp/zip$c
+	then
+		sed -n 1p /sdcard/Download/ext/temp/$c >> /sdcard/Download/ext/temp/system$c
+	fi
+	if grep -Fxq "system.transfer.list" /sdcard/Download/ext/temp/zip$c
+	then
+		sed -n 1p /sdcard/Download/ext/temp/$c >> /sdcard/Download/ext/temp/system$c
+	fi
+	if grep -Fxq "vendor.new.dat.br" /sdcard/Download/ext/temp/zip$c
+	then
+		sed -n 1p /sdcard/Download/ext/temp/$c >> /sdcard/Download/ext/temp/vendor$c
+	fi
+	if grep -Fxq "vendor.transfer.list" /sdcard/Download/ext/temp/zip$c
+	then
+		sed -n 1p /sdcard/Download/ext/temp/$c >> /sdcard/Download/ext/temp/vendor$c
+	fi
+	if [ -f /sdcard/Download/ext/temp/system$c ]
+	then
+		s=`wc -l < /sdcard/Download/ext/temp/system$c`
+		if [[ $s == 1 ]]
+		then
+			rm -rf /sdcard/Download/ext/temp/system$c
+		else
+			sed -n 1p /sdcard/Download/ext/temp/system$c >> /sdcard/Download/ext/temp/rom
+		fi
+	fi
+	if [ -f /sdcard/Download/ext/temp/vendor$c ]
+	then
+		v=`wc -l < /sdcard/Download/ext/temp/vendor$c`
+		if [[ $v == 1 ]]
+		then
+			rm /sdcard/Download/ext/temp/vendor$c 2>/dev/null
+		else
+			sed -n 1p /sdcard/Download/ext/temp/vendor$c >> /sdcard/Download/ext/temp/rom
+		fi
+	fi
+	rm /sdcard/Download/ext/temp/$c 2>/dev/null
+	rm /sdcard/Download/ext/temp/zip$c 2>/dev/null
+	rm /sdcard/Download/ext/temp/system$c 2>/dev/null
+	rm /sdcard/Download/ext/temp/vendor$c 2>/dev/null
+	p=`echo "$c*100/$x" | bc`
+	echo "$p %"
+done
+rm /sdcard/Download/ext/temp/zip 2>/dev/null
+cat /sdcard/Download/ext/temp/rom |sort|uniq -d >> /sdcard/Download/ext/temp/romlist
+awk '{print NR  ". " $s}' /sdcard/Download/ext/temp/romlist >> /sdcard/Download/ext/temp/romlist1
+l=`wc -l < /sdcard/Download/ext/temp/romlist1`
+for (( v=1; v<=$l; v++ ))
+do
+	sed -n "$v"p /sdcard/Download/ext/temp/romlist >> /sdcard/Download/ext/temp/rompath$v
 done
 clear
-[ ! -f $jancox/credits.txt ] && printlog "    Credits not found !!" | sleep 3s | exit ;
-
-printlog "                Jancox Tool by wahyu6070"
-printlog " "
-printlog "       Unpack "
-printlog " "
-if [ $input ]; then
-printlog "- Using input.zip from $input "
+echo "Các rom trong điện thoại:"
+cat /sdcard/Download/ext/temp/romlist1
+echo "Chọn rom (nhấn x để quay lại Menu):"
+read m
+if [[ $m == x ]]
+then
+	echo ""
 else
-printlog "- Input.zip not found "
-printlog "- please add input.zip in /sdcard or $jancox/"
+	name=`cat /sdcard/Download/ext/temp/rompath$m`
+	echo "Bạn đã chọn rom `basename $name`"
+	unzip -qq -o `cat /sdcard/Download/ext/temp/rompath$m` -d /sdcard/Download/ext/temp
+	rm -rf /sdcard/Download/ext/temp/install 2>/dev/null
+	rm -rf /sdcard/Download/ext/temp/META-INF 2>/dev/null
+	rm -rf /sdcard/Download/ext/temp/system 2>/dev/null
+	rm /sdcard/Download/ext/temp/system.patch.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/vendor.patch.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/boot.img 2>/dev/null
+	echo "Giải nén `basename $name` hoàn tất"
+	echo "Trích xuất system"
+	rm /sdcard/Download/ext/temp/system.new.dat 2>/dev/null
+	echo "Chuyển đổi system.new.dat.br-->system.new.dat"
+	brotli -d /sdcard/Download/ext/temp/system.new.dat.br -o /sdcard/Download/ext/temp/system.new.dat
+	echo "Chuyển đổi system.new.dat-->system.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/system.transfer.list /sdcard/Download/ext/temp/system.new.dat /sdcard/Download/ext/temp/system.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	rm /sdcard/Download/ext/$romfolder 2>/dev/null
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/system
+	mv -f /sdcard/Download/ext/temp/system.img /sdcard/Download/ext/$romfolder/system
+	echo "Chuyển đổi system.img-->thư mục system"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/system/system.img /sdcard/Download/ext/$romfolder/system
+	echo "Trích xuất vendor"
+	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
+	echo "Chuyển đổi vendor.new.dat.br-->vendor.new.dat"
+	brotli -d /sdcard/Download/ext/temp/vendor.new.dat.br -o /sdcard/Download/ext/temp/vendor.new.dat
+	echo "Chuyển đổi vendor.new.dat-->vendor.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/vendor.transfer.list /sdcard/Download/ext/temp/vendor.new.dat /sdcard/Download/ext/temp/vendor.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/vendor
+	mv -f /sdcard/Download/ext/temp/vendor.img /sdcard/Download/ext/$romfolder/vendor
+	echo "Chuyển đổi vendor.img-->thư mục vendor"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/vendor/vendor.img /sdcard/Download/ext/$romfolder/vendor/
+	echo "Trích xuất cust"
+	rm /sdcard/Download/ext/temp/cust.new.dat 2>/dev/null
+	echo "Chuyển đổi cust.new.dat.br-->cust.new.dat"
+	brotli -d /sdcard/Download/ext/temp/cust.new.dat.br -o /sdcard/Download/ext/temp/cust.new.dat
+	echo "Chuyển đổi cust.new.dat-->cust.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/cust.transfer.list /sdcard/Download/ext/temp/cust.new.dat /sdcard/Download/ext/temp/cust.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/cust
+	mv -f /sdcard/Download/ext/temp/cust.img /sdcard/Download/ext/$romfolder/cust
+	echo "Chuyển đổi cust.img-->thư mục cust"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/cust/cust.img /sdcard/Download/ext/$romfolder/cust/
+	echo "Trích xuất product"
+	rm /sdcard/Download/ext/temp/.new.dat 2>/dev/null
+	echo "Chuyển đổi product.new.dat.br-->product.new.dat"
+	brotli -d /sdcard/Download/ext/temp/product.new.dat.br -o /sdcard/Download/ext/temp/product.new.dat
+	echo "Chuyển đổi product.new.dat-->product.img"
+	python /sdcard/Download/ext/temp/sdat2img.py /sdcard/Download/ext/temp/product.transfer.list /sdcard/Download/ext/temp/product.new.dat /sdcard/Download/ext/temp/product.img
+	rom=`basename $name`
+	romfolder=${rom%.*}
+	mkdir -p /sdcard/Download/ext/$romfolder
+	mkdir -p /sdcard/Download/ext/$romfolder/product
+	mv -f /sdcard/Download/ext/temp/product.img /sdcard/Download/ext/$romfolder/product
+	echo "Chuyển đổi product.img-->thư mục product"
+	python /sdcard/Download/ext/temp/imgextractor.py /sdcard/Download/ext/$romfolder/product/product.img /sdcard/Download/ext/$romfolder/product/
+	rm /sdcard/Download/ext/$romfolder/vendor/vendor.img 2>/dev/null
+	rm /sdcard/Download/ext/$romfolder/system/system.img 2>/dev/null
+	rm /sdcard/Download/ext/$romfolder/system_size.txt 2>/dev/null
+	rm /sdcard/Download/ext/temp/system.new.dat.br 2>/dev/null
+	rm /sdcard/Download/ext/temp/system.transfer.list 2>/dev/null
+	rm /sdcard/Download/ext/temp/system.new.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/vendor.new.dat.br 2>/dev/null
+	rm /sdcard/Download/ext/temp/vendor.transfer.list 2>/dev/null
+	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
+	
+	echo "Debloat ?"
+	echo "1. Có"
+	echo "2. Không"
+	read debloat
+	
+	if [[ $debloat == 1 ]]
+	then
+		rom_name=`echo $rom | sed "s+_+-+g" | cut -d'-' -f 1`
+		if [[ $rom_name = "EvolutionX" ]]
+		then
+			bash /sdcard/Download/ext/temp/sig_evolutionx.sh
+			bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
+		fi
+		if [[ $rom_name = "Havoc" ]]
+		then
+			bash /sdcard/Download/ext/temp/sig_havoc.sh
+			bash /sdcard/Download/ext/temp/debloat_havoc.sh
+		fi
+	else
+			echo "Bỏ qua Debloat"
+	fi
 fi
-
-if [ $input ]; then
-printlog "- Extracting input.zip..."
-$bin/unzip -o $input -d $tmp >> $loglive
-listlog "$tmp"
-fi
-
-if [ -f $tmp/*.bin ]; then
-printlog "- Extracting Payload.bin"
-$py $pybin/payload_dumper.py $tmp/*.bin --out $tmp >> $loglive
-payloadbin=true
-fi
-
-if [ -f $tmp/system.new.dat.br ]; then
-printlog "- Extraction system.new.dat.br... "
-$bin/brotli -d $tmp/system.new.dat.br -o $tmp/system.new.dat
-del $tmp/system.new.dat.br $tmp/system.patch.dat
-fi
-
-if [ -f $tmp/vendor.new.dat.br ]; then
-printlog "- Extraction vendor.new.dat.br... "
-$bin/brotli -d $tmp/vendor.new.dat.br -o $tmp/vendor.new.dat
-del $tmp/vendor.new.dat.br $tmp/vendor.patch.dat
-fi
-
-if [ -f $tmp/system.new.dat ]; then
-printlog "- Extraction system.new.dat... "
-$py $pybin/sdat2img.py $tmp/system.transfer.list $tmp/system.new.dat $tmp/system.img >> $loglive
-del $tmp/system.new.dat $tmp/system.transfer.list
-fi
-
-if [ -f $tmp/vendor.new.dat ]; then
-printlog "- Extraction vendor.new.dat... "
-$py $pybin/sdat2img.py $tmp/vendor.transfer.list $tmp/vendor.new.dat $tmp/vendor.img >> $loglive
-del $tmp/vendor.new.dat $tmp/vendor.transfer.list
-fi
-
-[ -d $jancox/editor ] && rm -rf $editor
-mkdir -p $editor
-if [ -f $tmp/system.img ]; then
-printlog "- Extraction system.img... "
-$py $pybin/imgextractor.py $tmp/system.img $editor/system >> $loglive
-del $tmp/system.img
-fi
-
-if [ -f $tmp/vendor.img ]; then
-printlog "- Extraction vendor.img... "
-$py $pybin/imgextractor.py $tmp/vendor.img $editor/vendor >/dev/null
-del $tmp/vendor.img
-fi
-
-if [ -f $tmp/boot.img ]; then
-printlog "- Extraction boot.img"
-$bin/magiskboot unpack $tmp/boot.img 2>/dev/null
-cdir $editor/boot
-[ -f $jancox/ramdisk.cpio ] && mv -f $jancox/ramdisk.cpio $editor/boot/
-[ -f $jancox/kernel ] && mv -f $jancox/kernel $editor/boot/
-[ -f $jancox/kernel_dtb ] && mv -f $jancox/kernel_dtb $editor/boot/
-[ -f $jancox/dtb ] && mv -f $jancox/dtb $editor/boot/
-[ -f $jancox/second ] && mv -f $jancox/kernel_dtb $editor/boot/
-fi
-
-[ -d $tmp/META-INF ] && mv -f $tmp/META-INF $editor
-[ -d $tmp/system ] && mv -f $tmp/system $editor/system2
-[ -d $tmp/firmware-update ] && mv -f $tmp/firmware-update $editor
-[ -d $tmp/install ] && mv -f $tmp/install $editor
-[ -f $tmp/boot.img ] && mv $tmp/boot.img $editor/boot
-[ -f $tmp/compatibility.zip ] && mv $tmp/compatibility.zip $editor
-[ -f $tmp/system_file_contexts ] && mv -f $tmp/system_file_contexts $editor/system_file_contexts
-[ -f $tmp/vendor_file_contexts ] && mv -f $tmp/vendor_file_contexts $editor/vendor_file_contexts
-[ -f $tmp/system_fs_config ] && mv -f $tmp/system_fs_config $editor/system_fs_config
-[ -f $tmp/vendor_fs_config ] && mv -f $tmp/vendor_fs_config $editor/vendor_fs_config
-
-test $payloadbin && del $tmp
-
-if [ -f $editor/system/build.prop ]; then
-printlog "- Done "
-printlog " "
-rom-info $editor > $editor/rom-info
-elif [ -f $editor/system/system/build.prop ]; then
-printlog "- Done"
-printlog " "
-rom-info $editor > $editor/rom-info
-cat $editor/rom-info
-else
-printlog "- Finished with the problem"
-fi
+for (( v=1; v<=$l; v++ ))
+do
+	rm /sdcard/Download/ext/temp/rompath$v 2>/dev/null
+done
+rm /sdcard/Download/ext/temp/rom 2>/dev/null
+rm /sdcard/Download/ext/temp/romlist 2>/dev/null
+rm /sdcard/Download/ext/temp/romlist1 2>/dev/null
+rm -rf /sdcard/Download/ext/temp/__pycache__ 2>/dev/null
