@@ -46,3 +46,5 @@ su -c "pm enable com.android.theme.icon_pack.rounded.settings"
 su -c "pm enable com.android.theme.icon.squircle"
 su -c "pm enable com.android.storagemanager"
 su -c "pm enable com.android.providers.downloads"
+
+killall -9 com.termux
