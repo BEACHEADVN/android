@@ -24,6 +24,8 @@ chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 su -c "pm disable com.android.vending"
+su -c "pm disable com.android.deskclock"
+su -c "pm disable com.android.providers.downloads"
 su -c "pm disable com.facebook.katana"
 su -c "pm disable com.lonelycatgames.Xplore"
 su -c "pm disable org.telegram.messenger"

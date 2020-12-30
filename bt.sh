@@ -24,6 +24,8 @@ chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo 3 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 su -c "pm enable com.android.vending"
+su -c "pm enable com.android.deskclock"
+su -c "pm enable com.android.providers.downloads"
 su -c "pm enable com.facebook.katana"
 su -c "pm enable com.android.deskclock"
 su -c "pm enable com.lonelycatgames.Xplore"
