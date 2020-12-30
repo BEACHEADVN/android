@@ -38,13 +38,6 @@ su -c "pm disable com.topjohnwu.magisk"
 su -c "pm disable com.android.bluetooth"
 su -c "pm disable com.android.bluetoothmidiservice"
 su -c "pm disable com.android.chrome"
-su -c "pm disable com.android.theme.icon_pack.rounded.android"
-su -c "pm disable com.android.theme.icon_pack.rounded.themepicker"
-su -c "pm disable com.android.theme.icon_pack.rounded.launcher"
-su -c "pm disable com.android.theme.icon_pack.rounded.systemui"
-su -c "pm disable com.android.theme.icon_pack.rounded.settings"
-su -c "pm disable com.android.theme.icon.squircle"
-su -c "pm disable com.android.storagemanager"
-su -c "pm disable com.android.providers.downloads"
+
 
 killall -9 com.termux
