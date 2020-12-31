@@ -38,5 +38,7 @@ su -c "pm enable com.topjohnwu.magisk"
 su -c "pm enable com.android.bluetooth"
 su -c "pm enable com.android.bluetoothmidiservice"
 su -c "pm enable com.android.chrome"
+su -c "pm enable org.swiftapps.swiftbackup"
+su -c "pm enable com.android.camera"
 
 killall -9 com.termux

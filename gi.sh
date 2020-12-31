@@ -37,8 +37,7 @@ su -c "pm disable com.topjohnwu.magisk"
 su -c "pm disable com.android.bluetooth"
 su -c "pm disable com.android.bluetoothmidiservice"
 su -c "pm disable com.android.chrome"
-su -c "pm disable org.swiftapps.swiftbackup
-
-
+su -c "pm disable org.swiftapps.swiftbackup"
+su -c "pm disable com.android.camera"
 
 killall -9 com.termux
