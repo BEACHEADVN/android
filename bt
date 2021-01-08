@@ -1,1 +1,1 @@
-su -c 'bash /sdcard/Download/ext/temp/bt.sh"
+su -c "bash /sdcard/Download/ext/temp/bt.sh"
