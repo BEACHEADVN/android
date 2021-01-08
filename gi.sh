@@ -1,27 +1,27 @@
-chmod 777 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
-chmod 777 /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
-echo performance > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
+su -c "chmod 777 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor$
+su -c "echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor"
+su -c "echo performance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+su -c "echo performance > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+su -c "echo performance > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor"
+su -c "echo performance > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor"
+su -c "echo performance > /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor"
+su -c "echo performance > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor"
+su -c "chmod 777 /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor"
+su -c "echo performance > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor"
 
-chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz
-echo 625 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz
-chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor
-echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+su -c "echo 625 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
+su -c "echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 
-chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+su -c "echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 
 su -c "pm disable com.android.vending"
 su -c "pm disable com.android.deskclock"
