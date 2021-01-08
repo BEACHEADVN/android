@@ -1,0 +1,9 @@
+su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
+
+a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
+if [ $a != 'powersave' ]
+then
+     su -c "sh //storage/emulated/0/Download/ext/temp/powersave"
+else
+      killall -9 com.termux
+fi

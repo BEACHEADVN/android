@@ -18,12 +18,7 @@ echo performance > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz
 echo 625 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz
 chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor
-a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`
-while [ $a != 'performance' ]
-do
-   echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor
-   break
-done
+echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
@@ -45,4 +40,10 @@ su -c "pm disable com.android.chrome"
 su -c "pm disable org.swiftapps.swiftbackup"
 su -c "pm disable com.android.camera"
 
-killall -9 com.termux
+a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
+if [ $a != 'performance' ]
+then
+     su -c "sh /sdcard/Download/ext/temp/performance"
+else
+      killall -9 com.termux
+fi

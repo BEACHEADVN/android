@@ -1,1 +1,1 @@
-su -c "bash /sdcard/Download/ext/temp/gi.sh"
+bash /sdcard/Download/ext/temp/gi.sh

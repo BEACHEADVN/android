@@ -18,12 +18,7 @@ su -c "echo conservative > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
 su -c "echo 275 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
-a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
-while [ $a != 'powersave' ]
-do
-   su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
-   break
-done
+su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 su -c "echo 3 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
@@ -46,4 +41,10 @@ su -c "pm enable com.android.chrome"
 su -c "pm enable org.swiftapps.swiftbackup"
 su -c "pm enable com.android.camera"
 
-killall -9 com.termux
+a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
+if [ $a != 'powersave' ]
+then
+     su -c "sh /sdcard/Download/ext/temp/powersave"
+else
+      killall -9 com.termux
+fi
