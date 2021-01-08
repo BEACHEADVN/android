@@ -18,7 +18,7 @@ su -c "echo conservative > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
 su -c "echo 275 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
-su -c "a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`"
+a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 while [ $a != 'powersave' ]
 do
    su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
