@@ -18,7 +18,12 @@ echo performance > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz
 echo 625 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz
 chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor
-echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor
+a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`
+while [ $a != 'performance' ]
+do
+   echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor
+   break
+done
 
 chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel

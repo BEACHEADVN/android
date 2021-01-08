@@ -18,7 +18,12 @@ echo conservative > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz
 echo 275 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz
 chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor
-echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor
+a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`
+while [ $a != 'powersave' ]
+do
+   echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor
+   break
+done
 
 chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo 3 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
