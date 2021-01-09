@@ -3,7 +3,7 @@ su -c "echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'performance' ]
 then
-     su -c "sh //storage/emulated/0/Download/ext/temp/performance"
+     su -c "sh /storage/emulated/0/Download/ext/temp/performance"
 else
       killall -9 com.termux
 fi
