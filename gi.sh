@@ -35,5 +35,5 @@ if [ $a != 'performance' ]
 then
      su -c "sh /sdcard/Download/ext/temp/performance"
 else
-      killall -9 com.termux
+      su -c "killall -9 com.termux"
 fi

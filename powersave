@@ -5,5 +5,5 @@ if [ $a != 'powersave' ]
 then
      su -c "sh /storage/emulated/0/Download/ext/temp/powersave"
 else
-      killall -9 com.termux
+      su -c "killall -9 com.termux"
 fi

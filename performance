@@ -5,5 +5,5 @@ if [ $a != 'performance' ]
 then
      su -c "sh /storage/emulated/0/Download/ext/temp/performance"
 else
-      killall -9 com.termux
+      su -c "killall -9 com.termux"
 fi

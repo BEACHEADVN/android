@@ -22,7 +22,6 @@ su -c "pm enable com.lonelycatgames.Xplore"
 su -c "pm enable org.telegram.messenger"
 su -c "pm enable com.oasisfeng.greenify"
 su -c "pm enable com.google.android.youtube"
-
 su -c "pm enable com.topjohnwu.magisk"
 su -c "pm enable com.android.bluetooth"
 su -c "pm enable com.android.bluetoothmidiservice"
@@ -35,5 +34,5 @@ if [ $a != 'powersave' ]
 then
      su -c "sh /sdcard/Download/ext/temp/powersave"
 else
-      killall -9 com.termux
+      su -c "killall -9 com.termux"
 fi
