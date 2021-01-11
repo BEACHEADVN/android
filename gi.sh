@@ -33,7 +33,8 @@ su -c "pm disable com.android.camera"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'performance' ]
 then
-     su -c "sh /sdcard/Download/ext/temp/performance"
+     su -c "sh /sdcard/Download/ext/temp/gi_performance"
 else
+      su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
       su -c "killall -9 com.termux"
 fi
