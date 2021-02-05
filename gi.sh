@@ -6,8 +6,10 @@ do
    x=$(( $x + 1 ))
 done
 
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+su -c "echo 587 > /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
-su -c "echo 625 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+su -c "echo 587 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
