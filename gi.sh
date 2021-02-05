@@ -15,6 +15,9 @@ su -c "echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 su -c "echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 
+su -c "chmod 777 /sys/block/sda/queue/scheduler"
+su -c "echo deadline > /sys/block/sda/queue/scheduler"
+
 su -c "pm disable com.android.vending"
 su -c "pm disable com.android.deskclock"
 su -c "pm disable com.android.providers.downloads"
