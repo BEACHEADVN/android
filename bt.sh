@@ -37,6 +37,6 @@ if [ $a != 'powersave' ]
 then
      su -c "sh /sdcard/Download/ext/temp/powersave"
 else
-      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.home.HomeActivity"
+
       su -c "killall -9 com.termux"
 fi
