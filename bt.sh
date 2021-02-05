@@ -7,11 +7,11 @@ do
 done
 
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
-su -c "echo 275 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+su -c "echo 305 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
-su -c "echo 3 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+su -c "echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 
 su -c "pm enable com.android.vending"
 su -c "pm enable com.android.deskclock"
