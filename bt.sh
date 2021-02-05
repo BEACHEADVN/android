@@ -37,6 +37,5 @@ if [ $a != 'powersave' ]
 then
      su -c "sh /sdcard/Download/ext/temp/powersave"
 else
-
       su -c "killall -9 com.termux"
 fi
