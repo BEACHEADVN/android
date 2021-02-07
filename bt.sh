@@ -31,6 +31,8 @@ su -c "pm enable com.android.bluetoothmidiservice"
 su -c "pm enable com.android.chrome"
 su -c "pm enable org.swiftapps.swiftbackup"
 su -c "pm enable com.android.camera"
+su -c "pm enable com.miHoYo.GenshinImpact"
+su -c "pm enable com.garena.game.kgvn"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]
