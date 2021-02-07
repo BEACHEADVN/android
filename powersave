@@ -5,6 +5,6 @@ if [ $a != 'powersave' ]
 then
      su -c "sh /storage/emulated/0/Download/ext/temp/powersave"
 else
-      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.home.HomeActivity"
+      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
       su -c "killall -9 com.termux"
 fi
