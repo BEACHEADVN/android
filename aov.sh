@@ -42,6 +42,6 @@ if [ $a != 'msm-adreno-tz' ]
 then
      su -c "sh /sdcard/Download/ext/temp/aov_msm-adreno-tz"
 else
-      su -c "am start --user 0 -n com.garena.game.kgvn/com.garena.game.kgtwSGameActivity"
+      su -c "am start --user 0 -n com.garena.game.kgvn/com.garena.game.kgtw.SGameActivity"
       su -c "killall -9 com.termux"
 fi
