@@ -36,6 +36,7 @@ su -c "pm disable org.swiftapps.swiftbackup"
 su -c "pm disable com.android.camera"
 su -c "pm disable com.garena.game.kgvn"
 su -c "pm disable com.epi"
+su -c "pm disable com.VCB"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'performance' ]
