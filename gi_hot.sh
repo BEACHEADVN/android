@@ -39,7 +39,7 @@ su -c "pm disable com.epi"
 su -c "pm disable com.VCB"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
-if [ $a != 'msm-adreno-tz'' ]
+if [ $a != 'msm-adreno-tz' ]
 then
      su -c "sh /sdcard/Download/ext/temp/gi_msm-adreno-tz"
 else
