@@ -1,0 +1,5 @@
+ui_print "**********************************************************"
+ui_print "*                                                                                                         *"
+ui_print "*   TWEAK MIUI 12 MODULE FOR APOLLO PRO (FIRST BOOT)   *"
+ui_print "*                                                                                                         *"
+ui_print "**********************************************************"
