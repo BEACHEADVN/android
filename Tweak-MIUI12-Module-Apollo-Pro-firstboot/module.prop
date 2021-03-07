@@ -1,0 +1,6 @@
+id=Tweak-Miui12-Apollo-Pro-Module-Firstboot
+name=Tweak MIUI 12 Module for Apollo Pro (firstboot)
+version=3
+versionCode=3
+author=BEACHEAD_VN
+description=change bootanimation, disable thermal, change font, disable notch, tweak build.prop, tweak kernel, remove disable unused app
