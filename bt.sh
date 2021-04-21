@@ -33,6 +33,9 @@ su -c "pm enable org.swiftapps.swiftbackup"
 su -c "pm enable com.android.camera"
 su -c "pm enable com.miHoYo.GenshinImpact"
 su -c "pm enable com.garena.game.kgvn"
+su -c "pm disable com.jairath.ccaster"
+su -c "pm disable com.google.android.play.games"
+su -c "pm disable com.vng.pubgmobile"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]
