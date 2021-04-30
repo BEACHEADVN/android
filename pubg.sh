@@ -41,6 +41,12 @@ su -c "pm enable com.jairath.ccaster"
 su -c "pm disable com.garena.game.kgvn"
 su -c "pm enable com.google.android.play.games"
 su -c "pm enable com.vng.pubgmobile"
+su -c "pm enable app.greyshirts.firewall"
+su -c "pm enable com.twitter.android"
+su -c "pm enable free.vpn.unblock.proxy.turbovpn"
+su -c "pm enable com.pubg.krmobile"
+su -c "pm enable com.pandavpn.androidproxy"
+
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'msm-adreno-tz' ]
