@@ -36,6 +36,11 @@ su -c "pm enable com.garena.game.kgvn"
 su -c "pm disable com.jairath.ccaster"
 su -c "pm disable com.google.android.play.games"
 su -c "pm disable com.vng.pubgmobile"
+su -c "pm disable app.greyshirts.firewall"
+su -c "pm disable com.twitter.android"
+su -c "pm disable free.vpn.unblock.proxy.turbovpn"
+su -c "pm disable com.pubg.krmobile"
+su -c "pm disable com.pandavpn.androidproxy"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]
