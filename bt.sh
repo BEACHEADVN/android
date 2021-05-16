@@ -41,6 +41,11 @@ su -c "pm disable com.twitter.android"
 su -c "pm disable free.vpn.unblock.proxy.turbovpn"
 su -c "pm disable com.pubg.krmobile"
 su -c "pm disable com.pandavpn.androidproxy"
+su -c "pm disable com.android.vpndialogs"
+su -c "pm disable com.hellraiser.unitemod"
+su -c "pm disable com.forexgaming"
+
+
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]

@@ -48,6 +48,9 @@ su -c "pm enable com.pubg.krmobile"
 su -c "pm enable com.pandavpn.androidproxy"
 su -c "sh /storage/emulated/0/pubg/CrashfixRoot.SH"
 su -c "sh /storage/emulated/0/pubg/koreanbypassɴ.sh"
+su -c "pm enable com.android.vpndialogs"
+su -c "pm enable com.hellraiser.unitemod"
+su -c "pm enable com.forexgaming"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'msm-adreno-tz' ]
