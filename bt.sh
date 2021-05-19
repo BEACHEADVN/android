@@ -44,7 +44,7 @@ su -c "pm disable com.pandavpn.androidproxy"
 su -c "pm disable com.android.vpndialogs"
 su -c "pm disable com.hellraiser.unitemod"
 su -c "pm disable com.forexgaming"
-
+su -c "pm disable com.jairath.tencentig"
 
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
