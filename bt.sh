@@ -46,7 +46,7 @@ su -c "pm disable com.hellraiser.unitemod"
 su -c "pm disable com.forexgaming"
 su -c "pm disable com.jairath.tencentig"
 su -c "pm disable com.misaki.putri"
-
+su -c "pm disable com.Putri"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]
