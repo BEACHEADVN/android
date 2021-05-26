@@ -53,6 +53,7 @@ su -c "pm enable com.hellraiser.unitemod"
 su -c "pm enable com.forexgaming"
 su -c "pm enable com.jairath.tencentig"
 su -c "pm enable com.misaki.putri"
+su -c "pm enable com.Putri"
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'msm-adreno-tz' ]
