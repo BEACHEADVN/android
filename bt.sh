@@ -47,7 +47,7 @@ su -c "pm disable com.forexgaming"
 su -c "pm disable com.jairath.tencentig"
 su -c "pm disable com.misaki.putri"
 su -c "pm disable com.Putri"
-
+su -c "pm enable com.chrome.beta"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]
 then
