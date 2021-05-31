@@ -40,7 +40,7 @@ su -c "pm disable com.VCB"
 su -c "pm disable com.jairath.ccaster"
 su -c "pm disable com.google.android.play.games"
 su -c "pm disable com.vng.pubgmobile"
-
+su -c "pm disable com.chrome.beta"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'msm-adreno-tz' ]
 then
