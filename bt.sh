@@ -48,6 +48,10 @@ su -c "pm disable com.jairath.tencentig"
 su -c "pm disable com.misaki.putri"
 su -c "pm disable com.Putri"
 su -c "pm enable com.chrome.beta"
+
+killall -9 com.miHoYo.GenshinImpact
+killall -9 com.garena.game.kgvn
+
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'powersave' ]
 then
