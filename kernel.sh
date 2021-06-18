@@ -22,6 +22,26 @@ echo "   CPU Maximum Frequency: `cat /sys/devices/system/cpu/cpu3/cpufreq/scalin
 echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq` MHz"
 echo "   Governor: `cat /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor`"
 
+echo "-Core 4:"
+echo "   CPU Maximum Frequency: `cat /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq` MHz"
+echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq` MHz"
+echo "   Governor: `cat /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor`"
+
+echo "-Core 5:"
+echo "   CPU Maximum Frequency: `cat /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq` MHz"
+echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq` MHz"
+echo "   Governor: `cat /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor`"
+
+echo "-Core 6:"
+echo "   CPU Maximum Frequency: `cat /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq` MHz"
+echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq` MHz"
+echo "   Governor: `cat /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor`"
+
+echo "-Core 7:"
+echo "   CPU Maximum Frequency: `cat /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq` MHz"
+echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq` MHz"
+echo "   Governor: `cat /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor`"
+
 echo "-CPU Boost:"
 echo "   Input Boost Duration: `cat /sys/module/cpu_input_boost/parameters/input_boost_duration` ms"
 echo "   Input Boost Frequency:"
