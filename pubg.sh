@@ -60,6 +60,6 @@ if [ $a != 'msm-adreno-tz' ]
 then
      su -c "sh /sdcard/Download/ext/temp/pubg_msm-adreno-tz"
 else
-      su -c "am start --user 0 -n com.pubg.krmobile/com.epicgames.ue4.SplashActivity"
+      su -c "am start --user 0 -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity"
       su -c "killall -9 com.termux"
 fi
