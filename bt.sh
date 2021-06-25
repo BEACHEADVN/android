@@ -48,6 +48,7 @@ su -c "pm disable com.jairath.tencentig"
 su -c "pm disable com.misaki.putri"
 su -c "pm disable com.Putri"
 su -c "pm enable com.chrome.beta"
+su -c "pm disable com.putri.esp"
 
 killall -9 com.miHoYo.GenshinImpact
 killall -9 com.garena.game.kgvn

@@ -55,6 +55,7 @@ su -c "pm enable com.jairath.tencentig"
 su -c "pm enable com.misaki.putri"
 su -c "pm enable com.Putri"
 su -c "pm disable com.chrome.beta"
+su -c "pm enable com.putri.esp"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != 'msm-adreno-tz' ]
 then
