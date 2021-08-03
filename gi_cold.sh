@@ -31,7 +31,10 @@ su -c "pm disable com.keramidas.TitaniumBackupAddon"
 su -c "pm disable com.topjohnwu.magisk"
 su -c "pm disable com.android.bluetooth"
 su -c "pm disable com.android.bluetoothmidiservice"
-su -c "pm disable com.android.chrome"
+#su -c "pm disable com.android.chrome"
+
+su -c "killall -9 com.android.chrome"
+
 su -c "pm disable org.swiftapps.swiftbackup"
 su -c "pm disable com.android.camera"
 su -c "pm disable com.garena.game.kgvn"
@@ -46,6 +49,8 @@ if [ $a != 'performance' ]
 then
      su -c "sh /sdcard/Download/ext/temp/gi_performance"
 else
+      su -c "svc data enable"
+      su -c "svc wifi disable"
       su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
       su -c "killall -9 com.termux"
 fi
