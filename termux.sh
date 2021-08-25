@@ -28,6 +28,8 @@ then
             c=`grep -Eo '[0-9]+' /sdcard/Download/ext/temp/aa | sort -rn | head -n 1`
 			url=`cat /sdcard/Download/ext/temp/a | grep "$c" | grep "apk" | awk '!/asc/' | grep -Po '(?<=(=")).*(?=">)'`
 			wget --no-check-certificate  -P /sdcard/Download/ext/temp $url
+			pm install /sdcard/Download/ext/temp/com.termux*
+			rm -rf /sdcard/Download/ext/temp/com.termux*
 		;;
 		2)
 			echo ""
