@@ -36,6 +36,7 @@ then
 		;;
 	esac
 else
+   echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 	echo "•Termux: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
