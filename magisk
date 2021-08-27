@@ -6,8 +6,8 @@ cat /sdcard/Download/ext/temp/a | grep "Magisk/releases/download" > /sdcard/Down
 read -r version_web < /sdcard/Download/ext/temp/aa
 a=`echo $version_web | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
-find /storage/emulated/0 -name "Magisk-v*" > /sdcard/Download/ext/temp/mg1
-b=`cat /sdcard/Download/ext/temp/mg1 | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+find /storage/emulated/0 -name "Magisk-v*" > /sdcard/Download/ext/temp/mg
+b=`cat /sdcard/Download/ext/temp/mg | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 function version {
 	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
@@ -28,3 +28,4 @@ fi
 
 rm /sdcard/Download/ext/temp/a 2>/dev/null
 rm /sdcard/Download/ext/temp/aa 2>/dev/null
+rm /sdcard/Download/ext/temp/mg 2>/dev/null
