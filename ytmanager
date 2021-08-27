@@ -1,7 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 rm /sdcard/Download/ext/temp/a 2>/dev/null
-rm /sdcard/Download/ext/temp/a1 2>/dev/null
 
 wget -O - https://github.com/YTVanced/VancedManager/releases > /sdcard/Download/ext/temp/a
 cat /sdcard/Download/ext/temp/a | grep "YTVanced/VancedManager/releases/download" > /sdcard/Download/ext/temp/aa
@@ -24,3 +23,5 @@ case $ytmanager in
    clear
 ;;
 esac
+
+rm /sdcard/Download/ext/temp/a 2>/dev/null
