@@ -17,6 +17,20 @@ mv -f /sdcard/Download/ext/temp/android-master/* /sdcard/Download/ext/temp
 rm -rf /sdcard/Download/ext/temp/android-master
 rm /sdcard/Download/ext/temp/master.zip
 
+if [ ! -f /data/data/com.termux/files/usr/bin/aapt ]
+then
+  pkg install aapt -y
+else
+  echo ""
+fi
+
+if [ ! -f /data/data/com.termux/files/usr/bin/perl ]
+then
+  pkg install perl -y
+else
+  echo ""
+fi
+
 pkg update -y && pkg upgdare -y
 
 su -c "cp /storage/emulated/0/Download/ext/temp/aov /data/data/com.termux/files/usr/bin"

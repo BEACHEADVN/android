@@ -7,23 +7,9 @@ else
   echo ""
 fi
 
-if [ ! -f /data/data/com.termux/files/usr/bin/aapt ]
-then
-  pkg install aapt -y
-else
-  echo ""
-fi
-
 if [ ! -f /data/data/com.termux/files/usr/bin/bc ]
 then
   pkg install bc -y
-else
-  echo ""
-fi
-
-if [ ! -f /data/data/com.termux/files/usr/bin/perl ]
-then
-  pkg install perl -y
 else
   echo ""
 fi
