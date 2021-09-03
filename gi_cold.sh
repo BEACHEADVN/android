@@ -14,6 +14,7 @@ su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "echo performance > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 su -c "echo 1 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
 
 su -c "chmod 777 /sys/block/sda/queue/scheduler"
 su -c "echo deadline > /sys/block/sda/queue/scheduler"

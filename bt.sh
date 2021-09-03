@@ -12,6 +12,7 @@ su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 su -c "echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+su -c "echo 1 > /sys/class/kgsl/kgsl-3d0/throttling"
 
 su -c "chmod 777 /sys/block/sda/queue/scheduler"
 su -c "echo noop > /sys/block/sda/queue/scheduler"
