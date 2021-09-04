@@ -26,6 +26,9 @@ else
 	echo "•Magisk: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
+sed -i 's/ PM / CH /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ AM / SA /g' /storage/emulated/0/Download/ext/temp/log
+
 rm /sdcard/Download/ext/temp/a 2>/dev/null
 rm /sdcard/Download/ext/temp/aa 2>/dev/null
 rm /sdcard/Download/ext/temp/mg 2>/dev/null
