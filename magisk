@@ -19,15 +19,22 @@ then
 	rm /sdcard/Magisk-v* 2>/dev/null
 	wget --no-check-certificate  -P /sdcard "$download_link"
 	mv /sdcard/Magisk-v$a.apk /sdcard/Magisk-v$a.zip
-	echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+	echo `date +"%r, thứ %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 	echo "•Magisk-v$b.zip --> Magisk-v$a.zip" >> /sdcard/Download/ext/temp/log
 else
-    echo `date +"%r ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+    echo `date +"%r, thứ %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 	echo "•Magisk: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
 sed -i 's/ PM / CH /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ AM / SA /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Mon, / Hai, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Tue, / Ba, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Wed, / Tư, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Thur, / Năm, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Fri, / Sáu, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Sat, / Bảy, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
 
 rm /sdcard/Download/ext/temp/a 2>/dev/null
 rm /sdcard/Download/ext/temp/aa 2>/dev/null
