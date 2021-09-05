@@ -24,17 +24,17 @@ case $ytmanager in
 ;;
 esac
 
-echo `date +"%r, thứ %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 echo "•Youtube Vanced Manager: $a" >> /storage/emulated/0/Download/ext/temp/log
 
 sed -i 's/ PM / CH /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ AM / SA /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Mon, / Hai, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Tue, / Ba, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Wed, / Tư, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Thur, / Năm, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Fri, / Sáu, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sat, / Bảy, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Mon, / thứ Hai, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Tue, / thứ Ba, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Wed, / thứ Tư, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Thur, / thứ Năm, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Fri, / thứ Sáu, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ Sat, / thứ Bảy, /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
 
 rm /sdcard/Download/ext/temp/a 2>/dev/null
