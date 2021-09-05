@@ -1,5 +1,3 @@
-bash /sdcard/Download/ext/temp/unpack.sh
-
 if [ ! -f /data/data/com.termux/files/usr/bin/python ]
 then
   pkg install python -y
@@ -20,3 +18,5 @@ then
 else
   echo ""
 fi
+
+bash /sdcard/Download/ext/temp/unpack.sh
