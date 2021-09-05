@@ -40,8 +40,8 @@ else
 	echo "•Termux: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-sed -i 's/ PM,/ CH /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ AM,/ SA /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ PM,/, CH /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ AM,/, SA /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ Mon, / thứ Hai, /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ Tue, / thứ Ba, /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ Wed, / thứ Tư, /g' /storage/emulated/0/Download/ext/temp/log
