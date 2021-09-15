@@ -38,3 +38,4 @@ sed -i 's/ Sat, / thứ Bảy, /g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
 
 rm /sdcard/Download/ext/temp/a 2>/dev/null
+rm /sdcard/Download/ext/temp/aa 2>/dev/null
