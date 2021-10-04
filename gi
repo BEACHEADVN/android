@@ -92,6 +92,8 @@ then
      su -c "sh /sdcard/Download/ext/temp/gi_$gpu"
 else
       su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
+      rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
+      rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
       su -c "killall -9 com.termux"
 fi
 }
