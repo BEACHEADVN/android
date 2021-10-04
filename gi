@@ -1,5 +1,31 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+function DISABLE {
+su -c "pm disable com.android.vending"
+su -c "pm disable com.android.deskclock"
+su -c "pm disable com.android.providers.downloads"
+su -c "pm disable com.facebook.katana"
+su -c "pm disable com.lonelycatgames.Xplore"
+su -c "pm disable org.telegram.messenger"
+su -c "pm disable com.oasisfeng.greenify"
+su -c "pm disable com.google.android.youtube"
+su -c "pm disable com.keramidas.TitaniumBackup"
+su -c "pm disable com.keramidas.TitaniumBackupAddon"
+su -c "pm disable com.topjohnwu.magisk"
+su -c "pm disable com.android.bluetooth"
+su -c "pm disable com.android.bluetoothmidiservice"
+su -c "pm disable com.android.chrome"
+su -c "pm disable org.swiftapps.swiftbackup"
+su -c "pm disable com.android.camera"
+su -c "pm disable com.garena.game.kgvn"
+su -c "pm disable com.epi"
+su -c "pm disable com.VCB"
+su -c "pm disable com.jairath.ccaster"
+su -c "pm disable com.google.android.play.games"
+su -c "pm disable com.vng.pubgmobile"
+su -c "pm disable com.chrome.beta"
+}
+
 function CPU×GPU {
 x=0
 while [ $x -le 7 ]
@@ -84,6 +110,7 @@ case $temperature in
 		minMhz=305
 		pwrlevel=3
 		echo "Chạy profile kernel: $gpu"
+		DISABLE
 		CPU×GPU
 		SWAPPINESS
 		GPU_GOVERNOR
@@ -94,6 +121,7 @@ case $temperature in
 		minMhz=587
 		pwrlevel=1
 		echo "Chạy profile kernel: $gpu"
+		DISABLE
 		CPU×GPU
 		SWAPPINESS
 		GPU_GOVERNOR
