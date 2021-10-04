@@ -81,7 +81,7 @@ if [ $a != $gpu ]
 then
      su -c "sh /storage/emulated/0/Download/ext/temp/gi_$gpu"
 else
-      #su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
+      su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
       su -c "killall -9 com.termux"
 fi
 ' > /sdcard/Download/ext/temp/gi_$gpu
@@ -91,7 +91,7 @@ if [ $a != $gpu ]
 then
      su -c "sh /sdcard/Download/ext/temp/gi_$gpu"
 else
-      #su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
+      su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
       su -c "killall -9 com.termux"
 fi
 }
