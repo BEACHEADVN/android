@@ -37,7 +37,7 @@ then
      su -c "sh /sdcard/Download/ext/temp/aov_gpu"
 else
       su -c "am start --user 0 -n com.garena.game.kgvn/com.garena.game.kgtw.SGameActivity"
-      echo aov /storage/emulated/0/Download/ext/temp/run_app
+      echo aov > /storage/emulated/0/Download/ext/temp/run_app
       rm -rf /storage/emulated/0/Download/ext/temp/aov_gpu
       su -c "killall -9 com.termux"
 fi
