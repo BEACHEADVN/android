@@ -2,34 +2,33 @@
 
 if [ ! -f /data/data/com.termux/files/usr/bin/wget ]
 then
-  pkg install wget -y
+  echo wget >> /sdcard/Download/ext/temp/install_termux
 else
   echo ""
-  if [ ! -d /sdcard/Download/ext ]
-  then
-    	mkdir /sdcard/Download/ext
-  fi
-  rm -rf /sdcard/Download/ext/temp/*
 fi
-wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/master.zip
-unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
-mv -f /sdcard/Download/ext/temp/android-master/* /sdcard/Download/ext/temp
-rm -rf /sdcard/Download/ext/temp/android-master
-rm /sdcard/Download/ext/temp/master.zip
 
 if [ ! -f /data/data/com.termux/files/usr/bin/aapt ]
 then
-  pkg install aapt -y
+  echo aapt >> /sdcard/Download/ext/temp/install_termux
 else
   echo ""
 fi
 
 if [ ! -f /data/data/com.termux/files/usr/bin/perl ]
 then
-  pkg install perl -y
+  echo perl >> /sdcard/Download/ext/temp/install_termux
 else
   echo ""
 fi
+
+install=`cat /sdcard/Download/ext/temp/install_termux`
+pkg install $install -y
+
+wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/master.zip
+unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
+mv -f /sdcard/Download/ext/temp/android-master/* /sdcard/Download/ext/temp
+rm -rf /sdcard/Download/ext/temp/android-master
+rm /sdcard/Download/ext/temp/master.zip
 
 pkg update -y && pkg upgdare -y
 
@@ -55,3 +54,5 @@ su -c "chmod 777 /data/data/com.termux/files/usr/bin/magisk"
 
 su -c "cp /storage/emulated/0/Download/ext/temp/ytmanager /data/data/com.termux/files/usr/bin"
 su -c "chmod 777 /data/data/com.termux/files/usr/bin/ytmanager"
+
+rm -rf /sdcard/Download/ext/temp/install_termux
