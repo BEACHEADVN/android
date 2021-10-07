@@ -21,7 +21,7 @@ else
   echo ""
 fi
 
-install=`cat /sdcard/Download/ext/temp/install_termux`
+install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
 pkg install $install -y
 
 wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/master.zip
