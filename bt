@@ -93,8 +93,16 @@ if [ $a != 'powersave' ]
 then
      su -c "sh /sdcard/Download/ext/temp/bt_powersave"
 else
-      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
+      app=`cat /storage/emulated/0/Download/ext/temp/run_app`
+      if [ $app = gi ]
+	  then
+	      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
+      elif [ $app = aov ]
+	  then
+		  echo ""
+	  fi
       rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
       rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
+      rm -rf /storage/emulated/0/Download/ext/temp/run_app
       su -c "killall -9 com.termux"
 fi
