@@ -62,4 +62,7 @@ su -c "chmod 777 /data/data/com.termux/files/usr/bin/magisk"
 su -c "cp /storage/emulated/0/Download/ext/temp/ytmanager /data/data/com.termux/files/usr/bin"
 su -c "chmod 777 /data/data/com.termux/files/usr/bin/ytmanager"
 
+su -c "cp /storage/emulated/0/Download/ext/temp/gps /data/data/com.termux/files/usr/bin"
+su -c "chmod 777 /data/data/com.termux/files/usr/bin/gps"
+
 rm -rf /sdcard/Download/ext/temp/install_termux
