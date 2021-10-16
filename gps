@@ -20,12 +20,12 @@ else
       rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/*
       su -c "cp -rf $path/* /storage/emulated/0/Download/ext/temp/app/Phonesky"
       cd /storage/emulated/0/Download/ext/temp
-      zip -r Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip app common META-INF module.prop customize.sh sevice.sh
+      zip -r Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip app common META-INF module.prop customize.sh service.sh
       rm -rf app
       rm -rf common
       rm -rf META-INF
       rm -rf module.prop
       rm -rf customize.sh
-      rm -rf sevice.sh
+      rm -rf service.sh
       mv -f Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip /storage/emulated/0
 fi
