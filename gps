@@ -1,0 +1,31 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+rm -rf /storage/emulated/0/Download/ext/temp/app 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
+
+path=`su -c "find /data/app -type d -name 'com.android.vending*'"`
+
+if [ -z "$path" ]
+then
+      echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+      echo "•Google Play Store không có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
+else
+      echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+      echo "•Google Play Store có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
+      unzip -qq -o /storage/emulated/0/Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip -d /sdcard/Download/ext/temp
+      rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/*
+      su -c "cp -rf $path/* /storage/emulated/0/Download/ext/temp/app/Phonesky"
+      cd /storage/emulated/0/Download/ext/temp
+      zip -r Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip app common META-INF module.prop customize.sh sevice.sh
+      rm -rf app
+      rm -rf common
+      rm -rf META-INF
+      rm -rf module.prop
+      rm -rf customize.sh
+      rm -rf sevice.sh
+      mv -f Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip /storage/emulated/0
+fi

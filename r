@@ -21,6 +21,13 @@ else
   echo ""
 fi
 
+if [ ! -f /data/data/com.termux/files/usr/bin/zip ]
+then
+  echo zip >> /sdcard/Download/ext/temp/install_termux
+else
+  echo ""
+fi
+
 install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
 pkg install $install -y
 
