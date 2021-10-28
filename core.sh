@@ -33,7 +33,7 @@ case $onoff in
 				value=$core1
 				arr=()
 				for ((i = 0; i < ${#value}; i++)); do
-				    arr+=(${value:$i:1})
+					arr+=(${value:$i:1})
 				done
 				
 				for x in "${arr[@]}"; do
@@ -75,11 +75,11 @@ case $onoff in
 				value=$core1
 				arr=()
 				for ((i = 0; i < ${#value}; i++)); do
-				    arr+=(${value:$i:1})
+					arr+=(${value:$i:1})
 				done
 				
 				for x in "${arr[@]}"; do
-				    echo "Tắt nhân $x"
+					echo "Tắt nhân $x"
 					su -c "chmod 777 /sys/devices/system/cpu/cpu$x/online"
 					su -c "echo 0 > /sys/devices/system/cpu/cpu$x/online"
 					su -c "chmod 444 /sys/devices/system/cpu/cpu$x/online"
