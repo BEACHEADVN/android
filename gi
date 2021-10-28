@@ -30,9 +30,12 @@ function CPU×GPU {
 x=0
 while [ $x -le 7 ]
 do
-   su -c "chmod 777 /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
-   su -c "echo $cpu > /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
-   x=$(( $x + 1 ))
+	su -c "chmod 777 /sys/devices/system/cpu/cpu$x/online"
+	su -c "echo 1 > /sys/devices/system/cpu/cpu$x/online"
+	su -c "chmod 444 /sys/devices/system/cpu/cpu$x/online"
+	su -c "chmod 777 /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
+	su -c "echo $cpu > /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
+	x=$(( $x + 1 ))
 done
 
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
@@ -64,9 +67,9 @@ fi
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != '0' ]
 then
-     su -c "sh /sdcard/Download/ext/temp/gi_swappiness"
+	su -c "sh /sdcard/Download/ext/temp/gi_swappiness"
 else
-      echo "•swappiness: 0"
+	echo "•swappiness: 0"
 fi
 }
 
@@ -79,23 +82,23 @@ printf 'su -c "echo $gpu > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != $gpu ]
 then
-     su -c "sh /storage/emulated/0/Download/ext/temp/gi_$gpu"
+	su -c "sh /storage/emulated/0/Download/ext/temp/gi_$gpu"
 else
-      su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
-      su -c "killall -9 com.termux"
+	su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
+	su -c "killall -9 com.termux"
 fi
 ' > /sdcard/Download/ext/temp/gi_$gpu
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != $gpu ]
 then
-     su -c "sh /sdcard/Download/ext/temp/gi_$gpu"
+	su -c "sh /sdcard/Download/ext/temp/gi_$gpu"
 else
-      su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
-      echo gi > /storage/emulated/0/Download/ext/temp/run_app
-      rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
-      rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
-      su -c "killall -9 com.termux"
+	su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
+	echo gi > /storage/emulated/0/Download/ext/temp/run_app
+	rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
+	rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
+	su -c "killall -9 com.termux"
 fi
 }
 
