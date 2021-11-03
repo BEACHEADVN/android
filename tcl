@@ -6,12 +6,12 @@ rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/tcl 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/tcl1 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/tcl2 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary1 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary2 2>/dev/null
 
-wget -w 10 -O - https://apkcombo.com/vi/trichrome-library/com.google.android.trichromelibrary/download/apk > /sdcard/Download/ext/temp/tcl
-a=`cat /sdcard/Download/ext/temp/tcl | grep "Trichrome Library" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}'`
+wget -w 10 -O - https://apkcombo.com/vi/trichrome-library/com.google.android.trichromelibrary/download/apk > /sdcard/Download/ext/temp/trichromelibrary
+a=`cat /sdcard/Download/ext/temp/trichromelibrary | grep "Trichrome Library" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk 'min == "" || $1<min{min=$1} $1>max{max=$1} END{print max}'`
 
 chrome_local=`su -c "find /data/app -type d -name 'com.android.chrome-*'"`
 b=`aapt dump badging $chrome_local/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
@@ -28,9 +28,9 @@ then
 		line=`echo "${line::-71}"`
 		su -c "rm -rf $line"
 	done
-	cat /sdcard/Download/ext/temp/tcl | grep "cdn.down-apk.com" > /sdcard/Download/ext/temp/tcl1
-	sed -n 1p /sdcard/Download/ext/temp/tcl1 > /sdcard/Download/ext/temp/tcl2
-	download_link=`cat /sdcard/Download/ext/temp/tcl2 | sed 's+" class="variant" rel="nofollow">++g; s+<a href="++g; s+amp;++g'`
+	cat /sdcard/Download/ext/temp/trichromelibrary | grep "cdn.down-apk.com" > /sdcard/Download/ext/temp/trichromelibrary1
+	sed -n 1p /sdcard/Download/ext/temp/trichromelibrary1 > /sdcard/Download/ext/temp/trichromelibrary2
+	download_link=`cat /sdcard/Download/ext/temp/trichromelibrary2 | sed 's+" class="variant" rel="nofollow">++g; s+<a href="++g; s+amp;++g'`
 	wget -P /sdcard/Download/ext/temp -O "TrichromeLibrary.apk" "$download_link"
 	su -c "pm install TrichromeLibrary.apk"
 	unzip -qq -o /storage/emulated/0/Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip -d /sdcard/Download/ext/temp
@@ -50,9 +50,9 @@ rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/tcl 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/tcl1 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/tcl2 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary1 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary2 2>/dev/null
 
 sed -i 's/ PM,/ CH,/g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ AM,/ SA,/g' /storage/emulated/0/Download/ext/temp/log
