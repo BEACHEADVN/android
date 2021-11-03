@@ -68,4 +68,7 @@ su -c "chmod 777 /data/data/com.termux/files/usr/bin/gps"
 su -c "cp /storage/emulated/0/Download/ext/temp/core /data/data/com.termux/files/usr/bin"
 su -c "chmod 777 /data/data/com.termux/files/usr/bin/core"
 
+su -c "cp /storage/emulated/0/Download/ext/temp/tcl /data/data/com.termux/files/usr/bin"
+su -c "chmod 777 /data/data/com.termux/files/usr/bin/tcl"
+
 rm -rf /sdcard/Download/ext/temp/install_termux
