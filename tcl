@@ -9,6 +9,7 @@ rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl 2>/dev/null
 
 su -c "find /data/app -type d -name 'com.google.android.trichromelibrary*' > /sdcard/Download/ext/temp/trichromelibrary"
 sed -n 1p /sdcard/Download/ext/temp/trichromelibrary > /sdcard/Download/ext/temp/trichromelibrary_a
@@ -72,6 +73,7 @@ rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl 2>/dev/null
 
 sed -i 's/ PM,/ CH,/g' /storage/emulated/0/Download/ext/temp/log
 sed -i 's/ AM,/ SA,/g' /storage/emulated/0/Download/ext/temp/log
