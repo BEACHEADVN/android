@@ -31,6 +31,8 @@ then
 	if [ $(version $a) -gt $(version $c) ]
 	then
 		su -c "cp -rf $path_a/* /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary"
+		echo $path_a | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl
+		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		mv -f Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip /storage/emulated/0
@@ -48,6 +50,8 @@ else
 	if [ $(version $b) -gt $(version $c) ]
 	then
 		su -c "cp -rf $path_a/* /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary"
+		echo $path_b | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl
+		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		mv -f Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip /storage/emulated/0
