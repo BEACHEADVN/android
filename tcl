@@ -58,8 +58,6 @@ else
 	fi
 fi
 
-#!/data/data/com.termux/files/usr/bin/bash
-
 rm -rf /storage/emulated/0/Download/ext/temp/mod 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
