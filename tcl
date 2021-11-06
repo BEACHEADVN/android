@@ -34,7 +34,7 @@ then
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-		echo "•Trichrome Library: $a." >> /storage/emulated/0/Download/ext/temp/log
+		echo "•Trichrome Library: $c-> $a." >> /storage/emulated/0/Download/ext/temp/log
 	else
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 		echo "•Trichrome Library: Không có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
@@ -51,7 +51,7 @@ else
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		cp -f Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip /storage/emulated/0
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-		echo "•Trichrome Library: $b." >> /storage/emulated/0/Download/ext/temp/log
+		echo "•Trichrome Library: $c -> $b." >> /storage/emulated/0/Download/ext/temp/log
 	else
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 		echo "•Trichrome Library: Không có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
