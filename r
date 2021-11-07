@@ -1,32 +1,19 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-if [ ! -f /data/data/com.termux/files/usr/bin/wget ]
-then
-  echo wget >> /sdcard/Download/ext/temp/install_termux
-else
-  echo ""
-fi
+function install {
+	if [ ! -f /data/data/com.termux/files/usr/bin/$package ]
+	then
+		echo $package >> /sdcard/Download/ext/temp/install_termux
+	else
+		echo ""
+	fi
+}
 
-if [ ! -f /data/data/com.termux/files/usr/bin/aapt ]
-then
-  echo aapt >> /sdcard/Download/ext/temp/install_termux
-else
-  echo ""
-fi
-
-if [ ! -f /data/data/com.termux/files/usr/bin/perl ]
-then
-  echo perl >> /sdcard/Download/ext/temp/install_termux
-else
-  echo ""
-fi
-
-if [ ! -f /data/data/com.termux/files/usr/bin/zip ]
-then
-  echo zip >> /sdcard/Download/ext/temp/install_termux
-else
-  echo ""
-fi
+for i in wget aapt perl zip
+do
+	package=$i
+	install
+done
 
 install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
 pkg install $install -y
@@ -39,39 +26,15 @@ rm /sdcard/Download/ext/temp/master.zip
 
 pkg update -y && pkg upgdare -y
 
-su -c "cp /storage/emulated/0/Download/ext/temp/aov /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/aov"
-su -c "cp /storage/emulated/0/Download/ext/temp/bt /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/bt"
-su -c "cp /storage/emulated/0/Download/ext/temp/gi /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/gi"
-su -c "cp /storage/emulated/0/r /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/r"
-su -c "cp /storage/emulated/0/Download/ext/temp/pubg /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/pubg"
+function command {
+su -c "cp /storage/emulated/0/Download/ext/temp/$cl /data/data/com.termux/files/usr/bin"
+su -c "chmod 777 /data/data/com.termux/files/usr/bin/$cl"
+}
 
-su -c "cp /storage/emulated/0/Download/ext/temp/unpack /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/unpack"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/termux /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/termux"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/magisk /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/magisk"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/ytmanager /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/ytmanager"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/gps /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/gps"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/core /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/core"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/tcl /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/tcl"
-
-su -c "cp /storage/emulated/0/Download/ext/temp/adaway /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/adaway"
+for i in aov bt gi r unpack termux magisk ytmanager gps core tcl adaway
+do
+	cl=$i
+	command
+done
 
 rm -rf /sdcard/Download/ext/temp/install_termux
