@@ -1,13 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-wget -O - https://github.com/topjohnwu/Magisk/releases > /sdcard/Download/ext/temp/a
-cat /sdcard/Download/ext/temp/a | grep "Magisk/releases/download" > /sdcard/Download/ext/temp/aa
-read -r version_web < /sdcard/Download/ext/temp/aa
-a=`echo $version_web | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
+a=`wget -O - https://github.com/topjohnwu/Magisk/releases | grep "topjohnwu/Magisk/releases/tag/v" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
-find /storage/emulated/0 -name "Magisk-v*" > /sdcard/Download/ext/temp/mg
-b=`cat /sdcard/Download/ext/temp/mg | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
+b=`find /storage/emulated/0 -maxdepth 1 -name "Magisk-v*" | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/'`
 
 function version {
 	echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
@@ -16,26 +11,14 @@ function version {
 if [ $(version $a) -gt $(version $b) ]
 then
 	download_link=https://github.com/topjohnwu/Magisk/releases/download/v$a/Magisk-v$a.apk
-	rm /sdcard/Magisk-v* 2>/dev/null
-	wget --no-check-certificate  -P /sdcard "$download_link"
-	mv /sdcard/Magisk-v$a.apk /sdcard/Magisk-v$a.zip
-	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-	echo "•Magisk-v$b.zip --> Magisk-v$a.zip" >> /sdcard/Download/ext/temp/log
+	rm /storage/emulated/0/Magisk-v* 2>/dev/null
+	wget --no-check-certificate  -P /storage/emulated/0 "$download_link"
+	mv /storage/emulated/0/Magisk-v$a.apk /storage/emulated/0/Magisk-v$a.zip
+	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
+	echo "•Magisk: v$b --> v$a" >> /storage/emulated/0/Download/ext/temp/log
 else
-    echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-	echo "•Magisk: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
+    echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
+	echo "•Magisk: Không có cập nhật mới." >> /storage/emulated/0/Download/ext/temp/log
 fi
 
-sed -i 's/ PM,/ CH,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ AM,/ SA,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Mon, / thứ Hai, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Tue, / thứ Ba, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Wed, / thứ Tư, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Thur, / thứ Năm, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Fri, / thứ Sáu, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sat, / thứ Bảy, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
-
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-rm /sdcard/Download/ext/temp/aa 2>/dev/null
-rm /sdcard/Download/ext/temp/mg 2>/dev/null
+sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
