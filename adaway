@@ -1,10 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-rm /sdcard/Download/ext/temp/a1 2>/dev/null
-
-wget -O - https://github.com/AdAway/AdAway | grep "AdAway/AdAway/releases/tag" > /sdcard/Download/ext/temp/a
-a=`cat /sdcard/Download/ext/temp/a | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
+a=`wget -O - https://github.com/AdAway/AdAway | grep "AdAway/AdAway/releases/tag" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
 path=`su -c "find /data/app -type d -name 'org.adaway*'"`
 b=`aapt dump badging $path/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
@@ -15,9 +11,8 @@ function version {
 
 if [ $(version $a) -gt $(version $b) ]
 then
-	wget -O - https://github.com/AdAway/AdAway/releases/tag/v$a > /sdcard/Download/ext/temp/a1
-	download_link=`cat /sdcard/Download/ext/temp/a1 | grep "AdAway/AdAway/releases/download/v$a" | sed '1!d; s+apk.*+apk+g; s+^.*href="+https://github.com+g'`
-	wget  -P /sdcard/Download/ext/temp "$download_link"
+	download_link=`wget -O - https://github.com/AdAway/AdAway/releases/tag/v$a | grep "AdAway/AdAway/releases/download/v$a" | sed '1!d; s+apk.*+apk+g; s+^.*href="+https://github.com+g'`
+	wget -P "/sdcard/Download/ext/temp" "$download_link"
 	name=`find /sdcard/Download/ext/temp -type f -name 'AdAway*.apk' | sed 's+/sdcard/Download/ext/temp/++g'`
 	su -c "cp -rf /sdcard/Download/ext/temp/$name /data/local/tmp"
 	su -c "pm install /data/local/tmp/$name"
@@ -31,6 +26,3 @@ else
 fi
 
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
-
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-rm /sdcard/Download/ext/temp/a1 2>/dev/null
