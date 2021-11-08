@@ -1,7 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-
 wget -O - https://f-droid.org/packages/com.termux/ > /sdcard/Download/ext/temp/a
 a=`cat /sdcard/Download/ext/temp/a | grep "Version" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
@@ -14,41 +12,13 @@ function version {
 
 if [ $(version $a) -gt $(version $b) ]
 then
-	clear
-	echo "Termux có bản cập nhật mới."
-	echo "•Termux: Có bản cập nhật mới: $a" >> /sdcard/Download/ext/temp/log
-	echo "Bạn muốn tải Termux?"
-	echo "1. Có"
-	echo "2. Không"
-	read choose
-
-	case $choose in
-		1)
-			cat /sdcard/Download/ext/temp/a | grep "Version" >> /sdcard/Download/ext/temp/aa
-            c=`grep -Eo '[0-9]+' /sdcard/Download/ext/temp/aa | sort -rn | head -n 1`
-			url=`cat /sdcard/Download/ext/temp/a | grep "$c" | grep "apk" | awk '!/asc/' | grep -Po '(?<=(=")).*(?=">)'`
-			wget --no-check-certificate  -P /sdcard/Download/ext/temp $url
-			pm install /sdcard/Download/ext/temp/com.termux*
-			rm -rf /sdcard/Download/ext/temp/com.termux*
-		;;
-		2)
-			echo ""
-		;;
-	esac
+	download_link=`wget -O - https://f-droid.org/packages/com.termux/ | grep "https://f-droid.org/repo" | grep "apk" | awk '!/asc/' | grep -Po '(?<=(=")).*(?=">)' | sort -rn | head -n 1`
+	wget --no-check-certificate  -P /sdcard/Download/ext/temp $download_link
+	pm install /sdcard/Download/ext/temp/com.termux*
+	rm -rf /sdcard/Download/ext/temp/com.termux*
 else
    echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 	echo "•Termux: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
 fi
 
-sed -i 's/ PM,/ CH,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ AM,/ SA,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Mon, / thứ Hai, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Tue, / thứ Ba, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Wed, / thứ Tư, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Thur, / thứ Năm, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Fri, / thứ Sáu, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sat, / thứ Bảy, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
-
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-rm /sdcard/Download/ext/temp/aa 2>/dev/null
+sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
