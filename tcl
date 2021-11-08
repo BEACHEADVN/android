@@ -81,12 +81,4 @@ rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 2>/dev/null
 
-sed -i 's/ PM,/ CH,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ AM,/ SA,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Mon, / thứ Hai, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Tue, / thứ Ba, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Wed, / thứ Tư, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Thur, / thứ Năm, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Fri, / thứ Sáu, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sat, / thứ Bảy, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
+sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
