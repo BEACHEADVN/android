@@ -1,7 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-wget -O - https://f-droid.org/packages/com.termux/ > /sdcard/Download/ext/temp/a
-a=`cat /sdcard/Download/ext/temp/a | grep "Version" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
+a=`wget -O - https://f-droid.org/packages/com.termux/ | grep "Version" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
 path=`su -c "find /data/app -type d -name 'com.termux*'"`
 b=`aapt dump badging $path/*.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
