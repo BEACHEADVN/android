@@ -12,12 +12,11 @@ function version {
 if [ $(version $a) -gt $(version $b) ]
 then
 	download_link=`wget -O - https://github.com/AdAway/AdAway/releases/tag/v$a | grep "AdAway/AdAway/releases/download/v$a" | sed '1!d; s+apk.*+apk+g; s+^.*href="+https://github.com+g'`
-	wget -P "/sdcard/Download/ext/temp" "$download_link"
-	name=`find /sdcard/Download/ext/temp -type f -name 'AdAway*.apk' | sed 's+/sdcard/Download/ext/temp/++g'`
-	su -c "cp -rf /sdcard/Download/ext/temp/$name /data/local/tmp"
-	su -c "pm install /data/local/tmp/$name"
-	rm -rf /sdcard/Download/ext/temp/$name
-	su -c "rm -rf /data/local/tmp/$name"
+	wget -O "/sdcard/Download/ext/temp/AdAway.apk" "$download_link"
+	su -c "cp -rf /sdcard/Download/ext/temp/AdAway.apk /data/local/tmp"
+	su -c "pm install /data/local/tmp/AdAway.apk"
+	rm -rf /sdcard/Download/ext/temp/AdAway.apk
+	su -c "rm -rf /data/local/tmp/AdAway.apk"
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 	echo "•AdAway: $b -> $a" >> /storage/emulated/0/Download/ext/temp/log
 else
