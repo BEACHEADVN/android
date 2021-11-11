@@ -1,23 +1,21 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-
-wget -O - https://github.com/YTVanced/VancedManager/releases > /sdcard/Download/ext/temp/a
-cat /sdcard/Download/ext/temp/a | grep "YTVanced/VancedManager/releases/download" > /sdcard/Download/ext/temp/aa
-read -r version_web < /sdcard/Download/ext/temp/aa
-a=`echo $version_web | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
+a=`wget -O - https://github.com/YTVanced/VancedManager | grep "releases/tag" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
 clear
 echo "••Phiên bản Youtube Vanced Manager hiện tại: $a"
 echo "••Bạn có muốn tải xuống?"
 echo "1. Có"
 echo "2. Không"
-read ytmanager
+read ytm
 
-case $ytmanager in
+case $ytm in
 1)
-   download_link=https://github.com/YTVanced/VancedManager/releases/download/v$a/manager.apk
-   wget --no-check-certificate  -P /sdcard "$download_link"
+	download_link=https://github.com/YTVanced/VancedManager/releases/download/v$a/manager.apk
+	wget --no-check-certificate  -O /storage/emulated/0/Download/ext/temp/ytmanager.apk "$download_link"
+	su -c "mv -f /storage/emulated/0/Download/ext/temp/ytmanager.apk /data/local/tmp"
+	su -c "pm install /data/local/tmp/ytmanager.apk"
+	su -c "rm -rf /data/local/tmp/ytmanager.apk"
 ;;
 2)
    clear
@@ -27,15 +25,4 @@ esac
 echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
 echo "•Youtube Vanced Manager: $a" >> /storage/emulated/0/Download/ext/temp/log
 
-sed -i 's/ PM,/ CH,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ AM,/ SA,/g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Mon, / thứ Hai, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Tue, / thứ Ba, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Wed, / thứ Tư, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Thur, / thứ Năm, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Fri, / thứ Sáu, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sat, / thứ Bảy, /g' /storage/emulated/0/Download/ext/temp/log
-sed -i 's/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
-
-rm /sdcard/Download/ext/temp/a 2>/dev/null
-rm /sdcard/Download/ext/temp/aa 2>/dev/null
+sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
