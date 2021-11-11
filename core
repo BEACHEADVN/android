@@ -1,5 +1,28 @@
 clear
 
+#!/data/data/com.termux/files/usr/bin/bash
+
+function core {
+	echo "-Core $x:"
+	echo "   CPU Maximum Frequency: `cat /sys/devices/system/cpu/cpu$x/cpufreq/scaling_max_freq` MHz"
+	echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu$x/cpufreq/scaling_min_freq` MHz"
+	echo "   Governor: `cat /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor`"
+	a=`su -c "cat /sys/devices/system/cpu/cpu0/online"`
+	if [ $a=1 ]
+	then
+		echo "   Trạng thái: Bật"
+	else
+		echo "   Trạng thái: Tắt"
+	fi
+}
+
+x=0
+while [ $x -le 7 ]
+do
+	core
+	x=$(( $x + 1 ))
+done
+
 echo "Bạn muốn bật hay tắt nhân:"
 echo "1. BẬT"
 echo "2. TẮT"
