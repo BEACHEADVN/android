@@ -8,7 +8,7 @@ function core {
 	echo "   CPU Minimum Frequency: `cat /sys/devices/system/cpu/cpu$x/cpufreq/scaling_min_freq` MHz"
 	echo "   Governor: `cat /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor`"
 	a=`su -c "cat /sys/devices/system/cpu/cpu0/online"`
-	if [ $a=1 ]
+	if [ $a == 1 ]
 	then
 		echo "   Trạng thái: Bật"
 	else
