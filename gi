@@ -58,7 +58,7 @@ printf 'su -c "echo 0 > /proc/sys/vm/swappiness"
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != 0 ]
 then
-     su -c "sh /sdcard/Download/ext/temp/gi_swappiness"
+     su -c "sh /storage/emulated/0/Download/ext/temp/gi_swappiness"
 else
       echo "•swappiness: 0"
 fi
@@ -67,7 +67,7 @@ fi
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != '0' ]
 then
-	su -c "sh /sdcard/Download/ext/temp/gi_swappiness"
+	su -c "sh /storage/emulated/0/Download/ext/temp/gi_swappiness"
 else
 	echo "•swappiness: 0"
 fi
@@ -87,12 +87,12 @@ else
 	su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
 	su -c "killall -9 com.termux"
 fi
-' > /sdcard/Download/ext/temp/gi_$gpu
+' > /storage/emulated/0/Download/ext/temp/gi_$gpu
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != $gpu ]
 then
-	su -c "sh /sdcard/Download/ext/temp/gi_$gpu"
+	su -c "sh /storage/emulated/0/Download/ext/temp/gi_$gpu"
 else
 	su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
 	echo gi > /storage/emulated/0/Download/ext/temp/run_app

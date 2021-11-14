@@ -12,11 +12,11 @@ rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 2>/dev/null
 
-su -c "find /data/app -type d -name 'com.google.android.trichromelibrary*' > /sdcard/Download/ext/temp/trichromelibrary"
-sed -n 1p /sdcard/Download/ext/temp/trichromelibrary > /sdcard/Download/ext/temp/trichromelibrary_a
-sed -n 2p /sdcard/Download/ext/temp/trichromelibrary > /sdcard/Download/ext/temp/trichromelibrary_b
-path_a=`cat /sdcard/Download/ext/temp/trichromelibrary_a`
-path_b=`cat /sdcard/Download/ext/temp/trichromelibrary_b`
+su -c "find /data/app -type d -name 'com.google.android.trichromelibrary*' > /storage/emulated/0/Download/ext/temp/trichromelibrary"
+sed -n 1p /storage/emulated/0/Download/ext/temp/trichromelibrary > /storage/emulated/0/Download/ext/temp/trichromelibrary_a
+sed -n 2p /storage/emulated/0/Download/ext/temp/trichromelibrary > /storage/emulated/0/Download/ext/temp/trichromelibrary_b
+path_a=`cat /storage/emulated/0/Download/ext/temp/trichromelibrary_a`
+path_b=`cat /storage/emulated/0/Download/ext/temp/trichromelibrary_b`
 a=`aapt dump badging $path_a/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 b=`aapt dump badging $path_b/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 
@@ -28,7 +28,7 @@ if [ $(version $a) -gt $(version $b) ]
 then
 	path_b=`echo "${path_b::-71}"`
 	su -c "rm -rf $path_b"
-	unzip -qq -o /storage/emulated/0/Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip -d /sdcard/Download/ext/temp
+	unzip -qq -o /storage/emulated/0/Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip -d /storage/emulated/0/Download/ext/temp
 	c=`aapt dump badging /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 	if [ $(version $a) -gt $(version $c) ]
 	then
@@ -40,16 +40,16 @@ then
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		mv -f Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip /storage/emulated/0
-		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 		echo "•Trichrome Library: $c -> $a" >> /storage/emulated/0/Download/ext/temp/log
 	else
-		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 		echo "•Trichrome Library: Không có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
 	fi
 else
 	path_a=`echo "${path_a::-71}"`
 	su -c "rm -rf $path_a"
-	unzip -qq -o /storage/emulated/0/Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip -d /sdcard/Download/ext/temp
+	unzip -qq -o /storage/emulated/0/Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip -d /storage/emulated/0/Download/ext/temp
 	c=`aapt dump badging /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
 	if [ $(version $b) -gt $(version $c) ]
 	then
@@ -61,10 +61,10 @@ else
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		mv -f Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip /storage/emulated/0
-		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 		echo "•Trichrome Library: $c -> $b" >> /storage/emulated/0/Download/ext/temp/log
 	else
-		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
+		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 		echo "•Trichrome Library: Không có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
 	fi
 fi

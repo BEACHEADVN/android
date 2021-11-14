@@ -12,12 +12,12 @@ function version {
 if [ $(version $a) -gt $(version $b) ]
 then
 	download_link=`wget -O - https://f-droid.org/packages/com.termux/ | grep "https://f-droid.org/repo" | grep "apk" | awk '!/asc/' | grep -Po '(?<=(=")).*(?=">)' | sort -rn | head -n 1`
-	wget --no-check-certificate  -P /sdcard/Download/ext/temp $download_link
-	pm install /sdcard/Download/ext/temp/com.termux*
-	rm -rf /sdcard/Download/ext/temp/com.termux*
+	wget --no-check-certificate  -P /storage/emulated/0/Download/ext/temp $download_link
+	pm install /storage/emulated/0/Download/ext/temp/com.termux*
+	rm -rf /storage/emulated/0/Download/ext/temp/com.termux*
 else
-   echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /sdcard/Download/ext/temp/log
-	echo "•Termux: Không có cập nhật mới." >> /sdcard/Download/ext/temp/log
+   echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
+	echo "•Termux: Không có cập nhật mới." >> /storage/emulated/0/Download/ext/temp/log
 fi
 
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
