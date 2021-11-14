@@ -5,7 +5,7 @@ rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
 
 path=`su -c "find /data/app -type d -name 'com.android.vending*'"`
 a=`aapt dump badging $path/base.apk | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}'`
@@ -40,7 +40,7 @@ else
 		rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
 		rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
 		rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
-		rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
+		rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
 fi
 
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log

@@ -5,7 +5,7 @@ rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
@@ -74,7 +74,7 @@ rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/sevice.sh 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
