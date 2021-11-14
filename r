@@ -1,9 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 function install {
-	if [ ! -f /data/data/com.termux/files/usr/bin/$i ]
+	if [ ! -f /data/data/com.termux/files/usr/bin/$package ]
 	then
-		echo $i >> /storage/emulated/0/Download/ext/temp/install_termux
+		echo $package >> /sdcard/Download/ext/temp/install_termux
 	else
 		echo ""
 	fi
@@ -11,17 +11,18 @@ function install {
 
 for i in wget aapt perl zip
 do
+	package=$i
 	install
 done
 
-install=`cat /storage/emulated/0/Download/ext/temp/install_termux 2>/dev/null`
+install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
 pkg install $install -y
 
-wget --no-check-certificate -P /storage/emulated/0/Download/ext/temp https://github.com/BEACHEADVN/android/archive/master.zip
-unzip -qq -o /storage/emulated/0/Download/ext/temp/master.zip -d /storage/emulated/0/Download/ext/temp
-mv -f /storage/emulated/0/Download/ext/temp/android-master/* /storage/emulated/0/Download/ext/temp
-rm -rf /storage/emulated/0/Download/ext/temp/android-master
-rm /storage/emulated/0/Download/ext/temp/master.zip
+wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/master.zip
+unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
+mv -f /sdcard/Download/ext/temp/android-master/* /sdcard/Download/ext/temp
+rm -rf /sdcard/Download/ext/temp/android-master
+rm /sdcard/Download/ext/temp/master.zip
 
 pkg update -y && pkg upgdare -y
 
@@ -35,4 +36,4 @@ do
 	command
 done
 
-rm -rf /storage/emulated/0/Download/ext/temp/install_termux
+rm -rf /sdcard/Download/ext/temp/install_termux
