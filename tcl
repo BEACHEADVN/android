@@ -9,8 +9,7 @@ rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl 2>/dev/null
 
 su -c "find /data/app -type d -name 'com.google.android.trichromelibrary*' > /storage/emulated/0/Download/ext/temp/trichromelibrary"
 sed -n 1p /storage/emulated/0/Download/ext/temp/trichromelibrary > /storage/emulated/0/Download/ext/temp/trichromelibrary_a
@@ -33,10 +32,10 @@ then
 	if [ $(version $a) -gt $(version $c) ]
 	then
 		su -c "cp -rf $path_a/* /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary"
-		echo $path_a | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl1
-		echo $path_a | sed 's/^.\{37\}//' > /storage/emulated/0/Download/ext/temp/folder_tcl2
-		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
-		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
+		echo $path_a | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl
+		echo $path_a | sed 's/^.\{37\}//' >> /storage/emulated/0/Download/ext/temp/folder_tcl
+		echo $a >> /storage/emulated/0/Download/ext/temp/folder_tcl
+		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
 		mv -f Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip /storage/emulated/0
@@ -54,8 +53,9 @@ else
 	if [ $(version $b) -gt $(version $c) ]
 	then
 		su -c "cp -rf $path_a/* /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary"
-		echo $path_b | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl1
-		echo $path_b | sed 's/^.\{37\}//' > /storage/emulated/0/Download/ext/temp/folder_tcl2
+		echo $path_b | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl
+		echo $path_b | sed 's/^.\{37\}//' >> /storage/emulated/0/Download/ext/temp/folder_tcl
+		echo $b >> /storage/emulated/0/Download/ext/temp/folder_tcl
 		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cd /storage/emulated/0/Download/ext/temp
@@ -78,7 +78,6 @@ rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
 rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 2>/dev/null
+rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl 2>/dev/null
 
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
