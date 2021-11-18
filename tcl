@@ -35,6 +35,7 @@ then
 		echo $path_a | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl
 		echo $path_a | sed 's/^.\{37\}//' >> /storage/emulated/0/Download/ext/temp/folder_tcl
 		echo $a >> /storage/emulated/0/Download/ext/temp/folder_tcl
+		sed -i 's/Library(.*)./Library('$a')./g' /storage/emulated/0/Download/ext/temp/module.prop
 		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-firstboot.zip mod common META-INF module.prop customize.sh service.sh
@@ -56,6 +57,7 @@ else
 		echo $path_b | sed 's/^.\{10\}//' | awk '{ print substr( $0, 1, length($0)-71 ) }' > /storage/emulated/0/Download/ext/temp/folder_tcl
 		echo $path_b | sed 's/^.\{37\}//' >> /storage/emulated/0/Download/ext/temp/folder_tcl
 		echo $b >> /storage/emulated/0/Download/ext/temp/folder_tcl
+		sed -i 's/Library(.*)./Library('$b')./g' /storage/emulated/0/Download/ext/temp/module.prop
 		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl1 /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cp -rf /storage/emulated/0/Download/ext/temp/folder_tcl2 /storage/emulated/0/Download/ext/temp/mod/app/TrichromeLibrary
 		cd /storage/emulated/0/Download/ext/temp
