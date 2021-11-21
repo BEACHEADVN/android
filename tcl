@@ -1,15 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-rm -rf /storage/emulated/0/Download/ext/temp/mod 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl 2>/dev/null
+function delete {
+	rm -rf /storage/emulated/0/Download/ext/temp/$i 2>/dev/null
+}
+
+for i in mod common META-INF module.prop customize.sh service.sh trichromelibrary trichromelibrary_a trichromelibrary_b folder_tcl
+do
+	delete
+done
 
 su -c "find /data/app -type d -name 'com.google.android.trichromelibrary*' > /storage/emulated/0/Download/ext/temp/trichromelibrary"
 sed -n 1p /storage/emulated/0/Download/ext/temp/trichromelibrary > /storage/emulated/0/Download/ext/temp/trichromelibrary_a
@@ -71,15 +69,9 @@ else
 	fi
 fi
 
-rm -rf /storage/emulated/0/Download/ext/temp/mod 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/common 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/META-INF 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/module.prop 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/customize.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/service.sh 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_a 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/trichromelibrary_b 2>/dev/null
-rm -rf /storage/emulated/0/Download/ext/temp/folder_tcl 2>/dev/null
+for i in mod common META-INF module.prop customize.sh service.sh trichromelibrary trichromelibrary_a trichromelibrary_b folder_tcl
+do
+	delete
+done
 
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
