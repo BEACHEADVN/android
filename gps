@@ -1,10 +1,11 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 function delete {
-	rm /storage/emulated/0/Download/ext/temp/$i 2>/dev/null
+	rm -rf /storage/emulated/0/Download/ext/temp/$i 2>/dev/null
 }
 
 for i in app common META-INF module.prop customize.sh service.sh
+do
 	delete
 done
 
@@ -38,8 +39,9 @@ else
 	  echo "•Google Play Store: Không có cập nhật." >> /storage/emulated/0/Download/ext/temp/log
 	fi
 	for i in app common META-INF module.prop customize.sh service.sh
+	do
 		delete
-done
+	done
 fi
 
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log
