@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 function delete {
-	rm -rf /storage/emulated/0/Download/ext/temp/$i 2>/dev/null
+	rm /storage/emulated/0/Download/ext/temp/$i 2>/dev/null
 }
 
 for i in app common META-INF module.prop customize.sh service.sh
