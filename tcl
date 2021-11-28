@@ -69,7 +69,7 @@ else
 	fi
 fi
 
-for i in mod common META-INF module.prop customize.sh service.sh trichromelibrary trichromelibrary_a trichromelibrary_b folder_tcl
+for i in mod common META-INF module.prop customize.sh service.sh uninstall.sh trichromelibrary trichromelibrary_a trichromelibrary_b folder_tcl
 do
 	delete
 done
