@@ -143,17 +143,18 @@ else
 	rm /sdcard/Download/ext/temp/odm.new.dat.br 2>/dev/null
 	rm /sdcard/Download/ext/temp/product.new.dat.br 2>/dev/null
 	rm /sdcard/Download/ext/temp/system_ext.new.dat.br 2>/dev/null
-	rm /sdcard/Download/ext/temp/odm.path.dat 2>/dev/null
-	rm /sdcard/Download/ext/temp/product.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/odm.patch.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/product.patch.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/product.new.dat 2>/dev/null
-	rm /sdcard/Download/ext/temp/system_ext.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/system_ext.patch.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/dtbo.img 2>/dev/null
 	rm /sdcard/Download/ext/temp/vbmeta.img 2>/dev/null
 	rm /sdcard/Download/ext/temp/vbmeta_system.img 2>/dev/null
 	rm /sdcard/Download/ext/temp/odm.transfer.list 2>/dev/null
 	rm /sdcard/Download/ext/temp/product.transfer.list 2>/dev/null
 	rm /sdcard/Download/ext/temp/system_ext.transfer.list 2>/dev/null
-
+	rm /sdcard/Download/ext/temp/dynamic_partitions_op_list 2>/dev/null
+	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
 	
 	echo "Debloat ?"
 	echo "1. Có"
