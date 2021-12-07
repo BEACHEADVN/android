@@ -140,7 +140,20 @@ else
 	rm /sdcard/Download/ext/temp/system.new.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.new.dat.br 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.transfer.list 2>/dev/null
-	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/odm.new.dat.br 2>/dev/null
+	rm /sdcard/Download/ext/temp/product.new.dat.br 2>/dev/null
+	rm /sdcard/Download/ext/temp/system_ext.new.dat.br 2>/dev/null
+	rm /sdcard/Download/ext/temp/odm.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/product.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/product.new.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/system_ext.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/dtbo.img 2>/dev/null
+	rm /sdcard/Download/ext/temp/vbmeta.img 2>/dev/null
+	rm /sdcard/Download/ext/temp/vbmeta_system.img 2>/dev/null
+	rm /sdcard/Download/ext/temp/odm.transfer.list 2>/dev/null
+	rm /sdcard/Download/ext/temp/product.transfer.list 2>/dev/null
+	rm /sdcard/Download/ext/temp/system_ext.transfer.list 2>/dev/null
+
 	
 	echo "Debloat ?"
 	echo "1. Có"
