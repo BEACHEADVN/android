@@ -179,9 +179,9 @@ else
 	rm /sdcard/Download/ext/temp/cust.new.dat.br 2>/dev/null
 	rm /sdcard/Download/ext/temp/cust.new.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/cust.transfer.list 2>/dev/null
-	rm /sdcard/Download/ext/temp/cust.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/cust.patch.dat 2>/dev/null
 	rm /sdcard/Download/ext/temp/exaid.img 2>/dev/null
-	rm /sdcard/Download/ext/temp/firmware-update 2>/dev/null
+	rm -rf /sdcard/Download/ext/temp/firmware-update 2>/dev/null
 	rm -rf /sdcard/Download/ext/temp/magisk.zip 2>/dev/null
 fi
 	
