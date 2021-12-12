@@ -162,6 +162,7 @@ rm /sdcard/Download/ext/temp/cust.path.dat 2>/dev/null
 rm /sdcard/Download/ext/temp/exaid.img 2>/dev/null
 rm /sdcard/Download/ext/temp/firmware-update 2>/dev/null
 rm /sdcard/Download/ext/temp/magisk.zip 2>/dev/null
+fi
 	
 for (( v=1; v<=$l; v++ ))
 do
