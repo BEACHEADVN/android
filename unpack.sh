@@ -1,5 +1,26 @@
 #!/bin/bash
 
+if [ ! -f /data/data/com.termux/files/usr/bin/python ]
+then
+  pkg install python -y
+else
+  echo ""
+fi
+
+if [ ! -f /data/data/com.termux/files/usr/bin/bc ]
+then
+  pkg install bc -y
+else
+  echo ""
+fi
+
+if [ ! -f /data/data/com.termux/files/usr/bin/brotli ]
+then
+  pkg install brotli -y
+else
+  echo ""
+fi
+
 rm /sdcard/Download/ext/temp/zip 2>/dev/null
 cd /sdcard
 find . -name "*.zip" >> /sdcard/Download/ext/temp/zip
