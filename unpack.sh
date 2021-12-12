@@ -155,13 +155,13 @@ else
 	rm /sdcard/Download/ext/temp/system_ext.transfer.list 2>/dev/null
 	rm /sdcard/Download/ext/temp/dynamic_partitions_op_list 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
-rm /sdcard/Download/ext/temp/cust.new.dat.br 2>/dev/null
-rm /sdcard/Download/ext/temp/cust.new.dat 2>/dev/null
-rm /sdcard/Download/ext/temp/cust.transfer.list 2>/dev/null
-rm /sdcard/Download/ext/temp/cust.path.dat 2>/dev/null
-rm /sdcard/Download/ext/temp/exaid.img 2>/dev/null
-rm /sdcard/Download/ext/temp/firmware-update 2>/dev/null
-rm /sdcard/Download/ext/temp/magisk.zip 2>/dev/null
+	rm /sdcard/Download/ext/temp/cust.new.dat.br 2>/dev/null
+	rm /sdcard/Download/ext/temp/cust.new.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/cust.transfer.list 2>/dev/null
+	rm /sdcard/Download/ext/temp/cust.path.dat 2>/dev/null
+	rm /sdcard/Download/ext/temp/exaid.img 2>/dev/null
+	rm /sdcard/Download/ext/temp/firmware-update 2>/dev/null
+	rm /sdcard/Download/ext/temp/magisk.zip 2>/dev/null
 fi
 	
 for (( v=1; v<=$l; v++ ))
