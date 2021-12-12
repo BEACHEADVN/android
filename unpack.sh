@@ -155,29 +155,14 @@ else
 	rm /sdcard/Download/ext/temp/system_ext.transfer.list 2>/dev/null
 	rm /sdcard/Download/ext/temp/dynamic_partitions_op_list 2>/dev/null
 	rm /sdcard/Download/ext/temp/vendor.new.dat 2>/dev/null
+rm /sdcard/Download/ext/temp/cust.new.dat.br 2>/dev/null
+rm /sdcard/Download/ext/temp/cust.new.dat 2>/dev/null
+rm /sdcard/Download/ext/temp/cust.transfer.list 2>/dev/null
+rm /sdcard/Download/ext/temp/cust.path.dat 2>/dev/null
+rm /sdcard/Download/ext/temp/exaid.img 2>/dev/null
+rm /sdcard/Download/ext/temp/firmware-update 2>/dev/null
+rm /sdcard/Download/ext/temp/magisk.zip 2>/dev/null
 	
-	echo "Debloat ?"
-	echo "1. Có"
-	echo "2. Không"
-	read debloat
-	
-	if [[ $debloat == 1 ]]
-	then
-		rom_name=`echo $rom | sed "s+_+-+g" | cut -d'-' -f 1`
-		if [[ $rom_name = "EvolutionX" ]]
-		then
-			bash /sdcard/Download/ext/temp/sig_evolutionx.sh
-			bash /sdcard/Download/ext/temp/debloat_evolutionx.sh
-		fi
-		if [[ $rom_name = "Havoc" ]]
-		then
-			bash /sdcard/Download/ext/temp/sig_havoc.sh
-			bash /sdcard/Download/ext/temp/debloat_havoc.sh
-		fi
-	else
-			echo "Bỏ qua Debloat"
-	fi
-fi
 for (( v=1; v<=$l; v++ ))
 do
 	rm /sdcard/Download/ext/temp/rompath$v 2>/dev/null
