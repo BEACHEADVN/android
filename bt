@@ -19,39 +19,17 @@ su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
 su -c "chmod 777 /sys/block/sda/queue/scheduler"
 su -c "echo noop > /sys/block/sda/queue/scheduler"
 
-su -c "pm enable com.android.vending"
-su -c "pm enable com.android.deskclock"
-su -c "pm enable com.android.providers.downloads"
-su -c "pm enable com.facebook.katana"
-su -c "pm enable com.android.deskclock"
-su -c "pm enable com.lonelycatgames.Xplore"
-su -c "pm enable org.telegram.messenger"
-su -c "pm enable com.oasisfeng.greenify"
-su -c "pm enable com.google.android.youtube"
-su -c "pm enable com.topjohnwu.magisk"
-su -c "pm enable com.android.bluetooth"
-su -c "pm enable com.android.bluetoothmidiservice"
-su -c "pm enable com.android.chrome"
-su -c "pm enable org.swiftapps.swiftbackup"
-su -c "pm enable com.android.camera"
-su -c "pm enable com.miHoYo.GenshinImpact"
-su -c "pm enable com.garena.game.kgvn"
-su -c "pm disable com.jairath.ccaster"
-su -c "pm disable com.google.android.play.games"
-su -c "pm disable com.vng.pubgmobile"
-su -c "pm disable app.greyshirts.firewall"
-su -c "pm disable com.twitter.android"
-su -c "pm disable free.vpn.unblock.proxy.turbovpn"
-su -c "pm disable com.vng.pubgmobile"
-su -c "pm disable com.pandavpn.androidproxy"
-su -c "pm disable com.android.vpndialogs"
-su -c "pm disable com.hellraiser.unitemod"
-su -c "pm disable com.forexgaming"
-su -c "pm disable com.jairath.tencentig"
-su -c "pm disable com.misaki.putri"
-su -c "pm disable com.Putri"
-su -c "pm enable com.chrome.beta"
-su -c "pm disable com.putri.esp"
+for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.miHoYo.GenshinImpact com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.android.vpndialogs com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
+do
+	path=`su -c "pm path $i"`
+	if [ -z "$path" ]
+	then
+		  echo "•Không cài đặt $i"
+	else
+		echo "•Bật $i"
+		su -c "pm enable $i"
+	fi
+done
 
 killall -9 com.miHoYo.GenshinImpact
 killall -9 com.garena.game.kgvn
