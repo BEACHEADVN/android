@@ -19,17 +19,31 @@ su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
 su -c "chmod 777 /sys/block/sda/queue/scheduler"
 su -c "echo noop > /sys/block/sda/queue/scheduler"
 
+rm -rf /storage/emulated/0/Download/ext/temp/p_i
+rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
+
 for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.miHoYo.GenshinImpact com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.android.vpndialogs com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
 do
 	path=`su -c "pm path $i"`
 	if [ -z "$path" ]
 	then
-		  echo "•Không cài đặt $i"
+		  echo $i >> /storage/emulated/0/Download/ext/temp/p_n_i
 	else
-		echo "•Bật $i"
-		su -c "pm enable $i"
+		echo $i >> /storage/emulated/0/Download/ext/temp/p_i
 	fi
 done
+
+echo "•Package không được cài đặt:"
+cat /storage/emulated/0/Download/ext/temp/p_n_i
+echo "•Bật Package:"
+lines=`cat /storage/emulated/0/Download/ext/temp/p_i`
+for line in $lines
+do
+	su -c "pm enable $line"
+done
+
+rm -rf /storage/emulated/0/Download/ext/temp/p_i
+rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
 
 killall -9 com.miHoYo.GenshinImpact
 killall -9 com.garena.game.kgvn
