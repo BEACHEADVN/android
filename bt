@@ -75,6 +75,7 @@ fi
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != 0 ]
 then
+	echo $a
      su -c "sh /storage/emulated/0/Download/ext/temp/bt_swappiness"
 else
       echo "•swappiness: 0"

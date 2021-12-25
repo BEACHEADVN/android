@@ -1,29 +1,25 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 function DISABLE {
-su -c "pm disable com.android.vending"
-su -c "pm disable com.android.deskclock"
-#su -c "pm disable com.android.providers.downloads"
-su -c "pm disable com.facebook.katana"
-su -c "pm disable com.lonelycatgames.Xplore"
-su -c "pm disable org.telegram.messenger"
-su -c "pm disable com.oasisfeng.greenify"
-su -c "pm disable com.google.android.youtube"
-su -c "pm disable com.keramidas.TitaniumBackup"
-su -c "pm disable com.keramidas.TitaniumBackupAddon"
-su -c "pm disable com.topjohnwu.magisk"
-su -c "pm disable com.android.bluetooth"
-su -c "pm disable com.android.bluetoothmidiservice"
-su -c "pm disable com.android.chrome"
-su -c "pm disable org.swiftapps.swiftbackup"
-su -c "pm disable com.android.camera"
-su -c "pm disable com.garena.game.kgvn"
-su -c "pm disable com.epi"
-su -c "pm disable com.VCB"
-su -c "pm disable com.jairath.ccaster"
-su -c "pm disable com.google.android.play.games"
-su -c "pm disable com.vng.pubgmobile"
-su -c "pm disable com.chrome.beta"
+for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.android.vpndialogs com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
+do
+	path=`su -c "pm path $i"`
+	if [ -z "$path" ]
+	then
+		  echo $i >> /storage/emulated/0/Download/ext/temp/p_n_i
+	else
+		echo $i >> /storage/emulated/0/Download/ext/temp/p_i
+	fi
+done
+
+echo "•Package không được cài đặt:"
+cat /storage/emulated/0/Download/ext/temp/p_n_i
+echo "•Tắt Package:"
+lines=`cat /storage/emulated/0/Download/ext/temp/p_i`
+for line in $lines
+do
+	su -c "pm disable $line"
+done
 }
 
 function CPU×GPU {
