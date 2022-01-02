@@ -22,7 +22,7 @@ su -c "echo noop > /sys/block/sda/queue/scheduler"
 rm -rf /storage/emulated/0/Download/ext/temp/p_i
 rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
 
-for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.miHoYo.GenshinImpact com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.android.vpndialogs com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
+for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.miHoYo.GenshinImpact com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
 do
 	path=`su -c "pm path $i"`
 	if [ -z "$path" ]
