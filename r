@@ -1,9 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-function install {
-	if [ ! -f /data/data/com.termux/files/usr/bin/$package ]
+if [ ! -d /sdcard/Download/ext/temp ]
 	then
-		echo $package >> /sdcard/Download/ext/temp/install_termux
+		mkdir -p /sdcard/Download/ext/temp
+	else
+		echo ""
+	fi
+
+function install {
+	if [ ! -f /data/data/com.termux/files/usr/bin/$i ]
+	then
+		echo $i >> /sdcard/Download/ext/temp/install_termux
 	else
 		echo ""
 	fi
@@ -11,7 +18,6 @@ function install {
 
 for i in wget aapt perl zip
 do
-	package=$i
 	install
 done
 
@@ -31,7 +37,7 @@ su -c "cp /storage/emulated/0/Download/ext/temp/$i /data/data/com.termux/files/u
 su -c "chmod 777 /data/data/com.termux/files/usr/bin/$i"
 }
 
-for i in aov bt gi r unpack termux magisk ytm gps core tcl adaway
+for i in aov bt gi r unpack termux magisk ytm gps core tcl adaway ra
 do
 	command
 done

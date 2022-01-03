@@ -1,0 +1,31 @@
+clear
+echo "Chọn công việc:"
+echo "1. HoYo Lab"
+echo "2. Hack data"
+echo "Nhập số từ 1-2:"
+read choose
+
+case $choose in
+	1)
+		clear
+		echo "•HOYO LAB"
+		echo "Chọn chế độ:"
+		echo "1. Bật"
+		echo "2. Tắt"
+		echo "Nhập số từ 1-2:"
+		read hyl
+		
+		case $hyl in
+			1)
+				su -c "pm enable com.mihoyo.hoyolab"
+				su -c "am start --user 0 -n com.mihoyo.hoyolab/com.mihoyo.hoyolab.splash.HoYoSplashActivity"
+			;;
+			2)
+				su -c "pm disable com.mihoyo.hoyolab"
+			;;
+		esac
+	;;
+	2)
+	
+	;;
+esac
