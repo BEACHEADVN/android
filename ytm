@@ -16,6 +16,7 @@ case $ytm in
 	su -c "mv -f /storage/emulated/0/Download/ext/temp/ytmanager.apk /data/local/tmp"
 	su -c "pm install /data/local/tmp/ytmanager.apk"
 	su -c "rm -rf /data/local/tmp/ytmanager.apk"
+	su -c "am start --user 0 -n com.vanced.manager/com.vanced.manager.ui.SplashScreenActivity"
 ;;
 2)
    clear
