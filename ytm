@@ -1,6 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 a=`wget -O - https://github.com/YTVanced/VancedManager | grep "releases/tag" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
+b=`echo $a | tr -d -c 0-9`
 
 clear
 echo "••Phiên bản Youtube Vanced Manager hiện tại: $a"
@@ -11,7 +12,7 @@ read ytm
 
 case $ytm in
 1)
-	download_link=https://github.com/YTVanced/VancedManager/releases/download/v$a/manager.apk
+	download_link=https://github.com/YTVanced/VancedManager/releases/download/v$a-$b/manager.apk
 	wget --no-check-certificate  -O /storage/emulated/0/Download/ext/temp/ytmanager.apk "$download_link"
 	su -c "mv -f /storage/emulated/0/Download/ext/temp/ytmanager.apk /data/local/tmp"
 	su -c "pm install /data/local/tmp/ytmanager.apk"
