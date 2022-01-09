@@ -3,6 +3,7 @@ echo "Chọn công việc:"
 echo "1. HoYo Lab"
 echo "2. Hack data"
 echo "3. Shopee"
+echo "4. AdAway"
 echo "Nhập số từ 1-3:"
 read choose
 
@@ -45,6 +46,25 @@ case $choose in
 			;;
 			2)
 				su -c "pm disable com.shopee.vn"
+			;;
+		esac
+	;;
+	4)
+		clear
+		echo "•AdAway"
+		echo "Chọn chế độ:"
+		echo "1. Bật"
+		echo "2. Tắt"
+		echo "Nhập số từ 1-2:"
+		read ad
+		
+		case $ad in
+			1)
+				su -c "pm enable org.adaway"
+				su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
+			;;
+			2)
+				su -c "pm disable org.adaway"
 			;;
 		esac
 	;;
