@@ -4,7 +4,8 @@ echo "1. HoYo Lab"
 echo "2. Hack data"
 echo "3. Shopee"
 echo "4. AdAway"
-echo "Nhập số từ 1-4:"
+echo "5. Vietcombank"
+echo "Nhập số từ 1-5:"
 read choose
 
 a=`echo $choose | cut -c 1-1`
@@ -39,6 +40,11 @@ then
 	echo "•Bạn chọn AdAway"
 	package="org.adaway"
 	activity="org.adaway.ui.home.HomeActivity"
+elif [ $a = 5 ]
+then
+	echo "•Bạn chọn Vietcombank"
+	package="com.VCB"
+	activity="com.VCB.activities.home.SplashActivity"
 fi
 
 if [ $b = 1 ]
