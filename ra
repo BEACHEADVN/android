@@ -30,7 +30,7 @@ then
 	echo "•Bạn chọn Hack Data"
 	su -c "pm enable com.android.vpndialogs"
 	package="howdy.trojan.vpn"
-	activity="su -c "io.github.trojan_gfw.igniter.wang.VpnHome"
+	activity="io.github.trojan_gfw.igniter.wang.VpnHome"
 elif [ $a = 3 ]
 then
 	echo "•Bạn chọn Shopee"
