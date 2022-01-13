@@ -28,8 +28,9 @@ then
 elif [ $a = 2 ]
 then
 	echo "•Bạn chọn Hack Data"
-	#package="org.adaway"
-	#activity="org.adaway.ui.home.HomeActivity"
+	su -c "pm enable com.android.vpndialogs"
+	package="howdy.trojan.vpn"
+	activity="io.github.trojan_gfw.igniter.MainActivity"
 elif [ $a = 3 ]
 then
 	echo "•Bạn chọn Shopee"
