@@ -12,9 +12,10 @@ function version {
 if [ $(version $a) -gt $(version $b) ]
 then
 	download_link=`wget -O - https://f-droid.org/packages/com.termux/ | grep "https://f-droid.org/repo" | grep "apk" | awk '!/asc/' | grep -Po '(?<=(=")).*(?=">)' | sort -rn | head -n 1`
-	wget --no-check-certificate  -P /storage/emulated/0/Download/ext/temp $download_link
-	pm install /storage/emulated/0/Download/ext/temp/com.termux*
-	rm -rf /storage/emulated/0/Download/ext/temp/com.termux*
+	wget --no-check-certificate  -O /storage/emulated/0/Download/ext/temp/termux.apk $download_link
+	su -c "mv -f /storage/emulated/0/Download/ext/temp/termux.apk /data/local/tmp"
+	su -c "pm install /data/local/tmp/termux.apk"
+	su -c "rm -rf /data/local/tmp/termux.apk"
 else
    echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 	echo "•Termux: Không có cập nhật mới." >> /storage/emulated/0/Download/ext/temp/log
