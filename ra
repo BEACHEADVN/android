@@ -60,6 +60,8 @@ then
 	path=`su -c "find /storage/emulated/0/Download/ext/temp -type f -name 'vpndialog'"`
 	if [ -z "$path" ]
 	then
+		echo ""
+	else
 		su -c "pm disable com.android.vpndialogs"
 		rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	fi
