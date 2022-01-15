@@ -1,5 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+su -c "rm -rf /data/local/tmp/termux.apk"
+
 a=`wget -O - https://f-droid.org/packages/com.termux/ | grep "Version" | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}' | awk '{if ($1 > max) max=$1}END{print max}'`
 
 path=`su -c "find /data/app -type d -name 'com.termux*'"`
