@@ -57,10 +57,10 @@ elif [ $b = 2 ]
 then
 	echo "•Tẵt ứng dụng được chọn"
 	disable
-	v=`cat /storage/emulated/0/Download/ext/temp/vpndialog`
-	if [ $v = 1 ]
+	path=`su -c "find /storage/emulated/0/Download/ext/temp -type f -name 'vpndialog'"`
+	if [ -z "$path" ]
 	then
 		su -c "pm disable com.android.vpndialogs"
+		rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	fi
-	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog 2>/dev/null
 fi
