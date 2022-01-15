@@ -29,6 +29,7 @@ elif [ $a = 2 ]
 then
 	echo "•Bạn chọn Hack Data"
 	su -c "pm enable com.android.vpndialogs"
+	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
 	package="howdy.trojan.vpn"
 	activity="io.github.trojan_gfw.igniter.wang.VpnHome"
 elif [ $a = 3 ]
@@ -56,4 +57,10 @@ elif [ $b = 2 ]
 then
 	echo "•Tẵt ứng dụng được chọn"
 	disable
+	v=`cat /storage/emulated/0/Download/ext/temp/vpndialog`
+	if [ $v = 1 ]
+	then
+		su -c "pm disable com.android.vpndialogs"
+	fi
+	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 fi
