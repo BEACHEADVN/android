@@ -62,5 +62,5 @@ then
 	then
 		su -c "pm disable com.android.vpndialogs"
 	fi
-	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
+	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog 2>/dev/null
 fi
