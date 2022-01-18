@@ -5,7 +5,7 @@ echo "2. Hack data"
 echo "3. Shopee"
 echo "4. AdAway"
 echo "5. Vietcombank"
-echo "5. Thoát"
+echo "6. Thoát"
 echo "Nhập số từ 1-6:"
 read choose
 
