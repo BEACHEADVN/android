@@ -11,7 +11,7 @@ read choose
 
 a=`echo $choose | cut -c 1-1`
 b=`echo $choose | cut -c 2-2`
-b=`echo $choose | cut -c 3-3`
+c=`echo $choose | cut -c 3-3`
 
 function enable+run {
 su -c "pm enable $package"
