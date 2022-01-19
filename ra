@@ -57,10 +57,12 @@ if [ $b = 1 ]
 then
 	echo "•Bật và khởi chạy ứng dụng được chọn"
 	enable+run
+	bash /storage/emulated/0/Download/ext/temp/ra
 elif [ $b = 2 ]
 then
 	echo "•Tẵt ứng dụng được chọn"
 	disable
+	bash /storage/emulated/0/Download/ext/temp/ra
 	path=`su -c "find /storage/emulated/0/Download/ext/temp -type f -name 'vpndialog'"`
 	if [ -z "$path" ]
 	then
