@@ -11,6 +11,7 @@ read choose
 
 a=`echo $choose | cut -c 1-1`
 b=`echo $choose | cut -c 2-2`
+b=`echo $choose | cut -c 3-3`
 
 function enable+run {
 su -c "pm enable $package"
@@ -72,6 +73,14 @@ then
 		rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	fi
 elif [ $b = 0 ]
+then
+	su -c "killall -9 com.termux"
+fi
+
+if [ $c = 1 ]
+then
+	echo ""
+elif [ $c = 0 ]
 then
 	su -c "killall -9 com.termux"
 fi
