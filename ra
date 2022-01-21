@@ -63,7 +63,6 @@ elif [ $b = 2 ]
 then
 	echo "•Tẵt ứng dụng được chọn"
 	disable
-	bash /storage/emulated/0/Download/ext/temp/ra
 	path=`su -c "find /storage/emulated/0/Download/ext/temp -type f -name 'vpndialog'"`
 	if [ -z "$path" ]
 	then
@@ -72,15 +71,15 @@ then
 		su -c "pm disable com.android.vpndialogs"
 		rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	fi
+	
+	if [ $c = 1 ]
+	then
+		bash /storage/emulated/0/Download/ext/temp/ra
+	elif [ $c = 0 ]
+	then
+		su -c "killall -9 com.termux"
+	fi
 elif [ $b = 0 ]
-then
-	su -c "killall -9 com.termux"
-fi
-
-if [ $c = 1 ]
-then
-	echo ""
-elif [ $c = 0 ]
 then
 	su -c "killall -9 com.termux"
 fi
