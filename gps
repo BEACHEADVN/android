@@ -27,8 +27,8 @@ else
 		sed -i 's/Store(.*)./Store('$a')./g' /storage/emulated/0/Download/ext/temp/module.prop
 		rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/*
 		su -c "cp -rf $path/* /storage/emulated/0/Download/ext/temp/app/Phonesky"
-		rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/lib
-		rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/oat
+		#rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/lib
+		#rm -rf /storage/emulated/0/Download/ext/temp/app/Phonesky/oat
 		cd /storage/emulated/0/Download/ext/temp
 		zip -r Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip app common META-INF module.prop customize.sh service.sh
 		mv -f Tweak-MIUI12-Module-Apollo-Pro-fullsetup.zip /storage/emulated/0
