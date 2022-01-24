@@ -33,7 +33,7 @@ then
 	su -c "pm enable com.android.vpndialogs"
 	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
 	package="com.slipkprojects.sockshttp"
-	activity="SocksHttpMainActivity"
+	activity="com.slipkprojects.sockshttp.SocksHttpMainActivity"
 elif [ $a = 3 ]
 then
 	echo "•Bạn chọn Shopee"
