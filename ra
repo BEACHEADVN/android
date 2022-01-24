@@ -32,8 +32,8 @@ then
 	echo "•Bạn chọn Hack Data"
 	su -c "pm enable com.android.vpndialogs"
 	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
-	package="howdy.trojan.vpn"
-	activity="io.github.trojan_gfw.igniter.wang.VpnHome"
+	package="com.slipkprojects.sockshttp"
+	activity="SocksHttpMainActivity"
 elif [ $a = 3 ]
 then
 	echo "•Bạn chọn Shopee"
