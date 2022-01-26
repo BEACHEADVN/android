@@ -5,7 +5,8 @@ echo "2. Hack data"
 echo "3. Shopee"
 echo "4. AdAway"
 echo "5. Vietcombank"
-echo "6. Thoát"
+echo "6. MoMo"
+echo "7. Thoát"
 echo "Nhập số từ 1-6:"
 read choose
 
@@ -50,6 +51,11 @@ then
 	package="com.VCB"
 	activity="com.VCB.activities.home.SplashActivity"
 elif [ $a = 6 ]
+then
+	echo "•Bạn chọn MoMo"
+	package="com.mservice.momotransfer"
+	activity="vn.momo.platform.MainActivity"
+elif [ $a = 7 ]
 then
 	echo "•Thoát"
 fi
