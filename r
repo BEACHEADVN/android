@@ -11,8 +11,6 @@ function install {
 	if [ ! -f /data/data/com.termux/files/usr/bin/$i ]
 	then
 		echo $i >> /sdcard/Download/ext/temp/install_termux
-	else
-		echo ""
 	fi
 }
 
