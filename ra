@@ -69,6 +69,7 @@ then
 	if [ $b = 1 ]
 	then
 		echo "•Thoát script."
+		exit
 	elif [ $b = 0 ]
 	then
 		su -c "killall -9 com.termux"
