@@ -32,6 +32,7 @@ rm -rf /sdcard/Download/ext/temp/android-master
 rm /sdcard/Download/ext/temp/master.zip
 
 pkg update -y && pkg upgdare -y
+apt autoremove -y
 
 function command {
 su -c "cp /storage/emulated/0/Download/ext/temp/$i /data/data/com.termux/files/usr/bin"
