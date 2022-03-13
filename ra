@@ -15,8 +15,9 @@ echo "3. Shopee"
 echo "4. AdAway"
 echo "5. Vietcombank"
 echo "6. MoMo"
-echo "7. Thoát"
-echo "Nhập số từ 1-6:"
+echo "7. Lazada"
+echo "8. Thoát"
+echo "Nhập số từ 1-8:"
 read choose
 
 a=`echo $choose | cut -c 1-1`
@@ -65,6 +66,11 @@ then
 	package="com.mservice.momotransfer"
 	activity="vn.momo.platform.MainActivity"
 elif [ $a = 7 ]
+then
+	echo "•Bạn chọn Lazada"
+	package="com.lazada.android"
+	activity="com.lazada.activities.EnterActivity"
+elif [ $a = 8 ]
 then
 	if [ $b = 1 ]
 	then
