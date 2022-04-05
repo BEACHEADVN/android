@@ -43,8 +43,10 @@ then
 	echo "•Bạn chọn Hack Data"
 	su -c "pm enable com.android.vpndialogs"
 	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
-	package="com.slipkprojects.sockshttp"
-	activity="com.slipkprojects.sockshttp.SocksHttpMainActivity"
+	#package="com.slipkprojects.sockshttp"
+	#activity="com.slipkprojects.sockshttp.SocksHttpMainActivity"
+	package="com.v2ray.ang"
+	activity="com.v2ray.ang.ui.MainActivity"
 elif [ $a = 3 ]
 then
 	echo "•Bạn chọn Shopee"
