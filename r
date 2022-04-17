@@ -45,3 +45,8 @@ do
 done
 
 rm -rf /sdcard/Download/ext/temp/install_termux
+
+if [ ! -f /storage/emulated/0/Download/ext/temp/r ]
+	then
+		bash /sdcard/r
+	fi
