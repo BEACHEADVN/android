@@ -1,0 +1,1 @@
+- lite boot animation.
