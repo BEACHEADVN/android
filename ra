@@ -7,6 +7,10 @@ else
       su -c "pm uninstall com.google.ar.core"
 fi
 
+a=0
+b=0
+c=0
+
 clear
 echo "Chọn công việc:"
 echo "1. HoYo Lab"
