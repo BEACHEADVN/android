@@ -25,11 +25,11 @@ pkg install $install -y
 cd /sdcard/Download/ext/temp
 ls | grep -v 'log' | xargs rm
 
-wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/master.zip
-unzip -qq -o /sdcard/Download/ext/temp/master.zip -d /sdcard/Download/ext/temp
-mv -f /sdcard/Download/ext/temp/android-master/* /sdcard/Download/ext/temp
-rm -rf /sdcard/Download/ext/temp/android-master
-rm /sdcard/Download/ext/temp/master.zip
+wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
+unzip -qq -o /sdcard/Download/ext/temp/termux_bin.zip -d /sdcard/Download/ext/temp
+mv -f /sdcard/Download/ext/temp/android-termux_bin/* /sdcard/Download/ext/temp
+rm -rf /sdcard/Download/ext/temp/android-termux_bin
+rm /sdcard/Download/ext/temp/termux_bin.zip
 
 pkg update -y && pkg upgdare -y
 apt autoremove -y
