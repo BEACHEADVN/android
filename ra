@@ -43,7 +43,7 @@ do
 		then
 			echo "•Bạn chọn Hoyo Lab"
 			package="com.mihoyo.hoyolab"
-			activity="com.mihoyo.hoyolab.splash.HoYoSplashActivity"
+			activity="com.mihoyo.hoyolab.home.HoYoLabMainActivity"
 		elif [ $a = 2 ]
 		then
 			echo "•Bạn chọn Hack Data"
