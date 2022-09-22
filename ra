@@ -20,8 +20,9 @@ echo "4. AdAway"
 echo "5. Vietcombank"
 echo "6. MoMo"
 echo "7. Lazada"
-echo "8. Thoát"
-echo "Nhập số từ 1-8:"
+echo "8. Life Box"
+echo "9. Thoát"
+echo "Nhập số từ 1-9:"
 read choose
 
 a=`echo $choose | cut -c 1-1`
@@ -83,6 +84,11 @@ do
 			package="com.lazada.android"
 			activity="com.lazada.activities.EnterActivity"
 		elif [ $a = 8 ]
+		then
+			echo "•Bạn chọn Life Box"
+			package="com.viettel_telcom.lifebox"
+			activity="com.funambol.android.activities.AndroidHomeScreen"
+		elif [ $a = 9 ]
 		then
 			if [ $b = 1 ]
 			then
