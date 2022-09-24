@@ -17,7 +17,7 @@ case $ytm in
 	su -c "mv -f /storage/emulated/0/Download/ext/temp/ytmanager.apk /data/local/tmp"
 	su -c "pm install /data/local/tmp/ytmanager.apk"
 	su -c "rm -rf /data/local/tmp/ytmanager.apk"
-	su -c "am start --user 0 -n app.revanced.flutter/app.revanced.flutter.MainActivity"
+	su -c "am start --user 0 -n app.revanced.manager.flutter/app.revanced.manager.flutter.MainActivity"
 ;;
 2)
    clear
