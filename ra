@@ -20,7 +20,7 @@ echo "4. AdAway"
 echo "5. Vietcombank"
 echo "6. MoMo"
 echo "7. Lazada"
-echo "8. Life Box"
+echo "8. Google Drive"
 echo "9. Thoát"
 echo "Nhập số từ 1-9:"
 read choose
@@ -85,9 +85,9 @@ do
 			activity="com.lazada.activities.EnterActivity"
 		elif [ $a = 8 ]
 		then
-			echo "•Bạn chọn Life Box"
-			package="com.viettel_telcom.lifebox"
-			activity="com.funambol.android.activities.AndroidHomeScreen"
+			echo "•Bạn chọn Google Drive"
+			package="com.google.android.apps.docs"
+			activity="com.google.android.apps.docs.drive.startup.StartupActivity"
 		elif [ $a = 9 ]
 		then
 			if [ $b = 1 ]
