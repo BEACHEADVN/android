@@ -99,3 +99,8 @@ else
       rm -rf /storage/emulated/0/Download/ext/temp/run_app
       su -c "killall -9 com.termux"
 fi
+
+rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
+rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
+rm -rf /storage/emulated/0/Download/ext/temp/run_app
+su -c "killall -9 com.termux"
