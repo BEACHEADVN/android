@@ -90,18 +90,16 @@ do
 			activity="com.google.android.apps.docs.drive.startup.StartupActivity"
 		elif [ $a = 9 ]
 		then
-			if [ $b = 1 ]
-			then
-				echo "•Thoát script."
-				exit
-			elif [ $b = 0 ]
-			then
-				su -c "killall -9 com.termux"
-			fi
+			echo "Thoát script."
 		fi
 		
 		if [ $b = 1 ]
 		then
+			if [ $a = 9 ]
+			then
+				echo "•Thoát script."
+				exit
+			fi
 			echo "•Bật và khởi chạy ứng dụng được chọn"
 			enable+run
 			bash /storage/emulated/0/Download/ext/temp/ra
