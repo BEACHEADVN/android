@@ -88,9 +88,6 @@ do
 			echo "•Bạn chọn Google Drive"
 			package="com.google.android.apps.docs"
 			activity="com.google.android.apps.docs.drive.startup.StartupActivity"
-		elif [ $a = 9 ]
-		then
-			echo "Thoát script."
 		fi
 		
 		if [ $b = 1 ]
@@ -100,6 +97,7 @@ do
 				echo "•Thoát script."
 				exit
 			fi
+			exit
 			echo "•Bật và khởi chạy ứng dụng được chọn"
 			enable+run
 			bash /storage/emulated/0/Download/ext/temp/ra
