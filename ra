@@ -38,18 +38,8 @@ function disable {
 	su -c "pm disable $package"
 }
 
-if [ $a = 9 ]
-then
-	if [ $b = 1 ]
-	then
-		echo "•Thoát script."
-		exit 0
-	elif [ $b = 0 ]
-	then
-		su -c "killall -9 com.termux"
-	fi
-fi
-
+for a in [ 1 2 3 4 5 6 7 8 ]
+do
 if [ $a = 1 ]
 then
 	echo "•Bạn chọn Hoyo Lab"
@@ -124,4 +114,17 @@ then
 elif [ $c = 0 ]
 then
 	su -c "killall -9 com.termux"
+fi
+done
+
+if [ $a = 9 ]
+then
+	if [ $b = 1 ]
+	then
+		echo "•Thoát script."
+		exit 0
+	elif [ $b = 0 ]
+	then
+		su -c "killall -9 com.termux"
+	fi
 fi
