@@ -1,11 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 if [ ! -d /sdcard/Download/ext/temp ]
-	then
-		mkdir -p /sdcard/Download/ext/temp
-	else
-		echo ""
-	fi
+then
+	mkdir -p /sdcard/Download/ext/temp
+fi
 
 function install {
 	if [ ! -f /data/data/com.termux/files/usr/bin/$i ]
