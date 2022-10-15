@@ -22,34 +22,8 @@ echo "8. Google Drive"
 echo "9. Quick Edit+"
 echo "10. Mt Manager"
 echo "11. Thoát"
-echo "Nhập số từ 1-9:"
+echo "Nhập số từ 1-11:"
 read choose
-
-if [[ $choose = 111 || $choose = 110 ]]
-then
-	a=`echo $choose | cut -c 3-3`
-	if [ $a = 1 ]
-	then
-		echo "•Thoát script."
-		exit
-	elif [ $a = 0 ]
-	then
-		su -c "killall -9 com.termux"
-	fi
-else
-	num=`echo $choose | wc -c`
-	if [[ $num = 3 || $num = 4 ]]
-	then
-	a=`echo $choose | cut -c 1-1`
-	b=`echo $choose | cut -c 2-2`
-	c=`echo $choose | cut -c 3-3`
-	elif [ $num = 5 ]
-	then
-	a=`echo $choose | cut -c 1-2`
-	b=`echo $choose | cut -c 3-3`
-	c=`echo $choose | cut -c 4-4`
-	fi
-fi
 
 function enable+run {
 	su -c "pm enable $package"
@@ -60,22 +34,76 @@ function disable {
 	su -c "pm disable $package"
 }
 
-function check_c {
-	if [ $c = 1 ]
-	then
-		bash /storage/emulated/0/Download/ext/temp/ra
-	elif [ $c = 0 ]
-	then
-		su -c "killall -9 com.termux"
-	fi
+function hoyo_lab {
+	echo "•Bạn chọn Hoyo Lab"
+	package="com.mihoyo.hoyolab"
+	activity="com.mihoyo.hoyolab.home.HoYoLabMainActivity"
 }
 
-function check_b {
+function hack_data {
+	echo "•Bạn chọn Hack Data"
+	su -c "pm enable com.android.vpndialogs"
+	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
+	package="com.github.kr328.clash"
+	activity="com.github.kr328.clash.MainActivity"
+	#package="com.v2ray.ang"
+	#activity="com.v2ray.ang.ui.MainActivity"
+}
+
+function shoppe {
+	echo "•Bạn chọn Shopee"
+	package="com.shopee.vn"
+	activity="com.shopee.app.ui.home.HomeActivity_"
+}
+
+function adaway {
+	echo "•Bạn chọn AdAway"
+	package="org.adaway"
+	activity="org.adaway.ui.home.HomeActivity"
+}
+
+function VCB {
+	echo "•Bạn chọn Vietcombank"
+	package="com.VCB"
+	activity="com.VCB.activities.home.SplashActivity"
+}
+
+function momo {
+	echo "•Bạn chọn MoMo"
+	package="com.mservice.momotransfer"
+	activity="vn.momo.platform.MainActivity"
+}
+
+function lazada {
+	echo "•Bạn chọn Lazada"
+	package="com.lazada.android"
+	activity="com.lazada.activities.EnterActivity"
+}
+
+function G_drive {
+	echo "•Bạn chọn Google Drive"
+	package="com.google.android.apps.docs"
+	activity="com.google.android.apps.docs.drive.startup.StartupActivity"
+}
+
+function quick_edit {
+	echo "•Bạn chọn Quick Edit+"
+	package="com.rhmsoft.edit.pro"
+	activity="com.rhmsoft.edit.activity.MainActivity"
+}
+
+function mtm {
+	echo "•Bạn chọn Mt Manager"
+	package="bin.mt.plus"
+	activity="bin.mt.plus.Main"
+}
+
+function check_action {
 	if [ $b = 1 ]
 	then
 		echo "•Bật và khởi chạy ứng dụng được chọn"
 		enable+run
-		bash /storage/emulated/0/Download/ext/temp/ra
+		bash /storage/emulated/0/a.sh
 	elif [ $b = 2 ]
 	then
 		echo "•Tẵt ứng dụng được chọn"
@@ -88,72 +116,112 @@ function check_b {
 			su -c "pm disable com.android.vpndialogs"
 			rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 		fi
-		check_c
+		check_out
 	fi
 }
 
+function check_out {
+	if [ $c = 1 ]
+	then
+		bash /storage/emulated/0/a.sh
+	elif [ $c = 0 ]
+	then
+		su -c "killall -9 com.termux"
+	fi
+}
+
+if [ $choose = 12345678910 ]
+then
+	for i in [ hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm ]
+	do
+		$i
+		enable+run
+	done
+fi
+
+a=`echo $choose | cut -c 1-1`
+b=`echo $choose | cut -c 2-2`
+c=`echo $choose | cut -c 3-3`
+d=`echo $choose | cut -c 4-4`
+
 if [ $a = 1 ]
 then
-	echo "•Bạn chọn Hoyo Lab"
-	package="com.mihoyo.hoyolab"
-	activity="com.mihoyo.hoyolab.home.HoYoLabMainActivity"
-	check_b
+if [ $b = 0 ]
+then
+	mtm
+	if [ $c = 1 ]
+	then
+		enable+run
+		bash /storage/emulated/0/a.sh
+	elif [ $c = 2 ]
+	then
+		disable
+		if [ $d = 1 ]
+		then
+			bash /storage/emulated/0/a.sh
+		elif [ $d = 0 ]
+		then
+			su -c "killall -9 com.termux"
+		fi
+	fi
+elif [ $b = 1 ]
+then
+	if [ -z "$c" ]
+	then
+		hoyo_lab
+		enable+run
+		bash /storage/emulated/0/a.sh
+	else
+		if [ $c = 1 ]
+		then
+			exit
+		elif [ $c = 0 ]
+		then
+			su -c "killall -9 com.termux"
+		fi
+	fi
+elif [ $b = 2 ]
+then
+	hoyo_lab
+disable
+if [ $c = 1 ]
+then
+	bash /storage/emulated/0/a.sh
+elif [ $c = 0 ]
+then
+	su -c "killall -9 com.termux"
+fi
+fi
 elif [ $a = 2 ]
 then
-	echo "•Bạn chọn Hack Data"
-	su -c "pm enable com.android.vpndialogs"
-	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
-	package="com.github.kr328.clash"
-	activity="com.github.kr328.clash.MainActivity"
-	#package="com.v2ray.ang"
-	#activity="com.v2ray.ang.ui.MainActivity"
-	check_b
+	hack_data
+	check_action
 elif [ $a = 3 ]
 then
-	echo "•Bạn chọn Shopee"
-	package="com.shopee.vn"
-	activity="com.shopee.app.ui.home.HomeActivity_"
-	check_b
+	shoppe
+	check_action
 elif [ $a = 4 ]
 then
-	echo "•Bạn chọn AdAway"
-	package="org.adaway"
-	activity="org.adaway.ui.home.HomeActivity"
-	check_b
+	adaway
+	check_action
 elif [ $a = 5 ]
 then
-	echo "•Bạn chọn Vietcombank"
-	package="com.VCB"
-	activity="com.VCB.activities.home.SplashActivity"
-	check_b
+	VCB
+	check_action
 elif [ $a = 6 ]
 then
-	echo "•Bạn chọn MoMo"
-	package="com.mservice.momotransfer"
-	activity="vn.momo.platform.MainActivity"
-	check_b
+	momo
+	check_action
 elif [ $a = 7 ]
 then
-	echo "•Bạn chọn Lazada"
-	package="com.lazada.android"
-	activity="com.lazada.activities.EnterActivity"
-	check_b
+	lazada
+	check_action
 elif [ $a = 8 ]
 then
-	echo "•Bạn chọn Google Drive"
-	package="com.google.android.apps.docs"
-	activity="com.google.android.apps.docs.drive.startup.StartupActivity"
-	check_b
+	G_drive
+	check_action
 elif [ $a = 9 ]
 then
-	echo "•Bạn chọn Quick Edit+"
-	package="com.rhmsoft.edit.pro"
-	activity="com.rhmsoft.edit.activity.MainActivity"
-	check_b
-elif [ $a = 10 ]
-then
-	echo "•Bạn chọn Mt Manager"
-	package="bin.mt.plus"
-	activity="bin.mt.plus.Main"
-	check_b
+	quick_edit
+	check_action
 fi
