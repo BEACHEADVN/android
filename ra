@@ -4,7 +4,7 @@ path=`su -c "find /data/app -type d -name 'com.google.ar.core*'"`
 
 if [ -z "$path" ]
 then
-      echo""
+	echo""
 else
 	echo "Gỡ cài đặt Google Play for AR Core"
 	su -c "pm uninstall com.google.ar.core"
