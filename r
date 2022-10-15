@@ -43,7 +43,7 @@ for i in aov bt gi r termux magisk ytm core adaway ra mm tt yy
 do
 	if [ ! -f /storage/emulated/0/Download/ext/temp/$i ]
 	then
-		echo "$i command not found."
+		echo "$i command not found in temp folder. Cannot copy!"
 	else
 		command
 	fi
