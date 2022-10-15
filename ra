@@ -103,7 +103,7 @@ function check_action {
 	then
 		echo "•Bật và khởi chạy ứng dụng được chọn"
 		enable+run
-		bash /storage/emulated/0/a.sh
+		bash /storage/emulated/0/Download/ext/temp/ra
 	elif [ $b = 2 ]
 	then
 		echo "•Tẵt ứng dụng được chọn"
@@ -123,7 +123,7 @@ function check_action {
 function check_out {
 	if [ $c = 1 ]
 	then
-		bash /storage/emulated/0/a.sh
+		bash /storage/emulated/0/Download/ext/temp/ra
 	elif [ $c = 0 ]
 	then
 		su -c "killall -9 com.termux"
@@ -152,13 +152,13 @@ then
 	if [ $c = 1 ]
 	then
 		enable+run
-		bash /storage/emulated/0/a.sh
+		bash /storage/emulated/0/Download/ext/temp/ra
 	elif [ $c = 2 ]
 	then
 		disable
 		if [ $d = 1 ]
 		then
-			bash /storage/emulated/0/a.sh
+			bash /storage/emulated/0/Download/ext/temp/ra
 		elif [ $d = 0 ]
 		then
 			su -c "killall -9 com.termux"
@@ -170,7 +170,7 @@ then
 	then
 		hoyo_lab
 		enable+run
-		bash /storage/emulated/0/a.sh
+		bash /storage/emulated/0/Download/ext/temp/ra
 	else
 		if [ $c = 1 ]
 		then
@@ -186,7 +186,7 @@ then
 disable
 if [ $c = 1 ]
 then
-	bash /storage/emulated/0/a.sh
+	bash /storage/emulated/0/Download/ext/temp/ra
 elif [ $c = 0 ]
 then
 	su -c "killall -9 com.termux"
