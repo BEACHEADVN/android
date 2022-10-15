@@ -47,7 +47,6 @@ do
 	else
 		command
 	fi
-	command
 done
 
 rm -rf /sdcard/Download/ext/temp/install_termux
