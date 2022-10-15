@@ -135,12 +135,19 @@ function rerun_ra {
 	bash /storage/emulated/0/Download/ext/temp/ra
 }
 
-if [ $choose = 12345678910 ]
+if [ $choose = on ]
 then
 	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm
 	do
 		$i
 		enable+run
+	done
+elif [ $choose = off ]
+then
+	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm
+	do
+		$i
+		disable
 	done
 	rerun_ra
 fi
