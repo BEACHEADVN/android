@@ -39,7 +39,7 @@ su -c "cp /storage/emulated/0/Download/ext/temp/$i /data/data/com.termux/files/u
 su -c "chmod 777 /data/data/com.termux/files/usr/bin/$i"
 }
 
-for i in aov bt gi r unpack termux magisk ytm gps core tcl adaway ra
+for i in aov bt gi r termux magisk ytm core adaway ra
 do
 	command
 done

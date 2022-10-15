@@ -137,7 +137,7 @@ function rerun_ra {
 
 if [ $choose = 12345678910 ]
 then
-	for i in [ hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm ]
+	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm
 	do
 		$i
 		enable+run
