@@ -6,7 +6,8 @@ if [ -z "$path" ]
 then
       echo""
 else
-      su -c "pm uninstall com.google.ar.core"
+	echo "Gỡ cài đặt Google Play for AR Core"
+	su -c "pm uninstall com.google.ar.core"
 fi
 
 clear
