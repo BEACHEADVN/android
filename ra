@@ -126,7 +126,7 @@ function check_out {
 		rerun_ra
 	elif [ $c = 0 ]
 	then
-		su -c "killall -9 com.termux"
+		kill_termux
 	fi
 }
 
@@ -144,6 +144,9 @@ then
 	rerun_ra
 fi
 
+function kill_termux {
+	su -c "killall -9 com.termux"
+}
 a=`echo $choose | cut -c 1-1`
 b=`echo $choose | cut -c 2-2`
 c=`echo $choose | cut -c 3-3`
@@ -166,7 +169,7 @@ then
 			rerun_ra
 		elif [ $d = 0 ]
 		then
-			su -c "killall -9 com.termux"
+			kill_termux
 		fi
 	fi
 elif [ $b = 1 ]
@@ -182,7 +185,7 @@ then
 			exit
 		elif [ $c = 0 ]
 		then
-			su -c "killall -9 com.termux"
+			kill_termux
 		fi
 	fi
 elif [ $b = 2 ]
@@ -194,7 +197,7 @@ then
 	rerun_ra
 elif [ $c = 0 ]
 then
-	su -c "killall -9 com.termux"
+	kill_termux
 fi
 fi
 elif [ $a = 2 ]
