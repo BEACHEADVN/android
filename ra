@@ -141,6 +141,7 @@ then
 		$i
 		enable+run
 	done
+	rerun_ra
 fi
 
 a=`echo $choose | cut -c 1-1`
