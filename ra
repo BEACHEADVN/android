@@ -146,7 +146,7 @@ then
 		enable
 	done
 	rerun_ra
-elif [ $choose = off ]
+elif [[ $choose = off || $choose = of ]]
 then
 	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm
 	do
@@ -197,6 +197,7 @@ then
 	else
 		if [ $c = 1 ]
 		then
+			clear
 			exit
 		elif [ $c = 0 ]
 		then
