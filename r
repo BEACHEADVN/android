@@ -18,7 +18,7 @@ then
 	echo ""
 else
 	install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
-	pkg install $install -y
+	pkg uninstall $install -y
 fi
 
 cd /sdcard/Download/ext/temp
@@ -48,7 +48,10 @@ do
 	fi
 done
 
-rm -rf /sdcard/Download/ext/temp/install_termux
+if [ -f /sdcard/Download/ext/temp/install_termux ]
+then
+	rm -rf /sdcard/Download/ext/temp/install_termux
+fi
 
 if [ ! -f /storage/emulated/0/Download/ext/temp/r ]
 	then
