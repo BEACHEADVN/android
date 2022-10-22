@@ -5,20 +5,21 @@ then
 	mkdir -p /sdcard/Download/ext/temp
 fi
 
-function install {
+for i in wget aapt perl zip
+do
 	if [ ! -f /data/data/com.termux/files/usr/bin/$i ]
 	then
 		echo $i >> /sdcard/Download/ext/temp/install_termux
 	fi
-}
-
-for i in wget aapt perl zip
-do
-	install
 done
 
-install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
-pkg install $install -y
+if [ ! -f /sdcard/Download/ext/temp/install_termux ]
+then
+	echo ""
+else
+	install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
+	pkg install $install -y
+fi
 
 cd /sdcard/Download/ext/temp
 ls | grep -v 'log' | xargs rm
