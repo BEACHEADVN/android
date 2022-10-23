@@ -59,8 +59,14 @@ else
       su -c "killall -9 com.termux"
 fi
 ' > /storage/emulated/0/Download/ext/temp/bt_powersave
-
-su -c "echo 0 > /proc/sys/vm/swappiness"
+a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`
+if [ $a != 'powersave' ]
+then
+     su -c "sh /storage/emulated/0/Download/ext/temp/bt_powersave"
+else
+      echo "•GPU Goveror: Powersave"
+      gpu_gorvernor=powersave
+fi
 
 printf 'su -c "echo 0 > /proc/sys/vm/swappiness"
 a=`su -c "cat /proc/sys/vm/swappiness"`
@@ -71,7 +77,6 @@ else
       echo "•swappiness: 0"
 fi
 ' > /storage/emulated/0/Download/ext/temp/bt_swappiness
-
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != 0 ]
 then
@@ -79,28 +84,23 @@ then
      su -c "sh /storage/emulated/0/Download/ext/temp/bt_swappiness"
 else
       echo "•swappiness: 0"
+      swappiness=0
 fi
 
-a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
-if [ $a != 'powersave' ]
+if [[ $gpu_gorvernor = powersave && $swappiness = 0 ]]
 then
-     su -c "sh /storage/emulated/0/Download/ext/temp/bt_powersave"
+	app=`cat /storage/emulated/0/Download/ext/temp/run_app`
+	if [ $app = gi ]
+	then
+		su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
+	elif [ $app = aov ]
+	then
+		echo ""
+	fi
+	rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
+	rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
+	rm -rf /storage/emulated/0/Download/ext/temp/run_app
+	su -c "killall -9 com.termux"
 else
-      app=`cat /storage/emulated/0/Download/ext/temp/run_app`
-      if [ $app = gi ]
-	  then
-	      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
-      elif [ $app = aov ]
-	  then
-		  echo ""
-	  fi
-      rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
-      rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
-      rm -rf /storage/emulated/0/Download/ext/temp/run_app
-      su -c "killall -9 com.termux"
+	bash /storage/emulated/0/Download/ext/temp/bt
 fi
-
-rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
-rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
-rm -rf /storage/emulated/0/Download/ext/temp/run_app
-su -c "killall -9 com.termux"
