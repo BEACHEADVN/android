@@ -80,8 +80,7 @@ if [ $a != $gpu ]
 then
 	su -c "sh /storage/emulated/0/Download/ext/temp/gi_$gpu"
 else
-	su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
-	su -c "killall -9 com.termux"
+	echo ""
 fi
 ' > /storage/emulated/0/Download/ext/temp/gi_$gpu
 
@@ -90,11 +89,7 @@ if [ $a != $gpu ]
 then
 	su -c "sh /storage/emulated/0/Download/ext/temp/gi_$gpu"
 else
-	su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
-	echo gi > /storage/emulated/0/Download/ext/temp/run_app
-	rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
-	rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
-	su -c "killall -9 com.termux"
+	echo ""
 fi
 }
 
@@ -116,6 +111,10 @@ case $temperature in
 		CPU×GPU
 		SWAPPINESS
 		GPU_GOVERNOR
+		echo gi > /storage/emulated/0/Download/ext/temp/run_app
+		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
+		rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
+		su -c "killall -9 com.termux"
 	;;
 	2)
 		cpu=performance
@@ -127,5 +126,9 @@ case $temperature in
 		CPU×GPU
 		SWAPPINESS
 		GPU_GOVERNOR
+		echo gi > /storage/emulated/0/Download/ext/temp/run_app
+		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
+		rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
+		su -c "killall -9 com.termux"
 	;;
 esac
