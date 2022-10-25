@@ -114,6 +114,7 @@ case $temperature in
 		echo gi > /storage/emulated/0/Download/ext/temp/run_app
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
+		su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
 		su -c "killall -9 com.termux"
 	;;
 	2)
@@ -129,6 +130,7 @@ case $temperature in
 		echo gi > /storage/emulated/0/Download/ext/temp/run_app
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
+		su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
 		su -c "killall -9 com.termux"
 	;;
 esac
