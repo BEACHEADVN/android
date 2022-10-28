@@ -109,7 +109,7 @@ case $temperature in
 		echo "Chạy profile kernel: $gpu"
 		DISABLE
 		CPU×GPU
-		SWAPPINESS
+		#SWAPPINESS
 		GPU_GOVERNOR
 		echo gi > /storage/emulated/0/Download/ext/temp/run_app
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
@@ -125,7 +125,7 @@ case $temperature in
 		echo "Chạy profile kernel: $gpu"
 		DISABLE
 		CPU×GPU
-		SWAPPINESS
+		#SWAPPINESS
 		GPU_GOVERNOR
 		echo gi > /storage/emulated/0/Download/ext/temp/run_app
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
