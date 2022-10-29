@@ -19,7 +19,7 @@ echo "4. AdAway"
 echo "5. Vietcombank"
 echo "6. MoMo"
 echo "7. Lazada"
-echo "8. Google Drive"
+echo "8. Revancify"
 echo "9. Quick Edit+"
 echo "10. Mt Manager"
 echo "11. Thoát"
@@ -83,11 +83,11 @@ function lazada {
 	activity="com.lazada.activities.EnterActivity"
 }
 
-function G_drive {
-	echo "•Bạn chọn Google Drive"
-	package="com.google.android.apps.docs"
-	activity="com.google.android.apps.docs.drive.startup.StartupActivity"
-}
+#function G_drive {
+	#echo "•Bạn chọn Google Drive"
+	#package="com.google.android.apps.docs"
+	#activity="com.google.android.apps.docs.drive.startup.StartupActivity"
+#}
 
 function quick_edit {
 	echo "•Bạn chọn Quick Edit+"
@@ -242,8 +242,9 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	G_drive
-	check_action
+	revancify
+	#G_drive
+	#check_action
 elif [ $a = 9 ]
 then
 	quick_edit
