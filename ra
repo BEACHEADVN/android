@@ -242,7 +242,11 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	revancify
+	pkg install git -y
+	cd storage
+	git clone https://github.com/decipher3114/Revancify
+	cd Revancify
+	bash revancify
 	#G_drive
 	#check_action
 elif [ $a = 9 ]
