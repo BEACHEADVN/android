@@ -242,11 +242,18 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	pkg install git -y
-	cd storage
-	git clone https://github.com/decipher3114/Revancify
-	cd Revancify
-	bash revancify
+	if [ ! -f /data/data/com.termux/files/usr/bin/git ]
+	then
+		pkg install git -y
+	fi
+	if [ ! -d /data/data/com.termux/files/home/storage/Revancify ]
+	then
+		cd storage
+		git clone https://github.com/decipher3114/Revancify
+		cd Revancify
+		bash revancify
+	fi
+	revancify
 	#G_drive
 	#check_action
 elif [ $a = 9 ]
