@@ -15,7 +15,7 @@ done
 
 if [ ! -f /sdcard/Download/ext/temp/install_termux ]
 then
-	echo ""
+	echo "No packages need install."
 else
 	install=`cat /sdcard/Download/ext/temp/install_termux 2>/dev/null`
 	pkg install $install -y
