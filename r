@@ -21,8 +21,7 @@ else
 	pkg install $install -y
 fi
 
-cd /sdcard/Download/ext/temp
-ls | grep -v 'log' | xargs rm
+cd /sdcard/Download/ext/temp && ls | grep -v 'log' | xargs rm
 
 wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
 unzip -qq -o /sdcard/Download/ext/temp/termux_bin.zip -d /sdcard/Download/ext/temp
@@ -30,13 +29,7 @@ mv -f /sdcard/Download/ext/temp/android-termux_bin/* /sdcard/Download/ext/temp
 rm -rf /sdcard/Download/ext/temp/android-termux_bin
 rm /sdcard/Download/ext/temp/termux_bin.zip
 
-pkg update -y && pkg upgdare -y
-apt autoremove -y
-
-function command {
-su -c "cp /storage/emulated/0/Download/ext/temp/$i /data/data/com.termux/files/usr/bin"
-su -c "chmod 777 /data/data/com.termux/files/usr/bin/$i"
-}
+pkg update -y && pkg upgdare -y && apt autoremove -y
 
 for i in aov bt gi r termux magisk ytm core adaway ra
 do
@@ -44,7 +37,8 @@ do
 	then
 		echo "$i command not found in temp folder. Cannot copy!"
 	else
-		command
+		su -c "cp /storage/emulated/0/Download/ext/temp/$i /data/data/com.termux/files/usr/bin"
+		su -c "chmod 777 /data/data/com.termux/files/usr/bin/$i"
 	fi
 done
 
@@ -54,6 +48,6 @@ then
 fi
 
 if [ ! -f /storage/emulated/0/Download/ext/temp/r ]
-	then
-		bash /sdcard/r
-	fi
+then
+	bash /sdcard/r
+fi
