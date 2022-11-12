@@ -46,7 +46,12 @@ function hoyo_lab {
 function hack_data {
 	echo "•Bạn chọn Hack Data"
 	su -c "pm enable com.android.vpndialogs"
-	echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
+	if [[ $choose = off || $choose = of ]]
+	then
+		echo ""
+	else
+		echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
+	fi
 	package="com.github.kr328.clash"
 	activity="com.github.kr328.clash.MainActivity"
 	#package="com.v2ray.ang"
