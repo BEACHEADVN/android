@@ -50,7 +50,8 @@ function SWAPPINESS {
 
 su -c "echo 0 > /proc/sys/vm/swappiness"
 
-printf 'su -c "echo 0 > /proc/sys/vm/swappiness"
+cat <<EOT >> /storage/emulated/0/Download/ext/temp/gi_swappiness
+su -c "echo 0 > /proc/sys/vm/swappiness"
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != 0 ]
 then
@@ -58,7 +59,7 @@ then
 else
       echo "•swappiness: 0"
 fi
-' > /storage/emulated/0/Download/ext/temp/gi_swappiness
+EOT
 
 a=`su -c "cat /proc/sys/vm/swappiness"`
 if [ $a != '0' ]
@@ -74,7 +75,8 @@ function GPU_GOVERNOR {
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 su -c "echo $gpu > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 
-printf 'su -c "echo $gpu > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
+cat <<EOT >> /storage/emulated/0/Download/ext/temp/gi_$gpu
+su -c "echo $gpu > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != $gpu ]
 then
@@ -82,7 +84,6 @@ then
 else
 	echo ""
 fi
-' > /storage/emulated/0/Download/ext/temp/gi_$gpu
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != $gpu ]
