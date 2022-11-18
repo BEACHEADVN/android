@@ -84,6 +84,7 @@ then
 else
 	echo ""
 fi
+EOT
 
 a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
 if [ $a != $gpu ]
