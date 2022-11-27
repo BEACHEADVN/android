@@ -108,7 +108,7 @@ function lazada {
 
 function quick_edit {
 	echo "•Bạn chọn Quick Edit+"
-	package="com.rhmsoft.edit.pro"
+	package="com.rhmsoft.edit"
 	activity="com.rhmsoft.edit.activity.MainActivity"
 }
 
