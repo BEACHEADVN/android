@@ -115,7 +115,7 @@ function quick_edit {
 function mtm {
 	echo "•Bạn chọn Mt Manager"
 	package="bin.mt.plus"
-	activity="bin.mt.plus.Main"
+	activity="bin.mt.plus.MainDarkIcon"
 }
 
 function check_action {
