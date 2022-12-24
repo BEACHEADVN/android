@@ -19,8 +19,9 @@ then
 	su -c "pm install /data/local/tmp/termux.apk"
 	su -c "rm -rf /data/local/tmp/termux.apk"
 else
+	clear
 	echo "•Termux: Không có cập nhật mới."
-   echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
+	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 	echo "•Termux: Không có cập nhật mới." >> /storage/emulated/0/Download/ext/temp/log
 fi
 

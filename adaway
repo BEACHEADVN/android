@@ -20,6 +20,8 @@ then
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 	echo "•AdAway: $b -> $a" >> /storage/emulated/0/Download/ext/temp/log
 else
+	clear
+	echo "•AdAway: Không có cập nhật mới."
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 	echo "•AdAway: Không có cập nhật mới." >> /storage/emulated/0/Download/ext/temp/log
 fi

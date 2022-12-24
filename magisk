@@ -17,6 +17,8 @@ then
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 	echo "•Magisk: v$b --> v$a" >> /storage/emulated/0/Download/ext/temp/log
 else
+	clear
+	echo "•Magisk: Không có cập nhật mới."
     echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log
 	echo "•Magisk: Không có cập nhật mới." >> /storage/emulated/0/Download/ext/temp/log
 fi
