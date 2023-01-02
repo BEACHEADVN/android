@@ -19,7 +19,7 @@ echo "4. AdAway"
 echo "5. Vietcombank"
 echo "6. MoMo"
 echo "7. Lazada"
-echo "8. Revancify"
+echo "8. RVX builder"
 echo "9. Quick Edit+"
 echo "10. Mt Manager"
 echo "11. Thoát"
@@ -257,20 +257,8 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	if [ ! -f /data/data/com.termux/files/usr/bin/git ]
-	then
-		pkg install git -y
-	fi
-	if [ ! -d /data/data/com.termux/files/home/storage/Revancify ]
-	then
-		cd storage
-		git clone https://github.com/decipher3114/Revancify
-		cd Revancify
-		bash revancify
-	fi
-	revancify
-	#G_drive
-	#check_action
+	curl -sLo rvx-builder.sh https://raw.githubusercontent.com/inotia00/rvx-builder/revanced-extended/android-interface.sh && chmod +x rvx-builder.sh && ./rvx-builder.sh
+	./rvx-builder.sh update && ./rvx-builder.sh run
 elif [ $a = 9 ]
 then
 	quick_edit
