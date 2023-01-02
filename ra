@@ -161,7 +161,11 @@ then
 		$i
 		enable
 	done
+	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
+	sleep 5
+	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	rerun_ra
+	
 elif [[ $choose = off || $choose = of ]]
 then
 	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada G_drive quick_edit mtm
