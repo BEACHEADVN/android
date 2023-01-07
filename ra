@@ -257,9 +257,12 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	curl -sLo rvx-builder.sh https://raw.githubusercontent.com/inotia00/rvx-builder/revanced-extended/android-interface.sh && chmod +x rvx-builder.sh && ./rvx-builder.sh
-	./rvx-builder.sh update
-	./rvx-builder.sh run
+	if [ -z /data/data/com.termux/files/home/rvx-builder ]
+	then
+		./rvx-builder.sh update
+	else
+		curl -sLo rvx-builder.sh https://raw.githubusercontent.com/inotia00/rvx-builder/revanced-extended/android-interface.sh && chmod +x rvx-builder.sh && ./rvx-builder.sh
+	fi
 elif [ $a = 9 ]
 then
 	quick_edit
