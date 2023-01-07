@@ -257,9 +257,11 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	if [ -z /data/data/com.termux/files/home/rvx-builder ]
+	path=`su -c "find /data/data/com.termux/files/home/rvx-builder`
+	if [ -z "$path" ]
 	then
 		./rvx-builder.sh update
+		./rvx-builder.sh run
 	else
 		curl -sLo rvx-builder.sh https://raw.githubusercontent.com/inotia00/rvx-builder/revanced-extended/android-interface.sh && chmod +x rvx-builder.sh && ./rvx-builder.sh
 	fi
