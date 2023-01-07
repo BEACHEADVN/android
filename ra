@@ -257,7 +257,7 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	path=`su -c "find /data/data/com.termux/files/home/rvx-builder`
+	path=`su -c "find /data/data/com.termux/files/home/rvx-builder"`
 	if [ -z "$path" ]
 	then
 		./rvx-builder.sh update
