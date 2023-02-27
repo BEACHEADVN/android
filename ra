@@ -32,7 +32,13 @@ c=`echo $choose | cut -c 3-3`
 d=`echo $choose | cut -c 4-4`
 
 function enable {
-	su -c "pm enable $package"
+	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
+	if [ -z "$path" ]
+	then
+		  echo "• $name khong duoc cai dat."
+	else
+		su -c "pm enable $package"
+	fi
 }
 function run {
 	su -c "am start --user 0 -n $package/$activity"
