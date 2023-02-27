@@ -39,17 +39,25 @@ function run {
 }
 	
 function disable {
-	su -c "pm disable $package"
+	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
+	if [ -z "$path" ]
+	then
+		  echo "• $name khong duoc cai dat."
+	else
+		su -c "pm disable $package"
+	fi
 }
 
 function hoyo_lab {
 	echo "•Bạn chọn Hoyo Lab"
+	name="Hoyo Lab"
 	package="com.mihoyo.hoyolab"
 	activity="com.mihoyo.hoyolab.home.HoYoLabMainActivity"
 }
 
 function hack_data {
 	echo "•Bạn chọn Hack Data"
+	name="Clash Android"
 	su -c "pm enable com.android.vpndialogs"
 	if [[ $choose = off || $choose = of ]]
 	then
@@ -72,30 +80,35 @@ function hack_data {
 
 function shoppe {
 	echo "•Bạn chọn Shopee"
+	name="Shopee"
 	package="com.shopee.vn"
 	activity="com.shopee.app.ui.home.HomeActivity_"
 }
 
 function adaway {
 	echo "•Bạn chọn AdAway"
+	name="AdAway"
 	package="org.adaway"
 	activity="org.adaway.ui.home.HomeActivity"
 }
 
 function VCB {
 	echo "•Bạn chọn Vietcombank"
+	name="Vietcombank"
 	package="com.VCB"
 	activity="com.VCB.activities.home.SplashActivity"
 }
 
 function momo {
 	echo "•Bạn chọn MoMo"
+	name="MoMo"
 	package="com.mservice.momotransfer"
 	activity="vn.momo.platform.MainActivity"
 }
 
 function lazada {
 	echo "•Bạn chọn Lazada"
+	name="Lazada"
 	package="com.lazada.android"
 	activity="com.lazada.activities.EnterActivity"
 }
@@ -108,12 +121,14 @@ function lazada {
 
 function quick_edit {
 	echo "•Bạn chọn Quick Edit+"
+	name="Quick Edit"
 	package="com.rhmsoft.edit"
 	activity="com.rhmsoft.edit.activity.MainActivity"
 }
 
 function mtm {
 	echo "•Bạn chọn Mt Manager"
+	name="Mt Manager"
 	package="bin.mt.plus"
 	#activity="bin.mt.plus.MainDarkIcon"
 activity="bin.mt.plus.Main"
