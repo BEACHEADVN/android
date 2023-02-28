@@ -1,106 +1,117 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-x=0
-while [ $x -le 7 ]
-do
-   su -c "chmod 777 /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
-   su -c "echo conservative > /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
-   x=$(( $x + 1 ))
-done
+#x=0
+#while [ $x -le 7 ]
+#do
+#   su -c "chmod 777 /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
+#   su -c "echo conservative > /sys/devices/system/cpu/cpu$x/cpufreq/scaling_governor"
+#   x=$(( $x + 1 ))
+#done
 
-su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
-su -c "echo 305 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
-su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
-su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
-su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
-su -c "echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
-su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
+#su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+#su -c "echo 305 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+#su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/devfreq/governor"
+#su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
+#su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+#su -c "echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+#su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
 
-su -c "chmod 777 /sys/block/sda/queue/scheduler"
-su -c "echo noop > /sys/block/sda/queue/scheduler"
+#su -c "chmod 777 /sys/block/sda/queue/scheduler"
+#su -c "echo noop > /sys/block/sda/queue/scheduler"
 
-rm -rf /storage/emulated/0/Download/ext/temp/p_i
-rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
+#rm -rf /storage/emulated/0/Download/ext/temp/p_i
+#rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
 
-for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.miHoYo.GenshinImpact com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
-do
-	path=`su -c "pm path $i"`
-	if [ -z "$path" ]
-	then
-		  echo $i >> /storage/emulated/0/Download/ext/temp/p_n_i
-	else
-		echo $i >> /storage/emulated/0/Download/ext/temp/p_i
-	fi
-done
+#for i in com.vng.pubgmobile com.garena.game.kgvn com.android.vending com.android.deskclock com.android.providers.downloads com.facebook.katana com.android.deskclock com.lonelycatgames.Xplore org.telegram.messenger com.oasisfeng.greenify com.google.android.youtube com.topjohnwu.magisk com.android.bluetooth com.android.chrome com.android.bluetoothmidiservice org.swiftapps.swiftbackup com.android.camera com.miHoYo.GenshinImpact com.jairath.ccaster app.greyshirts.firewall com.google.android.play.games com.twitter.android free.vpn.unblock.proxy.turbovpn com.pandavpn.androidproxy com.hellraiser.unitemod com.forexgaming com.jairath.tencentig com.misaki.putri com.Putri com.chrome.beta com.putri.esp
+#do
+	#path=`su -c "pm path $i"`
+	#if [ -z "$path" ]
+	#then
+		#echo $i >> /storage/emulated/0/Download/ext/temp/p_n_i
+	#else
+		#echo $i >> /storage/emulated/0/Download/ext/temp/p_i
+	#fi
+#done
 
-echo "•Package không được cài đặt:"
-cat /storage/emulated/0/Download/ext/temp/p_n_i
-echo "•Bật Package:"
-lines=`cat /storage/emulated/0/Download/ext/temp/p_i`
-for line in $lines
-do
-	su -c "pm enable $line"
-done
+#echo "•Package không được cài đặt:"
+#cat /storage/emulated/0/Download/ext/temp/p_n_i
+#echo "•Bật Package:"
+#lines=`cat /storage/emulated/0/Download/ext/temp/p_i`
+#for line in $lines
+#do
+	#su -c "pm enable $line"
+#done
 
-rm -rf /storage/emulated/0/Download/ext/temp/p_i
-rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
+#rm -rf /storage/emulated/0/Download/ext/temp/p_i
+#rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
 
 killall -9 com.miHoYo.GenshinImpact
 killall -9 com.garena.game.kgvn
 
-printf 'su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+su -c "echo 220 > /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+su -c "echo 220 > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+su -c "echo 7 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
 
-a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
-if [ $a != powersave ]
-then
-     su -c "sh /storage/emulated/0/Download/ext/temp/bt_powersave"
-else
-      su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
-      su -c "killall -9 com.termux"
-fi
-' > /storage/emulated/0/Download/ext/temp/bt_powersave
-a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`
-if [ $a != 'powersave' ]
-then
-     su -c "sh /storage/emulated/0/Download/ext/temp/bt_powersave"
-else
-      echo "•GPU Goveror: Powersave"
-      gpu_gorvernor=powersave
-fi
+su -c "chmod 777 /sys/block/sda/queue/scheduler"
+su -c "echo bfq > /sys/block/sda/queue/scheduler"
+		
+#printf 'su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
 
-printf 'su -c "echo 0 > /proc/sys/vm/swappiness"
-a=`su -c "cat /proc/sys/vm/swappiness"`
-if [ $a != 0 ]
-then
-     su -c "sh /storage/emulated/0/Download/ext/temp/bt_swappiness"
-else
-      echo "•swappiness: 0"
-fi
-' > /storage/emulated/0/Download/ext/temp/bt_swappiness
-a=`su -c "cat /proc/sys/vm/swappiness"`
-if [ $a != 0 ]
-then
-	echo $a
-     su -c "sh /storage/emulated/0/Download/ext/temp/bt_swappiness"
-else
-      echo "•swappiness: 0"
-      swappiness=0
-fi
+#a=`su -c "cat /sys/class/kgsl/kgsl-3d0/devfreq/governor"`
+#if [ $a != powersave ]
+#then
+	#su -c "sh /storage/emulated/0/Download/ext/temp/bt_powersave"
+#else
+	#su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
+	#su -c "killall -9 com.termux"
+#fi
+#' > /storage/emulated/0/Download/ext/temp/bt_powersave
+#a=`cat /sys/class/kgsl/kgsl-3d0/devfreq/governor`
+#if [ $a != 'powersave' ]
+#then
+	#su -c "sh /storage/emulated/0/Download/ext/temp/bt_powersave"
+#else
+	#echo "•GPU Goveror: Powersave"
+	#gpu_gorvernor=powersave
+#fi
 
-if [[ $gpu_gorvernor = powersave && $swappiness = 0 ]]
-then
-	app=`cat /storage/emulated/0/Download/ext/temp/run_app`
-	if [ $app = gi ]
-	then
-		su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
-	elif [ $app = aov ]
-	then
-		echo ""
-	fi
-	rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
-	rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
-	rm -rf /storage/emulated/0/Download/ext/temp/run_app
-	su -c "killall -9 com.termux"
-else
-	bash /storage/emulated/0/Download/ext/temp/bt
-fi
+#printf 'su -c "echo 0 > /proc/sys/vm/swappiness"
+#a=`su -c "cat /proc/sys/vm/swappiness"`
+#if [ $a != 0 ]
+#then
+	#su -c "sh /storage/emulated/0/Download/ext/temp/bt_swappiness"
+#else
+	#echo "•swappiness: 0"
+#fi
+#' > /storage/emulated/0/Download/ext/temp/bt_swappiness
+#a=`su -c "cat /proc/sys/vm/swappiness"`
+#if [ $a != 0 ]
+#then
+	#echo $a
+	#su -c "sh /storage/emulated/0/Download/ext/temp/bt_swappiness"
+#else
+	#echo "•swappiness: 0"
+	#swappiness=0
+#fi
+
+#if [[ $gpu_gorvernor = powersave && $swappiness = 0 ]]
+#then
+	#app=`cat /storage/emulated/0/Download/ext/temp/run_app`
+	#if [ $app = gi ]
+	#then
+		#su -c "am start --user 0 -n org.swiftapps.swiftbackup/org.swiftapps.swiftbackup.intro.IntroActivity"
+	#elif [ $app = aov ]
+	#then
+		#echo ""
+	#fi
+	#rm -rf /storage/emulated/0/Download/ext/temp/bt_swappiness
+	#rm -rf /storage/emulated/0/Download/ext/temp/bt_powersave
+	#rm -rf /storage/emulated/0/Download/ext/temp/run_app
+	#su -c "killall -9 com.termux"
+#else
+	#bash /storage/emulated/0/Download/ext/temp/bt
+#fi
