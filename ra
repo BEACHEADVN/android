@@ -279,7 +279,7 @@ then
 	check_action
 elif [ $a = 8 ]
 then
-	if [ -d /data/data/com.termux/files/usr/bin/revancify ]
+	if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
 	then
 		revancify
 	else
