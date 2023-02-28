@@ -104,31 +104,51 @@ read temperature
 
 case $temperature in
 	1)
-		cpu=schedutil
-		gpu=msm-adreno-tz
-		minMhz=305
-		pwrlevel=3
+		#cpu=schedutil
+		#gpu=msm-adreno-tz
+		minMhz=220
+		pwrlevel=7
 		echo "Chạy profile kernel: $gpu"
-		DISABLE
-		CPU×GPU
+		#DISABLE
+		#CPU×GPU
 		#SWAPPINESS
-		GPU_GOVERNOR
+		#GPU_GOVERNOR
+		su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+		su -c "echo 680 > /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+		su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+		su -c "echo $minMhz > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+		su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+		su -c "echo $pwrlevel > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+		su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
+		
+		su -c "chmod 777 /sys/block/sda/queue/scheduler"
+		su -c "echo mq-deadline > /sys/block/sda/queue/scheduler"
 		echo gi > /storage/emulated/0/Download/ext/temp/run_app
-		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
-		rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
+		#rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
+		#rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
 		su -c "am start --user 0 -n com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity"
 		su -c "killall -9 com.termux"
 	;;
 	2)
-		cpu=performance
-		gpu=performance
-		minMhz=587
+		#cpu=performance
+		#gpu=performance
+		minMhz=680
 		pwrlevel=1
 		echo "Chạy profile kernel: $gpu"
-		DISABLE
-		CPU×GPU
+		#DISABLE
+		#CPU×GPU
 		#SWAPPINESS
-		GPU_GOVERNOR
+		#GPU_GOVERNOR
+		su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+		su -c "echo 680 > /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
+		su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+		su -c "echo $minMhz > /sys/class/kgsl/kgsl-3d0/min_clock_mhz"
+		su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+		su -c "echo $pwrlevel > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
+		su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
+		
+		su -c "chmod 777 /sys/block/sda/queue/scheduler"
+		su -c "echo mq-deadline > /sys/block/sda/queue/scheduler"
 		echo gi > /storage/emulated/0/Download/ext/temp/run_app
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_swappiness
 		rm -rf /storage/emulated/0/Download/ext/temp/gi_$gpu
