@@ -10,6 +10,16 @@ else
 	su -c "pm uninstall com.google.ar.core"
 fi
 
+path=`su -c "find /data/app -type d -name 'com.google.android.apps.restore*'"`
+
+if [ -z "$path" ]
+then
+	echo "Google Play for AR Core không bị cài đặt."
+else
+	echo "Gỡ cài đặt Google Play for AR Core"
+	su -c "pm uninstall com.google.ar.core"
+fi
+
 clear
 echo "Chọn công việc:"
 echo "1. HoYo Lab"
