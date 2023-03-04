@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/sh
 
 #x=0
 #while [ $x -le 7 ]
@@ -45,8 +45,8 @@
 #rm -rf /storage/emulated/0/Download/ext/temp/p_i
 #rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
 
-killall -9 com.miHoYo.GenshinImpact
-killall -9 com.garena.game.kgvn
+su -c "killall -9 com.miHoYo.GenshinImpact"
+su -c "killall -9 com.garena.game.kgvn"
 
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
 su -c "echo 220 > /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
@@ -56,7 +56,7 @@ su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 su -c "echo 7 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel"
 su -c "echo 0 > /sys/class/kgsl/kgsl-3d0/throttling"
 
-max_clock_mhz=`su -c "cat /sys/class/kgsl/kgsl-3d0/max_clock_mhz" | sed 's/^.*abc/abc/'`
+max_clock_mhz=`su -c "cat /sys/class/kgsl/kgsl-3d0/max_clock_mhz"`
 echo "• GPU max clock MHz: $max_clock_mhz MHz"
 min_clock_mhz=`su -c "cat /sys/class/kgsl/kgsl-3d0/min_clock_mhz"`
 echo "• GPU min clock MHz: $min_clock_mhz MHz"
