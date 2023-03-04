@@ -61,7 +61,7 @@ echo "• GPU max clock MHz: $max_clock_mhz MHz"
 min_clock_mhz=`su -c "cat /sys/class/kgsl/kgsl-3d0/min_clock_mhz"`
 echo "• GPU min clock MHz: $min_clock_mhz MHz"
 su -c "echo bfq > /sys/block/sda/queue/scheduler"
-io_scheduler=`su -c "cat /sys/block/sda/queue/scheduler"`
+io_scheduler=`su -c "cat /sys/block/sda/queue/scheduler" | awk -F'[][]' '{print $2}'`
 echo "• IO Scheduler: $io_scheduler"
 
 #printf 'su -c "echo powersave > /sys/class/kgsl/kgsl-3d0/devfreq/governor"
