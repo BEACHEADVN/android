@@ -45,8 +45,18 @@
 #rm -rf /storage/emulated/0/Download/ext/temp/p_i
 #rm -rf /storage/emulated/0/Download/ext/temp/p_n_i
 
-su -c "killall -9 com.miHoYo.GenshinImpact"
-su -c "killall -9 com.garena.game.kgvn"
+run_app=`cat /storage/emulated/0/Download/ext/temp/run_app`
+if [ $run_app==gi ]
+then
+	echo "• Dừng Genshin Impact."
+	su -c "killall -9 com.miHoYo.GenshinImpact" 2>/dev/null
+	su -c "killall -9 com.garena.game.kgvn" 2>/dev/null
+elif [ $run_app==aov ]
+then
+	echo "• Dừng Liên Quân Mobile."
+else
+	echo "• Không có ứng dụng nào đang chạy."
+fi
 
 su -c "chmod 777 /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
 su -c "echo 220 > /sys/class/kgsl/kgsl-3d0/max_clock_mhz"
