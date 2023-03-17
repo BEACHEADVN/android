@@ -185,6 +185,8 @@ function s_exit {
 		clear
 	elif [ $chon = 2 ]
 	then
+		su -c "killall -9 com.termux"
+		exit 0
 		exit
 	fi
 }
