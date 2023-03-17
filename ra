@@ -20,49 +20,35 @@ else
 	su -c "pm uninstall com.google.android.apps.restore"
 fi
 
+cat <<EOT > /storage/emulated/0/Download/ext/temp/app
+Hoyo Lab
+Hack Data
+Shopee
+Adaway
+VCB
+MoMo
+Lazada
+Revancify
+Quick Edit
+Mt Manager
+Zalo Pay
+SmartPack Kernel Manager
+EOT
+
+line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
+line_number=$((line_number+1))
+echo $line_number
+
 clear
-echo "Chọn công việc:"
-echo "1. HoYo Lab"
-echo "2. Hack data"
-echo "3. Shopee"
-echo "4. AdAway"
-echo "5. Vietcombank"
-echo "6. MoMo"
-echo "7. Lazada"
-echo "8. Revancify"
-echo "9. Quick Edit+"
-echo "10. Mt Manager"
-echo "11. Thoát"
-echo "Nhập số từ 1-11:"
-read choose
-
-a=`echo $choose | cut -c 1-1`
-b=`echo $choose | cut -c 2-2`
-c=`echo $choose | cut -c 3-3`
-d=`echo $choose | cut -c 4-4`
-
-function enable {
-	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
-	if [ -z "$path" ]
-	then
-		  echo "• $name khong duoc cai dat."
-	else
-		su -c "pm enable $package"
-	fi
-}
-function run {
-	su -c "am start --user 0 -n $package/$activity"
-}
-	
-function disable {
-	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
-	if [ -z "$path" ]
-	then
-		  echo "• $name khong duoc cai dat."
-	else
-		su -c "pm disable $package"
-	fi
-}
+echo "Chọn công việc:" 
+count=0
+while read line; do
+count=$((count+1))
+echo "$count: $line"
+done < /storage/emulated/0/Download/ext/temp/app
+echo "$line_number: Thoát"
+echo "Nhập số từ 1-$line_number:"
+read chon
 
 function hoyo_lab {
 	echo "•Bạn chọn Hoyo Lab"
@@ -108,7 +94,7 @@ function adaway {
 	activity="org.adaway.ui.home.HomeActivity"
 }
 
-function VCB {
+function vcb {
 	echo "•Bạn chọn Vietcombank"
 	name="Vietcombank"
 	package="com.VCB"
@@ -147,163 +133,140 @@ function mtm {
 	name="Mt Manager"
 	package="bin.mt.plus"
 	#activity="bin.mt.plus.MainDarkIcon"
-activity="bin.mt.plus.Main"
+	activity="bin.mt.plus.Main"
 }
 
-function check_action {
-	if [ $b = 1 ]
-	then
-		echo "•Bật và khởi chạy ứng dụng được chọn"
-		enable
-		run
-		rerun_ra
-	elif [ $b = 2 ]
-	then
-		echo "•Tẵt ứng dụng được chọn"
-		disable
-		path=`su -c "find /storage/emulated/0/Download/ext/temp -type f -name 'vpndialog'"`
-		if [ -z "$path" ]
-		then
-			echo ""
-		else
-			su -c "pm disable com.android.vpndialogs"
-			rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-		fi
-		check_out
-	fi
+function zalo_pay {
+	echo "•Bạn chọn Zalo Pay"
+	name="Zalo Pay"
+	package="vn.com.vng.zalopay"
+	activity="vn.com.vng.zalopay.ui.activity.SplashScreenActivity"
 }
 
-function check_out {
-	if [ $c = 1 ]
-	then
-		rerun_ra
-	elif [ $c = 0 ]
-	then
-		kill_termux
-	fi
+function skm {
+	echo "•Bạn chọn SmartPack Kernel Manager"
+	name="SmartPack Kernel Manager"
+	package="com.smartpack.kernelmanager"
+	activity="com.smartpack.kernelmanager.activities.StartActivity"
 }
 
-function rerun_ra {
-	bash /storage/emulated/0/Download/ext/temp/ra
-}
-if [ $choose = on ]
-then
-	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada quick_edit mtm
-	do
-		$i
-		enable
-	done
-	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
-	sleep 8
-	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
-	rerun_ra
-	
-elif [[ $choose = off || $choose = of ]]
-then
-	for i in hoyo_lab hack_data shoppe adaway VCB momo lazada quick_edit mtm
-	do
-		$i
-		disable
-	done
-	rerun_ra
-fi
-
-function kill_termux {
-	su -c "killall -9 com.termux"
-}
-
-if [ $a = 1 ]
-then
-if [ $b = 0 ]
-then
-	mtm
-	if [ $c = 1 ]
+function enable {
+	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
+	if [ -z "$path" ]
 	then
-		enable
-		run
-		rerun_ra
-	elif [ $c = 2 ]
-	then
-		disable
-		if [ $d = 1 ]
-		then
-			rerun_ra
-		elif [ $d = 0 ]
-		then
-			kill_termux
-		fi
-	fi
-elif [ $b = 1 ]
-then
-	if [ -z "$c" ]
-	then
-		hoyo_lab
-		enable
-		run
-		rerun_ra
+		  echo "• $name khong duoc cai dat."
 	else
-		if [ $c = 1 ]
-		then
-			clear
-			exit
-		elif [ $c = 0 ]
-		then
-			kill_termux
-		fi
+		su -c "pm enable $package"
 	fi
-elif [ $b = 2 ]
+}
+function run {
+	su -c "am start --user 0 -n $package/$activity"
+}
+	
+function disable {
+	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
+	if [ -z "$path" ]
+	then
+		  echo "• $name khong duoc cai dat."
+	else
+		su -c "pm disable $package"
+	fi
+}
+
+function s_exit {
+	clear
+	echo "• Bạn chọn thoát"
+	echo "Vui lòng chọn:"
+	echo "1: Thoát Scripts"
+	echo "2: Thoát Termux"
+	read chon
+	if [ $chon = 1 ]
+	then
+	clear
+	elif [ $chon = 2 ]
+	then
+	exit 0
+	fi
+}
+
+function action {
+	clear
+	echo "• Bạn chọn $name"
+	echo "Vui lòng chọn:"
+	echo "1: Bật và chạy $name"
+	echo "2: Tắt $name"
+	read chon
+	if [ $chon = 1 ]
+	then
+	enable
+	run
+	elif [ $chon = 2 ]
+	then
+	disable
+	fi
+}
+
+if [ $chon = 1 ]
 then
 	hoyo_lab
-disable
-if [ $c = 1 ]
-then
-	rerun_ra
-elif [ $c = 0 ]
-then
-	kill_termux
-fi
-fi
-elif [ $a = 2 ]
+	action
+	ra
+elif [ $chon = 2 ]
 then
 	hack_data
-	check_action
-elif [ $a = 3 ]
+	action
+	ra
+elif [ $chon = 3 ]
 then
-	shoppe
-	check_action
-elif [ $a = 4 ]
+	shopee
+	action
+	ra
+elif [ $chon = 4 ]
 then
 	adaway
-	check_action
-elif [ $a = 5 ]
+	actiob
+	ra
+elif [ $chon = 5 ]
 then
-	VCB
-	check_action
-elif [ $a = 6 ]
+	vcb
+	action
+	ra
+elif [ $chon = 6 ]
 then
 	momo
-	check_action
-elif [ $a = 7 ]
+	action
+	ra
+elif [ $chon = 7 ]
 then
 	lazada
-	check_action
-elif [ $a = 8 ]
+	action
+	ra
+elif [ $chon = 8 ]
 then
-	if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
-	then
-		revancify
-	else
-		pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
-	fi
-	#if [ -d /data/data/com.termux/files/home/rvx-builder ]
-	#then
-		#./rvx-builder.sh update
-		#./rvx-builder.sh run
-	#else
-		#curl -sLo rvx-builder.sh https://raw.githubusercontent.com/inotia00/rvx-builder/revanced-extended/android-interface.sh && chmod +x rvx-builder.sh && ./rvx-builder.sh
-	#fi
-elif [ $a = 9 ]
+	revancify
+	action
+	ra
+elif [ $chon = 9 ]
 then
 	quick_edit
-	check_action
+	action
+	ra
+elif [ $chon = 10 ]
+then
+	mtm
+	action
+	ra
+elif [ $chon = 11 ]
+then
+	zalo_pay
+	action
+	ra
+elif [ $chon = 12 ]
+then
+	skm
+	action
+	ra
+elif [ $chon = $line_number ]
+then
+	s_exit
 fi
