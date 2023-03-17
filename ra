@@ -80,7 +80,7 @@ function hack_data {
 	#activity="com.v2ray.ang.ui.MainActivity"
 }
 
-function shoppe {
+function shopee {
 	echo "•Bạn chọn Shopee"
 	name="Shopee"
 	package="com.shopee.vn"
