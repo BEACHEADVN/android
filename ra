@@ -182,11 +182,10 @@ function s_exit {
 	read chon
 	if [ $chon = 1 ]
 	then
-	clear
+		clear
 	elif [ $chon = 2 ]
 	then
-	exit
-	exit
+		exit
 	fi
 }
 
@@ -199,11 +198,11 @@ function action {
 	read chon
 	if [ $chon = 1 ]
 	then
-	enable
-	run
+		enable
+		run
 	elif [ $chon = 2 ]
 	then
-	disable
+		disable
 	fi
 }
 
