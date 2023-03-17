@@ -185,7 +185,8 @@ function s_exit {
 	clear
 	elif [ $chon = 2 ]
 	then
-	exit 0
+	exit
+	exit
 	fi
 }
 
