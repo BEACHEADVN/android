@@ -269,4 +269,23 @@ then
 elif [ $chon = $line_number ]
 then
 	s_exit
+elif [ $chon = on ]
+then
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm
+	do
+		$i
+		enable
+	done
+	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
+	sleep 8
+	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
+	ra
+elif [[ $choose = off || $choose = of ]]
+then
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm
+	do
+		$i
+		disable
+	done
+	ra
 fi
