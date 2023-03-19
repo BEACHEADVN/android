@@ -1,25 +1,3 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
-path=`su -c "find /data/app -type d -name 'com.google.ar.core*'"`
-
-if [ -z "$path" ]
-then
-	echo "Google Play for AR Core không bị cài đặt."
-else
-	echo "Gỡ cài đặt Google Play for AR Core"
-	su -c "pm uninstall com.google.ar.core"
-fi
-
-path=`su -c "find /data/app -type d -name 'com.google.android.apps.restore*'"`
-
-if [ -z "$path" ]
-then
-	echo "Google App Restore không bị cài đặt."
-else
-	echo "Gỡ cài đặt Google App Restore"
-	su -c "pm uninstall com.google.android.apps.restore"
-fi
-
 cat <<EOT > /storage/emulated/0/Download/ext/temp/app
 Hoyo Lab
 Hack Data
@@ -49,6 +27,9 @@ done < /storage/emulated/0/Download/ext/temp/app
 echo "$line_number: Thoát"
 echo "Nhập số từ 1-$line_number:"
 read chon
+a=`echo $chon | cut -d' ' -f1`
+b=`echo $chon | cut -d' ' -f2`
+c=`echo $chon | cut -d' ' -f3`
 
 function hoyo_lab {
 	echo "•Bạn chọn Hoyo Lab"
@@ -173,104 +154,105 @@ function disable {
 	fi
 }
 
-function s_exit {
-	clear
-	echo "• Bạn chọn thoát"
-	echo "Vui lòng chọn:"
-	echo "1: Thoát Scripts"
-	echo "2: Thoát Termux"
-	read chon
-	if [ $chon = 1 ]
-	then
-		clear
-	elif [ $chon = 2 ]
-	then
-		su -c "killall -9 com.termux"
-		exit 0
-		exit
-	fi
-}
-
 function action {
-	clear
-	echo "• Bạn chọn $name"
-	echo "Vui lòng chọn:"
-	echo "1: Bật và chạy $name"
-	echo "2: Tắt $name"
-	read chon
-	if [ $chon = 1 ]
+	if [ $b = 1 ]
 	then
 		enable
 		run
-	elif [ $chon = 2 ]
+	elif [ $b = 2 ]
 	then
 		disable
 	fi
 }
 
-if [ $chon = 1 ]
+function check_exit {
+	if [[ -z $c ]]
+	then
+		echo ""
+	else
+		if [ $c = 1 ]
+		then
+			ra
+		elif [ $c = 0 ]
+		then
+			su -c "killall -9 com.termux"
+		fi
+	fi
+}
+
+function s_exit {
+	if [ $b = 1 ]
+	then
+		clear
+	elif [ $b = 2 ]
+	then
+		su -c "killall -9 com.termux"
+	fi
+}
+
+if [ $a = 1 ]
 then
 	hoyo_lab
 	action
-	ra
-elif [ $chon = 2 ]
+	check_exit
+elif [ $a = 2 ]
 then
 	hack_data
 	action
-	ra
-elif [ $chon = 3 ]
+	check_exit
+elif [ $a = 3 ]
 then
 	shopee
 	action
-	ra
-elif [ $chon = 4 ]
+	check_exit
+elif [ $a = 4 ]
 then
 	adaway
-	actiob
-	ra
-elif [ $chon = 5 ]
+	action
+	check_exit
+elif [ $a = 5 ]
 then
 	vcb
 	action
-	ra
-elif [ $chon = 6 ]
+	check_exit
+elif [ $a = 6 ]
 then
 	momo
 	action
-	ra
-elif [ $chon = 7 ]
+	check_exit
+elif [ $a = 7 ]
 then
 	lazada
 	action
-	ra
-elif [ $chon = 8 ]
+	check_exit
+elif [ $a = 8 ]
 then
 	revancify
-	ra
-elif [ $chon = 9 ]
+	check_exit
+elif [ $a = 9 ]
 then
 	quick_edit
 	action
-	ra
-elif [ $chon = 10 ]
+	check_exit
+elif [ $a = 10 ]
 then
 	mtm
 	action
-	ra
-elif [ $chon = 11 ]
+	check_exit
+elif [ $a = 11 ]
 then
 	zalo_pay
 	action
-	ra
-elif [ $chon = 12 ]
+	check_exit
+elif [ $a = 12 ]
 then
 	skm
 	action
-	ra
-elif [ $chon = $line_number ]
+	check_exit
+elif [ $a = $line_number ]
 then
 	s_exit
-elif [ $chon = on ]
+elif [ $a = on ]
 then
 	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm
 	do
@@ -280,8 +262,8 @@ then
 	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 8
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
-	ra
-elif [[ $chon = off || $chon = of ]]
+	check_exit
+elif [[ $a = off || $a = of ]]
 then
 	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm
 	do
