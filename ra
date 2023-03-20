@@ -168,7 +168,7 @@ function action {
 function check_exit {
 	if [[ -z $c ]]
 	then
-		echo ""
+		ra
 	else
 		if [ $c = 1 ]
 		then
