@@ -184,7 +184,7 @@ function s_exit {
 	if [ $b = 1 ]
 	then
 		clear
-	elif [ $b = 2 ]
+	elif [ $b = 0 ]
 	then
 		su -c "killall -9 com.termux"
 	fi
