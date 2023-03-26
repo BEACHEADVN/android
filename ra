@@ -11,6 +11,7 @@ Quick Edit
 Mt Manager
 Zalo Pay
 SmartPack Kernel Manager
+SoundPeats
 EOT
 
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
@@ -134,6 +135,13 @@ function skm {
 	activity="com.smartpack.kernelmanager.activities.StartActivity"
 }
 
+function soundpeats {
+	echo "•Bạn chọn SoundPeats"
+	name="SoundPeats"
+	package="com.thirtydays.headset"
+	activity="com.thirtydays.headset.page.activity.LoadingActivity"
+}
+
 function enable {
 	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
 	if [ -z "$path" ]
@@ -254,6 +262,11 @@ then
 elif [ $a = 12 ]
 then
 	skm
+	action
+	check_exit
+elif [ $a = 13 ]
+then
+	soundpeats
 	action
 	check_exit
 elif [ $a = $line_number ]
