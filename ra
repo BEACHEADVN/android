@@ -12,6 +12,8 @@ Mt Manager
 Zalo Pay
 SmartPack Kernel Manager
 SoundPeats
+My Viettel
+Viettel Money
 EOT
 
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
@@ -142,6 +144,20 @@ function soundpeats {
 	activity="com.thirtydays.headset.page.activity.LoadingActivity"
 }
 
+function myviettel {
+	echo "•Bạn chọn My Viettel"
+	name="My Viettel"
+	package="com.vttm.vietteldiscovery"
+	activity="com.gem.myviettel.activity.ViettelDiscoveryLauncherActivity"
+}
+
+function viettelmoney {
+	echo "•Bạn chọn Viettel Money"
+	name="Viettel Money"
+	package="com.bplus.vtpay"
+	activity="com.bplus.vtpay.activity.SplashScreen"
+}
+
 function enable {
 	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
 	if [ -z "$path" ]
@@ -267,6 +283,16 @@ then
 elif [ $a = 13 ]
 then
 	soundpeats
+	action
+	check_exit
+elif [ $a = 14 ]
+then
+	myviettel
+	action
+	check_exit
+elif [ $a = 15 ]
+then
+	viettelmoney
 	action
 	check_exit
 elif [ $a = $line_number ]
