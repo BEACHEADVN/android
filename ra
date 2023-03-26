@@ -31,6 +31,9 @@ a=`echo $chon | cut -d' ' -f1`
 b=`echo $chon | cut -d' ' -f2`
 c=`echo $chon | cut -d' ' -f3`
 
+rm -rf /storage/emulated/0/Download/ext/temp/app
+rm -rf /storage/emulated/0/Download/ext/temp/vpndialog 2> /dev/null
+
 function hoyo_lab {
 	echo "•Bạn chọn Hoyo Lab"
 	name="Hoyo Lab"
