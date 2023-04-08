@@ -324,5 +324,5 @@ then
 		$i
 		disable
 	done
-	exit 0
+	exit
 fi
