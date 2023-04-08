@@ -324,5 +324,5 @@ then
 		$i
 		disable
 	done
-	exit
+	su -c "killall -9 com.termux"
 fi
