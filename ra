@@ -317,4 +317,12 @@ then
 		disable
 	done
 	ra
+elif [[ $a = off0 || $a = of0 ]]
+then
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney
+	do
+		$i
+		disable
+	done
+	exit 0
 fi
