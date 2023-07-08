@@ -14,6 +14,7 @@ SmartPack Kernel Manager
 SoundPeats
 My Viettel
 Viettel Money
+Twitter
 EOT
 
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
@@ -158,6 +159,13 @@ function viettelmoney {
 	activity="com.bplus.vtpay.activity.SplashScreen"
 }
 
+function twitter {
+	echo "•Bạn chọn Twitter"
+	name="Twitter"
+	package="com.twitter.android"
+	activity="com.twitter.android.StartActivity"
+}
+
 function enable {
 	path=`su -c "pm path $package | sed -n '/base/s/package://p'"`
 	if [ -z "$path" ]
@@ -295,12 +303,17 @@ then
 	viettelmoney
 	action
 	check_exit
+elif [ $a = 16 ]
+then
+	twitter
+	action
+	check_exit
 elif [ $a = $line_number ]
 then
 	s_exit
 elif [ $a = on ]
 then
-	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter
 	do
 		$i
 		enable
@@ -311,7 +324,7 @@ then
 	ra
 elif [[ $a = off || $a = of ]]
 then
-	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter
 	do
 		$i
 		disable
@@ -319,7 +332,7 @@ then
 	ra
 elif [[ $a = off0 || $a = of0 ]]
 then
-	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter
 	do
 		$i
 		disable
