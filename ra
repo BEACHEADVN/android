@@ -323,7 +323,7 @@ then
 	s_exit
 elif [ $a = on ]
 then
-	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter rvxmanager
 	do
 		$i
 		enable
@@ -334,7 +334,7 @@ then
 	ra
 elif [[ $a = off || $a = of ]]
 then
-	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter rvxmanager
 	do
 		$i
 		disable
@@ -342,7 +342,7 @@ then
 	ra
 elif [[ $a = off0 || $a = of0 ]]
 then
-	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter
+	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm soundpeats myviettel viettelmoney twitter rvxmanager
 	do
 		$i
 		disable
