@@ -6,7 +6,7 @@ Adaway
 VCB
 MoMo
 Lazada
-Revancify
+RVX Manager
 Quick Edit
 Mt Manager
 Zalo Pay
@@ -164,6 +164,13 @@ function twitter {
 	name="Twitter"
 	package="com.twitter.android"
 	activity="com.twitter.android.StartActivity"
+}
+
+function twitter {
+	echo "•Bạn chọn RVX Manager"
+	name="RVXManager"
+	package="app.rvx.manager.flutter"
+	activity="app.revanced.manager.flutter.MainActivity"
 }
 
 function enable {
