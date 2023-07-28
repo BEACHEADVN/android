@@ -270,6 +270,8 @@ then
 elif [ $a = 8 ]
 then
 		rvxmanager
+		action
+		check_exit
 	#if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
 	#then
 		#revancify
