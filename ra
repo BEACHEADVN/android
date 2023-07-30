@@ -269,15 +269,15 @@ then
 	check_exit
 elif [ $a = 8 ]
 then
-		rvxmanager
-		action
-		check_exit
-	#if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
-	#then
-		#revancify
-	#else
-		#pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
-	#fi
+		#rvxmanager
+		#action
+		#check_exit
+	if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
+	then
+		revancify
+	else
+		pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
+	fi
 elif [ $a = 9 ]
 then
 	quick_edit
