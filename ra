@@ -11,7 +11,7 @@ Quick Edit
 Mt Manager
 Zalo Pay
 SmartPack Kernel Manager
-SoundPeats
+Xiaomi Earbuds
 My Viettel
 Viettel Money
 Twitter
@@ -138,11 +138,11 @@ function skm {
 	activity="com.smartpack.kernelmanager.activities.StartActivity"
 }
 
-function soundpeats {
-	echo "•Bạn chọn SoundPeats"
-	name="SoundPeats"
-	package="com.thirtydays.headset"
-	activity="com.thirtydays.headset.page.activity.LoadingActivity"
+function xiaomiearbuds {
+	echo "•Bạn chọn Xiaomi Earbuds"
+	name="XiaomiEarbuds"
+	package="com.mi.earphone"
+	activity="com.mi.earphone.main.MainActivity"
 }
 
 function myviettel {
