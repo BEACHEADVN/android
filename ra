@@ -300,7 +300,7 @@ then
 	check_exit
 elif [ $a = 13 ]
 then
-	soundpeats
+	xiaomiearbuds
 	action
 	check_exit
 elif [ $a = 14 ]
