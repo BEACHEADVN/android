@@ -93,7 +93,7 @@ function momo {
 	echo "•Bạn chọn MoMo"
 	name="MoMo"
 	package="com.mservice.momotransfer"
-	activity="vn.momo.platform.MainActivity"
+	activity="vn.momo.platform.entry.MainActivity"
 }
 
 function lazada {
