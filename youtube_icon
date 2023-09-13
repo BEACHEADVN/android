@@ -7,6 +7,7 @@ mkdir -p /storage/emulated/0/Download/ext/temp/jar/$jar_name
 cp -rf $path /sdcard/Download/ext/temp/jar/$jar_name
 cd /sdcard/Download/ext/temp/jar/$jar_name
 jar -xvf $name
+rm -rf /sdcard/Download/ext/temp/jar/$jar_name/$name
 
 mkdir -p /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
 wget --no-check-certificate -P /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10 https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
@@ -16,3 +17,4 @@ rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/andro
 rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/termux_bin.zip
 cd /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
 jar -xvf revanced-patches-2.173.10.jar
+rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/revanced-patches-2.173.10.jar
