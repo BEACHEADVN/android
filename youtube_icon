@@ -1,0 +1,18 @@
+path=`su -c "find /data/data/com.termux/files/home/revancify-data -type f -name '*patches*.jar'"`
+name=`echo $path | sed 's+/data/data/com.termux/files/home/revancify-data/++g'`
+jar_name=`sed 's/.\{4\}$//' <<< "$name"`
+rm -rf /storage/emulated/0/Download/ext/temp/jar
+mkdir -p /storage/emulated/0/Download/ext/temp/jar
+mkdir -p /storage/emulated/0/Download/ext/temp/jar/$jar_name
+cp -rf $path /sdcard/Download/ext/temp/jar/$jar_name
+cd /sdcard/Download/ext/temp/jar/$jar_name
+jar -xvf $name
+
+mkdir -p /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
+wget --no-check-certificate -P /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10 https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
+unzip -qq -o /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/termux_bin.zip -d /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
+cp -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/android-termux_bin/revanced-patches-2.173.10.jar /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
+rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/android-termux_bin
+rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/termux_bin.zip
+cd /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
+jar -xvf revanced-patches-2.173.10.jar
