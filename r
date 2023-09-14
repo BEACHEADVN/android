@@ -21,7 +21,7 @@ else
 	pkg install $install -y
 fi
 
-cd /sdcard/Download/ext/temp && ls | grep -v 'log' | xargs rm
+cd /sdcard/Download/ext/temp && ls | grep -v 'log' | xargs rm -rf
 
 wget --no-check-certificate -P /sdcard/Download/ext/temp https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
 unzip -qq -o /sdcard/Download/ext/temp/termux_bin.zip -d /sdcard/Download/ext/temp
@@ -51,3 +51,5 @@ if [ ! -f /storage/emulated/0/Download/ext/temp/r ]
 then
 	bash /sdcard/r
 fi
+
+rm -rf /storage/emulated/0/Download/ext/temp/revanced-patches-2.173.10.jar
