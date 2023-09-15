@@ -31,7 +31,7 @@ rm /sdcard/Download/ext/temp/termux_bin.zip
 
 pkg update -y && pkg upgdare -y && apt autoremove -y
 
-for i in aov bt gi r termux magisk ytm core adaway ra pubg
+for i in aov bt gi r termux magisk ytm core adaway ra pubg yi
 do
 	if [ ! -f /storage/emulated/0/Download/ext/temp/$i ]
 	then

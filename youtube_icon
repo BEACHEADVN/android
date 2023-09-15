@@ -1,3 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
 path=`su -c "find /data/data/com.termux/files/home/revancify-data -type f -name '*patches*.jar'"`
 name=`echo $path | sed 's+/data/data/com.termux/files/home/revancify-data/++g'`
 jar_name=`sed 's/.\{4\}$//' <<< "$name"`
@@ -8,13 +10,31 @@ cp -rf $path /sdcard/Download/ext/temp/jar/$jar_name
 cd /sdcard/Download/ext/temp/jar/$jar_name
 jar -xvf $name
 rm -rf /sdcard/Download/ext/temp/jar/$jar_name/$name
+for i in mmt revancify-blue revancify-red
+do
+	cd /sdcard/Download/ext/temp/jar/$jar_name/youtube/branding/$i
+	rm -rf launchericon
+	rm -rf monochromeicon
+	rm -rf splashicon
+done
 
-mkdir -p /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
-wget --no-check-certificate -P /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10 https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
-unzip -qq -o /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/termux_bin.zip -d /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
-cp -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/android-termux_bin/revanced-patches-2.173.10.jar /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
-rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/android-termux_bin
-rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/termux_bin.zip
-cd /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10
-jar -xvf revanced-patches-2.173.10.jar
-rm -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/revanced-patches-2.173.10.jar
+jar_afn_red=revanced-patches-2.173.10
+mkdir -p /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red
+wget --no-check-certificate -P /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red https://github.com/BEACHEADVN/android/archive/refs/heads/termux_bin.zip
+unzip -qq -o /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/termux_bin.zip -d /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red
+cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/android-termux_bin/$jar_afn_red.jar /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red
+rm -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/android-termux_bin
+rm -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/termux_bin.zip
+cd /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red
+jar -xvf $jar_afn_red.jar
+
+cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt
+cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify-blue
+cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify-red
+
+cd /sdcard/Download/ext/temp/jar/$jar_name
+jar cf $name app META-INF music youtube classes.dex
+rm -rf $path
+cp -rf /sdcard/Download/ext/temp/jar/$jar_name/$name /data/data/com.termux/files/home/revancify-data
+
+rm -rf /storage/emulated/0/Download/ext/temp/jar
