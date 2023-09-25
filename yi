@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-path=`su -c "find /data/data/com.termux/files/home/revancify-data -type f -name '*patches*.jar'"`
+path=`su -c "find /data/data/com.termux/files/home/revancify-data -type f -name '*patches*.jar' | sed -n '1p'"`
 name=`echo $path | sed 's+/data/data/com.termux/files/home/revancify-data/++g'`
 jar_name=`sed 's/.\{4\}$//' <<< "$name"`
 rm -rf /storage/emulated/0/Download/ext/temp/jar
