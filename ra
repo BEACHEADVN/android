@@ -62,10 +62,10 @@ function hack_data {
 	else
 		echo 1 > /storage/emulated/0/Download/ext/temp/vpndialog
 	fi
-	package="com.github.kr328.clash"
-	activity="com.github.kr328.clash.MainActivity"
-	#package="com.v2ray.ang"
-	#activity="com.v2ray.ang.ui.MainActivity"
+	#package="com.github.kr328.clash"
+	#activity="com.github.kr328.clash.MainActivity"
+	package="com.getsurfboard"
+	activity="com.getsurfboard.ui.activity.MainActivity"
 }
 
 function shopee {
