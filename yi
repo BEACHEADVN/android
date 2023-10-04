@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+mkdir -p /storage/emulated/0/Download/ext/temp/jar
 su -c "find /data/data/com.termux/files/home/revancify-data -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > /storage/emulated/0/Download/ext/temp/jar/path_jar.txt
 
 c=`wc -l < /storage/emulated/0/Download/ext/temp/jar/path_jar.txt`
