@@ -12,6 +12,7 @@ do
    sed -n "$i"p /storage/emulated/0/Download/ext/temp/jar/path_jar.txt > /storage/emulated/0/Download/ext/temp/jar/patch$i.txt
 done
 
+clear
 echo "•Chon patch can va:"
 for (( i=1; i<=$c; i++ ))
 do
@@ -69,4 +70,6 @@ rm -rf $path/$name
 cp -rf /sdcard/Download/ext/temp/jar/$jar_name/$name /data/data/com.termux/files/home/revancify-data
 
 rm -rf /storage/emulated/0/Download/ext/temp/jar
+echo "•Da va patch $name" > /storage/emulated/0/Download/ext/temp/log.txt
+clear
 echo "•Da va patch $name"
