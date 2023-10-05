@@ -69,3 +69,4 @@ rm -rf $path/$name
 cp -rf /sdcard/Download/ext/temp/jar/$jar_name/$name /data/data/com.termux/files/home/revancify-data
 
 rm -rf /storage/emulated/0/Download/ext/temp/jar
+echo "•Da va patch $name"
