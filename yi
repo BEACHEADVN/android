@@ -65,7 +65,7 @@ cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/a
 
 cd /sdcard/Download/ext/temp/jar/$jar_name
 jar cf $name app META-INF music youtube classes.dex
-rm -rf $path
+rm -rf $path/$name
 cp -rf /sdcard/Download/ext/temp/jar/$jar_name/$name /data/data/com.termux/files/home/revancify-data
 
 rm -rf /storage/emulated/0/Download/ext/temp/jar
