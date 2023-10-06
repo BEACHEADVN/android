@@ -49,9 +49,4 @@ then
 	rm -rf /sdcard/Download/ext/temp/install_termux
 fi
 
-if [ ! -f /storage/emulated/0/Download/ext/temp/r ]
-then
-	bash /sdcard/r
-fi
-
 rm -rf /storage/emulated/0/Download/ext/temp/revanced-patches-2.173.10.jar
