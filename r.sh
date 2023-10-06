@@ -31,14 +31,16 @@ rm /sdcard/Download/ext/temp/termux_bin.zip
 
 pkg update -y && pkg upgdare -y && apt autoremove -y
 
-for i in aov bt gi r termux magisk ytm core adaway ra pubg yi
+for i in aov.sh bt.sh gi.sh r.sh termux.sh magisk.sh ytm.sh core.sh adaway.sh ra.sh pubg.sh yi.sh gps.sh
 do
 	if [ ! -f /storage/emulated/0/Download/ext/temp/$i ]
 	then
 		echo "$i command not found in temp folder. Cannot copy!"
 	else
 		su -c "cp /storage/emulated/0/Download/ext/temp/$i /data/data/com.termux/files/usr/bin"
+		cd /data/data/com.termux/files/usr/bin
 		su -c "chmod 777 /data/data/com.termux/files/usr/bin/$i"
+		mv $i ${i%.*}
 	fi
 done
 
