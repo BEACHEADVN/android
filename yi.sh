@@ -84,6 +84,7 @@ then
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/youtube/branding/afn-red/launchericon/xhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/branding/mipmap-xhdpi
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/youtube/branding/afn-red/launchericon/xxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/branding/mipmap-xxhdpi
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/revanced-patches-2.173.10/youtube/branding/afn-red/launchericon/xxxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/branding/mipmap-xxxhdpi
+	cd /sdcard/Download/ext/temp/jar/$jar_name
 	jar cf $name $bundle
 	rm -rf $path/$name
 	cp -rf /sdcard/Download/ext/temp/jar/$jar_name/$name /data/data/com.termux/files/home/revancify-data
