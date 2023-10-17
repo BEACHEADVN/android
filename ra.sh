@@ -334,6 +334,7 @@ then
 	ra
 elif [[ $a = off || $a = of ]]
 then
+	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm xiaomiearbuds myviettel viettelmoney twitter rvxmanager
 	do
 		$i
@@ -342,6 +343,7 @@ then
 	ra
 elif [[ $a = off0 || $a = of0 ]]
 then
+	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyo_lab hack_data shopee adaway vcb momo lazada quick_edit mtm zalo_pay skm xiaomiearbuds myviettel viettelmoney twitter rvxmanager
 	do
 		$i
