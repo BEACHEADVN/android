@@ -49,7 +49,7 @@ function hack_data {
 	echo "•Bạn chọn Hack Data"
 	name="Clash Android"
 	su -c "pm enable com.android.vpndialogs"
-	if [[ $choose = off || $choose = of ]]
+	if [[ $choose = off || $choose = of || $choose = of0 || $choose = off0 ]]
 	then
 		path=`su -c "find /storage/emulated/0/Download/ext/temp -type f -name 'vpndialog'"`
 		if [ -z "$path" ]
