@@ -90,9 +90,9 @@ then
 	cp -rf /sdcard/Download/ext/temp/jar/$jar_name/$name /data/data/com.termux/files/home/revancify-data
 fi
 
+clear
+echo "•Da va patch $name"
 rm -rf /storage/emulated/0/Download/ext/temp/jar
 echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
 echo "•Da va patch $name" >> /storage/emulated/0/Download/ext/temp/log.txt
 sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
-clear
-echo "•Da va patch $name"
