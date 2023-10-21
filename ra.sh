@@ -274,20 +274,37 @@ then
 		#check_exit
 	if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
 	then
-		rm -rf /storage/emulated/0/Download/ext/temp/jar
-		mkdir -p /storage/emulated/0/Download/ext/temp/jar
 		path="/data/data/com.termux/files/home/revancify-data"
-		su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > /storage/emulated/0/Download/ext/temp/jar/path_jar.txt
-		
-		file=$(cat /storage/emulated/0/Download/ext/temp/jar/path_jar.txt)
+temp="/storage/emulated/0/Download/ext/temp/jar"
+rm -rf $temp
+mkdir -p $temp
+su -c "find $path -type f -name '*patches*.jar.bak' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar_bak.txt
+
+if [ -s $temp/path_jar_bak.txt ]
+then
+	file=$(cat $temp/path_jar_bak.txt)
+	for line in $file
+	do
+		name_patch=$(echo ${line} | sed 's/\.bak//')
+		echo "•Restore patch $name_patch"
+		cp -rf $path/${line} $path/${name_patch}
+		echo "•Xoa patch file backup $line"
+		rm -rf $path/$line
+	done
+else
+    su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar.txt
+    if [ -s $temp/path_jar.txt ]
+	then
+		file=$(cat $temp/path_jar.txt)
 		for line in $file
 		do
-			echo "•Xoa patch $line"
-			rm -rf /data/data/com.termux/files/home/revancify-data/$line
+			echo "•Backup patch $line"
+			cp -rf /data/data/com.termux/files/home/revancify-data/$line /data/data/com.termux/files/home/revancify-data/$line.bak
 		done
-		
-		echo "•Xoa thu muc tam"
-		rm -rf /storage/emulated/0/Download/ext/temp/jar
+	else
+		echo ""
+	fi
+fi
 		revancify
 	else
 		pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
