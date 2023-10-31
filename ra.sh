@@ -275,36 +275,36 @@ then
 	if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
 	then
 		path="/data/data/com.termux/files/home/revancify-data"
-temp="/storage/emulated/0/Download/ext/temp/jar"
-rm -rf $temp
-mkdir -p $temp
-su -c "find $path -type f -name '*patches*.jar.bak' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar_bak.txt
-
-if [ -s $temp/path_jar_bak.txt ]
-then
-	file=$(cat $temp/path_jar_bak.txt)
-	for line in $file
-	do
-		name_patch=$(echo ${line} | sed 's/\.bak//')
-		echo "•Restore patch $name_patch"
-		cp -rf $path/${line} $path/${name_patch}
-		echo "•Xoa patch file backup $line"
-		rm -rf $path/$line
-	done
-else
-    su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar.txt
-    if [ -s $temp/path_jar.txt ]
-	then
-		file=$(cat $temp/path_jar.txt)
-		for line in $file
-		do
-			echo "•Backup patch $line"
-			cp -rf /data/data/com.termux/files/home/revancify-data/$line /data/data/com.termux/files/home/revancify-data/$line.bak
-		done
-	else
-		echo ""
-	fi
-fi
+		temp="/storage/emulated/0/Download/ext/temp/jar"
+		inotia00_data=".inotia00-data"
+		rm -rf $temp
+		mkdir -p $temp
+		
+		if [ -s $path/$inotia00_data ]
+		then
+			original_file_size=`cat $path/$inotia00_data | grep '\bpatchesSize\b' | grep -o -E '[0-9]+'`
+			su -c "find $path -type f -name '*patches*.jar.backup' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar_backup.txt
+			if [ -s $temp/path_jar_backup.txt ]
+			then
+				inotia00=`grep "inotia00" $temp/path_jar_backup.txt`
+				backup_file_size=`wc -c $path/$inotia00 | awk '{print $1}'`
+				if [ $original_file_size -eq $backup_file_size ]
+				then
+					rm -rf $path/inotia00-patches-*.jar
+					name_patch=$(echo ${inotia00} | sed 's/\.backup//')
+					echo "•Restore patch $name_patch"
+					cp -rf $path/${inotia00} $path/${name_patch}
+				else
+					inotia00=`grep "inotia00" $temp/path_jar_backup.txt`
+					echo "•Xoa patch file backup $inotia00"
+				    rm -rf $path/$inotia00
+				fi
+			else
+				echo ""
+			fi
+		else
+			echo "•Khong ton tai file .inotia00-data"
+		fi
 		revancify
 	else
 		pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
