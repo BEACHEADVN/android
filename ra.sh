@@ -275,50 +275,50 @@ then
 	if [ -f /data/data/com.termux/files/home/Revancify/revancify ]
 	then
 		path="/data/data/com.termux/files/home/revancify-data"
-temp="/storage/emulated/0/Download/ext/temp/jar"
-inotia00_data=".inotia00-data"
-rm -rf $temp
-mkdir -p $temp
-
-if [ -s $path/$inotia00_data ]
-then
-	original_file_size=`cat $path/$inotia00_data | grep '\bpatchesSize\b' | grep -o -E '[0-9]+'`
-	su -c "find $path -type f -name '*patches*.jar.backup' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar_backup.txt
-	su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar.txt
-	if [ -s $temp/path_jar_backup.txt ]
-	then
-		inotia00=`grep "inotia00" $temp/path_jar_backup.txt`
-		backup_file_size=`wc -c $path/$inotia00 | awk '{print $1}'`
-		if [ $original_file_size -eq $backup_file_size ]
+		temp="/storage/emulated/0/Download/ext/temp/jar"
+		inotia00_data=".inotia00-data"
+		rm -rf $temp
+		mkdir -p $temp
+		
+		if [ -s $path/$inotia00_data ]
 		then
-			rm -rf $path/inotia00-patches-*.jar
-			name_patch=$(echo ${inotia00} | sed 's/\.backup//')
-			echo "•Restore patch $name_patch"
-			cp -rf $path/${inotia00} $path/${name_patch}
+			original_file_size=`cat $path/$inotia00_data | grep '\bpatchesSize\b' | grep -o -E '[0-9]+'`
+			su -c "find $path -type f -name '*patches*.jar.backup' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar_backup.txt
+			su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > $temp/path_jar.txt
+			if [ -s $temp/path_jar_backup.txt ]
+			then
+				inotia00=`grep "inotia00" $temp/path_jar_backup.txt`
+				backup_file_size=`wc -c $path/$inotia00 | awk '{print $1}'`
+				if [ $original_file_size -eq $backup_file_size ]
+				then
+					rm -rf $path/inotia00-patches-*.jar
+					name_patch=$(echo ${inotia00} | sed 's/\.backup//')
+					echo "•Restore patch $name_patch"
+					cp -rf $path/${inotia00} $path/${name_patch}
+				else
+					inotia00=`grep "inotia00" $temp/path_jar_backup.txt`
+					echo "•Xoa patch file backup $inotia00"
+				    rm -rf $path/$inotia00
+				fi
+			else
+				echo ""
+			fi
+			if [ -s $temp/path_jar.txt ]
+			then
+				inotia00=`grep "inotia00" $temp/path_jar.txt`
+				jar_file_size=`wc -c $path/$inotia00 | awk '{print $1}'`
+				if [ $original_file_size -eq $jar_file_size ]
+				then
+					echo "•File patch chua bi sua doi"
+				else
+				    rm -rf $path/$inotia00
+				fi
+			else
+				echo '•Khong ton tai file patch inotia00'
+			fi
 		else
-			inotia00=`grep "inotia00" $temp/path_jar_backup.txt`
-			echo "•Xoa patch file backup $inotia00"
-		    rm -rf $path/$inotia00
+			echo "•Khong ton tai file .inotia00-data"
 		fi
-	else
-		echo ""
-	fi
-	if [ -s $temp/path_jar.txt ]
-	then
-		inotia00=`grep "inotia00" $temp/path_jar.txt`
-		jar_file_size=`wc -c $path/$inotia00 | awk '{print $1}'`
-		if [ $original_file_size -eq $jar_file_size ]
-		then
-			echo "•File patch chua bi sua doi"
-		else
-		    rm -rf $path/$inotia00
-		fi
-	else
-		echo '•Khong ton tai file patch inotia00'
-	fi
-else
-	echo "•Khong ton tai file .inotia00-data"
-fi
 		revancify
 	else
 		pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
