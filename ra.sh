@@ -10,7 +10,7 @@ Revancify
 Quick Edit
 Mt Manager
 Zalo Pay
-SmartPack Kernel Manager
+TikTok
 Xiaomi Earbuds
 My Viettel
 Viettel Money
@@ -131,11 +131,11 @@ function zalo_pay {
 	activity="vn.com.vng.zalopay.ui.activity.SplashScreenActivity"
 }
 
-function skm {
-	echo "•Bạn chọn SmartPack Kernel Manager"
-	name="SmartPack Kernel Manager"
-	package="com.smartpack.kernelmanager"
-	activity="com.smartpack.kernelmanager.activities.StartActivity"
+function tiktok {
+	echo "•Bạn chọn TikTok"
+	name="TikTok"
+	package="com.ss.android.ugc.trill"
+	activity="com.ss.android.ugc.trill.aweme.main.MainActivity"
 }
 
 function xiaomiearbuds {
@@ -340,7 +340,7 @@ then
 	check_exit
 elif [ $a = 12 ]
 then
-	skm
+	tiktok
 	action
 	check_exit
 elif [ $a = 13 ]
