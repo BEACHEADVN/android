@@ -135,7 +135,7 @@ function tiktok {
 	echo "•Bạn chọn TikTok"
 	name="TikTok"
 	package="com.ss.android.ugc.trill"
-	activity="com.ss.android.ugc.trill.aweme.main.MainActivity"
+	activity="com.ss.android.ugc.aweme.main.MainActivity"
 }
 
 function xiaomiearbuds {
