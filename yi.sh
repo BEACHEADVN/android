@@ -72,11 +72,11 @@ then
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xhdpi
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxhdpi
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxxhdpi
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/hdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-hdpi
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/mdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-mdpi
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xhdpi
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxhdpi
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxxhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/splashicon/hdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/splash/drawable-hdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/splashicon/mdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/splash/drawable-mdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/splashicon/xhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/splash/drawable-xhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/splashicon/xxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/splash/drawable-xxhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/splashicon/xxxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/splash/drawable-xxxhdpi
 	cd /sdcard/Download/ext/temp/jar/$jar_name
 	jar cf $name $bundle
 	rm -rf $path/$name
