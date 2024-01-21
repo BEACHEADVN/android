@@ -67,12 +67,16 @@ then
 	echo "•Patch source inotia00"
 	unjar
 	jar_icon_red
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue
-	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_red
-	mv /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/launchericon /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/launcher
-	mv /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/moonchromeicon /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/moonchrome
-	mv /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/splashicon /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/splash
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/hdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-hdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/mdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-mdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxxhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/hdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-hdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/mdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-mdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxhdpi
+	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/launchericon/xxxhdpi/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue/launcher/mipmap-xxxhdpi
 	cd /sdcard/Download/ext/temp/jar/$jar_name
 	jar cf $name $bundle
 	rm -rf $path/$name
