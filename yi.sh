@@ -70,6 +70,9 @@ then
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_blue
 	cp -rf /storage/emulated/0/Download/ext/temp/jar/$jar_afn_red/youtube/branding/afn-red/* /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/revancify_red
+	mv /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/launchericon /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/launcher
+	mv /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/moonchromeicon /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/moonchrome
+	mv /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/splashicon /storage/emulated/0/Download/ext/temp/jar/$jar_name/youtube/branding/mmt/splash
 	cd /sdcard/Download/ext/temp/jar/$jar_name
 	jar cf $name $bundle
 	rm -rf $path/$name
