@@ -319,6 +319,23 @@ then
 		else
 			echo "•Khong ton tai file .inotia00-data"
 		fi
+		rm -rf /storage/emulated/0/Download/ext/temp/jar
+		mkdir -p /storage/emulated/0/Download/ext/temp/jar
+		path="/data/data/com.termux/files/home/revancify-data"
+		su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > /storage/emulated/0/Download/ext/temp/jar/path_jar.txt
+		path="/data/data/com.termux/files/home/revancify-data"
+		file_path="/storage/emulated/0/Download/ext/temp/jar/path_jar.txt"
+		
+		if [ -f "$file_path" ]
+		then
+		    while IFS= read -r line
+			do
+		        echo "Xoa patch $line"
+		        rm -rf $path/$line
+		    done < "$file_path"
+		else
+		    echo "Tệp không tồn tại hoặc không thể truy cập được."
+		fi
 		revancify
 	else
 		pkg update -y && pkg install git -y && git clone https://github.com/decipher3114/Revancify.git && ./Revancify/revancify
