@@ -323,7 +323,6 @@ then
 		mkdir -p /storage/emulated/0/Download/ext/temp/jar
 		path="/data/data/com.termux/files/home/revancify-data"
 		su -c "find $path -type f -name '*patches*.jar' | sed 's+/data/data/com.termux/files/home/revancify-data/++g'" > /storage/emulated/0/Download/ext/temp/jar/path_jar.txt
-		path="/data/data/com.termux/files/home/revancify-data"
 		file_path="/storage/emulated/0/Download/ext/temp/jar/path_jar.txt"
 		
 		if [ -f "$file_path" ]
