@@ -86,7 +86,7 @@ function vcb {
 	echo "•Bạn chọn Vietcombank"
 	name="Vietcombank"
 	package="com.VCB"
-	activity="com.VCB.activities.home.SplashActivity"
+	activity="com.VCB.ui.activities.home.SplashActivity"
 }
 
 function momo {
