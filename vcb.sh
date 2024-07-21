@@ -1,13 +1,13 @@
-echo "•Bạn chọn Adaway"
+echo "•Bạn chọn Vietcombank"
 
-if su -c "find /data/app -type d -name 'org.adaway*'" | grep -q .
+if su -c "find /data/app -type d -name 'com.VCB*'" | grep -q .
 then
-	echo "•Adaway đã được cài đặt."
-	name="Adaway"
-	package="org.adaway"
+	echo "•Vietcombank đã được cài đặt."
+	name="Vietcombank"
+	package="com.VCB"
 	activity="org.adaway.ui.home.HomeActivity"
 else
-	echo "•Adaway chưa được cài đặt."
+	echo "•Vietcombank chưa được cài đặt."
 	echo "•Bạn muốn cài đặt ứng dụng?"
 	while true
 	do
@@ -20,7 +20,7 @@ else
 	    case $choice in
 	        1)
 	            echo "Bạn đã chọn Cài đặt."
-	            termux-open https://github.com/AdAway/AdAway/releases
+	            termux-open https://play.google.com/store/apps/details?id=com.VCB
 	            break
 	            ;;
 	        2)

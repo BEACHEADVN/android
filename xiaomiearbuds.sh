@@ -1,13 +1,13 @@
-echo "•Bạn chọn Adaway"
+echo "•Bạn chọn Xiaomi Earbuds"
 
-if su -c "find /data/app -type d -name 'org.adaway*'" | grep -q .
+if su -c "find /data/app -type d -name 'com.mi.earphone*'" | grep -q .
 then
-	echo "•Adaway đã được cài đặt."
-	name="Adaway"
-	package="org.adaway"
-	activity="org.adaway.ui.home.HomeActivity"
+	echo "•Xiaomi Earbuds đã được cài đặt."
+	name="XiaomiEarbuds"
+	package="com.mi.earphone"
+	activity="com.mi.earphone.main.MainActivity"
 else
-	echo "•Adaway chưa được cài đặt."
+	echo "•Xiaomi Earbuds chưa được cài đặt."
 	echo "•Bạn muốn cài đặt ứng dụng?"
 	while true
 	do
@@ -20,7 +20,7 @@ else
 	    case $choice in
 	        1)
 	            echo "Bạn đã chọn Cài đặt."
-	            termux-open https://github.com/AdAway/AdAway/releases
+	            termux-open https://play.google.com/store/apps/details?id=com.mi.earphone
 	            break
 	            ;;
 	        2)

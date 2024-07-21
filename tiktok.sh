@@ -1,13 +1,13 @@
-echo "•Bạn chọn Adaway"
+echo "•Bạn chọn TikTok"
 
-if su -c "find /data/app -type d -name 'org.adaway*'" | grep -q .
+if su -c "find /data/app -type d -name 'com.ss.android.ugc.trill*'" | grep -q .
 then
-	echo "•Adaway đã được cài đặt."
-	name="Adaway"
-	package="org.adaway"
-	activity="org.adaway.ui.home.HomeActivity"
+	echo "•TikTok đã được cài đặt."
+	name="TikTok"
+	package="com.ss.android.ugc.trill"
+	activity="com.ss.android.ugc.aweme.main.MainActivity"
 else
-	echo "•Adaway chưa được cài đặt."
+	echo "•TikTok chưa được cài đặt."
 	echo "•Bạn muốn cài đặt ứng dụng?"
 	while true
 	do
@@ -20,7 +20,7 @@ else
 	    case $choice in
 	        1)
 	            echo "Bạn đã chọn Cài đặt."
-	            termux-open https://github.com/AdAway/AdAway/releases
+	            termux-open https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill
 	            break
 	            ;;
 	        2)
