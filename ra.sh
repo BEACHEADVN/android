@@ -62,7 +62,7 @@ function disable {
 
 if [ $a = on ]
 then
-	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm zalopay tiktok xiaomiearbuds myviettel viettelmoney twitter rvxmanager
+	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm zalopay tiktok xiaomiearbuds myviettel viettelmoney twitter rvxmanager vneid
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
@@ -70,13 +70,14 @@ then
 	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
+	sleep 150
 	ra
 fi
 
 if [[ $a = off || $a = of ]]
 then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm zalopay tiktok xiaomiearbuds myviettel viettelmoney twitter rvxmanager
+	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm zalopay tiktok xiaomiearbuds myviettel viettelmoney twitter rvxmanager vneid
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		disable
@@ -87,7 +88,7 @@ fi
 if [[ $a = off0 || $a = of0 ]]
 then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm zalopay tiktok xiaomiearbuds myviettel viettelmoney twitter rvxmanager
+	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm zalopay tiktok xiaomiearbuds myviettel viettelmoney twitter rvxmanager vneid
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		disable
