@@ -5,7 +5,7 @@ then
 	echo "•Vietcombank đã được cài đặt."
 	name="Vietcombank"
 	package="com.VCB"
-	activity="org.adaway.ui.home.HomeActivity"
+	activity="com.VCB.ui.activities.splash.SplashActivity"
 else
 	echo "•Vietcombank chưa được cài đặt."
 	echo "•Bạn muốn cài đặt ứng dụng?"
