@@ -100,21 +100,21 @@ fi
 
 if [[ "$a" =~ ^[0-9]+$ ]] && [ "$a" -ge 1 ] && [ "$a" -le 17 ]
 then
-    echo "true" > /storage/emulated/0/Download/ext/temp/check_var_a.txt
+    echo ""
 else
     ra
 fi
 
 if [ "$b" -eq 1 ] || [ "$b" -eq 2 ] || [ "$b" -eq 0 ]
 then
-    echo "true" > /storage/emulated/0/Download/ext/temp/check_var_b.txt
+    echo ""
 else
     ra
 fi
 
 if [ "$c" -eq 1 ] || [ "$c" -eq 0 ]
 then
-    echo "true" > /storage/emulated/0/Download/ext/temp/check_var_c.txt
+    echo ""
 else
     ra
 fi
