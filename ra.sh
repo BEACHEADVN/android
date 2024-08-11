@@ -28,6 +28,8 @@ do
 	count=$((count+1))
 	echo "$count: $line"
 done < /storage/emulated/0/Download/ext/temp/app
+rm -rf /storage/emulated/0/Download/ext/temp/app
+
 echo "$line_number: Thoát"
 echo "Nhập số từ 1-$line_number:"
 read chon
