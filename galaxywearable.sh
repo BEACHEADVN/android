@@ -2,8 +2,8 @@ echo "•Bạn chọn Galaxy Wearable"
 
 if su -c "find /data/app -type d -name 'com.samsung.android.app.watchmanager*'" | grep -q .
 then
-	echo "•Hoyo Lab đã được cài đặt."
-	name="Hoyo Lab"
+	echo "•Galaxy Wearable đã được cài đặt."
+	name="Galaxy Wearable"
 	package="com.samsung.android.app.watchmanager"
 	activity="com.samsung.android.app.watchmanager.setupwizard.SetupWizardWelcomeActivity"
 else
@@ -20,7 +20,7 @@ else
 	    case $choice in
 	        1)
 	            echo "Bạn đã chọn Cài đặt."
-	            termux-open https://play.google.com/store/apps/details?id=com.mihoyo.hoyolab
+	            termux-open https://play.google.com/store/apps/details?id=com.samsung.android.app.watchmanager
 	            break
 	            ;;
 	        2)
