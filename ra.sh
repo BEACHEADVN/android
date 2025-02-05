@@ -17,6 +17,9 @@ Viettel Money
 Instagram
 EOT
 
+echo "•Uninstall google ar core" >> /storage/emulated/0/Download/ext/temp/log.txt
+su -c "pm uninstall -k com.google.ar.core" 
+
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
 line_number=$((line_number+1))
 
