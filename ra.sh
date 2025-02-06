@@ -17,8 +17,13 @@ Viettel Money
 Instagram
 EOT
 
-echo "•Uninstall google ar core" >> /storage/emulated/0/Download/ext/temp/log.txt
-su -c "pm uninstall -k com.google.ar.core" 
+if su -c "find /data/app -type d -name 'com.google.ar.core*'" | grep -q .
+then
+	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
+	sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
+	echo "•Uninstall google ar core" >> /storage/emulated/0/Download/ext/temp/log.txt
+	su -c "pm uninstall -k com.google.ar.core" 
+fi
 
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
 line_number=$((line_number+1))
