@@ -72,7 +72,7 @@ function disable {
 
 if [ $a = on ]
 then
-	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm tiktok galaxywearable myviettel mtmanager twitter vneid instagram 1.1.1.1
+	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm tiktok galaxywearable myviettel mtmanager twitter vneid instagram
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
@@ -86,7 +86,7 @@ fi
 if [[ $a = off || $a = of ]]
 then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm tiktok galaxywearable myviettel mtmanager twitter vneid instagram 1.1.1.1
+	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm tiktok galaxywearable myviettel mtmanager twitter vneid instagram
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		disable
@@ -97,7 +97,7 @@ fi
 if [[ $a = off0 || $a = of0 ]]
 then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm tiktok galaxywearable myviettel mtmanager twitter vneid instagram 1.1.1.1
+	for i in hoyolab hackdata shopee adaway vcb momo lazada quickedit mtm tiktok galaxywearable myviettel mtmanager twitter vneid instagram
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		disable
