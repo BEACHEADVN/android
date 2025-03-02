@@ -5,7 +5,7 @@ Shopee
 Adaway
 VCB
 MoMo
-Lazada
+Google Photo
 Revancify
 Quick Edit
 Mt Manager
@@ -15,6 +15,7 @@ Galaxy Wearable
 My Viettel
 Viettel Money
 Instagram
+X
 EOT
 
 if su -c "find /data/app -type d -name 'com.google.ar.core*'" | grep -q .
@@ -272,7 +273,7 @@ fi
 
 if [ $a = 7 ]
 then
-	source /storage/emulated/0/Download/ext/temp/lazada.sh
+	source /storage/emulated/0/Download/ext/temp/photo.sh
 	if [ $b = 1 ]
 	then
 		enable
@@ -487,6 +488,30 @@ then
 fi
 
 if [ $a = 17 ]
+then
+	source /storage/emulated/0/Download/ext/temp/x.sh
+	if [ $b = 1 ]
+	then
+		enable
+		run
+		if [ $c = 1 ]
+		then
+			ra
+		else
+			su -c "killall -9 com.termux"
+		fi
+	else
+		disable
+		if [ $c = 1 ]
+		then
+			ra
+		else
+			su -c "killall -9 com.termux"
+		fi
+	fi
+fi
+
+if [ $a = 18 ]
 then
 	if [ $b = 0 ]
 	then
