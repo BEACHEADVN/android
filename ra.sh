@@ -106,7 +106,7 @@ then
 	su -c "killall -9 com.termux"
 fi
 
-if [[ "$a" =~ ^[0-9]+$ ]] && [ "$a" -ge 1 ] && [ "$a" -le 17 ]
+if [[ "$a" =~ ^[0-9]+$ ]] && [ "$a" -ge 1 ] && [ "$a" -le 18 ]
 then
     echo ""
 else
