@@ -81,6 +81,15 @@ then
 	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
+	sleep 5
+	su -c "input swipe 1251 241 256 321 500"
+	su -c "input tap 1278 230"
+	sleep 1
+	su -c "input tap 732 1055"
+	sleep 1
+	su -c "input tap 659 950"
+	sleep 1
+	su -c "input tap 1109 396"
 	ra
 fi
 
