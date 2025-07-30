@@ -1,10 +1,18 @@
 import xml.etree.ElementTree as ET
 import os
 import re
+import time
 
-tree = ET.parse('/data/data/com.termux/files/home/ui.xml')
+UI_FILE = '/data/data/com.termux/files/home/ui.xml'
+
+# Dump giao diện
+os.system("su -c 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
+os.system(f"cp /sdcard/ui.xml {UI_FILE}")
+
+tree = ET.parse(UI_FILE)
 root = tree.getroot()
 
+found = False
 for node in root.iter():
     if node.attrib.get('content-desc') == 'Kiểm tra để tìm bản cập nhật':
         bounds = node.attrib.get('bounds')
@@ -14,8 +22,33 @@ for node in root.iter():
             x = (nums[0] + nums[2]) // 2
             y = (nums[1] + nums[3]) // 2
             print(f"📍 Tap tại: {x} {y}")
-            # Gọi input tap
             os.system(f"su -c 'input tap {x} {y}'")
+            found = True
         break
+
+if not found:
+    print("❌ Không tìm thấy nút cập nhật")
+    exit()
+
+# ⏳ Chờ 5 giây để kiểm tra lại
+time.sleep(5)
+
+# Dump lại lần 2
+os.system("su -c 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
+os.system(f"cp /sdcard/ui.xml {UI_FILE}")
+
+tree = ET.parse(UI_FILE)
+root = tree.getroot()
+
+# Kiểm tra lại xem nút vẫn còn không
+still_visible = False
+for node in root.iter():
+    if node.attrib.get('content-desc') == 'Kiểm tra để tìm bản cập nhật':
+        still_visible = True
+        break
+
+if still_visible:
+    print("⚠️ Nút vẫn còn → thoát Google Play...")
+    os.system("su -c 'am force-stop com.android.vending'")
 else:
-    print("❌ Không tìm thấy node có content-desc='Kiểm tra để tìm bản cập nhật'")
+    print("✅ Nút đã biến mất → không cần thoát.")
