@@ -81,15 +81,24 @@ then
 	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
-	sleep 5
+	sleep 2
 	su -c "input swipe 1251 241 256 321 500"
-	su -c "input tap 1278 230"
+	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
+	cp /sdcard/ui.xml ~/ui.xml
+	python /sdcard/tap_avatar.py
 	sleep 1
-	su -c "input tap 732 1055"
+	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
+	cp /sdcard/ui.xml ~/ui.xml
+	python /sdcard/tap_text.py "Quản lý ứng dụng và thiết bị"
+	sleep 2
+	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
+	cp /sdcard/ui.xml ~/ui.xml
+	python /sdcard/tap_text.py "Có bản cập nhật"
 	sleep 1
-	su -c "input tap 659 950"
-	sleep 1
-	su -c "input tap 1109 396"
+	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
+	cp /sdcard/ui.xml ~/ui.xml
+	python /sdcard/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
+	python /sdcard/tap.py "Kiểm tra để tìm bản cập nhật"
 	ra
 fi
 
