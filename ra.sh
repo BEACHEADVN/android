@@ -97,6 +97,7 @@ then
 	sleep 1
 	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
 	cp /sdcard/ui.xml ~/ui.xml
+	python /sdcard/tap_text.py "Cập nhật tất cả"
 	python /sdcard/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
 	python /sdcard/tap.py "Kiểm tra để tìm bản cập nhật"
 	ra
