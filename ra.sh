@@ -81,7 +81,7 @@ then
 	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
-	sleep 2
+	sleep 1
 	su -c "input swipe 1251 241 256 321 500"
 	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
 	cp /sdcard/ui.xml ~/ui.xml
