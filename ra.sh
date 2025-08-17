@@ -18,6 +18,8 @@ Instagram
 X
 EOT
 
+su -c "setenforce 0"
+
 if su -c "find /data/app -type d -name 'com.google.ar.core*'" | grep -q .
 then
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
