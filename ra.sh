@@ -250,8 +250,8 @@ then
 	if [ $b = 1 ]
 	then
 		enable
-		su -c "setenforce 1"
 		run
+		su -c "setenforce 1"
 		if [ $c = 1 ]
 		then
 			ra
