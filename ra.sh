@@ -18,6 +18,8 @@ Instagram
 X
 EOT
 
+su -c "setenforce 1"
+
 if su -c "find /data/app -type d -name 'com.google.ar.core*'" | grep -q .
 then
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
@@ -73,6 +75,7 @@ function disable {
 
 if [ $a = on ]
 then
+	su -c "setenforce 0"
 	for i in hoyolab shopee adaway vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
@@ -105,6 +108,7 @@ fi
 
 if [[ $a = off || $a = of ]]
 then
+	su -c "setenforce 0"
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyolab shopee adaway vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram
 	do
@@ -116,6 +120,7 @@ fi
 
 if [[ $a = off0 || $a = of0 ]]
 then
+	su -c "setenforce 0"
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyolab shopee adaway vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram
 	do
@@ -148,6 +153,7 @@ fi
 
 if [ $a = 1 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/hoyolab.sh
 	if [ $b = 1 ]
 	then
@@ -172,6 +178,7 @@ fi
 
 if [ $a = 2 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/hackdata.sh
 	if [ $b = 1 ]
 	then
@@ -196,6 +203,7 @@ fi
 
 if [ $a = 3 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/shopee.sh
 	if [ $b = 1 ]
 	then
@@ -220,6 +228,7 @@ fi
 
 if [ $a = 4 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/adaway.sh
 	if [ $b = 1 ]
 	then
@@ -244,6 +253,7 @@ fi
 
 if [ $a = 5 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/vcb.sh
 	if [ $b = 1 ]
 	then
@@ -268,6 +278,7 @@ fi
 
 if [ $a = 6 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/momo.sh
 	if [ $b = 1 ]
 	then
@@ -292,6 +303,7 @@ fi
 
 if [ $a = 7 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/photo.sh
 	if [ $b = 1 ]
 	then
@@ -316,6 +328,7 @@ fi
 
 if [ $a = 9 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/quickedit.sh
 	if [ $b = 1 ]
 	then
@@ -340,6 +353,7 @@ fi
 
 if [ $a = 10 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/mtmanager.sh
 	if [ $b = 1 ]
 	then
@@ -364,6 +378,7 @@ fi
 
 if [ $a = 11 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/vneid.sh
 	if [ $b = 1 ]
 	then
@@ -388,6 +403,7 @@ fi
 
 if [ $a = 12 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/tiktok.sh
 	if [ $b = 1 ]
 	then
@@ -412,6 +428,7 @@ fi
 
 if [ $a = 13 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/galaxywearable.sh
 	if [ $b = 1 ]
 	then
@@ -436,6 +453,7 @@ fi
 
 if [ $a = 14 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/myviettel.sh
 	if [ $b = 1 ]
 	then
@@ -460,6 +478,7 @@ fi
 
 if [ $a = 15 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/viettelmoney.sh
 	if [ $b = 1 ]
 	then
@@ -484,6 +503,7 @@ fi
 
 if [ $a = 16 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/instagram.sh
 	if [ $b = 1 ]
 	then
@@ -508,6 +528,7 @@ fi
 
 if [ $a = 17 ]
 then
+	su -c "setenforce 0"
 	source /storage/emulated/0/Download/ext/temp/x.sh
 	if [ $b = 1 ]
 	then
@@ -532,6 +553,7 @@ fi
 
 if [ $a = 18 ]
 then
+	su -c "setenforce 1"
 	if [ $b = 0 ]
 	then
 		su -c "killall -9 com.termux"
@@ -542,5 +564,6 @@ fi
 
 if [ $a = 8 ]
 then
+	su -c "setenforce 0"
 	 bash /storage/emulated/0/Download/ext/temp/revancify_mod.sh
 fi
