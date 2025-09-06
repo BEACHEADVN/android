@@ -86,23 +86,20 @@ then
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
 	su -c "input swipe 1251 241 256 321 500"
-	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
-	cp /sdcard/ui.xml ~/ui.xml
-	python /sdcard/tap_avatar.py
+	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
+	python tap_avatar.py
 	sleep 1
-	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
-	cp /sdcard/ui.xml ~/ui.xml
-	python /sdcard/tap_text.py "Quản lý ứng dụng và thiết bị"
+	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
+	python tap_text.py "Quản lý ứng dụng và thiết bị"
 	sleep 2
-	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
-	cp /sdcard/ui.xml ~/ui.xml
-	python /sdcard/tap_text.py "Có bản cập nhật"
+	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
+	python tap_text.py "Có bản cập nhật"
 	sleep 1
-	su -c 'uiautomator dump /sdcard/ui.xml' >/dev/null 2>&1
-	cp /sdcard/ui.xml ~/ui.xml
-	python /sdcard/tap_text.py "Cập nhật tất cả"
-	python /sdcard/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
-	python /sdcard/tap.py "Kiểm tra để tìm bản cập nhật"
+	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
+	python tap_text.py "Cập nhật tất cả"
+	python tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
+	python tap.py "Kiểm tra để tìm bản cập nhật"
+	rm -rf ui.xml
 	ra
 fi
 
