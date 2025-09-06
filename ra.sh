@@ -87,19 +87,20 @@ then
 	sleep 1
 	su -c "input swipe 1251 241 256 321 500"
 	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
-	python tap_avatar.py
+	python /data/data/com.termux/files/usr/bin/tap_avatar.py
 	sleep 1
 	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
-	python tap_text.py "Quản lý ứng dụng và thiết bị"
+	python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
 	sleep 2
 	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
-	python tap_text.py "Có bản cập nhật"
+	python /data/data/com.termux/files/usr/bin/tap_text.py "Có bản cập nhật"
 	sleep 1
 	su -c 'uiautomator dump ui.xml' >/dev/null 2>&1
-	python tap_text.py "Cập nhật tất cả"
-	python tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
-	python tap.py "Kiểm tra để tìm bản cập nhật"
+	python /data/data/com.termux/files/usr/bin/tap_text.py "Cập nhật tất cả"
+	python /data/data/com.termux/files/usr/bin/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
+	python /data/data/com.termux/files/usr/bin//tap.py "Kiểm tra để tìm bản cập nhật"
 	rm -rf ui.xml
+	rm -rf /sdcard/ui.xml
 	ra
 fi
 
