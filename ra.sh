@@ -85,12 +85,13 @@ then
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
-	su -c "input swipe 1251 241 256 321 500"
+	su -c "input swipe 1251 241 300 321 500"
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_avatar.py
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
 	sleep 3
+	su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
 	FILE="/data/data/com.termux/files/home/ui.xml"
 	if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
 	then
@@ -106,7 +107,7 @@ then
 		python /data/data/com.termux/files/usr/bin/tap_text.py "Cập nhật tất cả"
 	else
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
-		sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' >> /storage/emulated/0/Download/ext/temp/log.txt
+		sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
 		echo "Không tìm thấy thông tin cập nhật Google Play" >> /storage/emulated/0/Download/ext/temp/log.txt
 	fi
 	rm -rf ui.xml
