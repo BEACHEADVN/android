@@ -90,7 +90,7 @@ then
 	python /data/data/com.termux/files/usr/bin/tap_avatar.py
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
-	sleep 2
+	sleep 3
 	FILE="/data/data/com.termux/files/home/ui.xml"
 	if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
 	then
