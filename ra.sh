@@ -125,7 +125,7 @@ then
 		disable
 	done
 	ra
-	su -c "setenforce 0"
+	su -c "setenforce 1"
 fi
 
 if [[ $a = off0 || $a = of0 ]]
@@ -137,7 +137,7 @@ then
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		disable
 	done
-	su -c "setenforce 0"
+	su -c "setenforce 1"
 	su -c "killall -9 com.termux"
 fi
 
