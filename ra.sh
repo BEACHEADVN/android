@@ -80,7 +80,7 @@ then
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
 	done
-	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
+	#su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
