@@ -75,13 +75,13 @@ function disable {
 
 if [ $a = on ]
 then
-	for i in hoyolab shopee vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram adaway
+	for i in hoyolab shopee vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
 	done
-	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
-	sleep 2
+	#su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
+	#sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
 	su -c "input swipe 1251 241 300 321 500"
