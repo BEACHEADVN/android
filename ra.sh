@@ -63,14 +63,20 @@ else
 fi
 
 function enable {
+	su -c "setenforce 0"
 	su -c "pm enable $package"
+	su -c "setenforce 1"
 }
 function run {
+	su -c "setenforce 0"
 	su -c "am start --user 0 -n $package/$activity"
+	su -c "setenforce 1"
 }
 
 function disable {
+	su -c "setenforce 0"
 	su -c "pm disable $package"
+	su -c "setenforce 1"
 }
 
 if [ $a = on ]
