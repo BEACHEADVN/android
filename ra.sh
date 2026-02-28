@@ -81,11 +81,12 @@ function disable {
 
 if [ $a = on ]
 then
-	for i in hoyolab shopee vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram adaway
+	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
 	done
+	su -c "setenforce 0"
 	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
@@ -117,16 +118,25 @@ then
 	fi
 	rm -rf ui.xml
 	rm -rf /sdcard/ui.xml
+	su -c "setenforce 1"
 	ra
 fi
 
 if [[ $a = off || $a = of ]]
 then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-	for i in hoyolab shopee vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram adaway
+	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
-		source /storage/emulated/0/Download/ext/temp/$i.sh
-		disable
+		su -c "setenforce 0"
+	source /storage/emulated/0/Download/ext/temp/$i.sh
+	if su -c "pm list packages -d | grep -q $package"
+	then
+	    echo "  → $name đã bị disable."
+	else
+		echo "  → $name đang enable → disable..."
+	    disable
+	fi
+	su -c "setenforce 1"
 	done
 	ra
 fi
@@ -134,10 +144,18 @@ fi
 if [[ $a = off0 || $a = of0 ]]
 then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
-	for i in hoyolab shopee vcb momo photo x quickedit mtm tiktok galaxywearable myviettel mtmanager vneid instagram adaway
+	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
+		su -c "setenforce 0"
 		source /storage/emulated/0/Download/ext/temp/$i.sh
-		disable
+		if su -c "pm list packages -d | grep -q $package"
+		then
+			echo "  → $name đã bị disable."
+		else
+		    echo "  → $name đang enable → disable..."
+		    disable
+		fi
+		su -c "setenforce 1"
 	done
 	su -c "killall -9 com.termux"
 fi
