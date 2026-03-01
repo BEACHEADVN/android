@@ -63,20 +63,14 @@ else
 fi
 
 function enable {
-	
-	su -ic "pm enable $package"
-	
+	su -ic "pm enable $package"	
 }
-function run {
-	
-	su -ic "am start --user 0 -n $package/$activity"
-	
+function run {	
+	su -ic "am start --user 0 -n $package/$activity"	
 }
 
 function disable {
-	
 	su -ic "pm disable $package"
-	
 }
 
 if [ $a = on ]
@@ -86,7 +80,6 @@ then
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
 	done
-	
 	su -ic "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
 	su -ic "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
@@ -118,7 +111,6 @@ then
 	fi
 	rm -rf ui.xml
 	rm -rf /sdcard/ui.xml
-	
 	ra
 fi
 
@@ -127,16 +119,8 @@ then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
-		
-	source /storage/emulated/0/Download/ext/temp/$i.sh
-	if su -ic "pm list packages -d | grep -q $package"
-	then
-	    echo "  → $name đã bị disable."
-	else
-		echo "  → $name đang enable → disable..."
-	    disable
-	fi
-	
+		source /storage/emulated/0/Download/ext/temp/$i.sh
+		disable
 	done
 	ra
 fi
@@ -146,16 +130,8 @@ then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
-		
 		source /storage/emulated/0/Download/ext/temp/$i.sh
-		if su -ic "pm list packages -d | grep -q $package"
-		then
-			echo "  → $name đã bị disable."
-		else
-		    echo "  → $name đang enable → disable..."
-		    disable
-		fi
-		
+		disable
 	done
 	su -ic "killall -9 com.termux"
 fi
