@@ -20,12 +20,12 @@ EOT
 
 
 
-if su -c "find /data/app -type d -name 'com.google.ar.core*'" | grep -q .
+if su -ic "find /data/app -type d -name 'com.google.ar.core*'" | grep -q .
 then
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
 	sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
 	echo "•Uninstall google ar core" >> /storage/emulated/0/Download/ext/temp/log.txt
-	su -c "pm uninstall -k com.google.ar.core" 
+	su -ic "pm uninstall -k com.google.ar.core" 
 fi
 
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
@@ -63,20 +63,20 @@ else
 fi
 
 function enable {
-	su -c "setenforce 0"
-	su -c "pm enable $package"
-	su -c "setenforce 1"
+	
+	su -ic "pm enable $package"
+	
 }
 function run {
-	su -c "setenforce 0"
-	su -c "am start --user 0 -n $package/$activity"
-	su -c "setenforce 1"
+	
+	su -ic "am start --user 0 -n $package/$activity"
+	
 }
 
 function disable {
-	su -c "setenforce 0"
-	su -c "pm disable $package"
-	su -c "setenforce 1"
+	
+	su -ic "pm disable $package"
+	
 }
 
 if [ $a = on ]
@@ -86,18 +86,18 @@ then
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
 	done
-	su -c "setenforce 0"
-	su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
+	
+	su -ic "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	sleep 2
-	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
+	su -ic "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
-	su -c "input swipe 1251 241 300 321 500"
+	su -ic "input swipe 1251 241 300 321 500"
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_avatar.py
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
 	sleep 3
-	su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
+	su -ic 'uiautomator dump ui.xml' > /dev/null 2>&1
 	FILE="/data/data/com.termux/files/home/ui.xml"
 	if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
 	then
@@ -118,7 +118,7 @@ then
 	fi
 	rm -rf ui.xml
 	rm -rf /sdcard/ui.xml
-	su -c "setenforce 1"
+	
 	ra
 fi
 
@@ -127,16 +127,16 @@ then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
-		su -c "setenforce 0"
+		
 	source /storage/emulated/0/Download/ext/temp/$i.sh
-	if su -c "pm list packages -d | grep -q $package"
+	if su -ic "pm list packages -d | grep -q $package"
 	then
 	    echo "  → $name đã bị disable."
 	else
 		echo "  → $name đang enable → disable..."
 	    disable
 	fi
-	su -c "setenforce 1"
+	
 	done
 	ra
 fi
@@ -146,18 +146,18 @@ then
 	rm -rf /storage/emulated/0/Download/ext/temp/vpndialog
 	for i in hoyolab shopee vcb momo photo x quickedit tiktok galaxywearable myviettel mtmanager vneid instagram adaway
 	do
-		su -c "setenforce 0"
+		
 		source /storage/emulated/0/Download/ext/temp/$i.sh
-		if su -c "pm list packages -d | grep -q $package"
+		if su -ic "pm list packages -d | grep -q $package"
 		then
 			echo "  → $name đã bị disable."
 		else
 		    echo "  → $name đang enable → disable..."
 		    disable
 		fi
-		su -c "setenforce 1"
+		
 	done
-	su -c "killall -9 com.termux"
+	su -ic "killall -9 com.termux"
 fi
 
 if [[ "$a" =~ ^[0-9]+$ ]] && [ "$a" -ge 1 ] && [ "$a" -le 18 ]
@@ -192,7 +192,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -200,7 +200,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -216,7 +216,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -224,7 +224,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -240,7 +240,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -248,7 +248,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -264,7 +264,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -272,7 +272,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -288,7 +288,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -296,7 +296,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -312,7 +312,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -320,7 +320,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -336,7 +336,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -344,7 +344,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -360,7 +360,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -368,7 +368,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -384,7 +384,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -392,7 +392,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -408,7 +408,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -416,7 +416,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -432,7 +432,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -440,7 +440,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -456,7 +456,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -464,7 +464,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -480,7 +480,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -488,7 +488,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -504,7 +504,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -512,7 +512,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -528,7 +528,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -536,7 +536,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -552,7 +552,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	else
 		disable
@@ -560,7 +560,7 @@ then
 		then
 			ra
 		else
-			su -c "killall -9 com.termux"
+			su -ic "killall -9 com.termux"
 		fi
 	fi
 fi
@@ -569,7 +569,7 @@ if [ $a = 18 ]
 then
 	if [ $b = 0 ]
 	then
-		su -c "killall -9 com.termux"
+		su -ic "killall -9 com.termux"
 	else
 		clear
 	fi
