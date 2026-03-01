@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/system/bin/bash
 
 BASE="/storage/emulated/0/Download/ext/temp"
 LOG="$BASE/log.txt"
