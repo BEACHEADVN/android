@@ -1,4 +1,4 @@
-#!/system/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 BASE="/storage/emulated/0/Download/ext/temp"
 LOG="$BASE/log.txt"
