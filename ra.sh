@@ -68,7 +68,7 @@ then
         enable
     done
     echo "✓ Đã enable tất cả"
-    exit
+    ra
 fi
 
 
@@ -81,7 +81,7 @@ then
         disable
     done
     echo "✓ Đã disable tất cả"
-    exit
+    ra
 fi
 
 
@@ -94,7 +94,7 @@ then
         disable
     done
     su -ic "killall -9 com.termux"
-    exit
+    ra
 fi
 
 
@@ -112,7 +112,7 @@ then
     source "$BASE/$appname.sh"
     enable
     run
-    exit
+    ra
 else
     echo "Lựa chọn không hợp lệ"
 fi
