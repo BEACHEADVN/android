@@ -8,7 +8,7 @@ KEYWORDS = "Tài khoản và các chế độ cài đặt"
 
 # Bước 1: Dump UI
 print("🧩 Dump giao diện...")
-os.system("su -ic 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
+os.system("su -c 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
 os.system(f"cp /sdcard/ui.xml {UI_FILE}")
 
 # Bước 2: Parse XML
@@ -26,7 +26,7 @@ for node in root.iter():
             x = (nums[0] + nums[2]) // 2
             y = (nums[1] + nums[3]) // 2
             print(f"📍 Tap tại: {x}, {y}")
-            os.system(f"su -ic 'input tap {x} {y}'")
+            os.system(f"su -c 'input tap {x} {y}'")
             found = True
             break
 

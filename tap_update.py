@@ -6,7 +6,7 @@ import time
 UI_FILE = '/data/data/com.termux/files/home/ui.xml'
 
 # Dump giao diện
-os.system("su -ic 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
+os.system("su -c 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
 os.system(f"cp /sdcard/ui.xml {UI_FILE}")
 
 tree = ET.parse(UI_FILE)
@@ -22,7 +22,7 @@ for node in root.iter():
             x = (nums[0] + nums[2]) // 2
             y = (nums[1] + nums[3]) // 2
             print(f"📍 Tap tại: {x} {y}")
-            os.system(f"su -ic 'input tap {x} {y}'")
+            os.system(f"su -c 'input tap {x} {y}'")
             found = True
         break
 
@@ -34,7 +34,7 @@ if not found:
 time.sleep(5)
 
 # Dump lại lần 2
-os.system("su -ic 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
+os.system("su -c 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1")
 os.system(f"cp /sdcard/ui.xml {UI_FILE}")
 
 tree = ET.parse(UI_FILE)
@@ -49,6 +49,6 @@ for node in root.iter():
 
 if still_visible:
     print("⚠️ Nút vẫn còn → thoát Google Play...")
-    os.system("su -ic 'am force-stop com.android.vending'")
+    os.system("su -c 'am force-stop com.android.vending'")
 else:
     print("✅ Nút đã biến mất → không cần thoát.")
