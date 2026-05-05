@@ -25,7 +25,13 @@ then
 	echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
 	sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
 	echo "•Uninstall google ar core" >> /storage/emulated/0/Download/ext/temp/log.txt
-	su -c "pm uninstall -k com.google.ar.core" 
+	su -c "pm uninstall -k com.google.ar.core"
+	su -c "pm uninstall -k com.miui.miwallpaper.moon"
+	su -c "pm uninstall -k com.miui.miwallpaper.earth"
+	su -c "pm uninstall -k com.miui.miwallpaper.geometry"
+	su -c "pm uninstall -k com.miui.miwallpaper.mars"
+	su -c "pm uninstall -k com.miui.miwallpaper.saturn"
+	su -c "pm uninstall -k com.miui.miwallpaper.snowmountain"
 fi
 
 line_number=`wc -l /storage/emulated/0/Download/ext/temp/app | cut -d' ' -f1`
