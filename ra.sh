@@ -12,7 +12,7 @@ Mt Manager
 VNeID
 TikTok
 Galaxy Wearable
-My Viettel
+Viettel Tammi
 Viettel Money
 Instagram
 X
@@ -476,7 +476,7 @@ fi
 
 if [ $a = 14 ]
 then
-	source /storage/emulated/0/Download/ext/temp/myviettel.sh
+	source /storage/emulated/0/Download/ext/temp/viettel_tammi.sh
 	if [ $b = 1 ]
 	then
 		enable
