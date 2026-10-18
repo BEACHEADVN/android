@@ -111,6 +111,10 @@ then
 	done
 	#su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	#sleep 2
+	NO_UPDATE_COUNT=0
+
+while [ "$NO_UPDATE_COUNT" -lt 2 ]
+do
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
 	su -c "input swipe 1251 241 300 321 500"
@@ -119,20 +123,34 @@ then
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
 	sleep 3
+
 	su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
 	FILE="/data/data/com.termux/files/home/ui.xml"
+
 	if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
 	then
 		echo "Tất cả ứng dụng đều ở phiên bản mới nhất"
 		python /data/data/com.termux/files/usr/bin/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
 		sleep 1
 		python /data/data/com.termux/files/usr/bin//tap.py "Kiểm tra để tìm bản cập nhật"
+
+		NO_UPDATE_COUNT=$((NO_UPDATE_COUNT + 1))
+		echo "Số lần không có cập nhật: $NO_UPDATE_COUNT"
+
 	elif grep -q "Có bản cập nhật" "$FILE"
 	then
 		echo "Có bản cập nhật"
 		python /data/data/com.termux/files/usr/bin/tap_text.py "Có bản cập nhật"
 		sleep 1
 		python /data/data/com.termux/files/usr/bin/tap_text.py "Cập nhật tất cả"
+		NO_UPDATE_COUNT=0
+		sleep 10
+	else
+		echo "Không xác định được trạng thái cập nhật"
+	fi
+done
+
+echo "Đã có 2 lần liên tiếp không có cập nhật. Dừng script."
 	else
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
 		sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
