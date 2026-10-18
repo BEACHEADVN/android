@@ -128,6 +128,9 @@ do
     su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
     FILE="/data/data/com.termux/files/home/ui.xml"
 
+echo "NO_UPDATE_COUNT=$NO_UPDATE_COUNT"
+cat "$FILE"
+
     if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
     then
         echo "Tất cả ứng dụng đều ở phiên bản mới nhất"
