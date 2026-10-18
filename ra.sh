@@ -111,29 +111,31 @@ then
 	done
 	#su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
 	#sleep 2
-	NO_UPDATE_COUNT=0
+	
+NO_UPDATE_COUNT=0
 
+# Mở Google Play và vào mục cập nhật đúng một lần
 su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 sleep 1
+su -c "input swipe 1251 241 300 321 500"
+sleep 1
+python /data/data/com.termux/files/usr/bin/tap_avatar.py
+sleep 1
+python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
+sleep 3
+
+FILE="/data/data/com.termux/files/home/ui.xml"
 
 while [ "$NO_UPDATE_COUNT" -lt 2 ]
 do
-    su -c "input swipe 1251 241 300 321 500"
-    sleep 1
-    python /data/data/com.termux/files/usr/bin/tap_avatar.py
-    sleep 1
-    python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
-    sleep 3
-
-    su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
-    FILE="/data/data/com.termux/files/home/ui.xml"
-
-echo "NO_UPDATE_COUNT=$NO_UPDATE_COUNT"
-cat "$FILE"
+    # Dump giao diện hiện tại, không mở lại Play hoặc tìm avatar
+    su -c 'uiautomator dump /sdcard/ui.xml' > /dev/null 2>&1
+    cp /sdcard/ui.xml "$FILE"
 
     if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
     then
         echo "Tất cả ứng dụng đều ở phiên bản mới nhất"
+
         python /data/data/com.termux/files/usr/bin/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
         sleep 1
         python /data/data/com.termux/files/usr/bin/tap.py "Kiểm tra để tìm bản cập nhật"
@@ -144,18 +146,25 @@ cat "$FILE"
     elif grep -q "Có bản cập nhật" "$FILE"
     then
         echo "Có bản cập nhật"
+
         python /data/data/com.termux/files/usr/bin/tap_text.py "Có bản cập nhật"
         sleep 1
         python /data/data/com.termux/files/usr/bin/tap_text.py "Cập nhật tất cả"
+
         NO_UPDATE_COUNT=0
         sleep 10
+
     else
-        echo "Không xác định được trạng thái cập nhật"
+        echo "Không xác định được trạng thái cập nhật. Dừng vòng lặp."
+        break
     fi
 done
 
-echo "Đã có 2 lần liên tiếp không có cập nhật. Dừng script."
-su -c "am force-stop com.android.vending"
+if [ "$NO_UPDATE_COUNT" -ge 2 ]
+then
+    echo "Đã có 2 lần liên tiếp không có cập nhật. Tắt Google Play."
+    su -c "am force-stop com.android.vending"
+fi
 
 	else
 		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
