@@ -109,8 +109,8 @@ then
 		source /storage/emulated/0/Download/ext/temp/$i.sh
 		enable
 	done
-	#su -c "am start --user 0 -n org.adaway/org.adaway.ui.home.HomeActivity"
-	#sleep 2
+
+	# Khởi chạy Google Play
 	su -c "am start --user 0 -n com.android.vending/com.android.vending.AssetBrowserActivity"
 	sleep 1
 	su -c "input swipe 1251 241 300 321 500"
@@ -119,25 +119,52 @@ then
 	sleep 1
 	python /data/data/com.termux/files/usr/bin/tap_text.py "Quản lý ứng dụng và thiết bị"
 	sleep 3
-	su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
-	FILE="/data/data/com.termux/files/home/ui.xml"
-	if grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
-	then
-		echo "Tất cả ứng dụng đều ở phiên bản mới nhất"
-		python /data/data/com.termux/files/usr/bin/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
-		sleep 1
-		python /data/data/com.termux/files/usr/bin//tap.py "Kiểm tra để tìm bản cập nhật"
-	elif grep -q "Có bản cập nhật" "$FILE"
-	then
-		echo "Có bản cập nhật"
-		python /data/data/com.termux/files/usr/bin/tap_text.py "Có bản cập nhật"
-		sleep 1
-		python /data/data/com.termux/files/usr/bin/tap_text.py "Cập nhật tất cả"
-	else
-		echo `date +"%r, %a, ngày %d, tháng %m, năm %Y"` >> /storage/emulated/0/Download/ext/temp/log.txt
-		sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
-		echo "Không tìm thấy thông tin cập nhật Google Play" >> /storage/emulated/0/Download/ext/temp/log.txt
-	fi
+
+	# Kiểm tra cập nhật với vòng lặp
+	check_count=0
+	while [ $check_count -lt 2 ]
+	do
+		check_count=$((check_count + 1))
+		
+		su -c 'uiautomator dump ui.xml' > /dev/null 2>&1
+		FILE="/data/data/com.termux/files/home/ui.xml"
+
+		if grep -q "Có bản cập nhật" "$FILE"
+		then
+			echo "Lần $check_count: Phát hiện có bản cập nhật, đang tiến hành cập nhật..."
+			python /data/data/com.termux/files/usr/bin/tap_text.py "Có bản cập nhật"
+			sleep 1
+			python /data/data/com.termux/files/usr/bin/tap_text.py "Cập nhật tất cả"
+			
+			# Chờ một khoảng thời gian để quá trình cập nhật diễn ra (có thể tăng thời gian tùy máy)
+			sleep 10
+			
+			# Sau khi cập nhật xong, reset lại biến đếm hoặc tiếp tục vòng lặp 
+			# để kiểm tra lại từ đầu xem còn sót bản cập nhật nào nữa không
+			echo "Đã bấm cập nhật, tiến hành kiểm tra lại..."
+			check_count=0  # Reset về 0 để sau khi cập nhật xong sẽ quét lại đủ 2 lần "Mới nhất" mới thoát
+			
+		elif grep -q "Tất cả ứng dụng đều ở phiên bản mới nhất" "$FILE"
+		then
+			echo "Lần $check_count: Tất cả ứng dụng đều ở phiên bản mới nhất"
+			if [ $check_count -eq 2 ]
+			then
+				echo "Đã kiểm tra đủ 2 lần không có cập nhật mới -> Thoát Play"
+				break
+			fi
+			# Nhấn kiểm tra lại lần nữa nếu mới kiểm tra lần 1
+			python /data/data/com.termux/files/usr/bin/tap_text.py "Tất cả ứng dụng đều ở phiên bản mới nhất"
+			sleep 1
+			python /data/data/com.termux/files/usr/bin/tap.py "Kiểm tra để tìm bản cập nhật"
+			sleep 5
+		else
+			echo $(date +"%r, %a, ngày %d, tháng %m, năm %Y") >> /storage/emulated/0/Download/ext/temp/log.txt
+			sed -i 's/ PM,/ CH,/g; s/ AM,/ SA,/g; s/ Mon, / thứ Hai, /g; s/ Tue, / thứ Ba, /g; s/ Wed, / thứ Tư, /g; s/ Thur, / thứ Năm, /g; s/ Fri, / thứ Sáu, /g; s/ Sat, / thứ Bảy, /g; s/ Sun, / Chủ nhật, /g' /storage/emulated/0/Download/ext/temp/log.txt
+			echo "Không tìm thấy thông tin cập nhật Google Play" >> /storage/emulated/0/Download/ext/temp/log.txt
+			break
+		fi
+	done
+
 	rm -rf ui.xml
 	rm -rf /sdcard/ui.xml
 	ra
