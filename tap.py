@@ -58,7 +58,6 @@ for node in root.iter():
         break
 
 if still_visible:
-    print(f"⚠️ Nút vẫn còn: {TARGET_DESC} → thoát Google Play...")
-    os.system("su -c 'am force-stop com.android.vending'")
+    print(f"⚠️ Nút vẫn còn: {TARGET_DESC}")
 else:
-    print(f"✅ Nút đã biến mất: {TARGET_DESC} → không cần thoát.")
+    print(f"✅ Nút đã biến mất: {TARGET_DESC}")
