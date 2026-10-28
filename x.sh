@@ -5,7 +5,7 @@ then
 	echo "•X đã được cài đặt."
 	name="X"
 	package="com.twitter.android"
-	activity="com.twitter.android.StartActivity"
+	activity="com.x.android.main.MainActivity"
 else
 	echo "•X chưa được cài đặt."
 	echo "•Bạn muốn cài đặt ứng dụng?"
